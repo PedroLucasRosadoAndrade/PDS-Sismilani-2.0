@@ -70,7 +70,7 @@ namespace PDS_Sismilani.Views
                     }
 
 
-                    string query = "INSERT INTO contato_con (Nome_fun, nascimento_fun, sexo_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun) VALUES (@_nome, @_dataNasc, @_sexo, @_cpf , @_salario, @_funcao, @_email, @_telefone, @_rg)";
+                    string query = "INSERT INTO Funcionario (Nome_fun, nascimento_fun, sexo_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun) VALUES (@_nome, @_dataNasc, @_sexo, @_cpf , @_salario, @_funcao, @_email, @_telefone, @_rg)";
                     var comando = new MySqlCommand(query, conexao);
 
                     comando.Parameters.AddWithValue("@_nome", nome);
@@ -80,7 +80,6 @@ namespace PDS_Sismilani.Views
                     comando.Parameters.AddWithValue("@_salario", salario);
                     comando.Parameters.AddWithValue("@_funcao", funcao);
                     comando.Parameters.AddWithValue("@_email", email);
-                    comando.Parameters.AddWithValue("@_salario", salario);
                     comando.Parameters.AddWithValue("@_telefone", telefone);
                     comando.Parameters.AddWithValue("@_rg", rg);
 
@@ -94,6 +93,8 @@ namespace PDS_Sismilani.Views
                     if (opcao == MessageBoxResult.Yes)
                     {
                         LimparInputs();
+                        MainWindow form = new MainWindow();
+                        form.ShowDialog();
                     }
                     else
                     {
