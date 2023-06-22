@@ -8,5 +8,6 @@ namespace PDS_Sismilani.DataBase
 {
     internal class Conexao
     {
+
     }
 }
