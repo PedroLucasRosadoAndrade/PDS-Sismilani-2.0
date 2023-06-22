@@ -19,12 +19,12 @@
 
         <StackPanel Grid.Row="1" Margin="80,28,80,55">
             <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="30" Width="194">
-                <Button x:Name="btCadastrarCliente" Content="Cadastrar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarCliente_Click" />
-                <Button x:Name="btCadastrarFilme" Content="Cadastrar Filme" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFilme_Click" />
-                <Button x:Name="btCadastrarFornecedor" Content="Cadastrar Fornecedor" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFornecedor_Click" />
-                <Button x:Name="btCadastrarEstoque" Content="Cadastrar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarEstoque_Click" />
-                <Button x:Name="btCadastrarFuncionario" Content="Cadastrar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFuncionario_Click" />
-                <Button x:Name="btCadastrarProdutora" Content="Cadastrar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarProdutora_Click" />
+                <Button x:Name="btListarCliente" Content="Listar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarFilme" Content="Listar Filme" Width="200" Margin="10 10" FontWeight="Bold" Background="red"  />
+                <Button x:Name="btListarFornecedor" Content="Listar Fornecedor" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarEstoque" Content="Listar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarFuncionario" Content="Listar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btListarFuncionario_Click"  />
+                <Button x:Name="btListarProdutora" Content="Listar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
 
             </StackPanel>
         </StackPanel>
