@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="CadastrarCliente" Height="450" Width="800">
+        Title="CadastrarCliente" Height="776" Width="973" MinHeight="300" MinWidth="500">
     
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
@@ -29,12 +29,12 @@
             <Label FontSize="24" Content="Nome Completo" Width="647" Height="44" Foreground="White" FontWeight="Bold" />
         </StackPanel>
 
-        <TextBlock  FontSize="24" Margin="24,189,0,359" Width="NaN" Height="NaN" Grid.Row="1" FontWeight="Bold" ><Run Text="Endereço"/></TextBlock>
+        <TextBlock  FontSize="24" Margin="24,189,0,373" Width="NaN" Height="NaN" Foreground="White" Grid.Row="1" FontWeight="Bold" ><Run Text="Endereço"/></TextBlock>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="324,610,0,15" Width="608" Grid.ColumnSpan="2" Grid.RowSpan="3">
             <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Margin="5 5 10 5"/>
             <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5"/>
-            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Click="btnSalvar_Click" Background="#FF90DD7E" Margin="5 5 5 5"/>
+            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5"/>
             <!--<Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -48,8 +48,8 @@
         <Label FontSize="24" Content="CPF" Foreground="White" Margin="30,56,8,554" Grid.Column="1" Grid.RowSpan="2" FontWeight="Bold" />
         <TextBox x:Name="txtCpf" FontSize="19" Text="" Margin="30,32,79,545" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
 
-        <Label FontSize="24" Content="E-mail" Foreground="White" Margin="30,56,8,554" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
-        <TextBox x:Name="txtEmail" FontSize="19" Text="" Margin="30,32,79,455" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
+        <Label FontSize="24" Content="E-mail" Foreground="White" Margin="43,82,-5,501" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
+        <TextBox x:Name="txtEmail" FontSize="19" Text="" Margin="41,119,68,456" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
 
         <Label FontSize="24" Content="CEP" Foreground="White" Margin="34,244,10,38" Grid.Row="1" Width="NaN" FontWeight="Bold" />
         <ComboBox x:Name="txtCep" FontSize="19" Text="" Margin="39,283,580,295" Grid.Row="1" Height="NaN" Width="NaN" Grid.ColumnSpan="2" />
