@@ -43,7 +43,7 @@
 
             <Label Content="Sexo" FontSize="16" FontWeight="Bold" Foreground="White" />
             <RadioButton x:Name="rdSexo1" Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>
-            <RadioButton x:Name="rdSexo2" Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>
+            <RadioButton x:Name="rdSexo2" Content="Feminino" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>
             <!--<RadioButton Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>-->
             
             
@@ -56,7 +56,7 @@
             <Label Content="Salario" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
             <TextBox x:Name="txtSalario" FontSize="16" Text="" Width="200" Margin="0 0 130 1" Background="White"/>
 
-            <Label Content="Fubção" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
+            <Label Content="Função" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
             <TextBox x:Name="txtFuncao" FontSize="16" Text="" Width="200" Margin="0 0 130 1" Background="White"/>
         
         </StackPanel>
