@@ -25,6 +25,7 @@
                 <Button x:Name="btCadastrarEstoque" Content="Cadastrar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarEstoque_Click" />
                 <Button x:Name="btCadastrarFuncionario" Content="Cadastrar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFuncionario_Click" />
                 <Button x:Name="btCadastrarProdutora" Content="Cadastrar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarProdutora_Click" />
+                <Button x:Name="btListarCadastro" Content="Listar os Cadastros" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btListarCadastro_Click" />
 
             </StackPanel>
         </StackPanel>

@@ -61,5 +61,11 @@ namespace PDS_Sismilani
             Produtora form = new Produtora();
             form.ShowDialog();
         }
+
+        private void btListarCadastro_Click(object sender, RoutedEventArgs e)
+        {
+            TelaInicial form = new TelaInicial();
+            form.ShowDialog();
+        }
     }
 }

@@ -23,5 +23,11 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
         }
+
+        private void btListarFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            ListarFuncionario form = new ListarFuncionario();
+            form.ShowDialog();
+        }
     }
 }

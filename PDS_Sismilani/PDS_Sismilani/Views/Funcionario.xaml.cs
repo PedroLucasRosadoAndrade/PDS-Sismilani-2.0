@@ -84,6 +84,16 @@ namespace PDS_Sismilani.Views
                     comando.Parameters.AddWithValue("@_rg", rg);
 
                     comando.ExecuteNonQuery();
+                    txtNome.Clear();
+                    dtpDataNasc.IsEnabled = false;
+                    rdSexo1.IsChecked = false;
+                    rdSexo2.IsChecked = false;
+                    txtCpf.Clear();
+                    txtSalario.Clear();
+                    txtCeluar.Clear();
+                    txtEmail.Clear();
+                    txtCeluar.Clear();
+                    txtNome.Focus();
 
                     var opcao = MessageBox.Show("Salvo com sucesso!\n" +
                         "Deseja realizar um novo cadastro?", "Informação",
@@ -115,16 +125,13 @@ namespace PDS_Sismilani.Views
         }
         private void LimparInputs()
         {
-            txtNome.Clear();
-            dtpDataNasc.IsEnabled = false;
-            rdSexo1.IsChecked = false;
-            rdSexo2.IsChecked = false;
-            txtCpf.Clear();
-            txtSalario.Clear();
-            txtCeluar.Clear();
-            txtEmail.Clear();
-            txtCeluar.Clear();
-            txtNome.Focus();
+
+           
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

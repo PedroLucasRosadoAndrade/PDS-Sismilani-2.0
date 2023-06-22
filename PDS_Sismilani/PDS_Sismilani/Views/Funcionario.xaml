@@ -62,8 +62,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="btCancelar" Content="Cancelar" Width="70" Margin="5 20 20 2 " FontWeight="Bold" Background="#FFC94F34" FontSize="16" />
-            <Button x:Name="btLimpar" Content="Limpar" Width="70" Margin="5 20 20 2 " FontWeight="Bold"  FontSize="16" />
+            <Button x:Name="btLimpar" Content="Limpar" Width="70" Margin="5 20 20 2 " FontWeight="Bold"  FontSize="16" Click="btLimpar_Click" />
             <Button x:Name="btSalvar" Content="Salvar" Width="70" Margin="5 20 20 2 " FontWeight="Bold" Background="#FF90DD7E" FontSize="16" Click="btSalvar_Click" />
         
         </StackPanel>

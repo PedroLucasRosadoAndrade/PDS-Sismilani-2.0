@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="TelaInicial" Height="450" Width="800">
-    <Grid>
-        
+        Title="TelaInicial" Height="450" Width="450">
+    <Grid Background="black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57"/>
+            <RowDefinition Height="458"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="57"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                   FontSize="16" FontWeight="Bold" Padding="5" Text="Oque deseja cadastrar" Width="447" Background="Red"/>
+
+        <StackPanel Grid.Row="1" Margin="80,28,80,55">
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="30" Width="194">
+                <Button x:Name="btListarCliente" Content="Listar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarFilme" Content="Listar Filme" Width="200" Margin="10 10" FontWeight="Bold" Background="red"  />
+                <Button x:Name="btListarFornecedor" Content="Listar Fornecedor" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarEstoque" Content="Listar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarFuncionario" Content="Listar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btListarFuncionario_Click"  />
+                <Button x:Name="btListarProdutora" Content="Listar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
