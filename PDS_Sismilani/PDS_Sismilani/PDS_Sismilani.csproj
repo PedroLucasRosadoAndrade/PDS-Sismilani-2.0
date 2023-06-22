@@ -113,6 +113,9 @@
     <Compile Include="Views\ListarCadastro.xaml.cs">
       <DependentUpon>ListarCadastro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListarFuncionario.xaml.cs">
+      <DependentUpon>ListarFuncionario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Produtora.xaml.cs">
       <DependentUpon>Produtora.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListarCadastro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListarFuncionario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

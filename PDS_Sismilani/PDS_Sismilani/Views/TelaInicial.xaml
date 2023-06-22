@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="TelaInicial" Height="450" Width="800">
-    <Grid>
-        
+        Title="TelaInicial" Height="450" Width="450">
+    <Grid Background="black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57"/>
+            <RowDefinition Height="458"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="57"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                   FontSize="16" FontWeight="Bold" Padding="5" Text="Oque deseja cadastrar" Width="447" Background="Red"/>
+
+        <StackPanel Grid.Row="1" Margin="80,28,80,55">
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="30" Width="194">
+                <Button x:Name="btCadastrarCliente" Content="Cadastrar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarCliente_Click" />
+                <Button x:Name="btCadastrarFilme" Content="Cadastrar Filme" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFilme_Click" />
+                <Button x:Name="btCadastrarFornecedor" Content="Cadastrar Fornecedor" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFornecedor_Click" />
+                <Button x:Name="btCadastrarEstoque" Content="Cadastrar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarEstoque_Click" />
+                <Button x:Name="btCadastrarFuncionario" Content="Cadastrar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFuncionario_Click" />
+                <Button x:Name="btCadastrarProdutora" Content="Cadastrar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarProdutora_Click" />
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
