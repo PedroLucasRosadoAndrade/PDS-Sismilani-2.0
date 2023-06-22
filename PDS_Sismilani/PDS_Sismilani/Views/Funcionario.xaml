@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="Funcionario" Height="450" Width="800">
+        Title="Funcionario" Height="783" Width="842">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8.*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" HorizontalAlignment="Left"
+                   FontSize="15" FontWeight="Bold" Padding="100 10" 
+                   Text="Cadastro de Funcionario" Margin="0,0,0,613" Background="Red" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="843"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="40" Orientation="Vertical">
+            <Label></Label>
+        </StackPanel>
     </Grid>
 </Window>
