@@ -21,49 +21,60 @@ namespace PDS_Sismilani.Views
     public partial class ListarEstoque : Window
     {
         private MySqlConnection conexao;
-
         private MySqlCommand comando;
+
         public ListarEstoque()
         {
             InitializeComponent();
             Conexao();
             carregarDados();
         }
+
         private void Conexao()
         {
             string conexaoString = "server=localhost;database=bd_Sismilani;user=root;password=root;port=3306";
             conexao = new MySqlConnection(conexaoString);
             comando = conexao.CreateCommand();
-
             conexao.Open();
         }
 
         private void carregarDados()
         {
-            MySqlCommand cmd = new MySqlCommand("Select * from Estoque", conexao);
-            var reader = cmd.ExecuteReader();
-
-            List<Object> lista = new List<Object>();
-
-            while (reader.Read())
+            try
             {
-                var contato = new
+                MySqlCommand cmd = new MySqlCommand("Select * from Estoque", conexao);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Object> lista = new List<Object>();
+
+                while (reader.Read())
                 {
-                    Unidade = reader.GetString(1),
-                    Categoria = reader.GetString(2),
-                    Data = reader.GetString(3),
-                    Valor = reader.GetString(4),
+                    var estoque = new
+                    {
+                        Unidade = reader.GetString(1),
+                        Categoria = reader.GetString(2),
+                        Data = reader.GetString(3),
+                        Valor = reader.GetString(4),
+                    };
 
-                };
+                    lista.Add(estoque);
+                }
 
-                lista.Add(contato);
+                dgvEstoque.ItemsSource = lista;
+
+                // Fecha o reader e a conexão.
+                reader.Close();
+                conexao.Close();
             }
-
-            dgvEstoque.ItemsSource = lista;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btNovo_Click(object sender, RoutedEventArgs e)
         {
+            Conexao();
             carregarDados();
         }
     }

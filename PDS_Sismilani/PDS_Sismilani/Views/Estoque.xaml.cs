@@ -21,22 +21,21 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class Estoque : Window
     {
-
         private MySqlConnection conexao;
-
         private MySqlCommand comando;
+
         public Estoque()
         {
             InitializeComponent();
             Conexao();
             txtUnidade.Focus();
         }
+
         private void Conexao()
         {
             string conexaoString = "server=localhost;database=bd_Sismilani;user=root;password=root;port=3306";
             conexao = new MySqlConnection(conexaoString);
             comando = conexao.CreateCommand();
-
             conexao.Open();
         }
 
@@ -44,20 +43,28 @@ namespace PDS_Sismilani.Views
         {
             try
             {
-                var dataNasc = datePickerData.SelectedDate;
-
+                var data = datePickerData.SelectedDate;
                 var unidade = txtUnidade.Text;
                 var categoria = txtCategoria.Text;
-                var valor = txtValor;
+                var valor = txtValor.Text;  // Obtenha o texto do TextBox
 
-                string query = "insert into estoque (unidade_est, categoria_est, data_est, valor_est) VALUES (@_unidade, @_categoria, @_data, @_valor)";
+                string query = "insert into Estoque (unidade_est, categoria_est, data_est, valor_est) VALUES (@_unidade, @_categoria, @_data, @_valor)";
                 var comando = new MySqlCommand(query, conexao);
 
                 comando.Parameters.AddWithValue("@_unidade", unidade);
                 comando.Parameters.AddWithValue("@_categoria", categoria);
-                comando.Parameters.AddWithValue("@_data", dataNasc);
-                comando.Parameters.AddWithValue("@_valor", valor);
+                comando.Parameters.AddWithValue("@_data", data);
 
+                decimal value;
+                if (Decimal.TryParse(valor, out value))  // Converta o valor para decimal
+                {
+                    comando.Parameters.AddWithValue("@_valor", value);
+                }
+                else
+                {
+                    MessageBox.Show("Valor não é um número válido.");
+                    return;
+                }
 
                 comando.ExecuteNonQuery();
                 txtCategoria.Clear();
@@ -65,10 +72,7 @@ namespace PDS_Sismilani.Views
                 txtUnidade.Clear();
                 txtValor.Clear();
 
-                var opcao = MessageBox.Show("Salvo com sucesso!\n" +
-                    "Deseja realizar um novo cadastro?", "Informação",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question);
-
+                var opcao = MessageBox.Show("Salvo com sucesso!\nDeseja realizar um novo cadastro?", "Informação", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (opcao == MessageBoxResult.Yes)
                 {
@@ -80,31 +84,16 @@ namespace PDS_Sismilani.Views
                 {
                     this.Close();
                 }
-
-
-
             }
             catch (Exception ex)
             {
-               /* MessageBox.Show($"Ocorreram erros ao tentar salvar os dados! " +
-                 $"Contate o suporte do sistema. (CAD 25)");*/
-
                 MessageBox.Show(ex.Message);
             }
-
         }
+
         private void LimparInputs()
         {
-
-
+            // Implementação para limpar inputs se necessário.
         }
-
-        /*private void btLimpar_Click(object sender, RoutedEventArgs e)
-        {
-            txtValor.Clear();
-            txtCategoria.Clear();
-            txtUnidade.Clear();
-        }*/
-    
     }
 }
