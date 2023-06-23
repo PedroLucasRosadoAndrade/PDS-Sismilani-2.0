@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
         Title="CadastrarCliente" Height="776" Width="973" MinHeight="300" MinWidth="500">
-    
+
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="56*"/>
@@ -23,7 +23,7 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
                    FontSize="24" FontWeight="Bold" Padding="5" Text="Dados Pessoais" Background="Red" Width="973" Foreground="White" Margin="0,0,0,21"/>
 
-  
+
 
         <StackPanel Grid.Column="0" Margin="11,56,580,35" Orientation="Vertical" Height="NaN" Width="NaN" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Label FontSize="24" Content="Nome Completo" Width="647" Height="44" Foreground="White" FontWeight="Bold" />
@@ -48,8 +48,8 @@
         <Label FontSize="24" Content="CPF" Foreground="White" Margin="30,56,8,554" Grid.Column="1" Grid.RowSpan="2" FontWeight="Bold" />
         <TextBox x:Name="txtCpf" FontSize="19" Text="" Margin="30,32,79,545" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
 
-        <Label FontSize="24" Content="E-mail" Foreground="White" Margin="43,82,-5,501" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
-        <TextBox x:Name="txtEmail" FontSize="19" Text="" Margin="41,119,68,456" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
+        <Label FontSize="24" Content="E-mail" Foreground="White" Margin="43,82,-5,481" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
+        <TextBox x:Name="txtEmail" FontSize="19" Text="" Margin="30,136,79,439" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
 
         <Label FontSize="24" Content="CEP" Foreground="White" Margin="34,244,10,38" Grid.Row="1" Width="NaN" FontWeight="Bold" />
         <ComboBox x:Name="txtCep" FontSize="19" Text="" Margin="39,283,580,295" Grid.Row="1" Height="NaN" Width="NaN" Grid.ColumnSpan="2" />
@@ -71,9 +71,9 @@
 
         <Label FontSize="24" Content="Rua" Foreground="White" Margin="28,476,110,0" Grid.Row="1" Width="NaN" Height="NaN" Grid.RowSpan="3" FontWeight="Bold" />
         <TextBox x:Name="TxtRua" FontSize="19" Text="" Margin="36,516,0,50" Grid.Row="1" Height="NaN" Width="NaN"/>
-        <TextBox x:Name="txtTelefone" FontSize="19" Text="" Margin="14,115,10,460" Grid.Row="1" Height="NaN" Width="NaN"/>
+        <TextBox x:Name="txtTelefone" FontSize="19" Text="" Margin="25,135,580,439" Grid.Row="1" Height="NaN" Width="NaN" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtNome" FontSize="19" Text="" Margin="18,29,6,545" Grid.Row="1" Height="NaN" Width="NaN"/>
-        <Label FontSize="24" Content="Telefone" Foreground="White" Margin="14,77,10,469" Grid.Row="1" FontWeight="Bold" />
+        <Label FontSize="24" Content="Telefone" Foreground="White" Margin="25,81,580,460" Grid.Row="1" FontWeight="Bold" Grid.ColumnSpan="2" />
 
 
 

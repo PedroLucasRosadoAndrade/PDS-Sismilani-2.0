@@ -29,5 +29,11 @@ namespace PDS_Sismilani.Views
             ListarFuncionario form = new ListarFuncionario();
             form.ShowDialog();
         }
+
+        private void btListarEstoque_Click(object sender, RoutedEventArgs e)
+        {
+            ListarEstoque form = new ListarEstoque();
+            form.ShowDialog();
+        }
     }
 }

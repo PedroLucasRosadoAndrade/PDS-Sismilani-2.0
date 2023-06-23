@@ -22,7 +22,7 @@
                 <Button x:Name="btListarCliente" Content="Listar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
                 <Button x:Name="btListarFilme" Content="Listar Filme" Width="200" Margin="10 10" FontWeight="Bold" Background="red"  />
                 <Button x:Name="btListarFornecedor" Content="Listar Fornecedor" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
-                <Button x:Name="btListarEstoque" Content="Listar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
+                <Button x:Name="btListarEstoque" Content="Listar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btListarEstoque_Click" />
                 <Button x:Name="btListarFuncionario" Content="Listar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btListarFuncionario_Click"  />
                 <Button x:Name="btListarProdutora" Content="Listar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" />
 

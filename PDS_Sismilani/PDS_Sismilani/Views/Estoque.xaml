@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="Estoque" Height="450" Width="800">
-    <Grid>
         
+    Title="Cadastro de Estoque" Width="450" Height="250" Background="Black">
+    <Grid Width="450" Height="250">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" MinWidth="234"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Cadastro de Estoque" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"
+                   Foreground="White" Margin="134,0,0,0" Height="27" Width="182"/>
+
+        <Label Content="Unidade:" Foreground="White" Grid.Row="1" Grid.Column="0" Margin="0,10,0,36" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtUnidade" Grid.Row="1" Grid.Column="1" Background="White" Margin="0,10,10,36" Grid.RowSpan="2"/>
+
+        <Label Content="Categoria:" Foreground="White" Grid.Row="2" Grid.Column="0" Margin="0,10,0,35" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtCategoria" Grid.Row="2" Grid.Column="1" Background="White" Margin="0,10,10,35" Grid.RowSpan="2"/>
+
+        <Label Content="Data:" Foreground="White" Grid.Row="3" Grid.Column="0" Margin="0,10,0,0"/>
+        <DatePicker x:Name="datePickerData" Grid.Row="3" Grid.Column="1" Background="White" Margin="0,10,10,0"/>
+
+        <Label Content="Valor:" Foreground="White" Grid.Row="4" Grid.Column="0" Margin="0,10,0,0"/>
+        <TextBox x:Name="txtValor" Grid.Row="4" Grid.Column="1" Background="White" Margin="0,10,10,0"/>
+
+        <Button Content="Salvar" Foreground="White" Background="Red" Grid.Row="5" Grid.Column="0" Margin="0,10,10,0" Click="Button_Click"/>
+        <Button Content="Limpar" Foreground="White" Background="Red" Grid.Row="5" Grid.Column="1" Margin="0,10,10,0"/>
+        <Button Content="Cancelar" Foreground="White" Background="Red" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                Margin="0,10,10,0"/>
     </Grid>
 </Window>
