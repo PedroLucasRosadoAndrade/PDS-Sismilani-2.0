@@ -29,12 +29,18 @@
             <Label FontSize="24" Content="Nome Completo" Width="647" Height="44" Foreground="White" FontWeight="Bold" />
         </StackPanel>
 
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="324,610,0,15" Width="608" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <Label FontSize="24" Content="Sexo" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" />
+            <RadioButton x:Name="rdSexo1" FontSize="19" Content="Masculino" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold"/>
+            <RadioButton x:Name="rdSexo2" FontSize="19" Content="Feminino" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold"/>
+
+        </StackPanel>
         <TextBlock  FontSize="24" Margin="24,189,0,373" Width="NaN" Height="NaN" Foreground="White" Grid.Row="1" FontWeight="Bold" ><Run Text="Endereço"/></TextBlock>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="324,610,0,15" Width="608" Grid.ColumnSpan="2" Grid.RowSpan="3">
             <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Margin="5 5 10 5"/>
             <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5"/>
-            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5"/>
+            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5" Click="btnSalvar_Click"/>
             <!--<Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -66,8 +72,14 @@
         <Label FontSize="24" Content="Data de Nascimento" Foreground="White" Margin="66,354,-132,135" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
         <DatePicker x:Name="dtPickerDataNascimento" FontSize="19" Text="" Margin="66,395,147,175" Grid.Row="1" Grid.Column="1" Width="NaN" Height="NaN"/>
 
+        <!--<Label Content="Sexo" FontSize="24" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" Grid.Column="1"/>
+        -->        
+
         <Label FontSize="24" Content="RG" Foreground="White" Margin="66,476,-17,38" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold" />
         <TextBox x:Name="TxtRG" FontSize="19" Text="" Margin="66,516,140,50" Grid.Row="1" Height="NaN" Width="NaN" Grid.Column="1"/>
+
+        <Label FontSize="24" Content="Bairro" Foreground="White" Margin="66,476,-17,38" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold" />
+        <TextBox x:Name="txtBairro" FontSize="19" Text="" Margin="66,516,140,50" Grid.Row="1" Height="NaN" Width="NaN" Grid.Column="1"/>
 
         <Label FontSize="24" Content="Rua" Foreground="White" Margin="28,476,110,0" Grid.Row="1" Width="NaN" Height="NaN" Grid.RowSpan="3" FontWeight="Bold" />
         <TextBox x:Name="TxtRua" FontSize="19" Text="" Margin="36,516,0,50" Grid.Row="1" Height="NaN" Width="NaN"/>
