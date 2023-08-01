@@ -73,9 +73,7 @@
         <DatePicker x:Name="dtPickerDataNascimento" FontSize="19" Text="" Margin="66,395,147,175" Grid.Row="1" Grid.Column="1" Width="NaN" Height="NaN"/>
 
         <!--<Label Content="Sexo" FontSize="24" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" Grid.Column="1"/>
-        -->        
-
-        <Label FontSize="24" Content="RG" Foreground="White" Margin="66,476,-17,38" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold" />
+        -->
         <TextBox x:Name="TxtRG" FontSize="19" Text="" Margin="66,516,140,50" Grid.Row="1" Height="NaN" Width="NaN" Grid.Column="1"/>
 
         <Label FontSize="24" Content="Bairro" Foreground="White" Margin="66,476,-17,38" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold" />
