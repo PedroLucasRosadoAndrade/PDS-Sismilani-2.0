@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
         Title="ListarFuncionario" Height="450" Width="967">
-    <Grid RenderTransformOrigin="0.503,0.516" Background="Black" Margin="-196,0,0,0">
+    <Grid RenderTransformOrigin="0.503,0.516" Background="White" Margin="10,0,0,40" Height="NaN" Width="NaN">
 
-        <DataGrid x:Name="dgvContato" HorizontalAlignment="Left" Height="179" Margin="37,102,0,0" VerticalAlignment="Top" Width="1097" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid x:Name="dgvContato" HorizontalAlignment="Left" Height="352" VerticalAlignment="Top" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,56,0,0"/>
 
 
-        <Button x:Name="btNovo" Content="Novo" HorizontalAlignment="Left" Margin="700,400,0,0" VerticalAlignment="Top" Height="22" Width="74" FontWeight="Bold" Click="btNovo_Click" Background="Green" RenderTransformOrigin="0.594,0.635"/>
+        <Button x:Name="btNovo" Content="Novo" HorizontalAlignment="Left" Margin="1012,386,0,0" VerticalAlignment="Top" Height="22" Width="74" FontWeight="Bold" Click="btNovo_Click" Background="Green" RenderTransformOrigin="0.594,0.635"/>
 
     </Grid>
 </Window>

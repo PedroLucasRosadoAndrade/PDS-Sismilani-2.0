@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="CadastrarFornecedor" Height="450" Width="800">
-    <Grid>
-        
+        Title="CadastrarFornecedor" Height="450" Width="800" Background="Black"
+        WindowStartupLocation="CenterScreen" MinHeight="550" MinWidth="900">
+
+    <Grid VerticalAlignment="Top" Height="719" Margin="10,-169,64,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="365*"/>
+            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="79*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Text="Cadastro de Fornecedores" Foreground="White"
+            FontSize="30" Margin="8,10,0,598" HorizontalAlignment="Left" Grid.Column="1"/>
+
+        <StackPanel Margin="44,142,220,299" Grid.ColumnSpan="2" Grid.Row="1">
+            <Label Content="Código:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtCod" FontSize="18" Width="173" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+            <Label Content="Nome:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtNome"  FontSize="18" Width="341" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+            <Label Content="Bairro:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtbairro"  FontSize="18" Width="241" RenderTransformOrigin="0.26,0.956" Height="33" TextWrapping="NoWrap" TextAlignment="Left" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Margin="40,376,82,164" Grid.Row="1">
+            <Label Content="CEP:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtCep" FontSize="18" Width="147" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Margin="206,375,174,165" Grid.ColumnSpan="2" Grid.Row="1">
+            <Label Content="Telefone:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtTelefone"  FontSize="18" Width="219" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Margin="154,375,164,165" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+            <Label Content="Fax:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtFax" FontSize="18" Width="147" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Margin="43,446,15,98" Grid.ColumnSpan="2" Grid.Row="1">
+            <Label Content="E-mail:" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtEmail"  FontSize="18" Width="563" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Margin="120,139,53,437" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
+            <Label Content="Endereço:" Foreground="White" FontSize="20" Height="41"/>
+            <TextBox x:Name="txtEndereco"  FontSize="18" Width="350" RenderTransformOrigin="0.26,0.956" Height="33"/>
+        </StackPanel>
+
+        <StackPanel Margin="120,209,86,367" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+            <Label Content="Cidade" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtCidade"  FontSize="18" Width="232" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Margin="80,209,10,367" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Width="NaN">
+            <Label Content="Estado:" Foreground="White" FontSize="20"/>
+            <ComboBox x:Name="txtEstado" FontSize="20" Width="300" RenderTransformOrigin="0.26,0.956" Height="33" BorderBrush="White" FontFamily="Arial"/>
+        </StackPanel>
+
+        <StackPanel Margin="16,559,23,29" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" >
+            <Button Content="Salvar" Height="50" Background="#FF55AAFF" FontSize="20" FontStyle="Normal" Width="156"/>
+        </StackPanel>
+
     </Grid>
+
 </Window>
