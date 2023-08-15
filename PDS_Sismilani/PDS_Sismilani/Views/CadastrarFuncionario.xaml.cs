@@ -18,13 +18,13 @@ namespace PDS_Sismilani.Views
     /// <summary>
     /// Lógica interna para Funcionario.xaml
     /// </summary>
-    public partial class Funcionario : Window
+    public partial class CadastrarFuncionario : Window
     {
         private MySqlConnection conexao;
 
         private MySqlCommand comando;
 
-        public Funcionario()
+        public CadastrarFuncionario()
         {
             InitializeComponent();
             Conexao();

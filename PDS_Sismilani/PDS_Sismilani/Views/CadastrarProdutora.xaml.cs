@@ -17,9 +17,9 @@ namespace PDS_Sismilani.Views
     /// <summary>
     /// Lógica interna para Produtora.xaml
     /// </summary>
-    public partial class Produtora : Window
+    public partial class CadastrarProdutora : Window
     {
-        public Produtora()
+        public CadastrarProdutora()
         {
             InitializeComponent();
         }
