@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 namespace PDS_Sismilani.DataBase
 {
      class Conexao
      {
         private static string host = "localhost";
+
+          string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+            /*conexao = new MySqlConnection(conexaoString);
+            comando = conexao.CreateCommand();*/
 
         private static string port = "3306";
         
