@@ -11,10 +11,6 @@ namespace PDS_Sismilani.DataBase
      {
         private static string host = "localhost";
 
-          string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            /*conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();*/
-
         private static string port = "3306";
         
         private static string user = "root";
@@ -40,6 +36,7 @@ namespace PDS_Sismilani.DataBase
                 throw;
             }
         }
+        
         public void Close()
         {
             connection.Clone();

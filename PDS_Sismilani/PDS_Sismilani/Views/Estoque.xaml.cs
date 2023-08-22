@@ -11,18 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace PDS_Sismilani.Views
 {
     /// <summary>
     /// Lógica interna para Estoque.xaml
     /// </summary>
-    public partial class CadastrarEstoque : Window
+    public partial class Estoque : Window
     {
         private MySqlConnection conexao;
         private MySqlCommand comando;
 
-        public CadastrarEstoque()
+        public Estoque()
         {
             InitializeComponent();
             Conexao();

@@ -13,8 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PDS_Sismilani.Views;
-using PDS_Sismilani.Models;
-using PDS_Sismilani.DataBase;
 
 namespace PDS_Sismilani
 {
@@ -26,38 +24,6 @@ namespace PDS_Sismilani
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loadeb;
-        }
-
-        private void MainWindow_Loadeb(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var conexao = new Conexao();
-
-            }catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
-
-            //txtDataAtual.text = "-";
-            //DateTime.Now.ToString("dd/MM/yyyy");
-
-            List<Venda> listavendas = new List<Venda>();
-
-            for (int i = 0; i < 30; i++)
-            {
-                listavendas.Add(new Venda()
-                {
-                    /*id = i + 1,
-                    Cliente = "Pedro - " + i,
-                    QuantidadeProdutos = 5 * i,
-                    ValorTotal = 120.55 * i,
-                    Situacao = "Aberto"*/
-                });
-            }
         }
 
         private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
@@ -80,22 +46,26 @@ namespace PDS_Sismilani
 
         private void btCadastrarEstoque_Click(object sender, RoutedEventArgs e)
         {
-            new CadastrarEstoque().ShowDialog();
+            Estoque form = new Estoque();
+            form.ShowDialog();
         }
 
         private void btCadastrarFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            new CadastrarFuncionario().ShowDialog();
+            Funcionario form = new Funcionario();
+            form.ShowDialog();
         }
 
         private void btCadastrarProdutora_Click(object sender, RoutedEventArgs e)
         {
-            new CadastrarProdutora().ShowDialog();
+            Produtora form = new Produtora();
+            form.ShowDialog();
         }
 
         private void btListarCadastro_Click(object sender, RoutedEventArgs e)
         {
-             new TelaInicial().ShowDialog();
+            TelaInicial form = new TelaInicial();
+            form.ShowDialog();
         }
     }
 }
