@@ -10,20 +10,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="259*"/>
             <ColumnDefinition Width="*"/>
-            <!--<ColumnDefinition Width="84*"/>
-            <ColumnDefinition Width="77*"/>
-            <ColumnDefinition Width="30*"/>-->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="57"/>
             <RowDefinition Height="458"/>
             <RowDefinition Height="*"/>
-            <!-- <RowDefinition Height="57"/>-->
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left"
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Background="White">
+            <MenuItem Header="Realizar Cadastro" >
+
+            </MenuItem>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
                    FontSize="16" FontWeight="Bold" Padding="5" Text="Oque deseja cadastrar" Width="446" Background="Red" Margin="2,0,0,0"/>
 
+        </StackPanel>
+        
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="80,28,50,55" Grid.ColumnSpan="3">
             <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="30" Width="194">
                 <Button x:Name="btCadastrarCliente" Content="Cadastrar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarCliente_Click" />
