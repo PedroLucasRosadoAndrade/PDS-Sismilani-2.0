@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,13 +31,28 @@ namespace PDS_Sismilani.DataBase
                 connection = new MySqlConnection($"server={host};database={dbName};port={port};user={user};password={password}");
                 connection.Open();
                   
-            } catch(Exception)
+            } catch(Exception e)
             {
 
+                throw e;
+            }
+        }
+
+        public MySqlCommand Query()
+        {
+            try
+            {
+                command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+
+                return command;
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
-        
+
         public void Close()
         {
             connection.Clone();
