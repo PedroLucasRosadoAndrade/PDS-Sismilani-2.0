@@ -2,14 +2,14 @@
 
 # PROJETO DO SISTEMA Sis milani 2.0 
 
-*Ana Clara - Cadastrar Fornecedor
+- Ana Clara - Cadastrar Fornecedor
 
-*Bárbara - Cadastrar Cliente
+- Bárbara - Cadastrar Cliente
 
-*Dhenifer - Cadastrar Filme
+- Dhenifer - Cadastrar Filme
 
-*Marco - Cadastrar Produtora
+- Marco - Cadastrar Produtora
 
-*Pedro Lucas - Cadastar Funcionário
+- Pedro Lucas - Cadastar Funcionário
 
-*Nicolas - Cadastrar Estoque
+- Nicolas - Cadastrar Estoque
