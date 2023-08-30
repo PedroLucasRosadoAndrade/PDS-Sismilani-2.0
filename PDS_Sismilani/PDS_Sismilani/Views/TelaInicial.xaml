@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="Home" Height="450" Width="450">
-    <Grid Background="#171515 ">
+        Title="Home" Height="540" Width="822">
+
+    <Grid Margin="2,0,0,-5">
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#5CE1E6" Offset="0.3" />
+                <GradientStop Color="#8C52FF" Offset="0.8" />
+                <GradientStop Color="#5CE1E6" Offset="0.3" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="57"/>
             <RowDefinition Height="458"/>
@@ -14,11 +23,13 @@
             <RowDefinition Height="57"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
-                   FontSize="16" FontWeight="Bold" Padding="5" Text="Cadastros" Width="447" Background="DodgerBlue"/>
+        <!-- Conteúdo da janela -->
 
-        <StackPanel Grid.Row="1" Margin="80,28,80,137" RenderTransformOrigin="0.507,0.512">
-            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="30" Width="194">
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+           FontSize="16" FontWeight="Bold" Padding="5" Text="Cadastros" Width="816" Background="DodgerBlue"/>
+
+        <StackPanel Margin="271,127,257,97" RenderTransformOrigin="0.507,0.512" Grid.Row="1">
+            <StackPanel Orientation="Vertical" Width="194">
                 <Button x:Name="btListarCliente" Content="Listar Cliente" Width="168" Margin="10 10" FontWeight="Bold" Background="AliceBlue" />
                 <Button x:Name="btListarFilme" Content="Listar Filme" Width="167" Margin="10 10" FontWeight="Bold" Background="AliceBlue"  />
                 <Button x:Name="btListarFornecedor" Content="Listar Fornecedor" Width="168" Margin="10 10" FontWeight="Bold" Background="AliceBlue" />
@@ -28,5 +39,9 @@
 
             </StackPanel>
         </StackPanel>
+
     </Grid>
+
+
 </Window>
+
