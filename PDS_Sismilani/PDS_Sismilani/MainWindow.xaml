@@ -6,37 +6,8 @@
         xmlns:local="clr-namespace:PDS_Sismilani"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="Black">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="259*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Background="White">
-            <MenuItem Header="Realizar Cadastro" >
-
-            </MenuItem>
-            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
-                   FontSize="16" FontWeight="Bold" Padding="5" Text="Oque deseja cadastrar" Width="446" Background="Red" Margin="2,0,0,0"/>
-
-        </StackPanel>
+    <DockPanel>
         
-        <StackPanel Grid.Column="0" Grid.Row="1" Margin="80,28,50,55" Grid.ColumnSpan="3">
-            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="30" Width="194">
-                <Button x:Name="btCadastrarCliente" Content="Cadastrar Cliente" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarCliente_Click" />
-                <Button x:Name="btCadastrarFilme" Content="Cadastrar Filme" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFilme_Click" />
-                <Button x:Name="btCadastrarFornecedor" Content="Cadastrar Fornecedor" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFornecedor_Click" />
-                <Button x:Name="btCadastrarEstoque" Content="Cadastrar Estoque" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarEstoque_Click" />
-                <Button x:Name="btCadastrarFuncionario" Content="Cadastrar Funcionario" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarFuncionario_Click" />
-                <Button x:Name="btCadastrarProdutora" Content="Cadastrar Produtora" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btCadastrarProdutora_Click" />
-                <Button x:Name="btListarCadastro" Content="Listar os Cadastros" Width="200" Margin="10 10" FontWeight="Bold" Background="red" Click="btListarCadastro_Click" />
-
-            </StackPanel>
-        </StackPanel>
-
-    </Grid>
+    </DockPanel>
 </Window>
