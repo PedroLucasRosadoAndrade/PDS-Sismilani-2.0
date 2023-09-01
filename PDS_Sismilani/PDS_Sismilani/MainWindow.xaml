@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="450" SizeToContent="Height" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="MainWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="259*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="57"/>
-            <RowDefinition Height="458"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
