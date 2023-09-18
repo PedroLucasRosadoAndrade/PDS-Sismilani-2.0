@@ -33,17 +33,18 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="57"/>
-            <RowDefinition Height="458"/>
+            <RowDefinition Height="363"/>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="0*"/>
             <RowDefinition Height="57"/>
         </Grid.RowDefinitions>
 
         <!-- Conteúdo da janela -->
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center"
            FontSize="16" FontWeight="Bold" Padding="5" Text="Cadastros" Width="816" Background="DodgerBlue"/>
 
-        <StackPanel Margin="271,127,257,97" RenderTransformOrigin="0.507,0.512" Grid.Row="1">
+        <StackPanel Margin="194,101,140,43" RenderTransformOrigin="0.507,0.512" Grid.Row="1" Grid.RowSpan="4">
             <StackPanel Orientation="Vertical" Width="194">
                 <Button x:Name="btListarCliente" Content="Listar Cliente" Width="168" Margin="10 10" FontWeight="Bold" Background="AliceBlue" />
                 <Button x:Name="btListarFilme" Content="Listar Filme" Width="167" Margin="10 10" FontWeight="Bold" Background="AliceBlue"  />
