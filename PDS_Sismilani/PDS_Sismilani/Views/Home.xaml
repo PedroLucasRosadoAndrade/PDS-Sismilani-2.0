@@ -6,17 +6,78 @@
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
         Title="Home" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="-85.914" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF985ECE"/>
+            <GradientStop Color="#FFB06AE8" Offset="1"/>
+            <GradientStop Color="#FF74AFE0" Offset="0.112"/>
+            <GradientStop Color="#FE939DFC" Offset="0.695"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <DockPanel>
-        <StackPanel DockPanel.Dock="Left" Width="200">
-            <TextBlock>Esquerdo</TextBlock>
+        
+        
+        <StackPanel DockPanel.Dock="Left" Width="160" Margin="5 0">
+            <Image Source="/Imagens/Design - CineMilani.png" Width='60' Margin="-100 3 3 5" />
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/pessoas.png" Width='22'/>
+                    <TextBlock Padding="5">Cliente</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/funcionario.png" Width='22'/>
+                    <TextBlock Padding="5">Funcionario</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/fornecedor.png" Width='22'/>
+                    <TextBlock Padding="5">Fornecedor</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/bilhetes.png" Width='22'/>
+                    <TextBlock Padding="5">Ingresso</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/cadeira-do-produtor.png" Width='22'/>
+                    <TextBlock Padding="5">Produtora</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/assistindo-um-filme.png" Width='22'/>
+                    <TextBlock Padding="5">Filme</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin='0 2'>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagens/pipoca.png" Width='22'/>
+                    <TextBlock Padding="5">Produto</TextBlock>
+                </StackPanel>
+            </Button>
+            
         </StackPanel>
 
         <StackPanel DockPanel.Dock="Top" >
             <TextBlock > topo </TextBlock>
         </StackPanel>
 
-        <StackPanel DockPanel.Dock="Bottom" >
-            <TextBlock > Rodape</TextBlock>
+        <StackPanel DockPanel.Dock="Bottom"  >
+            <TextBlock FontSize="16" Margin="0,0,0,0"> SisMilani</TextBlock>
         </StackPanel>
 
         <Grid>

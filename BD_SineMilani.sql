@@ -361,3 +361,17 @@ insert into poltrona values(null,4,24,'dupla','lado esquerdo da porta de entrada
 insert into poltrona values(null,15,13,'simples','lado esquerdo da porta de saida','S2',5,1);
 insert into poltrona values(null,13,12,'vip','lado esquerdo da porta de saida','S3',1,3);
 insert into poltrona values(null,12,22,'vip','lado direito da porta de entrada','S3',1,1);
+
+
+
+CREATE TABLE Serie (
+  id_ser INT primary key,
+  nome_ser VARCHAR(45) NOT NULL,
+  genero_ser VARCHAR(45) NULL,
+  classificascao_ser VARCHAR(45) NOT NULL,
+  episodios_ser INT NULL,
+  numero_temporadas INT NULL,
+  quantidade_ser INT NULL,
+  data_lancamento_ser VARCHAR(45) NULL,
+  sinopise_ser VARCHAR(45) NULL
+  );

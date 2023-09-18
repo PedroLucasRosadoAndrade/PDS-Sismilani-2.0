@@ -6,13 +6,28 @@
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
         Title="Home" Height="540" Width="822">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
 
     <Grid Margin="2,0,0,-5">
         <Grid.Background>
             <LinearGradientBrush>
-                <GradientStop Color="#5CE1E6" Offset="0.3" />
-                <GradientStop Color="#8C52FF" Offset="0.8" />
-                <GradientStop Color="#5CE1E6" Offset="0.3" />
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="-26.565" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#5CE1E6" Offset="0.666" />
+                <GradientStop Color="#8C52FF" Offset="0.91" />
+                <GradientStop Color="#FFBC5CE6" Offset="0.1" />
+                <GradientStop Color="#FF8DD3E6" Offset="0.274"/>
             </LinearGradientBrush>
         </Grid.Background>
 

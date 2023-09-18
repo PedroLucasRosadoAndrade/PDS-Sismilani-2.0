@@ -6,8 +6,26 @@
         xmlns:local="clr-namespace:PDS_Sismilani"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="-90" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF0F2E72" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
 
-    <DockPanel>
+    <DockPanel >
+        <Label DockPanel.Dock="Bottom" Content="Entrar" FontSize="16" Foreground="Wheat"/>
+        <TextBlock Width="100" Height="20"/>
+        <Label DockPanel.Dock="Bottom" Content="senha" FontSize="16" Foreground="Wheat"/>
+        <Label DockPanel.Dock="Bottom" Content="Logar" FontSize="16" Foreground="Wheat"/>
         
     </DockPanel>
 </Window>
