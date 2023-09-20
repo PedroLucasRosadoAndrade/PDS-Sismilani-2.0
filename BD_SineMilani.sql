@@ -24,10 +24,10 @@ insert into sala values (null, 'Querida', '2022-12-31', '4:29','30 metros quadra
 
 create table estoque (
 id_est int auto_increment  primary key,
-unidade_est int ,
+unidade_est double ,
 cod_est INT,
 categoria_est VARCHAR(45),
-data_est DATE ,
+validade_est DATE ,
 valor_est FLOAT
 );
   
