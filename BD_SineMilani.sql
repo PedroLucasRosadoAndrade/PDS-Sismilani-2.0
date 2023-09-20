@@ -47,7 +47,7 @@ insert into estoque values (null, 10, 10, 'Ornamental Railings', '2023-03-24', 1
 
 CREATE TABLE Fornecedor (
   id_for INT  primary key auto_increment,
-  NomeFantasia_for VARCHAR(45) NULL,
+  Nome_for VARCHAR(45) NULL,
   CNPJ_for VARCHAR(45) NULL,
   tipo_for VARCHAR(45) NULL,
   telefone_for VARCHAR(45) NULL,
