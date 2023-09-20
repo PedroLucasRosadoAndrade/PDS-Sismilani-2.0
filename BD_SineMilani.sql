@@ -4,22 +4,23 @@ create database cinemilani_bd;
  
 create table sala(
 id_sal INT  primary key auto_increment ,
-data_sal date ,
-hora_sal varchar(50) ,
+nome_sal varchar(50),
+data_sal date,
+hora_sal time ,
 tamanho_sal varchar(50) ,
 quantidade_sal INT
 );
 
-insert into sala  values (null, 'Ginni', '2023-05-04', '11:49', 34);
-insert into sala values(null, 'Rheta', '2022-10-11', '1:26', 51);
-insert into sala values (null, 'Dominik', '2023-01-15', '2:10 ', 84);
-insert into sala values (null, 'Laurel', '2023-05-12', '4:41 ', 94);
-insert into sala  values (null, 'Gae', '2023-04-28', '3:18 ', 42);
-insert into sala  values (null, 'Jeremiah', '2023-06-18', '3:53 ', 76);
-insert into sala  values (null, 'Lorilyn', '2022-09-06', '8:58 ', 61);
-insert into sala values(null, 'Chane', '2023-05-21', '9:22 ', 23);
-insert into sala  values (null, 'Adelina', '2022-06-19', '9:14 ', 85);
-insert into sala values (null, 'Querida', '2022-12-31', '4:29', 6);
+insert into sala  values (null, 'Ginni', '2023-05-04', '11:49','30 metros quadrados', 34);
+insert into sala values(null, 'Rheta', '2022-10-11', '1:26','20 metros quadrados', 51);
+insert into sala values (null, 'Dominik', '2023-01-15', '2:10 ','26 metros quadrados', 84);
+insert into sala values (null, 'Laurel', '2023-05-12', '4:41 ','21 metros quadrados' ,94);
+insert into sala  values (null, 'Gae', '2023-04-28', '3:18 ','29 metros quadrados', 42);
+insert into sala  values (null, 'Jeremiah', '2023-06-18', '3:53 ','24 metros quadrados', 76);
+insert into sala  values (null, 'Lorilyn', '2022-09-06', '8:58 ','22 metros quadrados', 61);
+insert into sala values(null, 'Chane', '2023-05-21', '9:22 ','27 metros quadrados', 23);
+insert into sala  values (null, 'Adelina', '2022-06-19', '9:14 ','23 metros quadrados', 85);
+insert into sala values (null, 'Querida', '2022-12-31', '4:29','30 metros quadrados', 6);
 
 create table estoque (
 id_est int auto_increment  primary key,
