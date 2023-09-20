@@ -4,7 +4,7 @@ create database cinemilani_bd;
  
 create table sala(
 id_sal INT  primary key auto_increment ,
-data_sal varchar(50) ,
+data_sal date ,
 hora_sal varchar(50) ,
 tamanho_sal varchar(50) ,
 quantidade_sal INT
