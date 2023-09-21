@@ -1,4 +1,14 @@
-drop schema cinemilani_bd;
+# Grupo CineMilani
+
+# - Ana Clara Santana da Silva
+# - Bárbara Iaguita Oliveira Viera
+# - Pedro Lucas Rosado Andrade
+# - Dhenifer Regina Cavalieri
+# - Nícolas Vailant Dutra Capila
+# - Marco Antônio Duarte Guedes
+
+
+drop schema if exists cinemilani_bd;
 create database cinemilani_bd;
  use cinemilani_bd;
  
@@ -376,3 +386,366 @@ CREATE TABLE Serie (
   data_lancamento_ser VARCHAR(45) NULL,
   sinopise_ser VARCHAR(45) NULL
   );
+  
+  
+  
+   #--------------- PROCEDIMENTOS |   ---------------
+   
+     delimiter $$
+  create procedure salvar_sala (nome varchar(50),data_sal date,hora time,tamanho varchar(50),quantidade INT)
+  begin
+    if( nome <> '') and (hora <> '') and (tamanho <> '') then
+        insert into sala values (null,nome,data_sal,hora,tamanho,quantidade);
+          select 'A sala foi salvo com sucesso!' as Confirmação;
+  else
+        select 'Os campos Nome,Tamanho e Hora são obrigatorios!' as Alerta;
+  end if;
+  end
+  $$ delimiter ;
+  
+  call salvar_sala ('','2023-05-24','20:00','23 metros quadrado',5);
+  
+  select * from sala;
+  
+
+delimiter $$
+create procedure salvar_estoque(unidade double,cod int,categoria varchar(45),validade date,valor float)
+begin
+ if( unidade <> '') and (categoria <> '') and (cod<> '') then
+	insert into estoque values(null,unidade,cod,categoria,validade,valor);
+      select 'Estoque salvo com sucesso!' as Confirmação;       
+ else
+     select 'Os campos Unidade,Cod e Categoria são obrigatorios!' as Alerta;
+ end if;
+ end;
+$$ delimiter ;
+
+  call salvar_estoque(5,5,'','2023-09-21',26.60);
+  
+  #select * from estoque;
+  
+  
+  delimiter $$
+  create procedure salvar_fornecedor( Nome VARCHAR(45),CNPJ VARCHAR(45),tipo VARCHAR(45),telefone VARCHAR(45),historico VARCHAR(45))
+  begin  
+    if(   Nome <> '') and (cnpj <> '') and (telefone <> '')  then
+    	insert into fornecedor values(null,nome,cnpj,tipo,telefone,historico);
+		  select 'Fornecedor salvo com sucesso!' as Confirmação;       
+    else
+		select 'Os campos NomeFantasia,CNPJ e Telefone são obrigátorios!' as Alerta;
+     end if;
+     end;
+  $$ delimiter ;
+  
+call salvar_fornecedor('','98.867 768 9898 88','bebidas','69 96104456','Bom');
+
+#select * from fornecedor;
+
+delimiter $$ 
+create procedure salvar_Funcionario (Nome varchar (300), nascimento date, sexo varchar(60), cpf varchar(50), salario float, funcao varchar (54), email varchar(100), telefone varchar(100), rg varchar(50))
+begin
+ if (Nome <> '')and (sexo <> '')and (telefone <> '') then 
+		insert into funcionario values (null, nome, nascimento,sexo, cpf, salario, funcao, email, telefone, rg);
+			Select 'Funcionario Cadastrado com Sucesso' as Confirmação;
+ else
+		select 'Os campos NOME,Sexo e Telefone são  obrigátorios!' as alerta;
+      
+	end if;
+end;
+$$ delimiter ;  
+
+Call salvar_Funcionario('', '2023-09-23','feminino', '123.456.789-10', '1000000', 'Chefe', 'dheniferreginajm@gmail.com', '69 993982586', '5555555');
+
+delimiter $$ 
+create procedure salvar_produto (nome varchar (200), Marca varchar(98), tipo varchar(50), quantidade int, validade date, valor float,Fornecedor_fk int,estoque_fk int)
+begin
+ if (Nome <> '')and (Marca <> '')and (quantidade <> '') then 
+		insert into produto values (null, nome, Marca, tipo, quantidade, validade, valor,fornecedor_fk,estoque_fk);
+                Select 'Produto Cadastrado com Sucesso' as Confirmação;
+ else
+ 
+		select 'Os campos NOME,MARCA e QUANTIDADE são  obrigátorios!' as alerta;
+	end if;
+end;
+$$ delimiter ;  
+
+Call salvar_produto('', 'yoki', 'salgada', 20 , '2023-12-12',  20.00,2,3); 
+Select * from
+
+  delimiter $$ 
+create procedure salvar_produtora (Nome varchar(200), CNPJ varchar(98), telefone varchar(50), razaoSocial varchar(54), Tipo varchar(165), historico varchar(648))
+begin
+ if (Nome <> '')and (telefone <> '')and (historico <> '') then 
+		insert into produtora values (null, Nome, CNPJ, telefone, razaoSocial, Tipo_produ, historico_produ);
+			Select 'Produtora Cadastrado com Sucesso' as Confirmação;
+ else
+ 
+ 		select 'Os campos NOME,TELEFONE e HISTORICO_PRODU são  obrigátorios!' as alerta;
+	end if;
+end;
+$$ delimiter ;
+
+Call salvar_produtora('', '22.333.333/0001-00', '69958455415', 'eventos', 'filmes', 'em alta');
+
+  DELIMITER $$
+  
+  create procedure SalvarFILME (atores varchar(100), sinopse varchar(200), elenco varchar(200),
+  fornecedor varchar(20),dataFilme date, dtLancamento date, titulo varchar(100), categoria varchar(20),
+  diretor varchar(50), sala_id int, produtora_id int)
+  BEGIN
+
+	if(titulo <> '') then
+			insert into  filme values(null, atores, sinopse, elenco, fornecedor, dataFilme, dtLancamento, titulo,
+			categoria, diretor,sala_id, produtora_id);
+			select  concat(' O ', titulo, ' foi inserido com sucesso!') as Informacao;
+	else
+    select 'O campo TITULO deve ser preenchido!' as Alerta;
+    
+    end if ;
+   
+  end ;
+  $$ DELIMITER ;
+  
+  CALL SalvarFILME('Delmar', 'sim', 'LILIAN', 'Lulu', '2022-10-16', '2022-10-16', 'House on 92nd Street, The', 'livre', 'HVAC', 1, 1);
+  CALL SalvarFILME('Goes', 'sim', 'Maira', 'the Rock', '2023-08-06', '2023-03-06', 'Homem Aranha', 'livre', 'MARVEL', 2, 1);
+  CALL SalvarFILME('Silva', 'não', 'JK', 'Moni', '2020-07-23', '2022-01-03', '', '+16', 'HBO', 2, 2);
+
+
+DELIMITER $$
+
+create procedure Caixa (dtInicial date,horaAbertura time, horaFechamento time, saldoF float,
+saldoInicial float, id_funcionario int)
+begin
+
+if (horaFechamento <> '') then
+		insert into caixa values(null,dtInicial, horaAbertura, horaFechamento, saldoF, saldoInicial,
+		id_funcionario);
+			select 'O caixa foi fechado corretamente.' as Confirmação;
+else
+	select ' A HORA deve ser inserida no sistema!' as Alerta;
+end if ;
+
+end;
+$$ DELIMITER ;  
+  call Caixa ('2022-09-09', '13:00','14:50',1200.60, 50.00, 1);
+  call Caixa ('2022-09-10', '13:00','17:30',2000.00, 100.00, 3);
+  call Caixa ('2022-09-12', '13:00','18:30',2000.00, 100.00, 3);
+  
+DELIMITER $$
+create procedure Despesa (descricao varchar(200), cnpj varchar(11), FormaPagamento varchar(100), valor float,
+dataDespesa date) 
+begin
+if(cnpj <> '')then
+	insert into despesa values(null, descricao, cnpj, FormaPagamento, valor, dataDespesa);
+	select concat(' Despesa ', descricao, ' salva com sucesso!') as Confirmação;
+else
+	select'O numero do CPF deve ser inserido.' as Alerta;
+end if;
+end;
+$$ DELIMITER 
+
+call despesa ('internet', '11111111111', 'Cartao', 12.00, '2022-09-09'); 
+call despesa ('Limpesa de salas ', '1', 'Cartao', 12.00, '2022-09-09'); 
+call despesa ('luz', '', 'Cartao', 12.00, '2022-09-09'); 
+
+delimiter $$
+
+create procedure pagamento_correto (valor FLOAT,formaPagamento varchar(100),empresa varchar(50),sigla varchar(45),cpf_devedor varchar(45),telefone_devedor varchar(30),descricao_pag varchar(50),horaPagamento TIME,dataPagamento DATE)
+begin
+    if (valor IS NOT NULL) then
+        insert into Pagamento (valor_pag, forma_pag, empresa_pag, sigla_pag, cpf_devedor_pag, telefone_devedor_pag, descicao_pag, hora_pag, data_pag)
+        values (valor, formaPagamento, empresa, sigla, cpf_devedor, telefone_devedor, descricao_pag, horaPagamento, dataPagamento);
+        select concat('O Pagamento ', valor, ' foi salvo com sucesso!') as Confirmacao;
+    else
+        select 'O campo VALOR é obrigatório!' as Alerta;
+    end if;
+end;
+$$
+
+delimiter ;
+
+call pagamento_correto(600, 'Dinheiro', 'pedor', 'fs', '123.456.789-01', '(28) 4002-8922', 'ABERTO', '12:10:00', '2020-11-30');
+#select * from Pagamento;
+
+delimiter $$
+
+delimiter $$
+
+create procedure vendas_correta (dataVenda DATE, hora TIME, quantidade INT, descricao VARCHAR(50), valorVenda FLOAT, recebimento_id_rec INT, Funcionario_id_fun INT)
+begin
+    if (dataVenda IS NOT NULL) then 
+        insert into vendas (Data_ven, hota_ven, quantidade_ven, descricao_ven, valor_ven, recebimento_id_rec, Funcionario_id_fun)
+        values (dataVenda, hora, quantidade, descricao, valorVenda, recebimento_id_rec, Funcionario_id_fun);
+        select concat('A venda do dia ', dataVenda, ' foi salva com sucesso!') as Confirmacao;
+    else
+        select 'O campo Data da venda é obrigatório!' as Alerta;
+    end if;
+end;
+
+$$ delimiter ;
+
+call vendas_correta('2024-09-20', '23:09:00', 40, 'Coka 2l', 600, 1, 2);
+
+select * from vendas;
+  
+delimiter $$
+
+create procedure ingresso_correto (duracao TIME,tipo VARCHAR(45),valor FLOAT,hora TIME,nomeIng VARCHAR(45),dataInicial DATE,dataFinal DATE,formaPag VARCHAR(45))
+begin
+    if (nomeIng <> '') then
+        insert into ingresso (duracao_ing, tipo_ing, valor_ing, hora_ing, nome_ing, dataInicial_ing, dataFinal_ing, formaPag_ing)
+        values (duracao, tipo, valor, hora, nomeIng, dataInicial, dataFinal, formaPag);
+        select concat('O NOME ', nomeIng, ' foi salvo com sucesso!') as Confirmacao;
+    else
+        select 'O campo NOME é obrigatório!' as Alerta;
+    end if;
+end;
+$$ delimiter ;
+
+ #call ingresso_correto('03:20', 'cheia', 24.20, '12:30', 'cotia martins', '2022-05-17', '2022-05-18', 'cartao');
+
+#select * from ingresso;
+
+  delimiter $$
+create procedure login ( email varchar(90), usuario varchar(90), senha varchar(90), fk_func int)
+begin
+
+if (usuario <> '') and (senha <> '') then
+insert into login values (null, email , usuario, senha, fk_func);
+
+select 'login efetuado com sucesso!' as Confirmação;
+
+else 
+		select 'Os campos USUARIO e LOGIN são obrigatorios!' as Alerta;
+
+end if;
+end;
+$$ delimiter ;
+
+call login('augmen@gmail.com', 'fawe42', 'login123', 3);
+call login('gasd@gmail.com', 'onlineUser', '#0621', 1);
+call login('dfghdasfdfggd@gmail.com', 'jacksonUser', 'das521', 1);
+#select * from login;
+
+delimiter $$
+create procedure cliente (nome VARCHAR(50) , rg VARCHAR(45) ,cidade VARCHAR(45) ,uf VARCHAR(45) ,telefone VARCHAR(45) , email VARCHAR(45) ,cep VARCHAR(45) ,data_nasc DATE ,cpf VARCHAR(45) ,rua VARCHAR(45),senha VARCHAR(45) ,sexo VARCHAR(45) ,bairro VARCHAR(45), login_fk int, ing_fk int)
+begin
+
+if (nome <> '') and (rg <> '') and (cpf <> '') and (cep <> '') then
+insert into cliente values (null, nome, rg, cidade, uf, telefone, email, cep, data_nasc, cpf, rua, senha, sexo, bairro, login_fk, ing_fk);
+
+select 'Cliente cadastrado com sucesso!' as Confirmação;
+
+else 
+		select 'Os campos NOME, RG, CPF e CEP são obrigatorios!' as Alerta;
+
+end if;
+end;
+$$ delimiter ;
+
+call cliente  ('juana Silva','23 457 43-9','Ji-Paraná','RO','69 99205128','asss@gmail.com','15623 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Vila de Rondônia',1,2);
+call cliente  ('Stefany thaiis ','52 345 678-9','Arujá','ES','69 99342578','FANNY@gmail.com','01112 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Avenia Rossi',1,3);
+call cliente  ('lucas Silva','12 623 623-9','Brazabrantes','RJ','69 99202365','sad@gmail.com','01555 000','2001-08-21','34567889065','Aracacaju','2345t','Femenino','Vila Nova',1,2);
+ 
+ #select * from cliente;
+ 
+   delimiter $$
+create procedure recebimento ( descricao varchar(90), status_1 varchar(90), valor float, data_1 date,  cai_fk int)
+begin
+
+if (descricao <> '') and (status_1 <> '') then
+insert into recebimento values (null, descricao , status_1, valor, data_1, cai_fk);
+
+select 'Recebimento finalizado com sucesso!' as Confirmação;
+
+else 
+		select 'Os campos DESCRICAO e STATUS são obrigatorios!' as Alerta;
+
+end if;
+end;
+$$ delimiter ;
+
+call recebimento('JACKSON', 'pago', 14.50, '2023-10-09', 2);
+call Recebimento('Karol', 'Devendo', 131, '2022-08-11', 1);
+call Recebimento('Simonne', 'pago', 1313, '2023-03-19', 4);
+
+#select * from recebimento;
+
+  
+   #DELIMITER $$
+ #Create Procedure Recebimento ( descricao_rec VARCHAR(45),status_rec VARCHAR(45), valor_rec varchar(45), date_rec DATE,Caixa_fk int)
+  #Begin 
+
+ 
+	 #If(descricao_rec <> '') Then 
+    # Insert Into Recebimento Values (null, descricao, status_rec, valor_rec,  date_rec, caixa_fk);
+	
+	 #Select 'RECEBIMENTO CADASTRADO!' as Confirmação;
+        
+	 #Else
+	 #Select 'O campo esta incorreto!' as Alerta;
+ 
+	 #End if;
+ 
+  #End;
+ 
+ #$$ DELIMITER ;
+ 
+ #Call Recebimento('marco', null ,444, '2000-06-09', 2);
+
+
+
+ #Select * from Recebimento;
+
+  DELIMITER $$
+ Create Procedure Poltrona (fileira varchar(40),  numero INT,tipo varchar(100), local_pol varchar(100), Poltronacol VARCHAR(45), Sala_fk int, Ingresso_fk int )
+ Begin 
+
+ 
+	If(fileira <> '') Then 
+    Insert Into Poltrona Values (null, fileira, numero, tipo, local_pol, Poltronacol, Sala_fk , Ingresso_fk);
+	
+	Select 'POLTRONA CADASTRADA!' as Confirmação;
+        
+	Else
+	Select 'O campo esta incorreto!' as Alerta;
+ 
+	End if;
+ 
+ End;
+ 
+$$ DELIMITER ;
+ 
+Call Poltrona('', '2', 'pequena', 'sala 2', 2, 3,2);
+Call Poltrona('4', '2', 'pequena', 'sala 2', 2, 3,2);
+
+
+
+Select * from Poltrona;
+  
+  DELIMITER $$
+ Create Procedure Serie (nome Varchar(45),  genero Varchar(45), classificacao varchar(45), episodios Int, numero_temporadas int, quantidade int, data_lancamento varchar(45), sinopse varchar(45))
+ 
+ Begin 
+	IF (nome <> '' AND genero <> '' AND classificacao <> '' AND episodios IS NOT NULL
+        AND numero_temporadas IS NOT NULL AND quantidade IS NOT NULL
+        AND data_lancamento IS NOT NULL AND sinopse <> '') THEN 
+       Insert Into serie Values (nome, genero, classificacao, episodios, numero_temporadas, quantidade , data_lancamento , sinopse);
+	
+	Select 'SERIE CADASTRADA!' as Confirmação;
+        
+	Else
+	Select 'O campo esta incorreto!' as Alerta;
+ 
+	End if;
+ 
+ End;
+ 
+$$ DELIMITER ;
+ 
+#CALL Serie('tudo explosivo', 'acao', 'boa', 100, 2, 5, '2023-09-09', 'uma das melhores series de ação');
+#CALL Serie('acao','ação', 'boa', 100, 2, 5, '2023-09-09', 'uma das melhores series de ação');
+
+
+
+Select * from Serie;
