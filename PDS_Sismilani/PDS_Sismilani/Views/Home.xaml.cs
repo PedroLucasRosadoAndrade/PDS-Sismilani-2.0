@@ -1,5 +1,4 @@
 ﻿using PDS_Sismilani.Models;
-using PDS_Sismilani.Models
 using System;
 using System.Collections.Generic;
 using System.Linq;

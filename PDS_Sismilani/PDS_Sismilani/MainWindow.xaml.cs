@@ -67,5 +67,10 @@ namespace PDS_Sismilani
             TelaInicial form = new TelaInicial();
             form.ShowDialog();
         }
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {
+            var Home = new Home().ShowDialog();
+        }
     }
 }
