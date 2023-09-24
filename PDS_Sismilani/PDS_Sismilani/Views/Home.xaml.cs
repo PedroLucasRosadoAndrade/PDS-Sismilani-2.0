@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PDS_Sismilani.Models;
+using PDS_Sismilani.Models
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,29 @@ namespace PDS_Sismilani.Views
         public Home()
         {
             InitializeComponent();
+            Loaded += Home_Loaded;  
+
+              }
+
+        private void Home_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtDataAtual.Text = DateTime.UtcNow.ToString("dd/mm/yyyy");
+
+            List<Venda> listaVedas = new List<Venda>();
+
+            for (int i = 0; i < 30; i++)
+            {
+                listaVedas.Add(new Venda()
+                {
+                    Id = i + 1,
+                    Cliente = "Pedro -" + i,
+                    QuantidadesDeprodutos = 5 * i,
+                    valorTotal = 120.55 + i,
+                    situaca = "aberta"
+                });
+            }
+
+            dataGridVendas.ItemsSource = listaVedas;
         }
     }
 }
