@@ -47,8 +47,8 @@
         <StackPanel Margin="194,101,140,43" RenderTransformOrigin="0.507,0.512" Grid.Row="1" Grid.RowSpan="4">
             <StackPanel Orientation="Vertical" Width="194">
                 <Button x:Name="btListarCliente" Content="Listar Cliente" Width="168" Margin="10 10" FontWeight="Bold" Background="AliceBlue" />
-                <Button x:Name="btListarFilme" Content="Listar Filme" Width="167" Margin="10 10" FontWeight="Bold" Background="AliceBlue"  />
-                <Button x:Name="btListarFornecedor" Content="Listar Fornecedor" Width="168" Margin="10 10" FontWeight="Bold" Background="AliceBlue" />
+                <Button x:Name="btListarFilme" Content="Listar Filme" Width="167" Margin="10 10" FontWeight="Bold" Background="AliceBlue" Click="btListarFilme_Click"  />
+                <Button x:Name="btListarFornecedor" Content="Listar Fornecedor" Width="168" Margin="10 10" FontWeight="Bold" Background="AliceBlue" Click="btListarFornecedor_Click" />
                 <Button x:Name="btListarEstoque" Content="Listar Estoque" Width="173" Margin="10 10" FontWeight="Bold" Background="AliceBlue" Click="btListarEstoque_Click" />
                 <Button x:Name="btListarFuncionario" Content="Listar Funcionario" Width="172" Margin="10 10" FontWeight="Bold" Background="AliceBlue" Click="btListarFuncionario_Click"  />
                 <Button x:Name="btListarProdutora" Content="Listar Produtora" Width="174" Margin="10 10" FontWeight="Bold" Background="AliceBlue" />

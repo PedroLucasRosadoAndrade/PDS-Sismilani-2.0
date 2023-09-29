@@ -27,7 +27,7 @@
 
         <StackPanel DockPanel.Dock="Left" Width="160" Margin="5 0">
             <Image Source="/Imagens/Design - CineMilani.png" Width='60' Margin="-100 3 3 5" />
-            <Button Margin='0 2'>
+            <Button x:Name="btCliente" Margin='0 2' Click="btCliente_Click">
                 <StackPanel Orientation="Horizontal" Margin="0 0 80 0">
                     <Image Source="/Imagens/pessoas.png" Width='22' Margin="0 0 8 0"/>
                     <TextBlock Padding="5" >Cliente</TextBlock>

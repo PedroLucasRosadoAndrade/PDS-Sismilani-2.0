@@ -47,5 +47,11 @@ namespace PDS_Sismilani.Views
 
             dataGridVendas.ItemsSource = listaVedas;
         }
+
+        private void btCliente_Click(object sender, RoutedEventArgs e)
+        {
+           // Cliente form = new Cliente();
+            //form.
+        }
     }
 }

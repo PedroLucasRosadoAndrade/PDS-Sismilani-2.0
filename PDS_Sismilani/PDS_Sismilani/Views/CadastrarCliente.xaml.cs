@@ -77,7 +77,7 @@ namespace PDS_Sismilani.Views
                     var rua = TxtRua.Text;
                     var senha = TxtSenha.Text;
                     var sexo = "Feminino";
-                    var bairro = txtBairro.Text;
+                    //var bairro = txtBairro.Text;
                    
 
                     if ((bool)rdSexo1.IsChecked)
@@ -86,7 +86,7 @@ namespace PDS_Sismilani.Views
                     }
 
 
-                    string query = "INSERT INTO Funcionario (nome_cli, rg_cli, cidade_cli, uf_cli, telefone_cli, email_cli, cep_cli, data_nasc_cli, cpf_cli, rua_cli, senha_cli, sexo_cli, bairro_cli) VALUES (@_nome, @_rg, @_cidade, @_uf, @_telefone, @_email, @_cep, @_dataNasc,  @_cpf, @_sexo, @_rua, @_senha, @_sexo_cli, @_bairro)";
+                    string query = "INSERT INTO Funcionario (nome_cli, rg_cli, cidade_cli, uf_cli, telefone_cli, email_cli, cep_cli, data_nasc_cli, cpf_cli, rua_cli, senha_cli, sexo_cli) VALUES (@_nome, @_rg, @_cidade, @_uf, @_telefone, @_email, @_cep, @_dataNasc,  @_cpf, @_sexo, @_rua, @_senha, @_sexo_cli)";
                     var comando = new MySqlCommand(query, conexao);
 
                     comando.Parameters.AddWithValue("@_nome", nome);
@@ -101,7 +101,7 @@ namespace PDS_Sismilani.Views
                     comando.Parameters.AddWithValue("@_rua", rua);
                     comando.Parameters.AddWithValue("@_senha", senha);
                     comando.Parameters.AddWithValue("@_sexo", sexo);
-                    comando.Parameters.AddWithValue("@_bairro", bairro);
+                    //comando.Parameters.AddWithValue("@_bairro", bairro);
                     
 
                     comando.ExecuteNonQuery();
@@ -115,7 +115,7 @@ namespace PDS_Sismilani.Views
                     txtCpf.Clear();
                     TxtRua.Clear();
                     TxtSenha.Clear();
-                    txtBairro.Clear();
+                    //txtBairro.Clear();
                     dtPickerDataNascimento.IsEnabled = false;
                     rdSexo1.IsChecked = false;
                     rdSexo2.IsChecked = false;

@@ -5,42 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="CadastrarCliente" Height="776" Width="973" MinHeight="300" MinWidth="500">
+        Title="" Height="833" Width="1405" MinHeight="300" MinWidth="500">
 
-    <Grid Background="Black">
+
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="-85.914" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF985ECE"/>
+            <GradientStop Color="#FFB06AE8" Offset="1"/>
+            <GradientStop Color="#FF74AFE0" Offset="0.112"/>
+            <GradientStop Color="#FE939DFC" Offset="0.695"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid  Margin="4,0,0,17">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="56*"/>
-            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="234*"/>
+            <ColumnDefinition Width="233*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="266*"/>
             <RowDefinition Height="0*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="337*"/>
+            <RowDefinition Height="316*"/>
             <RowDefinition Height="66.271"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
-                   FontSize="24" FontWeight="Bold" Padding="5" Text="Dados Pessoais" Background="Red" Width="973" Foreground="White" Margin="0,0,0,21"/>
+                   FontSize="18" FontWeight="DemiBold" Padding="5" Background="#1E152A" Width="1408" Foreground="White" Margin="-4,0,0,24" Text="  Cadastrar Clientes" Grid.RowSpan="3"/>
 
-
-
-        <StackPanel Grid.Column="0" Margin="11,56,580,35" Orientation="Vertical" Height="NaN" Width="NaN" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Label FontSize="24" Content="Nome Completo" Width="647" Height="44" Foreground="White" FontWeight="Bold" />
+        <StackPanel Margin="175,0,187,39" Orientation="Horizontal" Grid.RowSpan="3">
+            <Menu Padding="5 8" Margin="2 0"  Background="#1E152A" Height="37">
+                <MenuItem x:Name="_Home" Header="Menu" Foreground="White">
+                    <MenuItem Header="Trocar _Usuário" Foreground="White"/>
+                    <MenuItem Header="_Sobre" Foreground="White"/>
+                    <Separator/>
+                    <MenuItem Header="_Sair do Sistema" Foreground="White"/>
+                </MenuItem>
+            </Menu>
+            <Menu Padding="5 8" Margin="2 0"  Background="#1E152A" Height="37">
+                <MenuItem Header="_Clientes" Foreground="White">
+                    <MenuItem Header="_Funcionarios" Foreground="White"/>
+                    <MenuItem Header="_Fornecedor" Foreground="White"/>
+                    <Separator/>
+                    <MenuItem Header="_Ingresso" Foreground="White"/>
+                </MenuItem>
+            </Menu>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="324,610,0,15" Width="608" Grid.ColumnSpan="2" Grid.RowSpan="3">
-            <Label FontSize="24" Content="Sexo" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" />
-            <RadioButton x:Name="rdSexo1" FontSize="19" Content="Masculino" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold"/>
-            <RadioButton x:Name="rdSexo2" FontSize="19" Content="Feminino" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold"/>
+        <StackPanel Margin="21,37,288,12" Orientation="Vertical" Height="NaN" Width="NaN" Grid.Row="2"/>
+        <TextBlock  FontSize="24" Margin="-135,41,497,8" Width="NaN" Height="NaN" Foreground="White" FontWeight="Bold" Grid.Row="2" ><Run Text="Endereço"/></TextBlock>
 
-        </StackPanel>
-        <TextBlock  FontSize="24" Margin="24,189,0,373" Width="NaN" Height="NaN" Foreground="White" Grid.Row="1" FontWeight="Bold" ><Run Text="Endereço"/></TextBlock>
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="324,610,0,15" Width="608" Grid.ColumnSpan="2" Grid.RowSpan="3">
-            <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Margin="5 5 10 5"/>
-            <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5"/>
-            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5" Click="btnSalvar_Click"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="24,143,0,57" Width="608" Grid.Column="1">
+            <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Height="78"/>
+            <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5" Height="80"/>
+            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5" Click="btnSalvar_Click" Height="86"/>
             <!--<Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -51,39 +79,9 @@
             </Button.RenderTransform>-->
 
         </StackPanel>
-        <Label FontSize="24" Content="CPF" Foreground="White" Margin="30,56,8,554" Grid.Column="1" Grid.RowSpan="2" FontWeight="Bold" />
-        <TextBox x:Name="txtCpf" FontSize="19" Text="" Margin="30,32,79,545" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
-
-        <Label FontSize="24" Content="E-mail" Foreground="White" Margin="43,82,-5,481" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
-        <TextBox x:Name="txtEmail" FontSize="19" Text="" Margin="30,136,79,439" Grid.Row="1" Grid.Column="1" Height="NaN" Width="NaN"/>
-
-        <Label FontSize="24" Content="CEP" Foreground="White" Margin="34,244,10,38" Grid.Row="1" Width="NaN" FontWeight="Bold" />
-        <ComboBox x:Name="txtCep" FontSize="19" Text="" Margin="39,283,580,295" Grid.Row="1" Height="NaN" Width="NaN" Grid.ColumnSpan="2" />
-
-        <ComboBox x:Name="txtUF" FontSize="19" Text=""  Margin="15,285,304,293" Grid.Row="1" Height="NaN" Width="NaN" Grid.Column="1"/>
-        <Label FontSize="24" Content="UF" Foreground="White" Margin="15,244,290,301" Grid.Row="1" Width="NaN" Grid.Column="1" FontWeight="Bold" />
-
-        <Label FontSize="24" Content="Cidade" Foreground="White" Margin="305,244,0,300" Grid.Column="1" Grid.Row="1" Width="NaN" FontWeight="Bold" />
-        <ComboBox x:Name="txtCidade" FontSize="19" Text="" Margin="305,283,19,294" Grid.Column="1" Grid.Row="1" Height="NaN" Width="NaN"/>
-
-        <Label FontSize="24" Content="Senha" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" />
-        <TextBox x:Name="TxtSenha" FontSize="19" Text=""  Margin="37,395,580,175" Grid.Row="1" Height="NaN" Width="NaN" Grid.ColumnSpan="2"/>
-
-        <Label FontSize="24" Content="Data de Nascimento" Foreground="White" Margin="66,354,-132,135" Grid.Row="1" Grid.Column="1" FontWeight="Bold" />
-        <DatePicker x:Name="dtPickerDataNascimento" FontSize="19" Text="" Margin="66,395,147,175" Grid.Row="1" Grid.Column="1" Width="NaN" Height="NaN"/>
 
         <!--<Label Content="Sexo" FontSize="24" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" Grid.Column="1"/>
         -->
-        <TextBox x:Name="TxtRG" FontSize="19" Text="" Margin="66,516,140,50" Grid.Row="1" Height="NaN" Width="NaN" Grid.Column="1"/>
-
-        <Label FontSize="24" Content="Bairro" Foreground="White" Margin="66,476,-17,38" Grid.Row="1" Grid.Column="1" Width="NaN" FontWeight="Bold" />
-        <TextBox x:Name="txtBairro" FontSize="19" Text="" Margin="66,516,140,50" Grid.Row="1" Height="NaN" Width="NaN" Grid.Column="1"/>
-
-        <Label FontSize="24" Content="Rua" Foreground="White" Margin="28,476,110,0" Grid.Row="1" Width="NaN" Height="NaN" Grid.RowSpan="3" FontWeight="Bold" />
-        <TextBox x:Name="TxtRua" FontSize="19" Text="" Margin="36,516,0,50" Grid.Row="1" Height="NaN" Width="NaN"/>
-        <TextBox x:Name="txtTelefone" FontSize="19" Text="" Margin="25,135,580,439" Grid.Row="1" Height="NaN" Width="NaN" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtNome" FontSize="19" Text="" Margin="18,29,6,545" Grid.Row="1" Height="NaN" Width="NaN"/>
-        <Label FontSize="24" Content="Telefone" Foreground="White" Margin="25,81,580,460" Grid.Row="1" FontWeight="Bold" Grid.ColumnSpan="2" />
 
 
 

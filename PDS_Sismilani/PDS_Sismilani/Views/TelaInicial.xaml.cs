@@ -35,5 +35,15 @@ namespace PDS_Sismilani.Views
             ListarEstoque form = new ListarEstoque();
             form.ShowDialog();
         }
+
+        private void btListarFilme_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btListarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
