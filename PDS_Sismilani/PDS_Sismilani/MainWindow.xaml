@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="MainWindow" MaxHeight="450" MaxWidth="450" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>
@@ -24,16 +24,24 @@
 
 
     <DockPanel >
-        <StackPanel DockPanel.Dock="Left" Width="100">
-            <Button Margin="0 5" Height="50" x:Name="btLogin" Click="btLogin_Click">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>dtfxh</TextBlock>
-                </StackPanel>
-            </Button>
+        <!--<Label DockPanel.Dock="Bottom" Content="Entrar" FontSize="16" Foreground="Wheat"/> -->
+        <StackPanel>
+            <TextBlock DockPanel.Dock="Right" Margin="0 80 0 0" Width="100" Height="20" Foreground="White" FontSize="17">Entrar</TextBlock>
+            <Label Content="Usuário" Foreground="White" Width="200" Margin="0 0" />
+            <TextBox Width="200" Margin=" 5 0 10 0"></TextBox>
+            <Label DockPanel.Dock="Bottom" Width="200" Content="senha" FontSize="16" Foreground="White" Margin="0 0"/>
+            <TextBox Width="200" Margin="5 0 10 0"></TextBox>
+            <StackPanel DockPanel.Dock="Left" Width="160">
+                <Button  Width="160" Height="30" Padding="5 0 20 0" Margin="5" x:Name="btLogin" Click="btLogin_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Logar</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
         </StackPanel>
-        <Label DockPanel.Dock="Bottom" Content="Entrar" FontSize="16" Foreground="Wheat"/>
-        <TextBlock Width="100" Height="20"/>
-        <Label DockPanel.Dock="Bottom" Content="senha" FontSize="16" Foreground="Wheat"/>
+        
+        
 
     </DockPanel>
     

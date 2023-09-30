@@ -31,7 +31,7 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
             Conexao();
-            txtNome.Focus();        
+            //txtNome.Focus();        
         }
 
         private void Conexao()
@@ -139,6 +139,11 @@ namespace PDS_Sismilani.Views
                 }
 
             } catch { }
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

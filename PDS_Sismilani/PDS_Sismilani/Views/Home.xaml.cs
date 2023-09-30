@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PDS_Sismilani.Views;
 
 namespace PDS_Sismilani.Views
 {
@@ -48,10 +50,14 @@ namespace PDS_Sismilani.Views
             dataGridVendas.ItemsSource = listaVedas;
         }
 
-        private void btCliente_Click(object sender, RoutedEventArgs e)
+        private void btnCliente_Click(object sender, RoutedEventArgs e)
         {
-           // Cliente form = new Cliente();
-            //form.
+            var CadastrarCliente = new CadastrarCliente().ShowDialog();
+        }
+
+        private void BtFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            var Funcinario = new Funcionario().ShowDialog();
         }
     }
 }

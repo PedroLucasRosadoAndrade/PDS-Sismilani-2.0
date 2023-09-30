@@ -67,7 +67,7 @@
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="24,143,0,57" Width="608" Grid.Column="1">
             <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Height="78"/>
-            <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5" Height="80"/>
+            <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5" Height="80" Click="btLimpar_Click"/>
             <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5" Click="btnSalvar_Click" Height="86"/>
             <!--<Button.RenderTransform>
                 <TransformGroup>

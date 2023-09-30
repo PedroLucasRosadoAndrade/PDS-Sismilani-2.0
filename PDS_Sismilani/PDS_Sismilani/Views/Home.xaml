@@ -27,13 +27,13 @@
 
         <StackPanel DockPanel.Dock="Left" Width="160" Margin="5 0">
             <Image Source="/Imagens/Design - CineMilani.png" Width='60' Margin="-100 3 3 5" />
-            <Button x:Name="btCliente" Margin='0 2' Click="btCliente_Click">
+            <Button x:Name="btCliente" Margin='0 2' Click="btnCliente_Click">
                 <StackPanel Orientation="Horizontal" Margin="0 0 80 0">
                     <Image Source="/Imagens/pessoas.png" Width='22' Margin="0 0 8 0"/>
                     <TextBlock Padding="5" >Cliente</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Margin='0 2'>
+            <Button Margin='0 2' Click="BtFuncionario_Click">
                 <StackPanel Orientation="Horizontal" Margin="0 0 40 0">
                     <Image Source="/Imagens/funcionario.png" Width='22' Margin="-10 0 8 0"/>
                     <TextBlock Padding="5 5 5 5" Width="70" >Funcionario</TextBlock>
