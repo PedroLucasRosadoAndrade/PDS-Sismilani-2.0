@@ -1,14 +1,12 @@
 ﻿<Window x:Class="PDS_Sismilani.Views.CadastrarCliente"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PDS_Sismilani.Views"
-        mc:Ignorable="d"
-        Title="" Height="833" Width="1405" MinHeight="300" MinWidth="500">
-
-
-    <Window.Background>
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500">
+    <!-- <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>
                 <TransformGroup>
@@ -18,72 +16,192 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
-            <GradientStop Color="#FF985ECE"/>
-            <GradientStop Color="#FFB06AE8" Offset="1"/>
             <GradientStop Color="#FF74AFE0" Offset="0.112"/>
             <GradientStop Color="#FE939DFC" Offset="0.695"/>
         </LinearGradientBrush>
     </Window.Background>
+    -->
 
-    <Grid  Margin="4,0,0,17">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="234*"/>
-            <ColumnDefinition Width="233*"/>
-        </Grid.ColumnDefinitions>
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30"
+     MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="32*"/>
-            <RowDefinition Height="49*"/>
-            <RowDefinition Height="337*"/>
-            <RowDefinition Height="316*"/>
-            <RowDefinition Height="66.271"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
+            <!--'Menu-->
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <!-- Botão -->
+                <Button Margin="20 28 0 35" Style="{StaticResource TopButton}">
+                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+                </Button>
+            </Grid>
+
+            <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Margin="1,67,2,-2">
+                <DockPanel>
+                    <TextBlock Text="Menu" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                     DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
+                    <TextBlock Text="Cadastrar Clientes" Foreground="#e1e1e1" FontSize="14" FontWeight="SemiBold"
+                     DockPanel.Dock="Top" TextAlignment="Center"/>
+
+                    <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
+
+                    <StackPanel DockPanel.Dock="Top">
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Home"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Filmes"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Produtoras"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Fornecedores"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="HumanGreeting" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Funcionarios"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="PackageVariantClosed" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Estoque"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MenuButton}" Width="137">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="produtos"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <!--Logout -->
+                    <Button Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
+                            <TextBlock Text="Sair"/>
+                        </StackPanel>
+                    </Button>
+                </DockPanel>
+            </Border>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            
+        </Grid>
+
+       
+
+
+        <!-- <Grid  Margin="54,30,46,9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="234*"/>
+                <ColumnDefinition Width="233*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="32*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="337*"/>
+                <RowDefinition Height="316*"/>
+                <RowDefinition Height="66.271"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
                    FontSize="18" FontWeight="DemiBold" Padding="5" Background="#1E152A" Width="1408" Foreground="White" Margin="-4,0,0,24" Text="  Cadastrar Clientes" Grid.RowSpan="3"/>
 
-        <StackPanel Margin="175,0,187,39" Orientation="Horizontal" Grid.RowSpan="3">
-            <Menu Padding="5 8" Margin="2 0"  Background="#1E152A" Height="37">
-                <MenuItem x:Name="_Home" Header="Menu" Foreground="White">
-                    <MenuItem Header="Trocar _Usuário" Foreground="White"/>
-                    <MenuItem Header="_Sobre" Foreground="White"/>
-                    <Separator/>
-                    <MenuItem Header="_Sair do Sistema" Foreground="White"/>
-                </MenuItem>
-            </Menu>
-            <Menu Padding="5 8" Margin="2 0"  Background="#1E152A" Height="37">
-                <MenuItem Header="_Clientes" Foreground="White">
-                    <MenuItem Header="_Funcionarios" Foreground="White"/>
-                    <MenuItem Header="_Fornecedor" Foreground="White"/>
-                    <Separator/>
-                    <MenuItem Header="_Ingresso" Foreground="White"/>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
+            <StackPanel Margin="175,0,187,39" Orientation="Horizontal" Grid.RowSpan="3">
+                <Menu Padding="5 8" Margin="2 0"  Background="#1E152A" Height="37">
+                    <MenuItem x:Name="_Home" Header="Menu" Foreground="White">
+                        <MenuItem Header="Trocar _Usuário" Foreground="White"/>
+                        <MenuItem Header="_Sobre" Foreground="White"/>
+                        <Separator/>
+                        <MenuItem Header="_Sair do Sistema" Foreground="White"/>
+                    </MenuItem>
+                </Menu>
+                <Menu Padding="5 8" Margin="2 0"  Background="#1E152A" Height="37">
+                    <MenuItem Header="_Clientes" Foreground="White">
+                        <MenuItem Header="_Funcionarios" Foreground="White"/>
+                        <MenuItem Header="_Fornecedor" Foreground="White"/>
+                        <Separator/>
+                        <MenuItem Header="_Ingresso" Foreground="White"/>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
 
-        <StackPanel Margin="21,37,288,12" Orientation="Vertical" Height="NaN" Width="NaN" Grid.Row="2"/>
-        <TextBlock  FontSize="24" Margin="-135,41,497,8" Width="NaN" Height="NaN" Foreground="White" FontWeight="Bold" Grid.Row="2" ><Run Text="Endereço"/></TextBlock>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="31,48,0,292" Width="156" Grid.RowSpan="2">
+                <TextBlock FontSize="24" Foreground="Black" FontStyle="Normal" FontWeight="Bold" Height="35" FontFamily="Arial Rounded MT Bold"><Run Text="Cliente"/><Run Language="pt-br" Text="s"/></TextBlock>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="24,143,0,57" Width="608" Grid.Column="1">
-            <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Height="78"/>
-            <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5" Height="80" Click="btLimpar_Click"/>
-            <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5" Click="btnSalvar_Click" Height="86"/>
-            <!--<Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.397"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>-->
+            <DataGrid Grid.Row="3" Margin="36,165,653,92" x:Name="dataGridClientes" IsReadOnly="False" 
+          AutoGenerateColumns="False" Background="Transparent" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header=" N° " Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="       Cliente" Binding="{Binding cliente}"/>
+                    <DataGridTextColumn Header="    Telefone" Binding="{Binding telefone}"/>
+                    <DataGridTextColumn Header="     Email" Binding="{Binding email}"/>
+                    <DataGridTextColumn Header="    Endereço" Binding="{Binding endereco}"/>
 
-        </StackPanel>
+                    <DataGridTemplateColumn Header=" Ações ">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="Blue">Editar Informações</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
 
-        <!--<Label Content="Sexo" FontSize="24" Foreground="White" Margin="28,354,24,64" Grid.Row="1" Width="NaN" FontWeight="Bold" Grid.Column="1"/>
-        -->
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="34,64,0,193" Width="214">
+                <Button x:Name="btCancela" Content="Novo CLiente" Width="202"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FF90DD7E" Height="47" RenderTransformOrigin="0.615,0.567"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" Height="NaN" Margin="22,249,0,17" Width="608" Grid.Column="1" Grid.RowSpan="2">
+                <Button x:Name="btCancelar_Copiar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Height="78"/>
+                <Button x:Name="btCancelar" Content="CANCELAR" Width="195"  Foreground="Black" FontWeight="Bold" FontSize="24" Background="#FFC94F34" Height="78"/>
+                <Button x:Name="btLimpar" Content="LIMPAR" Width="195" Background="White"  Foreground="Black" FontWeight="Bold"  FontSize="24" Margin="5 5 10 5" Height="80" Click="btLimpar_Click"/>
+                <Button x:Name="btnSalvar" Content="SALVAR" Width="202" Foreground="Black" FontWeight="Bold"  FontSize="24" Background="#FF90DD7E" Margin="5 5 5 5" Click="btnSalvar_Click" Height="86"/>
+            </StackPanel>
 
 
+        </Grid> -->
+    </Border>
 
-    </Grid>
 </Window>
+      
