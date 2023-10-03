@@ -8,30 +8,33 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using PDS_Sismilani.DataBase;
 using System.Windows.Media.TextFormatting;
+using PDS_Sismilani.Models;
 
 namespace PDS_Sismilani.Views
 {
-    public partial class CadastrarCliente : Window
+    public partial class CadastrarClientes : Window
+
     {
-       MySqlConnection conexao;
+        MySqlConnection conexao;
 
         MySqlCommand comando;
 
-        public CadastrarCliente()
+        public CadastrarClientes()
         {
-            InitializeComponent();
+            //InitializeComponent();
             Conexao();
             //txtNome.Focus();        
         }
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e) //esse
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
             }
         }
+
         private bool IsMaximized = false;
-        private void Border_MouseLeftButtonDown(object  sender, MouseButtonEventArgs e) // e esse trecho estão fazendo a responsividade da tela 
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) // e esse trecho estão fazendo a responsividade da tela 
         {
             if (e.ClickCount == 2)
             {
@@ -62,16 +65,46 @@ namespace PDS_Sismilani.Views
             conexao.Open();
         }
 
-        private void LimparImputs()
-        {
-
-        }
-        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        private void clientesDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
         }
 
-        
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var Home = new Home().ShowDialog();
+        }
+
+        private void Btfilmes_Click(object sender, RoutedEventArgs e)
+        {
+            var Cadastrarfilme = new CadastrarFilme().ShowDialog();
+
+        }
+
+        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var CadastrarFornecedor = new CadastrarFornecedor().ShowDialog();
+        }
+
+        private void Btprodutora_Click(object sender, RoutedEventArgs e)
+        {
+            var CadastrarProdutora = new Produtora().ShowDialog();
+        }
+
+        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+            var CadastrarFuncionario = new Funcionario().ShowDialog();
+        }
+
+        private void Btestoque_Click(object sender, RoutedEventArgs e)
+        {
+            var CadastrarEstoque = new Estoque().ShowDialog();
+        }
+
+        private void Btprodutos_Click(object sender, RoutedEventArgs e)
+        {
+            //var CadastrarProdutos = new Produto().
+        }
+
     }
 }
