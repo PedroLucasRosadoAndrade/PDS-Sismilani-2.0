@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
         Title="Sismilani" MinHeight="700" MinWidth="1300" WindowStartupLocation="CenterScreen" WindowState="Maximized" >
+    
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>

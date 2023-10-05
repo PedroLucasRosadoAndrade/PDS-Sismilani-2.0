@@ -32,7 +32,7 @@
             <Label DockPanel.Dock="Bottom" Width="200" Content="senha" FontSize="16" Foreground="White" Margin="0 0"/>
             <TextBox Width="200" Margin="5 0 10 0"></TextBox>
             <StackPanel DockPanel.Dock="Left" Width="160">
-                <Button  Width="160" Height="30" Padding="5 0 20 0" Margin="5" x:Name="btLogin" Click="btLogin_Click">
+                <Button  Width="155" Height="30" Padding="5 0 20 0" Margin="5" x:Name="btLogin" Click="btLogin_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>Logar</TextBlock>
                     </StackPanel>

@@ -9,22 +9,24 @@ using MySql.Data.MySqlClient;
 using PDS_Sismilani.DataBase;
 using System.Windows.Media.TextFormatting;
 using PDS_Sismilani.Models;
+using System;
 
 namespace PDS_Sismilani.Views
 {
-    public partial class CadastrarClientes : Window
+    public partial class CadastrarCliente : Window
 
     {
         MySqlConnection conexao;
 
         MySqlCommand comando;
 
-        public CadastrarClientes()
+        public CadastrarCliente()
         {
-            //InitializeComponent();
+            InitializeComponent();
             Conexao();
             //txtNome.Focus();        
         }
+
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -70,41 +72,14 @@ namespace PDS_Sismilani.Views
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var Home = new Home().ShowDialog();
-        }
-
-        private void Btfilmes_Click(object sender, RoutedEventArgs e)
-        {
-            var Cadastrarfilme = new CadastrarFilme().ShowDialog();
-
-        }
-
-        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
-        {
-            var CadastrarFornecedor = new CadastrarFornecedor().ShowDialog();
-        }
-
-        private void Btprodutora_Click(object sender, RoutedEventArgs e)
-        {
-            var CadastrarProdutora = new Produtora().ShowDialog();
-        }
-
-        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
-        {
-            var CadastrarFuncionario = new Funcionario().ShowDialog();
-        }
-
-        private void Btestoque_Click(object sender, RoutedEventArgs e)
-        {
-            var CadastrarEstoque = new Estoque().ShowDialog();
-        }
-
+     
         private void Btprodutos_Click(object sender, RoutedEventArgs e)
         {
             //var CadastrarProdutos = new Produto().
         }
 
+
+
     }
+
 }

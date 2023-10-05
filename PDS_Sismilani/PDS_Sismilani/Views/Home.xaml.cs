@@ -52,7 +52,8 @@ namespace PDS_Sismilani.Views
 
         private void btnCliente_Click(object sender, RoutedEventArgs e)
         {
-            var CadastrarCliente = new CadastrarCliente().ShowDialog();
+            
+           var CadastrarClientes = new CadastrarCliente().ShowDialog();
         }
 
         private void BtFuncionario_Click(object sender, RoutedEventArgs e)

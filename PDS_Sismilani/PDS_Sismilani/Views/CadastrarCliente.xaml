@@ -4,14 +4,15 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized"
         AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooToVis"/>
     </Window.Resources>
+    
 
-    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30"
-     MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
 
         <Grid x:Name="CadastrarClientes">
             <Grid.ColumnDefinitions>
@@ -19,7 +20,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!--'Menu-->
+            <!--'Menu
+            
+            MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown"
+            
+            -->
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -44,43 +49,43 @@
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" Click="Button_Click">
+                        <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Home"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes_Click">
+                        <Button x:Name="Btfilmes" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Filmes"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora_Click">
+                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Produtoras"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137" Click="Btfornecedores_Click">
+                        <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Fornecedores"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137" Click="Btfuncionarios_Click">
+                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HumanGreeting" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Funcionarios"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137" Click="Btestoque_Click">
+                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageVariantClosed" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Estoque"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btprodutos" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutos_Click">
+                        <Button x:Name="Btprodutos" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="produtos"/>
@@ -112,7 +117,7 @@
                 <!-- Barra de pesquisa -->
                 <Grid Width="300" HorizontalAlignment="Left">
                     <TextBlock Margin="20,0,36,0" VerticalAlignment="Center" Background="#fffff6" IsHitTestVisible="False"
-                  Panel.ZIndex="1" Text="Buscar ..." Visibility="{Binding ElementName=txtPesquisa, Path=Text.IsEmpty, Converter={StaticResource BooToVis}}"/>
+                  Panel.ZIndex="1" Text="Buscar ..." Visibility="{Binding ElementName=txtPesquisa, Converter={StaticResource BooToVis}}"/>
 
                     <TextBox x:Name="txtPesquisa" Style="{StaticResource TextBoxPesquisa}"/>
 
@@ -135,7 +140,7 @@
                 <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
 
                 <!--Clientes DataGrid-->
-                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid" SelectionChanged="clientesDataGrid_SelectionChanged">
+                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto"/>
 
@@ -211,8 +216,7 @@
                 </Border>
 
             </Grid>
-
-
+            
         </Grid>
         
     </Border>
