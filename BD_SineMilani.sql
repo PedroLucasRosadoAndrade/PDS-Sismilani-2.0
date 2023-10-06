@@ -291,32 +291,27 @@ create table cliente(
  id_cli int  primary key auto_increment ,
   nome_cli VARCHAR(50) ,
   rg_cli VARCHAR(45) ,
-  cidade_cli VARCHAR(45) ,
-  uf_cli VARCHAR(45) ,
   telefone_cli VARCHAR(45) ,
   email_cli VARCHAR(45) ,
-  cep_cli VARCHAR(45) ,
   data_nasc_cli DATE ,
   cpf_cli VARCHAR(45) ,
-  rua_cli VARCHAR(45) ,
-  senha_cli VARCHAR(45) ,
   sexo_cli VARCHAR(45) ,
-  bairro_cli VARCHAR(45),
+  endereco_cli varchar(100),
    id_log_fk int,
    foreign key(id_log_fk) references login (id_log),
    id_ing_fk int,
    foreign key(id_ing_fk) references ingresso (id_ing)
   );
-  insert into cliente values (null,'Ana Silva','12 345 678-9','Ji-Paraná','RO','69 99205678','ana@gmail.com','01153 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Vila de Rondônia',1,2);
-  insert into cliente values (null,'Dhenifer Silva','12 345 678-9','Arujá','SP','69 99305678','dhenifer@gmail.com','01153 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Avenia Rossi',1,3);
-  insert into cliente values (null,'Pedro Silva','17 545 678-9','Brazabrantes','GO','69 99205678','pedro@gmail.com','01153 000','2001-08-21','34567889065','Aracacaju','2345t','Femenino','Vila Nova',1,2);
-  insert into cliente values (null,'Sabrina Silva','12 785 078-7','Salvador','BH','69 99255678','sabrina@gmail.com','01153 000','2008-08-21','34567889065','Rio Amazonas','2345t','Femenino','São Martins',2,3);
-  insert into cliente values (null,'Tainara Silva','18 305 328-1','Barueri.','SP','69 99205458','tainara@gmail.com','01153 000','2009-08-21','34567889065','Rio Amazonas','2345t','Femenino','São Lucas',2,3);
-  insert into cliente values (null,'Nathália Silva','12 245 618-3','Biritiba Mirim.','SP','69 99205678','nathalia@gmail.com','01153 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Avenia sete de setembro',2,3);
-  insert into cliente values (null,'Raylany Silva','32 145 342-9','Cajamar.','SP','69 99204578','raybaly@gmail.com','01153 000','2002-08-21','34567889065','Rio Amazonas','2345t','Femenino','Avenida Brasilia',2,3);
-  insert into cliente values (null,'Marcos Silva','82 245 889-1','Cotia.','SP','69 99123678','marcos@gmail.com','01153 000','2004-08-21','34567889065','Rio Amazonas','2345t','Femenino','Avenida Natalino ',3,4);
-  insert into cliente values (null,'Bárbara Silva','16 349 878-6','Manaus','AM','69 99123678','barbara@gmail.com','01153 000','2006-08-21','34567889065','Rio Amazonas','2345t','Femenino','Vila de Rondônia',1,2);
-  insert into cliente values (null,'Nicolau Silva','11 545 688-7','Machadinho','RO','69 99805978','nico@gmail.com','01153 000','2003-08-21','34567889065','Rio Amazonas','2345t','Femenino','Vila de Rondônia',1,2);
+  insert into cliente values (null,'Ana Silva','12 345 678-9','69 99205678','ana@gmail.com','2005-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
+  insert into cliente values (null,'Dhenifer Silva','12 345 678-9','69 99305678','dhenifer@gmail.com','2005-08-21','34567889065','Femenino','Avenia Rossi',1,3);
+  insert into cliente values (null,'Pedro Silva','17 545 678-9','69 99205678','pedro@gmail.com','2001-08-21','34567889065','Femenino','Vila Nova',1,2);
+  insert into cliente values (null,'Sabrina Silva','12 785 078-7','69 99255678','sabrina@gmail.com','2008-08-21','34567889065','Femenino','São Martins',2,3);
+  insert into cliente values (null,'Tainara Silva','18 305 328-1','69 99205458','tainara@gmail.com','2009-08-21','34567889065','Femenino','São Lucas',2,3);
+  insert into cliente values (null,'Nathália Silva','12 245 618-3','69 99205678','nathalia@gmail.com','2005-08-21','34567889065','Femenino','Avenia sete de setembro',2,3);
+  insert into cliente values (null,'Raylany Silva','32 145 342-9','69 99204578','raybaly@gmail.com','2002-08-21','34567889065','Femenino','Avenida Brasilia',2,3);
+  insert into cliente values (null,'Marcos Silva','82 245 889-1','69 99123678','marcos@gmail.com','2004-08-21','34567889065','Femenino','Avenida Natalino ',3,4);
+  insert into cliente values (null,'Bárbara Silva','16 349 878-6','69 99123678','barbara@gmail.com','2006-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
+  insert into cliente values (null,'Nicolau Silva','11 545 688-7','69 99805978','nico@gmail.com','2003-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
   
 select * from cliente;
 
@@ -628,11 +623,11 @@ call login('dfghdasfdfggd@gmail.com', 'jacksonUser', 'das521', 1);
 #select * from login;
 
 delimiter $$
-create procedure cliente (nome VARCHAR(50) , rg VARCHAR(45) ,cidade VARCHAR(45) ,uf VARCHAR(45) ,telefone VARCHAR(45) , email VARCHAR(45) ,cep VARCHAR(45) ,data_nasc DATE ,cpf VARCHAR(45) ,rua VARCHAR(45),senha VARCHAR(45) ,sexo VARCHAR(45) ,bairro VARCHAR(45), login_fk int, ing_fk int)
+create procedure cliente (nome VARCHAR(50) , rg VARCHAR(45) ,telefone VARCHAR(45) , email VARCHAR(45) ,data_nasc DATE ,cpf VARCHAR(45) ,sexo VARCHAR(45), endereco varchar(100), login_fk int, ing_fk int)
 begin
 
-if (nome <> '') and (rg <> '') and (cpf <> '') and (cep <> '') then
-insert into cliente values (null, nome, rg, cidade, uf, telefone, email, cep, data_nasc, cpf, rua, senha, sexo, bairro, login_fk, ing_fk);
+if (nome <> '') and (rg <> '') and (cpf <> '') then
+insert into cliente values (null, nome, rg, telefone, email, data_nasc, cpf, sexo, endereco,  login_fk, ing_fk);
 
 select 'Cliente cadastrado com sucesso!' as Confirmação;
 
@@ -643,9 +638,9 @@ end if;
 end;
 $$ delimiter ;
 
-call cliente  ('juana Silva','23 457 43-9','Ji-Paraná','RO','69 99205128','asss@gmail.com','15623 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Vila de Rondônia',1,2);
-call cliente  ('Stefany thaiis ','52 345 678-9','Arujá','ES','69 99342578','FANNY@gmail.com','01112 000','2005-08-21','34567889065','Rio Amazonas','2345t','Femenino','Avenia Rossi',1,3);
-call cliente  ('lucas Silva','12 623 623-9','Brazabrantes','RJ','69 99202365','sad@gmail.com','01555 000','2001-08-21','34567889065','Aracacaju','2345t','Femenino','Vila Nova',1,2);
+call cliente  ('juana Silva','23 457 43-9','69 99205128','asss@gmail.com','2005-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
+call cliente  ('Stefany thaiis ','52 345 678-9','69 99342578','FANNY@gmail.com','2005-08-21','34567889065','Femenino','Avenia Rossi',1,3);
+call cliente  ('lucas Silva','12 623 623-9','69 99202365','sad@gmail.com','2001-08-21','34567889065','Femenino','Vila Nova',1,2);
  
  #select * from cliente;
  

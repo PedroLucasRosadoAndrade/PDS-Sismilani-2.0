@@ -49,7 +49,7 @@
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Home"/>
@@ -128,7 +128,7 @@
 
                 <TextBlock Text="Clientes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button  Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="Button_Click">
+                <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="ADD Novo Cliente"/>
@@ -169,11 +169,11 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
 
-                                        <Button Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
+                                        <Button Name="btSalvar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
 
-                                        <Button Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0">
+                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
                                         

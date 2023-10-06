@@ -83,6 +83,11 @@ namespace PDS_Sismilani.Views
                // telefone = txt
            // }
         }
+        private void btHome_Click(object sender, RoutedEventArgs e)
+        {
+            var home = new Home();
+            home.ShowDialog();
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
