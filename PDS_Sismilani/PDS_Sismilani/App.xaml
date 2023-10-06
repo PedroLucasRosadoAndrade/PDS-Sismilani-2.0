@@ -150,14 +150,15 @@
         </Style>
 
         
-        <!-- estilo do dataGrid-->
-
+        <!-- estilo do dataGrid -->
+        
         <Style x:Key="GridEditButton" TargetType="Button">
             <Setter Property= "Background" Value="#512da8"/>
             <Setter Property= "BorderBrush" Value="#4a148c"/>
             <Setter Property= "Foreground" Value="#ffffff"/>
             <Setter Property= "FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property= "VerticalAlignment" Value="Center"/>
+ 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -178,7 +179,7 @@
         <Style x:Key="GridDeletarButton" TargetType="Button" BasedOn="{StaticResource GridEditButton}">
             <Setter Property= "Background" Value="#d32f2f"/>
             <Setter Property= "BorderBrush" Value="#b71c1c"/>
-           
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#f44336"/>
@@ -187,7 +188,7 @@
 
         </Style>
 
-        <Style x:Name="gridButtonIcon" TargetType="Icon:PackIconMaterial">
+        <Style x:Key="gridButtonIcon" TargetType="Icon:PackIconMaterial">
             <Setter Property="Width" Value="12"/>
             <Setter Property="Height" Value="12"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -385,11 +386,13 @@
                 </MultiTrigger>
 
             </Style.Triggers>
-        </Style>
+        </Style> 
 
         
         
         <!-- estilo do dataGrid-->
+        
+
 
 
     </Application.Resources>

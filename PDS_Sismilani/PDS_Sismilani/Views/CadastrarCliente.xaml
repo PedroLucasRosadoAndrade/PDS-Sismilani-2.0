@@ -128,7 +128,7 @@
 
                 <TextBlock Text="Clientes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button  Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1">
+                <Button  Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="ADD Novo Cliente"/>
@@ -164,19 +164,19 @@
                         <DataGridTextColumn Header="CPF" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Endereço" IsReadOnly="True" Width="*"/>
 
-                        <DataGridTemplateColumn Header="Funções" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
 
-                                        <Button Style="{StaticResource GridEditButton}">
+                                        <Button Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
 
-                                        <Button Style="{StaticResource GridDeletarButton}">
+                                        <Button Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
-
+                                        
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
@@ -209,6 +209,8 @@
                         <Button Style="{StaticResource PagButton}">
                             <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource PagButtonIcon}"/>
                         </Button>
+                        
+                        
 
                     </StackPanel>
 

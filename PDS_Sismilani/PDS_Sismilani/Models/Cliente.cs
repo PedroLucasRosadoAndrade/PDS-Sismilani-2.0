@@ -8,12 +8,14 @@ namespace PDS_Sismilani.Models
 {
     internal class Cliente
     {
+        public string id {  get; set; }
         public string nome { get; set; }
         public string rg { get; set; }
         public string cidade { get; set; }
         public string uf { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
+        public string cep { get; set; }
         public DateTime? dataNasc { get; set; }
         public string cpf { get; set; }
         public string rua { get; set; }

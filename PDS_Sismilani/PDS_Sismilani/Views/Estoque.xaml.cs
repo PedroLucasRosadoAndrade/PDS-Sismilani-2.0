@@ -71,7 +71,7 @@ namespace PDS_Sismilani.Views
                 txtUnidade.Clear();
                 txtValor.Clear();
 
-                var opcao = MessageBox.Show("Salvo com sucesso!\nDeseja realizar um novo cadastro?", "Informação", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var opcao = MessageBox.Show("Salvo com sucesso! \n Deseja realizar um novo cadastro?", "Informação", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (opcao == MessageBoxResult.Yes)
                 {
