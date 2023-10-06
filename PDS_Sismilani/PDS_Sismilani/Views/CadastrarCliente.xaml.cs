@@ -50,17 +50,12 @@ namespace PDS_Sismilani.Views
                     id = reader.GetString("id_cli"),
                     nome = reader.GetString("nome_cli"),
                     rg = reader.GetString("rg_cli"),
-                    cidade = reader.GetString("cidade_cli"),
-                    uf = reader.GetString("uf_cli"),
                     telefone = reader.GetString("telefone_cli"),
                     email = reader.GetString("email_cli"),
-                    cep = reader.GetString("cep_cli"),
                     dataNasc = reader.GetDateTime("data_nasc_cli"),
                     cpf = reader.GetString("cpf_cli"),
-                    rua = reader.GetString("rua_cli"),
-                    senha = reader.GetString("senha_cli"),
                     sexo = reader.GetString("sexo_cli"),
-                    bairro = reader.GetString("bairro_cli"),
+                    endereco = reader.GetString("endereco_cli"),
                     id_log_fk = reader.GetString("id_log_fk"),
                     id_ing_fk = reader.GetString("id_ing_fk")
                  });
@@ -72,22 +67,123 @@ namespace PDS_Sismilani.Views
         }
 
         //add novo
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //cria novo cliente
+            // Crie um novo cliente com os dados fornecidos pelo usuário
+            Cliente novoCliente = new Cliente
+            {
+                Nome = txtNome.Text,
+                Telefone = txtTelefone.Text,
+                Email = txtEmail.Text
+                // Configure outras propriedades conforme necessário
+            };
 
-           // Cliente novoCliente = Cliente{
+        }
+            //add novo
 
-            //    nome = txtNome.Text,
-               // telefone = txt
-           // }
+            private void Button_Click(object sender, RoutedEventArgs e)
+            {
+            string query = "INSERT INTO Cliente (nome_cli, rg_cli, telefone_cli, email_cli,  data_nasc_cli, cpf_cli, sexo_cli, endereco_cli,id_log_fk, id_ing_fk) " +
+                "VALUES (@_nome, @_rg, @_telefone, @_email,@_DTNacimento, @_cpf, @_sexo, @_endereco, @_fk_log, @_fk_ing)";
+            using (MySqlCommand comando = new MySqlCommand(query, conexao))
+            {
+                comando.Parameters.AddWithValue("@_nome", cliente.nome);
+                comando.Parameters.AddWithValue("@_cidade", cliente.Telefone);
+                comando.Parameters.AddWithValue("@_telefone", cliente.Email);
+                comando.Parameters.AddWithValue("@_email", cliente.Email);
+                comando.Parameters.AddWithValue("@_cep", cliente.Email);
+                comando.Parameters.AddWithValue("@_DTNascimento", cliente.Email);
+                comando.Parameters.AddWithValue("@_cpf", cliente.Email);
+                comando.Parameters.AddWithValue("@_rua", cliente.Email);
+                comando.Parameters.AddWithValue("@_cpf", cliente.Email);
+                comando.Parameters.AddWithValue("@_cpf", cliente.Email);
+
+                conexao.Open();
+                comando.ExecuteNonQuery();
+            }
+            try
+            {
+                var data = datePickerData.SelectedDate;
+                var unidade = txtUnidade.Text;
+                var categoria = txtCategoria.Text;
+                var valor = txtValor.Text;  // Obtenha o texto do TextBox
+
+                string query = "insert into Estoque (unidade_est, categoria_est, data_est, valor_est) VALUES (@_unidade, @_categoria, @_data, @_valor)";
+                var comando = new MySqlCommand(query, conexao);
+
+                comando.Parameters.AddWithValue("@_unidade", unidade);
+                comando.Parameters.AddWithValue("@_categoria", categoria);
+                comando.Parameters.AddWithValue("@_data", data);
+
+                decimal value;
+                if (Decimal.TryParse(valor, out value))  // Converta o valor para decimal
+                {
+                    comando.Parameters.AddWithValue("@_valor", value);
+                }
+                else
+                {
+                    MessageBox.Show("Valor não é um número válido.");
+                    return;
+                }
+
+                comando.ExecuteNonQuery();
+                txtCategoria.Clear();
+                datePickerData.IsEnabled = false;
+                txtUnidade.Clear();
+                txtValor.Clear();
+
+                var opcao = MessageBox.Show("Salvo com sucesso! \n Deseja realizar um novo cadastro?", "Informação", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (opcao == MessageBoxResult.Yes)
+                {
+                    LimparInputs();
+                    MainWindow form = new MainWindow();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
             var home = new Home();
             home.ShowDialog();
         }
+
+        private void Btfilmes_Click(object sender, RoutedEventArgs e)
+        {
+            var CadFilme = new CadastrarFilme(); 
+            CadFilme.ShowDialog();
+        }
+        private void Btprodutora_Click(object sender, RoutedEventArgs e)
+        {
+            var CadProdutora = new Produtora();
+            CadProdutora.ShowDialog();
+        }
+        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var CadFornecedores = new CadastrarFornecedor();
+            CadFornecedores.ShowDialog();
+        }
+        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+            var CadFuncionario = new Funcionario();
+            CadFuncionario.ShowDialog();
+        }
+        private void Btestoque_Click(object sender, RoutedEventArgs e)
+        {
+            var CadEstoque = new Estoque();
+            CadEstoque.ShowDialog();
+        }
+
+        // ----------------------------------------------- Otimização de tela -----------------------------------------------
+
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -95,6 +191,7 @@ namespace PDS_Sismilani.Views
                 this.DragMove();
             }
         }
+        
 
         private bool IsMaximized = false;
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) // e esse trecho estão fazendo a responsividade da tela 

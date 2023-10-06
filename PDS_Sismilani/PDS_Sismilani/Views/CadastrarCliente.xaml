@@ -55,31 +55,31 @@
                                 <TextBlock Text="Home"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfilmes" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Filmes"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Produtoras"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137" Click="Btfornecedores_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Fornecedores"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137">
+                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137" Click="Btfuncionarios_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HumanGreeting" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Funcionarios"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137" Click="Btestoque_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageVariantClosed" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Estoque"/>
@@ -140,7 +140,7 @@
                 <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
 
                 <!--Clientes DataGrid-->
-                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid">
+                <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto"/>
 
