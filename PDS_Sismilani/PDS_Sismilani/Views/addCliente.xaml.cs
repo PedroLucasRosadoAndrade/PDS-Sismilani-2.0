@@ -23,5 +23,10 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
         }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
