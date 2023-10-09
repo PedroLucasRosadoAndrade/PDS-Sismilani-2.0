@@ -73,73 +73,8 @@ namespace PDS_Sismilani.Views
             var addCli = new addCliente();
             addCli.ShowDialog();
             
-            /* string query = "INSERT INTO Cliente (nome_cli, rg_cli, telefone_cli, email_cli,  data_nasc_cli, cpf_cli, sexo_cli, endereco_cli,id_log_fk, id_ing_fk) " +
-                 "VALUES (@_nome, @_rg, @_telefone, @_email,@_DTNacimento, @_cpf, @_sexo, @_endereco, @_fk_log, @_fk_ing)";
-             using (MySqlCommand comando = new MySqlCommand(query, conexao))
-             {
-                /* comando.Parameters.AddWithValue("@_nome", cliente.nome);
-                 comando.Parameters.AddWithValue("@_cidade", cliente.Telefone);
-                 comando.Parameters.AddWithValue("@_telefone", cliente.Email);
-                 comando.Parameters.AddWithValue("@_email", cliente.Email);
-                 comando.Parameters.AddWithValue("@_cep", cliente.Email);
-                 comando.Parameters.AddWithValue("@_DTNascimento", cliente.Email);
-                 comando.Parameters.AddWithValue("@_cpf", cliente.Email);
-                 comando.Parameters.AddWithValue("@_rua", cliente.Email);
-                 comando.Parameters.AddWithValue("@_cpf", cliente.Email);
-                 comando.Parameters.AddWithValue("@_cpf", cliente.Email);*/
-
-            // conexao.Open();
-            // comando.ExecuteNonQuery();
+            
         }
-        /* try
-        {
-            var data = datePickerData.SelectedDate;
-            var unidade = txtUnidade.Text;
-            var categoria = txtCategoria.Text;
-            var valor = txtValor.Text;  // Obtenha o texto do TextBox
-
-            string query = "insert into Estoque (unidade_est, categoria_est, data_est, valor_est) VALUES (@_unidade, @_categoria, @_data, @_valor)";
-            var comando = new MySqlCommand(query, conexao);
-
-            comando.Parameters.AddWithValue("@_unidade", unidade);
-            comando.Parameters.AddWithValue("@_categoria", categoria);
-            comando.Parameters.AddWithValue("@_data", data);
-
-            decimal value;
-            if (Decimal.TryParse(valor, out value))  // Converta o valor para decimal
-            {
-                comando.Parameters.AddWithValue("@_valor", value);
-            }
-            else
-            {
-                MessageBox.Show("Valor não é um número válido.");
-                return;
-            }
-
-            comando.ExecuteNonQuery();
-            txtCategoria.Clear();
-            datePickerData.IsEnabled = false;
-            txtUnidade.Clear();
-            txtValor.Clear();
-
-            var opcao = MessageBox.Show("Salvo com sucesso! \n Deseja realizar um novo cadastro?", "Informação", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (opcao == MessageBoxResult.Yes)
-            {
-                LimparInputs();
-                MainWindow form = new MainWindow();
-                form.ShowDialog();
-            }
-            else
-            {
-                this.Close();
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        } */
-
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
             var home = new Home();

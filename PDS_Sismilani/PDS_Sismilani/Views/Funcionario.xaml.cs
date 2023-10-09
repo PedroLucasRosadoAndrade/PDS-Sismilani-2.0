@@ -133,5 +133,10 @@ namespace PDS_Sismilani.Views
         {
            
         }
+
+        private void rdSexo1_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

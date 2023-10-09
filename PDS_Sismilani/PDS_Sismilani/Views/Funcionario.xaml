@@ -42,7 +42,7 @@
             <TextBox x:Name="txtCeluar" FontSize="16" Width="200" Margin="0 0 130 0" Background="White" />
 
             <Label Content="Sexo" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2"/>
-            <RadioButton x:Name="rdSexo1" Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10 2 161 2" Foreground="White"/>
+            <RadioButton x:Name="rdSexo1" Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10 2 161 2" Foreground="White" Checked="rdSexo1_Checked"/>
             <RadioButton x:Name="rdSexo2" Content="Feminino" FontSize="16" FontWeight="Bold" Margin="10 2 161 2" Foreground="White"/>
             <!--<RadioButton Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>-->
             

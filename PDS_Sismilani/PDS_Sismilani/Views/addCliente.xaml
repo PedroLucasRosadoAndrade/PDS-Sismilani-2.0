@@ -5,11 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         
-       Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized" AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooToVis"/>
-    </Window.Resources>
-
+       Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
 
     <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
         <Grid x:Name="AddClientes" Margin="10">
@@ -44,35 +40,37 @@
 
                 <!--Add campos de digitação-->
 
-                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,844,483" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="CPF" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,182,483" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="CPF" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtCpf" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,832,337" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Email" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,848,410" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtEmail" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Data de Nascimento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,72,315" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtDTNascimento" Grid.Row="5" Background="White" Margin="667,187,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="RG" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,78,409" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="RG" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtRg" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Sexo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,844,266" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Email" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtSexo" Grid.Row="5" Background="White" Margin="24,255,744,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtEmail" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Endereço" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,306,826,188" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Sexo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <RadioButton Content="Masculino" Foreground="White" x:Name="rdSexo1" Grid.Row="5" Background="White" Margin="34,252,855,0"  Height="39" VerticalAlignment="Top"/>
+
+                <RadioButton Content="Feminino" Foreground="White" x:Name="rdSexo2" Grid.Row="5" Background="White" Margin="34,273,855,0"  Height="40" VerticalAlignment="Top" Checked="rdSexo1_Checked"/>
+
+                <Label Content="Data de Nascimento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,200,415" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <DatePicker x:Name="datePickerData" Grid.Row="5" Background="White" Margin="668,187,21,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Endereço" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,306,900,262" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtEndereco" Grid.Row="5" Background="White" Margin="28,335,386,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
@@ -80,7 +78,7 @@
 
             <DockPanel Margin="36,547,481,46">
                 <!--Voltar -->
-                <Button Name="btVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729">
+                <Button Name="btVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar_Click">
                     <StackPanel Orientation="Horizontal" Width="102">
                         <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
                         <TextBlock Text=" Voltar"/>

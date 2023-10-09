@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:PDS_Sismilani"
         mc:Ignorable="d"
         Title="MainWindow" MaxHeight="450" MaxWidth="450" WindowStartupLocation="CenterScreen">
+    
+    
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>
@@ -21,10 +23,12 @@
         </LinearGradientBrush>
     </Window.Background>
 
-
-
     <DockPanel >
         <!--<Label DockPanel.Dock="Bottom" Content="Entrar" FontSize="16" Foreground="Wheat"/> -->
+        <Grid>
+            <Frame Name="frame" NavigationUIVisibility="Hidden" />
+        </Grid>
+
         <StackPanel>
             <TextBlock DockPanel.Dock="Right" Margin="0 80 0 0" Width="100" Height="20" Foreground="White" FontSize="17">Entrar</TextBlock>
             <Label Content="Usuário" Foreground="White" Width="200" Margin="0 0" />
