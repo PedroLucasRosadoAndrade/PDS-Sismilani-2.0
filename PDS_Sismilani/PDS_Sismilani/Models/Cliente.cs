@@ -13,12 +13,10 @@ namespace PDS_Sismilani.Models
         public string rg { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
-        public DateTime? dataNasc { get; set; }
+        public DateTimeOffset dataNasc { get; set; }
         public string cpf { get; set; }
         public string sexo { get; set; }
         public string endereco { get; set; }
-        public string id_log_fk { get; set; }
-        public string id_ing_fk { get; set; }
 
     }
 }

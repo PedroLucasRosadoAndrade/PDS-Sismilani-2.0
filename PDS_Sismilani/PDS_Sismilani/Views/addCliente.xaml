@@ -59,12 +59,10 @@
                 <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
+                
                 <Label Content="Sexo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <RadioButton Content="Masculino" Foreground="White" x:Name="rdSexo1" Grid.Row="5" Background="White" Margin="34,252,855,0"  Height="39" VerticalAlignment="Top"/>
-
-                <RadioButton Content="Feminino" Foreground="White" x:Name="rdSexo2" Grid.Row="5" Background="White" Margin="34,273,855,0"  Height="40" VerticalAlignment="Top" Checked="rdSexo1_Checked"/>
+                <TextBox x:Name="txtSexo"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
                 <Label Content="Data de Nascimento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,200,415" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 

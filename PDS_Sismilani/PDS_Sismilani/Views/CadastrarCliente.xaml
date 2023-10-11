@@ -94,7 +94,7 @@
                     </StackPanel>
 
                     <!--Logout -->
-                    <Button Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                    <Button x:Name="BtFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="Button_Click_1">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
                             <TextBlock Text="Sair"/>
@@ -138,36 +138,29 @@
                 <!--Separador-->
 
                 <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
-
+               
                 <!--Clientes DataGrid-->
-                <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid">
+                
+                    <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid" 
+                          AutoGenerateColumns="True" HorizontalAlignment="Right" ItemsSource="{Binding cliente}"> 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto"/>
 
-                        <DataGridTemplateColumn Header="Cliente" IsReadOnly="True" Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border Width="25" Height="25" Margin="0 0 10 0" CornerRadius="50" Background="Red">
-                                            <TextBlock Text="..." VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 1 0"/>
-                                        </Border>
-                                        <TextBlock Text="..." VerticalAlignment="Center"/>
+                        <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding nome}"/>
+                        <DataGridTextColumn Header="RG" IsReadOnly="True" Width="*" Binding="{Binding rg}"/>
+                        <DataGridTextColumn Header="CPF" IsReadOnly="True" Width="*" Binding="{Binding cpf}"/>
+                        <DataGridTextColumn Header="Emial" IsReadOnly="True" Width="*" Binding="{Binding email}"/>
+                        <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding telefone}"/>
+                        <DataGridTextColumn Header="Nascimento" IsReadOnly="True" Width="*" Binding="{Binding dataNasc}"/>
+                        <DataGridTextColumn Header="Sexo" IsReadOnly="True" Width="*" Binding="{Binding sexo}"/>
+                        <DataGridTextColumn Header="Endereço" IsReadOnly="True" Width="*" Binding="{Binding endereco}"/>
 
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Emial" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="CPF" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Endereço" IsReadOnly="True" Width="*"/>
-
+                      
+                       
                         <DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
                                         <Button Name="btSalvar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
@@ -185,6 +178,8 @@
                     </DataGrid.Columns>
 
                 </DataGrid>
+                
+
 
                 <!--Navegação-->
 

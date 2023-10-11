@@ -10,6 +10,7 @@ using PDS_Sismilani.DataBase;
 using System.Windows.Media.TextFormatting;
 using PDS_Sismilani.Models;
 using System;
+using MySqlX.XDevAPI;
 
 namespace PDS_Sismilani.Views
 {
@@ -25,6 +26,7 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
             Conexao();
+            clientesDataGrid.ItemsSource = cliente; 
             LoadCliente();
         }
         private void Conexao()
@@ -35,13 +37,11 @@ namespace PDS_Sismilani.Views
 
             conexao.Open();
         }
-
         private void LoadCliente()
         {
-            string query = "SELECT *FROM Cliente;";
+            string query = "SELECT * FROM Cliente;";
             var comando = new MySqlCommand(query, conexao);
             MySqlDataReader reader = comando.ExecuteReader();
-
 
             cliente.Clear();
             while (reader.Read())
@@ -51,20 +51,16 @@ namespace PDS_Sismilani.Views
                     id = reader.GetString("id_cli"),
                     nome = reader.GetString("nome_cli"),
                     rg = reader.GetString("rg_cli"),
-                    telefone = reader.GetString("telefone_cli"),
-                    email = reader.GetString("email_cli"),
-                    dataNasc = reader.GetDateTime("data_nasc_cli"),
                     cpf = reader.GetString("cpf_cli"),
+                    email = reader.GetString("email_cli"),
+                    telefone = reader.GetString("telefone_cli"),
+                    dataNasc = reader.GetDateTime("data_nasc_cli"),
                     sexo = reader.GetString("sexo_cli"),
-                    endereco = reader.GetString("endereco_cli"),
-                    id_log_fk = reader.GetString("id_log_fk"),
-                    id_ing_fk = reader.GetString("id_ing_fk")
+                    endereco = reader.GetString("endereco_cli")
                 });
             }
 
             reader.Close();
-
-            clientesDataGrid.ItemsSource = cliente;
         }
 
         //add novo
@@ -72,8 +68,6 @@ namespace PDS_Sismilani.Views
         {
             var addCli = new addCliente();
             addCli.ShowDialog();
-            
-            
         }
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
@@ -141,7 +135,12 @@ namespace PDS_Sismilani.Views
             }
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
+       
     }
 
 }

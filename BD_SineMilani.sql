@@ -296,22 +296,20 @@ create table cliente(
   data_nasc_cli DATE ,
   cpf_cli VARCHAR(45) ,
   sexo_cli VARCHAR(45) ,
-  endereco_cli varchar(100),
-   id_log_fk int,
-   foreign key(id_log_fk) references login (id_log),
-   id_ing_fk int,
-   foreign key(id_ing_fk) references ingresso (id_ing)
+  endereco_cli varchar(100)
   );
-  insert into cliente values (null,'Ana Silva','12 345 678-9','69 99205678','ana@gmail.com','2005-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
-  insert into cliente values (null,'Dhenifer Silva','12 345 678-9','69 99305678','dhenifer@gmail.com','2005-08-21','34567889065','Femenino','Avenia Rossi',1,3);
-  insert into cliente values (null,'Pedro Silva','17 545 678-9','69 99205678','pedro@gmail.com','2001-08-21','34567889065','Femenino','Vila Nova',1,2);
-  insert into cliente values (null,'Sabrina Silva','12 785 078-7','69 99255678','sabrina@gmail.com','2008-08-21','34567889065','Femenino','São Martins',2,3);
-  insert into cliente values (null,'Tainara Silva','18 305 328-1','69 99205458','tainara@gmail.com','2009-08-21','34567889065','Femenino','São Lucas',2,3);
-  insert into cliente values (null,'Nathália Silva','12 245 618-3','69 99205678','nathalia@gmail.com','2005-08-21','34567889065','Femenino','Avenia sete de setembro',2,3);
-  insert into cliente values (null,'Raylany Silva','32 145 342-9','69 99204578','raybaly@gmail.com','2002-08-21','34567889065','Femenino','Avenida Brasilia',2,3);
-  insert into cliente values (null,'Marcos Silva','82 245 889-1','69 99123678','marcos@gmail.com','2004-08-21','34567889065','Femenino','Avenida Natalino ',3,4);
-  insert into cliente values (null,'Bárbara Silva','16 349 878-6','69 99123678','barbara@gmail.com','2006-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
-  insert into cliente values (null,'Nicolau Silva','11 545 688-7','69 99805978','nico@gmail.com','2003-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
+
+  
+  insert into cliente values (null,'Ana Silva','12 345 678-9','69 99205678','ana@gmail.com','2005-08-21','34567889065','Femenino','Vila de Rondônia');
+  insert into cliente values (null,'Dhenifer Silva','12 345 678-9','69 99305678','dhenifer@gmail.com','2005-08-21','34567889065','Femenino','Avenia Rossi');
+  insert into cliente values (null,'Pedro Silva','17 545 678-9','69 99205678','pedro@gmail.com','2001-08-21','34567889065','Femenino','Vila Nova');
+  insert into cliente values (null,'Sabrina Silva','12 785 078-7','69 99255678','sabrina@gmail.com','2008-08-21','34567889065','Femenino','São Martins');
+  insert into cliente values (null,'Tainara Silva','18 305 328-1','69 99205458','tainara@gmail.com','2009-08-21','34567889065','Femenino','São Lucas');
+  insert into cliente values (null,'Nathália Silva','12 245 618-3','69 99205678','nathalia@gmail.com','2005-08-21','34567889065','Femenino','Avenia sete de setembro');
+  insert into cliente values (null,'Raylany Silva','32 145 342-9','69 99204578','raybaly@gmail.com','2002-08-21','34567889065','Femenino','Avenida Brasilia');
+  insert into cliente values (null,'Marcos Silva','82 245 889-1','69 99123678','marcos@gmail.com','2004-08-21','34567889065','Femenino','Avenida Natalino ');
+  insert into cliente values (null,'Bárbara Silva','16 349 878-6','69 99123678','barbara@gmail.com','2006-08-21','34567889065','Femenino','Vila de Rondônia');
+  insert into cliente values (null,'Nicolau Silva','11 545 688-7','69 99805978','nico@gmail.com','2003-08-21','34567889065','Femenino','Vila de Rondônia');
   
 select * from cliente;
 
@@ -623,11 +621,11 @@ call login('dfghdasfdfggd@gmail.com', 'jacksonUser', 'das521', 1);
 #select * from login;
 
 delimiter $$
-create procedure cliente (nome VARCHAR(50) , rg VARCHAR(45) ,telefone VARCHAR(45) , email VARCHAR(45) ,data_nasc DATE ,cpf VARCHAR(45) ,sexo VARCHAR(45), endereco varchar(100), login_fk int, ing_fk int)
+create procedure cliente (nome VARCHAR(50) , rg VARCHAR(45) ,telefone VARCHAR(45) , email VARCHAR(45) ,data_nasc DATE ,cpf VARCHAR(45) ,sexo VARCHAR(45), endereco varchar(100))
 begin
 
 if (nome <> '') and (rg <> '') and (cpf <> '') then
-insert into cliente values (null, nome, rg, telefone, email, data_nasc, cpf, sexo, endereco,  login_fk, ing_fk);
+insert into cliente values (null, nome, rg, telefone, email, data_nasc, cpf, sexo, endereco);
 
 select 'Cliente cadastrado com sucesso!' as Confirmação;
 
@@ -638,9 +636,9 @@ end if;
 end;
 $$ delimiter ;
 
-call cliente  ('juana Silva','23 457 43-9','69 99205128','asss@gmail.com','2005-08-21','34567889065','Femenino','Vila de Rondônia',1,2);
-call cliente  ('Stefany thaiis ','52 345 678-9','69 99342578','FANNY@gmail.com','2005-08-21','34567889065','Femenino','Avenia Rossi',1,3);
-call cliente  ('lucas Silva','12 623 623-9','69 99202365','sad@gmail.com','2001-08-21','34567889065','Femenino','Vila Nova',1,2);
+call cliente  ('juana Silva','23 457 43-9','69 99205128','asss@gmail.com','2005-08-21','34567889065','Femenino','Vila de Rondônia');
+call cliente  ('Stefany thaiis ','52 345 678-9','69 99342578','FANNY@gmail.com','2005-08-21','34567889065','Femenino','Avenia Rossi');
+call cliente  ('lucas Silva','12 623 623-9','69 99202365','sad@gmail.com','2001-08-21','34567889065','Femenino','Vila Nova');
  
  #select * from cliente;
  

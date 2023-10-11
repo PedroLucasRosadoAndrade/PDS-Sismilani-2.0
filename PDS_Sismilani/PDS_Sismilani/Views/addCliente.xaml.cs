@@ -46,63 +46,61 @@ namespace PDS_Sismilani.Views
             this.Close();
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e) // criando estrutura do Botão salvar
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
-                bool _rdSexo1 = (bool)rdSexo1.IsChecked;
-                var _rdSexo2 = (bool)rdSexo2.IsChecked;
 
-                if (!(bool)rdSexo1.IsChecked && !(bool)rdSexo2.IsChecked)
-                {
-                    MessageBox.Show("Marque uma opção");
-                }
-                else
-                {
-                    var nome = txtNome.Text;
-                    var cpf = txtCpf.Text;
-                    var rg = txtRg.Text;  // Obtenha o texto do TextBox
-                    var email = txtEmail.Text;
-                    var telefone = txtTelefone.Text;
-                    var data = datePickerData.SelectedDate;
-                    var endereco = txtEndereco.Text;
-                    var sexo = "Feminino";
+                var nome = txtNome.Text;
+                var cpf = txtCpf.Text;
+                var rg = txtRg.Text;
+                var email = txtEmail.Text;
+                var telefone = txtTelefone.Text;
+                var data = datePickerData.SelectedDate;
+                var endereco = txtEndereco.Text;
+                var sexo = txtSexo.Text;
 
-                    if ((bool)rdSexo1.IsChecked)
+
+                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3306"))
+                {
+                    conexao.Open();
+
+                    string query = "INSERT INTO Funcionario (nome_cli, rg_cli, telefone_cli, email_cli, data_nasc_cli, cpf_cli, sexo_cli, endereco_cli) " +
+                                   "VALUES (@_nome, @_rg, @_telefone, @_email, @_data_nascimento, @_cpf, @_sexo, @_endereco)";
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
-                        sexo = "Masculino";
+                        comando.Parameters.AddWithValue("@_nome", nome);
+                        comando.Parameters.AddWithValue("@_rg", rg);
+                        comando.Parameters.AddWithValue("@_telefone", telefone);
+                        comando.Parameters.AddWithValue("@_email", email);
+                        comando.Parameters.AddWithValue("@_data_nascimento", data);
+                        comando.Parameters.AddWithValue("@_cpf", cpf);
+                        comando.Parameters.AddWithValue("@_sexo", sexo);
+                        comando.Parameters.AddWithValue("@_endereco", endereco);
+
+                        comando.ExecuteNonQuery();
                     }
-                    string query = "INSERT INTO Funcionario (nome_cli, nascimento_fun, sexo_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun) " +
-                                   "VALUES (@_nome, @_dataNasc, @_sexo, @_cpf , @_salario, @_funcao, @_email, @_telefone, @_rg)";
-                    var comando = new MySqlCommand(query, conexao);
-
-                    comando.Parameters.AddWithValue("@_unidade", unidade);
-                    comando.Parameters.AddWithValue("@_categoria", categoria);
-                    comando.Parameters.AddWithValue("@_data", data);
-
-                    decimal value;
-
-                if (Decimal.TryParse(valor, out value))  // Converta o valor para decimal
-                {
-                    comando.Parameters.AddWithValue("@_valor", value);
                 }
-                else
-                {
-                    MessageBox.Show("Valor não é um número válido.");
-                    return;
-                }
-
                 comando.ExecuteNonQuery();
-                txtCategoria.Clear();
+                txtNome.Clear();
                 datePickerData.IsEnabled = false;
-                txtUnidade.Clear();
-                txtValor.Clear();
+                txtSexo.Clear();
+                txtCpf.Clear();
+                txtRg.Clear();
+                txtTelefone.Clear();
+                txtEmail.Clear();
+                txtEndereco.Clear();
+                txtNome.Focus();
 
-                var opcao = MessageBox.Show("Salvo com sucesso! \n Deseja realizar um novo cadastro?", "Informação", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var opcao = MessageBox.Show("Cliente salvo com sucesso!\n" +
+                    "Deseja realizar um novo cadastro?", "Informação",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+
 
                 if (opcao == MessageBoxResult.Yes)
                 {
-                    LimparInputs();
+
                     MainWindow form = new MainWindow();
                     form.ShowDialog();
                 }
@@ -111,13 +109,22 @@ namespace PDS_Sismilani.Views
                     this.Close();
                 }
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Ocorreram erros ao tentar salvar os dados!\n" +
+                    $"Contate o suporte do sistema. (CAD 25)\n\n{ex.Message}");
+
+                txtNome.Clear();
+                datePickerData.IsEnabled = false;
+                txtSexo.Clear();
+                txtCpf.Clear();
+                txtRg.Clear();
+                txtTelefone.Clear();
+                txtEmail.Clear();
+                txtEndereco.Clear();
+                txtNome.Focus();
             }
-
-
-
         }
 
     }
