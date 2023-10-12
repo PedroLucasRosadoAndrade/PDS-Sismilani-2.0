@@ -11,6 +11,7 @@ using System.Windows.Media.TextFormatting;
 using PDS_Sismilani.Models;
 using System;
 using MySqlX.XDevAPI;
+using System.Windows.Controls;
 
 namespace PDS_Sismilani.Views
 {
@@ -61,6 +62,49 @@ namespace PDS_Sismilani.Views
             }
 
             reader.Close();
+        }
+        //---------------------------------- Botão Editar e Excluir ---------------------
+
+        private void btEditar_Click_1(object sender, RoutedEventArgs e)
+        {
+            var editCliente = new EditCliente().ShowDialog();
+        }
+        private bool ExcluirCliente(string id)
+        {
+            try
+            {
+                string query = "DELETE FROM Cliente WHERE id_cli = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true; 
+            }
+            catch (Exception ex)
+            { 
+                MessageBox.Show("Erro ao excluir o cliente: " + ex.Message);
+                return false;
+            }
+        }
+        private void btDeletar_Click_1(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var dataGridRow = (DataGridRow)clientesDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
+            var clientes = (Cliente)dataGridRow.Item;
+
+            if (ExcluirCliente(clientes.id)) 
+            {
+                cliente.Remove(clientes);
+                clientesDataGrid.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Falha ao excluir o cliente.");
+            }
         }
 
         //add novo
@@ -140,7 +184,7 @@ namespace PDS_Sismilani.Views
             this.Close();
         }
 
-       
+        
     }
 
 }

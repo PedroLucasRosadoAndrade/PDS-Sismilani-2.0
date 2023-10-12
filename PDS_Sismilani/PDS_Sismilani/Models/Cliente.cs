@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PDS_Sismilani.Models
 {
-    internal class Cliente
+    public class Cliente
     {
-        public string id {  get; set; }
+        public string id { get; set; }
         public string nome { get; set; }
         public string rg { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
-        public DateTimeOffset dataNasc { get; set; }
+        public DateTime dataNasc { get; set; }
         public string cpf { get; set; }
         public string sexo { get; set; }
         public string endereco { get; set; }

@@ -143,11 +143,12 @@
                 
                     <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid" 
-                          AutoGenerateColumns="True" HorizontalAlignment="Right" ItemsSource="{Binding cliente}"> 
+                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}"> 
                     <DataGrid.Columns>
 
+                        <DataGridTextColumn Header="N°" IsReadOnly="True" Width="*" Binding="{Binding id}"/>
                         <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding nome}"/>
-                        <DataGridTextColumn Header="RG" IsReadOnly="True" Width="*" Binding="{Binding rg}"/>
+                        <DataGridTextColumn Header="RG" IsReadOnly="True" Width="*"  Binding="{Binding rg}"/>
                         <DataGridTextColumn Header="CPF" IsReadOnly="True" Width="*" Binding="{Binding cpf}"/>
                         <DataGridTextColumn Header="Emial" IsReadOnly="True" Width="*" Binding="{Binding email}"/>
                         <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding telefone}"/>
@@ -162,11 +163,11 @@
                                 <DataTemplate >
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                                        <Button Name="btSalvar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
+                                        <Button Name="btEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0" Click="btEditar_Click_1" >
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
 
-                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0">
+                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0" Click="btDeletar_Click_1">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
                                         
