@@ -3,8 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              StartupUri="MainWindow.xaml"
-    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+             
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" >
+
     <Application.Resources>
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesingnThemes.Wpf;component/Themes/MaterialDesgnTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+
+
         <Style x:Key="TopButton" TargetType="Button">
             <Setter Property= "Background" Value="Transparent"/>
             <Setter Property= "Foreground" Value="#26262c"/>
@@ -26,7 +36,7 @@
                     <Setter Property="Background" Value="#dcdcdc"/>
                 </Trigger>
             </Style.Triggers>
-                
+
         </Style>
 
         <Style x:Key="MenuButton" TargetType="Button">
@@ -75,13 +85,13 @@
                     <ControlTemplate TargetType="TextBoxBase">
                         <Border x:Name="Border" CornerRadius="20" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
                                 BorderThickness="1" BorderBrush="#e0e6ed">
-                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="Border"/>
                             </Trigger>
-                            
+
                             <Trigger Property="IsKeyboardFocused" Value="True">
                                 <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="Border"/>
                             </Trigger>
@@ -123,7 +133,7 @@
             </Setter>
 
         </Style>
-        
+
         <Style x:Key="AddButton" TargetType="Button">
             <Setter Property= "Background" Value="#6741d9"/>
             <Setter Property= "Foreground" Value="#ffffff"/>
@@ -175,23 +185,23 @@
             </Style.Triggers>
 
         </Style>
-        
+
         <Style x:Key="PagButtonIcon" TargetType="Icon:PackIconMaterial" >
             <Setter Property="Height" Value="10"/>
             <Setter Property="Width" Value="10"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
-        
+
         <!-- estilo do dataGrid -->
-        
+
         <Style x:Key="GridEditButton" TargetType="Button">
             <Setter Property= "Background" Value="#512da8"/>
             <Setter Property= "BorderBrush" Value="#4a148c"/>
             <Setter Property= "Foreground" Value="#ffffff"/>
             <Setter Property= "FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property= "VerticalAlignment" Value="Center"/>
- 
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -419,14 +429,9 @@
                 </MultiTrigger>
 
             </Style.Triggers>
-        </Style> 
-
-        
-        
-        <!-- estilo do dataGrid-->
-        
-
-
+        </Style>
 
     </Application.Resources>
+
 </Application>
+

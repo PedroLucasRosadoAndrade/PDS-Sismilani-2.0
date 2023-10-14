@@ -5,66 +5,119 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
-        Title="Funcionario" Height="783" Width="842" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="Black">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="Funcionario" Height="783" Width="842" WindowState="Maximized" WindowStartupLocation="CenterScreen">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="8.*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                    <RotateTransform Angle="-85.914" CenterX="0.5" CenterY="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF985ECE"/>
+            <GradientStop Color="#FFB06AE8" Offset="1"/>
+            <GradientStop Color="#FF74AFE0" Offset="0.112"/>
+            <GradientStop Color="#FE939DFC" Offset="0.695"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <DockPanel>
 
-        <GroupBox x:Name="rdSexoGroup" HorizontalAlignment="Left" Height="153" Header="" Margin="18,264,0,0" VerticalAlignment="Top" Width="253" Content="Sexo" FontSize="20" FontWeight="Bold" Background="White"/>
-        
-        <TextBlock Grid.Row="0" HorizontalAlignment="Left"
-                   FontSize="15" FontWeight="Bold" Padding="100 10" 
-                   Text="Cadastro de Funcionario" Margin="0,0,0,613" Background="Red" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="843"/>
+        <StackPanel DockPanel.Dock="Top" Margin="0 5" Orientation="Horizontal">
+            <Menu Padding="5 8" Margin="2 0">
+                <MenuItem Header="_Arquivo">
+                    <MenuItem Header="Salvar">
+                        <Button x:Name="btSalvar" Content="Salvar" Width="70" Height="50" Margin="10" FontWeight="Bold" FontSize="16" Click="btSalvar_Click" />
+                    </MenuItem>
+                        <MenuItem Header="_Sobre"/>
+                    <Separator/>
+                    <MenuItem Header="_Sair do Sistema"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Margin="20 6 30 0" Orientation="Vertical" >
-            
+        <StackPanel DockPanel.Dock="Left" Width="300" Margin="30 20 0 0">
             <Label Content="Nome" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2" />
-            <TextBox x:Name="txtNome" FontSize="16" Text="" Width="200" Margin="0 0 130 0" Background="White" />
+            <TextBox x:Name="txtNome" FontSize="16" Text="" Width="200" Margin="0 0 130 30" Background="White" />
 
             <Label Content="Email" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2" />
-            <TextBox x:Name="txtEmail" FontSize="16" Width="200" Margin="0 0 130 0" Background="White" />
+            <TextBox x:Name="txtEmail" FontSize="16" Width="200" Margin="0 0 130 30" Background="White" />
 
             <Label Content="CPF" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2" />
-            <TextBox x:Name="txtCpf" FontSize="16" Width="200" Margin="0 0 130 0" Background="White" />
+            <TextBox x:Name="txtCpf" FontSize="16" Width="200" Margin="0 0 130 30" Background="White" />
 
             <Label Content="RG" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2" />
-            <TextBox x:Name="txtRg" FontSize="16" Width="200" Margin="0 0 130 0" Background="White" />
+            <TextBox x:Name="txtRg" FontSize="16" Width="200" Margin="0 0 130 30" Background="White" />
 
             <Label Content="Celular" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2" />
-            <TextBox x:Name="txtCeluar" FontSize="16" Width="200" Margin="0 0 130 0" Background="White" />
+            <TextBox x:Name="txtCeluar" FontSize="16" Width="200" Margin="0 0 130 30" Background="White" />
 
             <Label Content="Sexo" FontSize="16" FontWeight="Bold" Foreground="White" Margin="1 2 161 2"/>
             <RadioButton x:Name="rdSexo1" Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10 2 161 2" Foreground="White" Checked="rdSexo1_Checked"/>
             <RadioButton x:Name="rdSexo2" Content="Feminino" FontSize="16" FontWeight="Bold" Margin="10 2 161 2" Foreground="White"/>
             <!--<RadioButton Content="Masculino" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>-->
+
+            <!--<GroupBox x:Name="rdSexoGroup" HorizontalAlignment="Left" Height="153" Header="" Margin="18,264,0,0" VerticalAlignment="Top" Width="253" Content="Sexo" FontSize="20" FontWeight="Bold" Background="White"/>-->
+
+
+        </StackPanel>
+
+
+        <Grid DockPanel.Dock="Bottom" Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel  Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--<TextBlock  Margin="0,0,0,0" FontWeight="Bold" Padding="5"> Data:</TextBlock>
+                <TextBlock  Margin="0,0,0,0" Padding="0 5 5 5" x:Name="txtDataAtual" />-->
+
+                <Button x:Name="btLimpar" Content="Limpar" Width="80" Height="50" Margin="5 0 7 0" Padding="5" FontWeight="Bold"  FontSize="20" Click="btLimpar_Click" Background="#FFF9E7FF" />
+
+            </StackPanel>
+        </Grid>
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="105*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="182*"/>
+            </Grid.RowDefinitions>
+
+            <WrapPanel Grid.ColumnSpan="2" Height="400" Margin="0,20,0,-30">
+                <StackPanel DockPanel.Dock="Left" Height="400" Width="300"  Margin="5 0 0 30">
+                    <Label Content="Data de Nascimento" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    <DatePicker x:Name="dtpDataNasc" Width="200" FontSize="16" Margin="0 0 130 30"/>
+
+                    <Label Content="Salario" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
+                    <TextBox x:Name="txtSalario" FontSize="16" Text="" Width="200" Margin="0 0 130 30" Background="White"/>
+
+                    <Label Content="Função" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
+                    <TextBox x:Name="txtFuncao" FontSize="16" Text="" Width="200" Margin="0 0 130 10" Background="White"/>
+
+                </StackPanel>
+
+            </WrapPanel>
+
+            <Grid Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="113*"/>
+                    <ColumnDefinition Width="82*"/>
+                    <ColumnDefinition Width="31*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
             
-            
+        </Grid>
 
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="40">
-            <Label Content="Data de Nascimento" FontSize="16" FontWeight="Bold" Foreground="White"/>
-            <DatePicker x:Name="dtpDataNasc" Width="200" FontSize="16" Margin="0 0 130 1"/>
+    </DockPanel>
 
-            <Label Content="Salario" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
-            <TextBox x:Name="txtSalario" FontSize="16" Text="" Width="200" Margin="0 0 130 1" Background="White"/>
-
-            <Label Content="Função" FontSize="16" FontWeight="Bold" Foreground="#FFF1F0F0"/>
-            <TextBox x:Name="txtFuncao" FontSize="16" Text="" Width="200" Margin="0 0 130 1" Background="White"/>
-        
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="btLimpar" Content="Limpar" Width="70" Margin="5 20 20 2 " FontWeight="Bold"  FontSize="16" Click="btLimpar_Click" />
-            <Button x:Name="btSalvar" Content="Salvar" Width="70" Margin="5 20 20 2 " FontWeight="Bold" Background="#FF90DD7E" FontSize="16" Click="btSalvar_Click" />
-        
-        </StackPanel>
-    </Grid>
 </Window>

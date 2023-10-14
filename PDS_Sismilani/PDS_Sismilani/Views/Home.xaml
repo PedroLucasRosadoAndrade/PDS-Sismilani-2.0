@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
+        
+        
         Title="Sismilani" MinHeight="700" MinWidth="1300" WindowStartupLocation="CenterScreen" WindowState="Maximized" >
-    
+
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>
@@ -118,13 +120,17 @@
 
 
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="105*"/>
                 <RowDefinition Height="20*"/>
                 <RowDefinition Height="182*"/>
             </Grid.RowDefinitions>
 
-            <WrapPanel>
+            <WrapPanel Grid.ColumnSpan="2">
                 <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
                     <StackPanel>
                         <TextBlock FontSize="30" HorizontalAlignment="Center">45</TextBlock>
@@ -145,16 +151,17 @@
                 </Border>
             </WrapPanel>
 
-            <TextBlock Grid.Row="1" FontSize="20"  Text="Ultimas vendas" Margin="5,5,5,5"/>
+            <TextBlock Grid.Row="1" FontSize="20"  Text="Ultimas vendas" Margin="5,5,0,5"/>
 
-            <Grid>
+            <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="113*"/>
+                    <ColumnDefinition Width="82*"/>
+                    <ColumnDefinition Width="31*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-            
-            <DataGrid Grid.Row="2" Margin="5,4,5,5" x:Name="dataGridVendas" IsReadOnly="True" 
+
+            <DataGrid Grid.Row="2" Margin="5,4,0,5" x:Name="dataGridVendas" IsReadOnly="True" 
                       AutoGenerateColumns="False" AlternatingRowBackground="LightGray">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>

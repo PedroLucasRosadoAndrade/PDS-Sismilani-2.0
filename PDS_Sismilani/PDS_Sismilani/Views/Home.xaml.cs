@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PDS_Sismilani.Views;
+using PDS_Sismilani.DataBase;
 
 namespace PDS_Sismilani.Views
 {
@@ -27,11 +28,22 @@ namespace PDS_Sismilani.Views
             InitializeComponent();
             Loaded += Home_Loaded;  
 
-              }
+        }
 
         private void Home_Loaded(object sender, RoutedEventArgs e)
         {
-            txtDataAtual.Text = DateTime.UtcNow.ToString("dd/mm/yyyy");
+            try
+            {
+                var conexao = new Conexao();
+
+            }catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            txtDataAtual.Text = "-";
+            //txtDataAtual.Text = DateTime.UtcNow.ToString("dd/mm/yyyy");
 
             List<Venda> listaVedas = new List<Venda>();
 

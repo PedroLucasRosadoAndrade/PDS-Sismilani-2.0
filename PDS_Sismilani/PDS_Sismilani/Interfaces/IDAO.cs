@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 
 namespace PDS_Sismilani.Interfaces
 {
@@ -10,9 +11,10 @@ namespace PDS_Sismilani.Interfaces
     ///     Interface (contrato) para classes DAO
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class IDAO<T>
+
+    interface IDAO<T>
     {
-        /*void Insert(T t);
+        void Insert(T t);
 
         void Update(T t);
 
@@ -20,6 +22,6 @@ namespace PDS_Sismilani.Interfaces
 
         List<T> List();
 
-        T GetById(int id);*/
+        T GetById(int id);
     }
 }
