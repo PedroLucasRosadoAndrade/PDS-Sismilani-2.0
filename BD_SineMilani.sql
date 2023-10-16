@@ -178,7 +178,7 @@ insert into filme  values (9, 'Elvin', 'sim', 'Rafaellle',  'Hetty','2023-01-21'
   saldoFinal_cai FLOAT,
   saldoInicial_cai FLOAT,
   id_fun_fk int,
-  foreign key(id_fun_fk) references Funcionario(id_fun)
+  foreign key(id_fun_fk) references Funcionario(id_fun) on delete set null
 );
 insert into caixa values(null,'1989-12-06','21:30','22:40',5000,6000,1);
 insert into caixa values(null,'1989-05-25','09:12','20:40',5000,6000,2);
@@ -282,7 +282,7 @@ email_log VARCHAR(100) ,
 usuario_log VARCHAR(45) ,
 senha_log VARCHAR(45),
 id_fun_fk int,
-foreign key (id_fun_fk) references funcionario(id_fun)
+foreign key (id_fun_fk) references funcionario(id_fun) on delete set null
 );
 
 insert into login (id_log , email_log , usuario_log, senha_log) values (1, 'egolagley0@ow.ly', 'eunwins0', 'xL8.yNYn40');
