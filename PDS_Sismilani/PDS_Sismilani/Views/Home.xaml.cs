@@ -43,7 +43,7 @@ namespace PDS_Sismilani.Views
 
 
             txtDataAtual.Text = "-";
-            //txtDataAtual.Text = DateTime.UtcNow.ToString("dd/mm/yyyy");
+            txtDataAtual.Text = DateTime.UtcNow.ToString("MM/dd/yyyy");
 
             List<Venda> listaVedas = new List<Venda>();
 
@@ -71,7 +71,12 @@ namespace PDS_Sismilani.Views
 
         private void BtFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            var Funcinario = new Funcionario().ShowDialog();
+            var Funcinario = new CadastrarFuncionario().ShowDialog();
+        }
+
+        private void BtFechar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

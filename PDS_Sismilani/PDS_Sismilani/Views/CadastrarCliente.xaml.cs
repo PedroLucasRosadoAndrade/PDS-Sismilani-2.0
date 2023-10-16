@@ -136,8 +136,7 @@ namespace PDS_Sismilani.Views
         }
         private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
         {
-            var CadFuncionario = new Funcionario();
-            CadFuncionario.ShowDialog();
+            var CadFuncionario = new CadastrarFuncionario().ShowDialog();
         }
         private void Btestoque_Click(object sender, RoutedEventArgs e)
         {

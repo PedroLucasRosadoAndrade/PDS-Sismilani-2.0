@@ -12,6 +12,14 @@ drop schema if exists cinemilani_bd;
 create database cinemilani_bd;
  use cinemilani_bd;
  
+ create table sexo (
+id_sex int primary key,
+nome_sex varchar (300)
+);
+
+insert into sexo values (1, 'Masculino');
+insert into sexo values (2, 'Feminino');
+ 
 create table sala(
 id_sal INT  primary key auto_increment ,
 nome_sal varchar(50),
@@ -78,21 +86,23 @@ CREATE TABLE Fornecedor (
   id_fun INT  primary key auto_increment ,
   Nome_fun VARCHAR(45) NULL,
   nascimento_fun DATE ,
-  sexo_fun VARCHAR(45) ,
   cpf_fun VARCHAR(45) ,
   salario_fun FLOAT ,
   funcao_fun VARCHAR(45) ,
   email_fun VARCHAR(45) ,
   telefone_fun VARCHAR(45),
-  rg_fun VARCHAR(45) 
+  rg_fun VARCHAR(45),
+  sexo_fun varchar(50)
   );
-insert into funcionario value(null,'Carlos Alberto','1929-09-09','masculino','123.123.123-32',1450,'segurança','carlos@gmail.com','89 999876544','1232 Ro');
-insert into funcionario values (null,'Ana alice','2008-09-12','feminino','123.212.332-23',21233,'atendente','ana@gmail.com','12 2323232323','121212 SP');
-insert into funcionario values (null,'William shakespier','2012-08-23','masculino','123.212.333-23',1231,'segurança','will@gmail.com','12 22424222222','5465464 SP');
-insert into funcionario values (null,'Kaue lombarde','2021-09-09','masculino','123.111.332-23',13133,'gerente de salas','kaue@gmail.com','12 6468464646','3165566 SP');
-insert into funcionario values (null,'Camila caio','2003-07-06','feminino','123.221.111-23',23232,'atendente','Camila@gmail.com','12 2132131313','23135 SC');
-insert into funcionario values (null,'Felipe miller','2001-09-05','masculino','123.444.323-32',3433,'gerente','felipe@gmail.com','12 549848998987','56468 SC');
-insert into funcionario values (null,'Maria alice santos','2000-06-04','feminino','123.000.332-12',43434,'atendente','Mari@gmail.com','12 354648987','6546546 SC');
+insert into funcionario value(null,'Carlos Alberto','1929-09-09','123.123.123-32',1450,'segurança','carlos@gmail.com','89 999876544','1232 Ro', 'Masculino');
+insert into funcionario values (null,'Ana alice','2008-09-12','123.212.332-23',21233,'atendente','ana@gmail.com','12 2323232323','121212 SP', 'Feminino');
+insert into funcionario values (null,'William shakespier','2012-08-23','123.212.333-23',1231,'segurança','will@gmail.com','12 22424222222','5465464 SP', 'Masculino');
+insert into funcionario values (null,'Kaue lombarde','2021-09-09','123.111.332-23',13133,'gerente de salas','kaue@gmail.com','12 6468464646','3165566 SP', 'Masculino');
+insert into funcionario values (null,'Camila caio','2003-07-06','123.221.111-23',23232,'atendente','Camila@gmail.com','12 2132131313','23135 SC', 'Feminino');
+insert into funcionario values (null,'Felipe miller','2001-09-05','123.444.323-32',3433,'gerente','felipe@gmail.com','12 549848998987','56468 SC', 'Masculino');
+insert into funcionario values (null,'Maria alice santos','2000-06-04','123.000.332-12',43434,'atendente','Mari@gmail.com','12 354648987','6546546 SC', 'Feminino');
+
+select * from funcionario;
   
 create table produto(
 id_prod int  primary key auto_increment,
@@ -166,18 +176,17 @@ insert into filme  values (9, 'Elvin', 'sim', 'Rafaellle',  'Hetty','2023-01-21'
   horaAbertura_cai TIME ,
   horaFechamento_cai TIME ,
   saldoFinal_cai FLOAT,
-  saldoInicial_cai FLOAT ,
+  saldoInicial_cai FLOAT,
   id_fun_fk int,
- foreign key (id_fun_fk) references funcionario(id_fun)
-
+  foreign key(id_fun_fk) references Funcionario(id_fun)
 );
 insert into caixa values(null,'1989-12-06','21:30','22:40',5000,6000,1);
-insert into caixa values(null,'1989-04-24','20:15','22:40',1500,5300,3);
 insert into caixa values(null,'1989-05-25','09:12','20:40',5000,6000,2);
+insert into caixa values(null,'1989-04-24','20:15','22:40',1500,5300,3);
 insert into caixa values(null,'1989-03-07','08:30','10:40',1450,1500,4);
 insert into caixa values(null,'1989-07-21','20:30','22:40',6000,1530,5);
-insert into caixa values(null,'1989-01-23','22:45','23:40',5000,7000,3);
-insert into caixa values(null,'1989-07-22','23:30','00:40',4500,5000,2);
+insert into caixa values(null,'1989-01-23','22:45','23:40',5000,7000,6);
+insert into caixa values(null,'1989-07-22','23:30','00:40',4500,5000,7);
 
 create table despesa(
 id_desp int  primary key auto_increment,

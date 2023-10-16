@@ -67,7 +67,7 @@ namespace PDS_Sismilani.Models
 
                 while (reader.Read())
                 {
-                    funcionario.Id = reader.GetInt32("cod_func");
+                    funcionario.Id = reader.GetString("cod_func");
                     funcionario.Nome = reader.GetString("nome_func");
                     funcionario.CPF = reader.GetString("cpf_func");
                     funcionario.RG = reader.GetString("rg_func");

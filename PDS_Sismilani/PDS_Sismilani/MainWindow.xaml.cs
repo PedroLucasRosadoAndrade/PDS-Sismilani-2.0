@@ -52,8 +52,7 @@ namespace PDS_Sismilani
 
         private void btCadastrarFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            Funcionario form = new Funcionario();
-            form.ShowDialog();
+            var funcionario = new CadastrarFuncionario().ShowDialog();
         }
 
         private void btCadastrarProdutora_Click(object sender, RoutedEventArgs e)
