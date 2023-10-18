@@ -27,7 +27,7 @@
 
                 <TextBlock Text="Funcionario" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1"  Width="99" Click="btSalvar">
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,492,45,80" Grid.Row="5"  Width="99" Click="btSalvar">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
@@ -67,7 +67,7 @@
                 <Label Content="Data de Nascimento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,200,415" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <DatePicker x:Name="dtpDataNasc" Grid.Row="5" Background="White" Margin="668,187,21,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
-                
+
                 <Label Content="Função" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,240,200,336" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtFuncao" Grid.Row="5" Background="White" Margin="668,270,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>

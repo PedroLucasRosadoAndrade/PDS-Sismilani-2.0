@@ -27,7 +27,7 @@
 
                 <TextBlock Text="Editar dados do Funcionario" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1" Width="99" Click="btSalvar" >
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,495,36,77" Grid.Row="5" Width="99" Click="btSalvar" >
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
