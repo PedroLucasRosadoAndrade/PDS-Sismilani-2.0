@@ -27,7 +27,7 @@
 
                 <TextBlock Text="Clientes" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1" Click="btSalvar_Click" Width="99">
+                <Button Name="btSalvar" Style="{StaticResource AddButton}" Margin="0,503,54,74" Grid.Row="5" Click="btSalvar_Click" Width="99">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
@@ -59,7 +59,7 @@
                 <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-                
+
                 <Label Content="Sexo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtSexo"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
@@ -74,7 +74,7 @@
 
             </Grid>
 
-            <DockPanel Margin="36,547,481,46">
+            <DockPanel Margin="41,571,476,58">
                 <!--Voltar -->
                 <Button Name="btVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar_Click">
                     <StackPanel Orientation="Horizontal" Width="102">

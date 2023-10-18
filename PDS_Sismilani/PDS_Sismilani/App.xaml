@@ -135,7 +135,7 @@
         </Style>
 
         <Style x:Key="AddButton" TargetType="Button">
-            <Setter Property= "Background" Value="#6741d9"/>
+            <Setter Property= "Background" Value="#8370ff"/>
             <Setter Property= "Foreground" Value="#ffffff"/>
             <Setter Property= "FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property= "Width" Value="150"/>
@@ -161,6 +161,8 @@
             </Style.Triggers>
 
         </Style>
+
+        
 
         <Style x:Key="PagButton" TargetType="Button">
             <Setter Property= "Background" Value="Transparent"/>
