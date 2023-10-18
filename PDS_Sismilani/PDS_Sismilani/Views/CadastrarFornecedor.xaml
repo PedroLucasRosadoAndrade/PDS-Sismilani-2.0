@@ -1,77 +1,96 @@
 ﻿<Window x:Class="PDS_Sismilani.Views.CadastrarFornecedor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PDS_Sismilani.Views"
-        mc:Ignorable="d"
-        Title="CadastrarFornecedor" Height="704" Width="1263" Background="Black"
-        WindowStartupLocation="CenterScreen" MinHeight="550" MinWidth="900">
+ 
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
 
-    <Grid VerticalAlignment="Top" Height="667" Margin="10,0,10,0" Width="NaN">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="336*"/>
-            <ColumnDefinition Width="220*"/>
-            <ColumnDefinition Width="41*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="569*"/>
-            <RowDefinition Height="77*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="2" Text="Cadastro de Fornecedores" Foreground="White"
-            FontSize="30" Margin="0,50,0,433" HorizontalAlignment="Center" Height="NaN" Width="346" Grid.Column="1"/>
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
+        <Grid x:Name="EditClientes" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="101*"/>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="40,147,240,220" Grid.ColumnSpan="2" Grid.Row="2" Height="NaN" Width="NaN">
-            <Label Content="Código:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtCod" FontSize="18" Width="173" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-            <Label Content="Nome:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtNome"  FontSize="18" Width="341" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-            <Label Content="Bairro:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtbairro"  FontSize="18" Width="241" RenderTransformOrigin="0.26,0.956" Height="33" TextWrapping="NoWrap" TextAlignment="Left" HorizontalAlignment="Left"/>
-        </StackPanel>
+            <Grid Margin="10,10,28,10" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-        <StackPanel Margin="40,379,82,63" Grid.Row="2" Height="NaN" Width="NaN">
-            <Label Content="CEP:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtCep" FontSize="18" Width="147" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-        </StackPanel>
+                <TextBlock Text="Cadastrar Fornecedor" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-        <StackPanel Margin="154,378,174,64" Grid.Row="2" Height="NaN" Width="NaN" Grid.Column="1">
-            <Label Content="Telefone:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtTelefone"  FontSize="18" Width="219" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-        </StackPanel>
+                <Button Name="btSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1" Width="99" Click="SalvarButton_Click">
+                    <StackPanel Orientation="Horizontal" >
+                        <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                        <TextBlock Text="Salvar"/>
+                    </StackPanel>
+                </Button>
 
-        <StackPanel Margin="65,269,134,174" Grid.Column="2" Grid.Row="2" Height="NaN" Width="NaN">
-            <Label Content="Fax:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtFax" FontSize="18" Width="147" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-        </StackPanel>
+                <!--Separador-->
 
-        <StackPanel Margin="40,442,326,0" Grid.ColumnSpan="2" Grid.Row="2" Height="NaN" Width="NaN">
-            <Label Content="E-mail:" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtEmail"  FontSize="18" Width="563" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-        </StackPanel>
+                <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
 
-        <StackPanel Margin="506,193,61,215" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Height="NaN" Width="NaN">
-            <Label Content="Endereço:" Foreground="White" FontSize="20" Height="41"/>
-            <TextBox x:Name="txtEndereco"  FontSize="18" Width="350" RenderTransformOrigin="0.26,0.956" Height="33"/>
-        </StackPanel>
+                <!--Add campos de digitação-->
 
-        <StackPanel Margin="251,286,25,191" Grid.Column="1" Grid.Row="2" Height="NaN" Width="NaN">
-            <Label Content="Cidade" Foreground="White" FontSize="20"/>
-            <TextBox x:Name="txtCidade"  FontSize="18" Width="232" RenderTransformOrigin="0.26,0.956" Height="33" HorizontalAlignment="Left"/>
-        </StackPanel>
+                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-        <StackPanel Margin="40,91,15,381" Grid.Column="2" Grid.Row="2" Width="NaN" Height="NaN">
-            <Label Content="Estado:" Foreground="White" FontSize="20"/>
-            <ComboBox x:Name="txtEstado" FontSize="20" Width="300" RenderTransformOrigin="0.26,0.956" Height="33" BorderBrush="White" FontFamily="Arial"/>
-        </StackPanel>
+                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-        <StackPanel Margin="79,480,0,10" Grid.Row="2" Grid.Column="2" Height="NaN" Width="NaN" >
-            <Button Content="Salvar" Height="50" Background="#FF55AAFF" FontSize="20" FontStyle="Normal" Width="156" />
-        </StackPanel>
+                <Label Content="CEP" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-    </Grid>
+                <TextBox x:Name="txtCep" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
+                <Label Content="Estado" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtEstado" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Email" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtEmail" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Bairro" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtBairro"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+
+
+                <Label Content="Endereço" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,306,900,262" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtEndereco" Grid.Row="5" Background="White" Margin="28,335,386,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                
+                <TextBox x:Name="txtCidade" Grid.Row="5" Background="White" Margin="668,185,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                
+                <Label Content="Cidade" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,155,246,427" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                
+                <TextBox x:Name="txtFax"  Grid.Row="5" Background="White" Margin="664,251,185,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.436"/>
+                
+                <Label Content="Fax" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,226,246,356" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+            </Grid>
+
+            <DockPanel Margin="36,547,481,46">
+                <!--Voltar -->
+                <Button Name="btVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar_Click">
+                    <StackPanel Orientation="Horizontal" Width="102">
+                        <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
+                        <TextBlock Text=" Voltar"/>
+                    </StackPanel>
+                </Button>
+            </DockPanel>
+
+        </Grid>
+
+    </Border>
 </Window>
