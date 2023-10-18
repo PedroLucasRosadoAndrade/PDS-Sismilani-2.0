@@ -31,6 +31,7 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
         }
+
         private void Conexao()
         {
             string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
@@ -85,6 +86,7 @@ namespace PDS_Sismilani.Views
                         comando.ExecuteNonQuery();
                     }
                 }
+                //System.NullReferenceException: 'Referência de objeto não definida para uma instância de um objeto.'
                 //comando.ExecuteNonQuery();
                 txtNome.Clear();
                 dtpDataNasc.IsEnabled = false;

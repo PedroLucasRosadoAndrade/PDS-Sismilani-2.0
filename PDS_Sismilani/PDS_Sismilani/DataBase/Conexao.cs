@@ -18,7 +18,7 @@ namespace PDS_Sismilani.DataBase
 
         private static string password = "root";
 
-        private static string dbName = "bd_Sismilani";
+        private static string dbName = "cinemilani_bd";
 
 
         private static MySqlConnection connection;

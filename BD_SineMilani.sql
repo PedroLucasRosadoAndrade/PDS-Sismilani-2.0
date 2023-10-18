@@ -8,7 +8,7 @@
 # - Marco Antônio Duarte Guedes
 
 
-drop schema if exists cinemilani_bd;
+#drop schema if exists cinemilani_bd;
 create database cinemilani_bd;
  use cinemilani_bd;
  
@@ -84,7 +84,7 @@ CREATE TABLE Fornecedor (
   
   CREATE TABLE Funcionario(
   id_fun INT  primary key auto_increment ,
-  Nome_fun VARCHAR(45) NULL,
+  Nome_fun VARCHAR(45),
   nascimento_fun DATE ,
   cpf_fun VARCHAR(45) ,
   salario_fun FLOAT ,
@@ -94,13 +94,13 @@ CREATE TABLE Fornecedor (
   rg_fun VARCHAR(45),
   sexo_fun varchar(50)
   );
-insert into funcionario value(null,'Carlos Alberto','1929-09-09','123.123.123-32',1450,'segurança','carlos@gmail.com','89 999876544','1232 Ro', 'Masculino');
-insert into funcionario values (null,'Ana alice','2008-09-12','123.212.332-23',21233,'atendente','ana@gmail.com','12 2323232323','121212 SP', 'Feminino');
-insert into funcionario values (null,'William shakespier','2012-08-23','123.212.333-23',1231,'segurança','will@gmail.com','12 22424222222','5465464 SP', 'Masculino');
-insert into funcionario values (null,'Kaue lombarde','2021-09-09','123.111.332-23',13133,'gerente de salas','kaue@gmail.com','12 6468464646','3165566 SP', 'Masculino');
-insert into funcionario values (null,'Camila caio','2003-07-06','123.221.111-23',23232,'atendente','Camila@gmail.com','12 2132131313','23135 SC', 'Feminino');
-insert into funcionario values (null,'Felipe miller','2001-09-05','123.444.323-32',3433,'gerente','felipe@gmail.com','12 549848998987','56468 SC', 'Masculino');
-insert into funcionario values (null,'Maria alice santos','2000-06-04','123.000.332-12',43434,'atendente','Mari@gmail.com','12 354648987','6546546 SC', 'Feminino');
+insert into funcionario value(1,'Carlos Alberto','1929-09-09','123.123.123-32',1450,'segurança','carlos@gmail.com','89 999876544','1232 Ro', 'Masculino');
+insert into funcionario values (2,'Ana alice','2008-09-12','123.212.332-23',21233,'atendente','ana@gmail.com','12 2323232323','121212 SP', 'Feminino');
+insert into funcionario values (3,'William shakespier','2012-08-23','123.212.333-23',1231,'segurança','will@gmail.com','12 22424222222','5465464 SP', 'Masculino');
+insert into funcionario values (4,'Kaue lombarde','2021-09-09','123.111.332-23',13133,'gerente de salas','kaue@gmail.com','12 6468464646','3165566 SP', 'Masculino');
+insert into funcionario values (5,'Camila caio','2003-07-06','123.221.111-23',23232,'atendente','Camila@gmail.com','12 2132131313','23135 SC', 'Feminino');
+insert into funcionario values (6,'Felipe miller','2001-09-05','123.444.323-32',3433,'gerente','felipe@gmail.com','12 549848998987','56468 SC', 'Masculino');
+insert into funcionario values (7,'Maria alice santos','2000-06-04','123.000.332-12',43434,'atendente','Mari@gmail.com','12 354648987','6546546 SC', 'Feminino');
 
 select * from funcionario;
   

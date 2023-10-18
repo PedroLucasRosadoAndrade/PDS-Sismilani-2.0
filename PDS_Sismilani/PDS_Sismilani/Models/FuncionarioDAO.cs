@@ -51,10 +51,10 @@ namespace PDS_Sismilani.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM funcionario " +
-                                                "LEFT JOIN sexo ON cod_sex = cod_sex_fk " +
-                                                "LEFT JOIN endereco ON cod_end = cod_end_fk " +
-                                                "WHERE cod_func = @id";
+                //query.CommandText = "SELECT * FROM funcionario " +
+                //                                "LEFT JOIN sexo ON cod_sex = cod_sex_fk " +
+                //                                "LEFT JOIN endereco ON cod_end = cod_end_fk " +
+                //                                "WHERE cod_func = @id";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -123,7 +123,7 @@ namespace PDS_Sismilani.Models
                  
                 var query = conn.Query();
                 query.CommandText = "INSERT INTO funcionario " +
-                    "(Nome_fun, nascimento_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun, id_sex_fk) " +
+                    "(Nome_fun, nascimento_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun, sexo_fun) " +
                     "VALUES (@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexoId)";
 
                 query.CommandText = "CALL inserir_funcionario(@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexoId)";
@@ -136,7 +136,7 @@ namespace PDS_Sismilani.Models
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@celular", t.Celular);
                 query.Parameters.AddWithValue("@rg", t.RG);
-                //query.Parameters.AddWithValue("@sexoId", t.Sexo.Id);
+                query.Parameters.AddWithValue("@sexoId", t.Sexo);
 
                 var result = query.ExecuteNonQuery();
 
@@ -174,7 +174,7 @@ namespace PDS_Sismilani.Models
                 List<Filme> list = new List<Filme>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
+                //query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -210,49 +210,48 @@ namespace PDS_Sismilani.Models
 
         public void Update(Funcionario t)
         {
-            //try
-            //{
-            //    long enderecoId = t.Endereco.Id;
-            //    var endDAO = new EnderecoDAO();
+            try
+            {
+                //long enderecoId = t.Endereco.Id;
+                //var endDAO = new EnderecoDAO();
 
-            //    if (enderecoId > 0)
-            //        endDAO.Update(t.Endereco);
-            //    else
-            //        enderecoId = endDAO.Insert(t.Endereco);
-                
-            //    var query = conn.Query();
+                //if (enderecoId > 0)
+                //    endDAO.Update(t.Endereco);
+                //else
+                //    enderecoId = endDAO.Insert(t.Endereco);
 
-            //    query.CommandText = "UPDATE funcionario SET nome_func = @nome, cpf_func = @cpf, rg_func = @rg, datanasc_func = @datanasc, " +
-            //        "email_func = @email, celular_func = @celular, funcao_func = @funcao, salario_func = @salario, " +
-            //        "cod_sex_fk = @sexo, cod_end_fk = @enderecoId WHERE cod_func = @id";
+                var query = conn.Query();
 
-            //    query.Parameters.AddWithValue("@nome", t.Nome);
-            //    query.Parameters.AddWithValue("@cpf", t.CPF);
-            //    query.Parameters.AddWithValue("@rg", t.RG);
-            //    query.Parameters.AddWithValue("@datanasc", t.DataNascimento?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
-            //    query.Parameters.AddWithValue("@email", t.Email);
-            //    query.Parameters.AddWithValue("@celular", t.Celular);
-            //    query.Parameters.AddWithValue("@funcao", t.Funcao);
-            //    query.Parameters.AddWithValue("@salario", t.Salario);
-            //    query.Parameters.AddWithValue("@sexo", t.Sexo.Id);
-            //    query.Parameters.AddWithValue("@enderecoId", enderecoId);
+                query.CommandText = "UPDATE funcionario SET Nome_fun = @nome, cpf_fun = @cpf, rg_fun = @rg, nascimento_fun = @datanasc, " +
+                    "email_fun = @email, telefone_fun = @celular, funcao_fun = @funcao, salario_fun = @salario, " +
+                    "sexo_fun = @sexo WHERE id_fun = @id";
 
-            //    query.Parameters.AddWithValue("@id", t.Id);
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@datanasc", t.DataNascimento?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
+                query.Parameters.AddWithValue("@cpf", t.CPF);
+                query.Parameters.AddWithValue("@funcao", t.Funcao);
+                query.Parameters.AddWithValue("@salario", t.Salario);
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@celular", t.Celular);
+                query.Parameters.AddWithValue("@rg", t.RG);
+                query.Parameters.AddWithValue("@sexo", t.Sexo);
 
-            //    var result = query.ExecuteNonQuery();
+                query.Parameters.AddWithValue("@id", t.Id);
 
-            //    if (result == 0)
-            //        throw new Exception("Atualização do registro não foi realizada.");
+                var result = query.ExecuteNonQuery();
 
-            //}
-            //catch (Exception e)
-            //{
-            //    throw e;
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         List<Funcionario> IDAO<Funcionario>.List()

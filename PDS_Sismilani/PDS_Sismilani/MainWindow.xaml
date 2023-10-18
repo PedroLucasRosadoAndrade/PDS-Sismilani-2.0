@@ -18,8 +18,8 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
-            <GradientStop Color="Black"/>
-            <GradientStop Color="#FF0F2E72" Offset="1"/>
+            <GradientStop Color="#FF8131E3"/>
+            <GradientStop Color="#FF2282CC" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
 

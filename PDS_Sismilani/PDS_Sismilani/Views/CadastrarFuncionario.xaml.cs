@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +16,7 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using PDS_Sismilani.Models;
+using Button = System.Windows.Controls.Button;
 
 namespace PDS_Sismilani.Views
 {
@@ -68,6 +70,7 @@ namespace PDS_Sismilani.Views
             reader.Close();
         }
 
+
         //private void LimparInputs()
         //{
 
@@ -105,10 +108,28 @@ namespace PDS_Sismilani.Views
                 MessageBox.Show("Falha ao excluir o Funcionário.");
             }
         }
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+
+                FuncionariosDataGrid.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void btEditar(object sender, RoutedEventArgs e)
         {
-            var editFuncionario = new EditFuncionario().ShowDialog();
+            //var Funcionarios = new EditFuncionario().ShowDialog();
+            var funcionarioSelected = FuncionariosDataGrid.SelectedItem as Funcionario;
+
+            var window = new EditFuncionario(funcionarioSelected.Id);
+            window.ShowDialog();
+            LoadDataGrid();
         }
 
         private bool ExcluirFuncionario(string id)
@@ -156,6 +177,9 @@ namespace PDS_Sismilani.Views
         private void btHome(object sender, RoutedEventArgs e)
         {
             var home = new Home().ShowDialog();
+
+            var cadastrarFun = new CadastrarFuncionario();
+            cadastrarFun.Close();
         }
 
         private void Btclientes(object sender, RoutedEventArgs e)
