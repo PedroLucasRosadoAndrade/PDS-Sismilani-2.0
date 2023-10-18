@@ -36,7 +36,7 @@ namespace PDS_Sismilani.Views
         }
         private void Conexao()
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3360";
             conexao = new MySqlConnection(conexaoString);
             comando = conexao.CreateCommand();
 
