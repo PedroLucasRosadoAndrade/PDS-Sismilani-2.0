@@ -78,5 +78,10 @@ namespace PDS_Sismilani.Views
         {
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var produtora = new Produtora().ShowDialog();
+        }
     }
 }

@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani"
         mc:Ignorable="d"
-        Title="MainWindow" MaxHeight="450" MaxWidth="450" WindowStartupLocation="CenterScreen">
-    
-    
-    <Window.Background>
+        Title="MainWindow" MaxHeight="450" MaxWidth="450" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
+
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30" Width="297" Height="311">
+
+
+        <!-- <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>
                 <TransformGroup>
@@ -21,35 +24,38 @@
             <GradientStop Color="#FF8131E3"/>
             <GradientStop Color="#FF2282CC" Offset="1"/>
         </LinearGradientBrush>
-    </Window.Background>
+    </Window.Background> '-->
 
-    <DockPanel >
-        <!--<Label DockPanel.Dock="Bottom" Content="Entrar" FontSize="16" Foreground="Wheat"/> -->
-        <Grid>
-            <Frame Name="frame" NavigationUIVisibility="Hidden" />
-        </Grid>
+        <DockPanel Margin="7,6,5,7" >
+            <!--<Label DockPanel.Dock="Bottom" Content="Entrar" FontSize="16" Foreground="Wheat"/> -->
+            <Grid>
+                <Frame Name="frame" NavigationUIVisibility="Hidden" />
+            </Grid>
+            <StackPanel Margin="20" Height="264" Width="250">
 
-        <StackPanel>
-            <TextBlock DockPanel.Dock="Right" Margin="0 80 0 0" Width="100" Height="20" Foreground="White" FontSize="17">Entrar</TextBlock>
-            <Label Content="Usuário" Foreground="White" Width="200" Margin="0 0" />
-            <TextBox Width="200" Margin=" 5 0 10 0"></TextBox>
-            <Label DockPanel.Dock="Bottom" Width="200" Content="senha" FontSize="16" Foreground="White" Margin="0 0"/>
-            <TextBox Width="200" Margin="5 0 10 0"></TextBox>
-            <StackPanel DockPanel.Dock="Left" Width="160">
-                <Button  Width="155" Height="30" Padding="5 0 20 0" Margin="5" x:Name="btLogin" Click="btLogin_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Logar</TextBlock>
-                    </StackPanel>
-                </Button>
+                <TextBlock Width="46" Height="23" Foreground="Black"  FontStretch="Medium" FontFamily="sanfrancisco" FontWeight="SemiBold"
+                           FontSize="17" Margin="10"><Run Text="Entrar"/></TextBlock>
+
+                <Label Content="Usuário" Foreground="White" Width="51" Margin="0 0" />
+                <TextBox Width="180" Margin=" 5 0 10 0" Style="{StaticResource TextBoxPesquisa}" Height="34"/>
+                <Label Width="53"  Margin="12" Content="senha" FontSize="16" Foreground="White"/>
+                <TextBox Width="180" Margin="5 0 10 0" Style="{StaticResource TextBoxPesquisa}" Height="34"/>
+
+                <StackPanel Width="162" Margin="20">
+                    <Button  Width="143" Height="29" Padding="5 0 20 0" Margin="5" x:Name="btLogin" Click="btLogin_Click" Style="{StaticResource AddButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock><Run Text="Logar"/></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
             </StackPanel>
 
-        </StackPanel>
-        
-        
 
-    </DockPanel>
-    
-    <!--
+
+        </DockPanel>
+
+        <!--
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="259*"/>
@@ -89,4 +95,5 @@
 
     </Grid>
     -->
+    </Border>
 </Window>
