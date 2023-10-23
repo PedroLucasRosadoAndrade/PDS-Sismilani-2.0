@@ -25,20 +25,37 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class EditFuncionario : Window
     {
-        
+        private int _id;
+
         MySqlConnection conexao;
         MySqlCommand comando;
         ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
         Funcionario FuncionarioEmEdicao;
 
+        public EditFuncionario()
+        {
+            InitializeComponent();
+            Loaded += EditFuncionario_Loaded;
+        }
+        
         public EditFuncionario(string id)
         {
             InitializeComponent();
+            _id =  int.Parse(id);
+            Loaded += EditFuncionario_Loaded;
         }
 
-        public void PreencherCampos(Funcionario funcionario)
+        private void EditFuncionario_Loaded(object sender, RoutedEventArgs e)
         {
-            FuncionarioEmEdicao = funcionario;
+            if (_id > 0)
+            {
+                PreencherCampos();
+            }
+        }
+
+        public void PreencherCampos()
+        {
+            // Buscar Funcionario em FuncionarioDAO - GetById(_id)
 
             if (FuncionarioEmEdicao != null)
             {

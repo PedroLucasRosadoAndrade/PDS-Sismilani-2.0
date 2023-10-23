@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
@@ -16,12 +17,15 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using PDS_Sismilani.Models;
+using static System.Net.Mime.MediaTypeNames;
 using Button = System.Windows.Controls.Button;
 
 namespace PDS_Sismilani.Views
 {
     public partial class CadastrarFuncionario : Window
     {
+        //private string _id;
+        private Funcionario _funcionario;
         MySqlConnection conexao;
         MySqlCommand comando;
         ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
@@ -154,6 +158,54 @@ namespace PDS_Sismilani.Views
             }
         }
 
+        //private bool Validate()
+        //{
+        //    var validator = new FuncionarioValitador();
+        //    var result = validator.Validate(_funcionario);
+
+        //    if (!result.IsValid)
+        //    {
+        //        string errors = null;
+        //        var count = 1;
+
+        //        foreach (var failure in result.Errors)
+        //        {
+        //            errors += $"{count++} - {failure.ErrorMessage}\n";
+        //        }
+
+        //        MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    }
+
+        //    return result.IsValid;
+        //}
+
+        //private void SaveData()
+        //{
+        //    try
+        //    {
+        //        if (Validate())
+        //        {
+        //            var dao = new FuncionarioDAO();
+        //            var text = "atualizado";
+
+        //            if (_funcionario.Id == "0")
+        //            {
+        //                dao.Insert(_funcionario);
+        //                text = "adicionado";
+        //            }
+        //            else
+        //                dao.Update(_funcionario);
+
+        //            MessageBox.Show($"O Funcionário foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+        //            CloseFormVerify();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
+
         private void Btestoque(object sender, RoutedEventArgs e)
         {
             var estoque = new Estoque().ShowDialog();
@@ -193,6 +245,39 @@ namespace PDS_Sismilani.Views
         }
 
         //private bool IsMaximized = false;
+
+        //private void ClearInputs()
+        //{
+        //    txt.Clear();
+        //    dtpDataNasc.IsEnabled = false;
+        //    txtCpf.Clear();
+        //    txtEmail.Clear();
+        //    txtSalario.Clear();
+        //    txtFuncao.Clear();
+        //    txtCeluar.Clear();
+        //    txtRg.Clear();
+        //    txtSexo.Clear();
+
+        //}
+
+
+
+
+
+        //private void CloseFormVerify()
+        //{
+        //    if (_funcionario.Id == 0)
+        //    {
+        //        var result = MessageBox.Show("Deseja continuar adicionando funcionários?", "Continuar?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+        //        if (result == MessageBoxResult.No)
+        //            this.Close();
+        //        else
+        //            ClearInputs();
+        //    }
+        //    else
+        //        this.Close();
+        //}
 
     }
 }
