@@ -32,7 +32,7 @@ namespace PDS_Sismilani.Views
         }
         private void Conexao()
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3360";
+            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
             conexao = new MySqlConnection(conexaoString);
             comando = conexao.CreateCommand();
 
@@ -40,28 +40,36 @@ namespace PDS_Sismilani.Views
         }
         private void LoadCliente()
         {
-            string query = "SELECT * FROM Cliente;";
-            var comando = new MySqlCommand(query, conexao);
-            MySqlDataReader reader = comando.ExecuteReader();
-
-            cliente.Clear();
-            while (reader.Read())
+            try
             {
-                cliente.Add(new Cliente
-                {
-                    id = reader.GetString("id_cli"),
-                    nome = reader.GetString("nome_cli"),
-                    rg = reader.GetString("rg_cli"),
-                    cpf = reader.GetString("cpf_cli"),
-                    email = reader.GetString("email_cli"),
-                    telefone = reader.GetString("telefone_cli"),
-                    dataNasc = reader.GetDateTime("data_nasc_cli"),
-                    sexo = reader.GetString("sexo_cli"),
-                    endereco = reader.GetString("endereco_cli")
-                });
-            }
+                string query = "SELECT * FROM cliente;";
+                var comando = new MySqlCommand(query, conexao);
+                MySqlDataReader reader = comando.ExecuteReader();
 
-            reader.Close();
+                cliente.Clear();
+                while (reader.Read())
+                {
+                    cliente.Add(new Cliente
+                    {
+                        id = reader.GetString("id_cli"),
+                        nome = reader.GetString("nome_cli"),
+                        rg = reader.GetString("rg_cli"),
+                        cpf = reader.GetString("cpf_cli"),
+                        email = reader.GetString("email_cli"),
+                        telefone = reader.GetString("telefone_cli"),
+                        dataNasc = reader.GetDateTime("data_nasc_cli"),
+                        sexo = reader.GetString("sexo_cli"),
+                        endereco = reader.GetString("endereco_cli")
+                    });
+                }
+
+                reader.Close();
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         //---------------------------------- Botão Editar e Excluir ---------------------
 
