@@ -48,49 +48,41 @@ namespace PDS_Sismilani.Views
             try
             {
 
-                var atores = txtAtores.Text;
-                var sinopse = txtSinopse.Text;
-                var elenco = txtElenco.Text;
-                var fornecedor = txtFornecedor.Text;
-                var titulo = txtTitulo.Text;
-                var data_filme = dtpDatafilm.SelectedDate;
-                var data_lancamento = dtpDatalancamento.SelectedDate;
-                var categoria = txtCategoria.Text;
-                var diretor = txtDiretor.Text;
+                var nome = txtNome.Text;
+                var cnpj = txtCnpj.Text;
+                var telefone = txtTelefone.Text;
+                var rasao_social= txtRazao_social.Text;
+                var tipo = txtTipo.Text;
+                var historico = txtHistorico.Text;
 
 
                 using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3360"))
                 {
                     conexao.Open();
 
-                    string query = "INSERT INTO Funcionario (atores_film, sinopse_film, elenco_film, fornecedor_film, data_film, dataLancamento_film, titulo_film, categoria_film, diretor_film) " +
-                                   "VALUES (@_atores, @_sinopse, @_elenco, @_fornecedor, @_data, @_dataLancamento, @_titulo, @_categoria, @_diretor)";
+                    string query = "INSERT INTO produtora (nome_produ, CNPJ_produ, telefone_produ, razaoSocial_produ, Tipo_produ, historico_produ) " +
+                                   "VALUES (@_nome, @_cnpj, @_telefone, @_razaoSocial, @_tipo, @_historico)"; 
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
-                        comando.Parameters.AddWithValue("@_atores", atores);
-                        comando.Parameters.AddWithValue("@_sinopse", sinopse);
-                        comando.Parameters.AddWithValue("@_elenco", elenco);
-                        comando.Parameters.AddWithValue("@_fornecedor", fornecedor);
-                        comando.Parameters.AddWithValue("@_data", data_filme);
-                        comando.Parameters.AddWithValue("@_dataLancamento", data_lancamento);
-                        comando.Parameters.AddWithValue("@_titulo", titulo);
-                        comando.Parameters.AddWithValue("@_categoria", categoria);
-                        comando.Parameters.AddWithValue("@_diretor", diretor);
+                        comando.Parameters.AddWithValue("@_nome", nome);
+                        comando.Parameters.AddWithValue("@_cnpj", cnpj);
+                        comando.Parameters.AddWithValue("@_telefone", telefone);
+                        comando.Parameters.AddWithValue("@_razaoSocial", rasao_social);
+                        comando.Parameters.AddWithValue("@_tipo",tipo);
+                        comando.Parameters.AddWithValue("@_historico", historico);
 
                         comando.ExecuteNonQuery();
                     }
                 }
-                comando.ExecuteNonQuery();
-                txtAtores.Clear();
-                dtpDatafilm.IsEnabled = false;
-                dtpDatalancamento.IsEnabled = false;
-                txtSinopse.Clear();
-                txtElenco.Clear();
-                txtFornecedor.Clear();
-                txtTitulo.Clear();
-                txtCategoria.Clear();
-                txtDiretor.Clear();
-                txtAtores.Focus();
+                
+                txtNome.Clear();
+                txtCnpj.Clear();
+                txtTelefone.Clear();
+                txtRazao_social.Clear();
+                txtTipo.Clear();
+                txtHistorico.Clear();
+                
+                txtNome.Focus();
 
                 var opcao = MessageBox.Show("Produtora salva com sucesso!\n" +
                     "Deseja realizar um novo cadastro?", "Informação",
@@ -114,16 +106,13 @@ namespace PDS_Sismilani.Views
                 MessageBox.Show($"Ocorreram erros ao tentar salvar os dados!\n" +
                     $"Contate o suporte do sistema. (CAD 25)\n\n{ex.Message}");
 
-                txtAtores.Clear();
-                dtpDatafilm.IsEnabled = false;
-                dtpDatalancamento.IsEnabled = false;
-                txtSinopse.Clear();
-                txtElenco.Clear();
-                txtFornecedor.Clear();
-                txtTitulo.Clear();
-                txtCategoria.Clear();
-                txtDiretor.Clear();
-                txtAtores.Focus();
+                txtNome.Clear();
+                txtCnpj.Clear();
+                txtTelefone.Clear();
+                txtRazao_social.Clear();
+                txtTipo.Clear();
+                txtHistorico.Clear();
+                
             }
         }
     
