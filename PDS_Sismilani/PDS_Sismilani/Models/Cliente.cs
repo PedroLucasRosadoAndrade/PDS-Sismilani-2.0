@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDS_Sismilani.Models
 {
-    public class Cliente
+    class Cliente
     {
         public string id { get; set; }
         public string nome { get; set; }

@@ -79,24 +79,8 @@ namespace PDS_Sismilani.Views
         }
         private bool ExcluirCliente(string id)
         {
-            try
-            {
-                string query = "DELETE FROM Cliente WHERE id_cli = @id";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conexao))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                return true; 
-            }
-            catch (Exception ex)
-            { 
-                MessageBox.Show("Erro ao excluir o cliente: " + ex.Message);
-                return false;
-            }
+            //var deleteCli = new ClienteDAO();
+            //deleteCli.Delete;
         }
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
