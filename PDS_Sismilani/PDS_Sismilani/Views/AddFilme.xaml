@@ -43,21 +43,21 @@
 
                 <!--Add campos de digitação-->
 
-                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Título" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtTitulo" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Unidade" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtUnidade" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtCategoria" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Valor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Elenco" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtValor" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtElenco" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Descrição" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Sinopse" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtDescricao" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtSinopse" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
                 <Label Content="Fornecedor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
@@ -67,9 +67,9 @@
 
                 <TextBox x:Name="txtCodigo"  Grid.Row="5" Background="White" Margin="21,251,861,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Data" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,200,415" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Data Lançamento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,200,415" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <DatePicker x:Name="dtpData" Grid.Row="5" Background="White" Margin="668,187,21,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
+                <DatePicker x:Name="datePickerData" Grid.Row="5" Background="White" Margin="668,187,21,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
 
             </Grid>
 
