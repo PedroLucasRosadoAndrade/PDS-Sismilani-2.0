@@ -3,14 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PDS_Sismilani.Views" 
+        xmlns:local="clr-namespace:PDS_Sismilani.Views"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        
-    Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
-
+		Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+		AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500">
     <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
-        <Grid x:Name="AddFilme" Margin="10">
+
+        <Grid Margin="10">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="164*"/>
                 <ColumnDefinition Width="101*"/>
@@ -29,7 +30,7 @@
 
                 <TextBlock Text="Filme" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,474,75,98" Grid.Row="5"  Width="99" Click="btSalvar">
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,474,75,98" Grid.Row="5"  Width="99" Click="BtSalvar">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
@@ -74,7 +75,7 @@
 
             <DockPanel Margin="36,547,481,46">
                 <!--Voltar -->
-                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar" >
+                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="BtVoltar">
                     <StackPanel Orientation="Horizontal" Width="102">
                         <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
                         <TextBlock Text=" Voltar"/>
@@ -85,5 +86,6 @@
 
 
         </Grid>
+
     </Border>
 </Window>

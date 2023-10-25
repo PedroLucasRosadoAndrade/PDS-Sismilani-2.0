@@ -1,6 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using PDS_Sismilani.DataBase;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,23 +19,18 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class AddFilme : Window
     {
-        MySqlConnection conexao;
-        MySqlCommand comando;
-      
         public AddFilme()
         {
             InitializeComponent();
         }
 
-
-        private void Conexao()
+        private void BtSalvar(object sender, RoutedEventArgs e)
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3360";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
 
-            conexao.Open();
+        }
 
+        private void BtVoltar(object sender, RoutedEventArgs e)
+        {
 
         }
     }
