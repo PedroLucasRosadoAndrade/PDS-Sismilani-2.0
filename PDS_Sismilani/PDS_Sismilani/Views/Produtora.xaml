@@ -27,7 +27,7 @@
 
                 <TextBlock Text="PRODUTORA" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1"  Width="99" Click="btSalvar">
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,0" Grid.Row="1"  Width="99" Click="btSalvar" Height="35" VerticalAlignment="Top">
                     <StackPanel Orientation="Horizontal" RenderTransformOrigin="0.5,0.5" >
                         <StackPanel.RenderTransform>
                             <TransformGroup>
@@ -48,43 +48,30 @@
 
                 <!--Add campos de digitação-->
 
-                <Label Content="Atores" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Nome " Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtAtores" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Sinopse" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="CNPJ" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtSinopse" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtCnpj" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Elenco" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtElenco" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Fornecedor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Razão Social" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtFornecedor" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtRazao_social" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Titulo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Tipo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtTitulo" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtTipo" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Historico" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtCategoria"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtHistorico"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Data do Filme" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="666,156,200,415" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <DatePicker x:Name="dtpDatafilm" Grid.Row="5" Background="White" Margin="668,187,21,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Data do lancamento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,226,202,345" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <DatePicker x:Name="dtpDatalancamento" Grid.Row="5" Background="White" Margin="668,247,21,0" Style="{StaticResource TextData}" Height="40" VerticalAlignment="Top"/>
-
-                <Label Content="Diretor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="676,295,190,282" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtDiretor" Grid.Row="5" Background="White" Margin="668,325,21,0" Style="{StaticResource TextBoxPesquisa}" Height="40" VerticalAlignment="Top"/>
-
-                
             </Grid>
 
             <DockPanel Margin="36,547,481,46">
