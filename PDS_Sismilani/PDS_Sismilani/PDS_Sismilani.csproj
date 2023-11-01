@@ -246,9 +246,6 @@
     <Compile Include="Views\addFuncionario.xaml.cs">
       <DependentUpon>addFuncionario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CadastarFilme.xaml.cs">
-      <DependentUpon>CadastarFilme.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\CadastrarCliente.xaml.cs">
       <DependentUpon>CadastrarCliente.xaml</DependentUpon>
     </Compile>
@@ -313,10 +310,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\addFuncionario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CadastarFilme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,5 +23,61 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
         }
+
+        private void BtHome_Click(object sender, RoutedEventArgs e)
+        {
+            var home = new Home().ShowDialog();
+            var cadastrarfil = new CadastrarFilme();
+
+        }
+
+        private void Btfilmes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btprodutora_Click(object sender, RoutedEventArgs e)
+        {
+            var produtora = new Produtora().ShowDialog();
+
+        }
+
+        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedor = new CadastrarFornecedor().ShowDialog();
+
+        }
+
+        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btestoque_Click(object sender, RoutedEventArgs e)
+        {
+            var estoque = new Estoque().ShowDialog();
+
+        }
+
+        private void Btprodutos_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void BtAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtSair(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void btDeletar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

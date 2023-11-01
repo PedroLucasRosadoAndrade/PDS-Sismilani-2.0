@@ -27,7 +27,7 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
             Conexao();
-            clientesDataGrid.ItemsSource = cliente; 
+            clientesDataGrid.ItemsSource = cliente;
             LoadCliente();
         }
         private void Conexao()
@@ -65,11 +65,12 @@ namespace PDS_Sismilani.Views
 
                 reader.Close();
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         //---------------------------------- Botão Editar e Excluir ---------------------
 
@@ -88,7 +89,7 @@ namespace PDS_Sismilani.Views
             var dataGridRow = (DataGridRow)clientesDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
             var clientes = (Cliente)dataGridRow.Item;
 
-            if (ExcluirCliente(clientes.id)) 
+            if (ExcluirCliente(clientes.id))
             {
                 cliente.Remove(clientes);
                 clientesDataGrid.Items.Refresh();
@@ -119,7 +120,7 @@ namespace PDS_Sismilani.Views
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
             var CadProdutora = new Produtora();
-            CadProdutora.ShowDialog();
+            //            CadProdutora.ShowDialog();
         }
         private void Btfornecedores_Click(object sender, RoutedEventArgs e)
         {
@@ -175,7 +176,7 @@ namespace PDS_Sismilani.Views
             this.Close();
         }
 
-        
+
     }
 
 }
