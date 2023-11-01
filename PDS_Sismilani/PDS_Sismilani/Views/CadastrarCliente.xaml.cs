@@ -80,8 +80,8 @@ namespace PDS_Sismilani.Views
         }
         private bool ExcluirCliente(int id)
         {
-            //var deleteCli = new ClienteDAO();
-            //deleteCli.Delete;
+            var deleteCli = new ClienteDAO();
+            
         }
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
@@ -120,7 +120,7 @@ namespace PDS_Sismilani.Views
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
             var CadProdutora = new Produtora();
-            //            CadProdutora.ShowDialog();
+            CadProdutora.ShowDialog();
         }
         private void Btfornecedores_Click(object sender, RoutedEventArgs e)
         {
