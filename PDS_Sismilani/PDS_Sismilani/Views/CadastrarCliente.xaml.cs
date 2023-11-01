@@ -51,7 +51,7 @@ namespace PDS_Sismilani.Views
                 {
                     cliente.Add(new Cliente
                     {
-                        id = reader.GetString("id_cli"),
+                        id = reader.GetInt32("id_cli"),
                         nome = reader.GetString("nome_cli"),
                         rg = reader.GetString("rg_cli"),
                         cpf = reader.GetString("cpf_cli"),
@@ -78,7 +78,7 @@ namespace PDS_Sismilani.Views
         {
             var editCliente = new EditCliente().ShowDialog();
         }
-        private bool ExcluirCliente(string id)
+        private bool ExcluirCliente(int id)
         {
             //var deleteCli = new ClienteDAO();
             //deleteCli.Delete;

@@ -9,13 +9,13 @@
         Title="MainWindow" MaxHeight="450" MaxWidth="450" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
 
-    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30" Width="297" Height="311">
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30" Width="328" Height="390">
 
-        <DockPanel Margin="7,6,5,7" >
+        <DockPanel Margin="7,6,13,32" >
             <Grid>
                 <Frame Name="frame" NavigationUIVisibility="Hidden" />
             </Grid>
-            <StackPanel Margin="20" Height="264" Width="250">
+            <StackPanel Margin="20" Height="339" Width="258">
 
                 <TextBlock Width="46" Height="23" Foreground="Black"  FontStretch="Medium" FontFamily="sanfrancisco" FontWeight="SemiBold"
                            FontSize="17" Margin="10"><Run Text="Entrar"/></TextBlock>
@@ -33,14 +33,17 @@
                     </Button>
                 </StackPanel>
 
+                <StackPanel Width="117">
+                    <Button  Width="102" Height="29" Padding="5 0 20 0" Margin="5" x:Name="BtnFechar" Click="BtFechar_Click" Style="{StaticResource SairButton}" >
+                        <StackPanel Orientation="Horizontal" Width="77">
+                            <Icon:PackIconMaterial Width="12" Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
+                            <TextBlock Width="24"><Run Text="Sair"/></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </StackPanel>
 
-            <Button x:Name="BtnFechar" Style="{StaticResource AddButton}" Width="70" Height="20" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="-266 -2 8 2"  Click="BtFechar" >
-                <StackPanel Orientation="Horizontal" Width="80">
-                    <Icon:PackIconMaterial Width="10" Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
-                    <TextBlock FontSize="10" FontWeight="Bold"  Text="Sair"/>
-                </StackPanel>
-            </Button>
+
 
             <DockPanel Margin="36,547,481,46">
 

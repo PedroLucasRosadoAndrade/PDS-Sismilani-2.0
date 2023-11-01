@@ -8,7 +8,7 @@ namespace PDS_Sismilani.Models
 {
     class Cliente
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string nome { get; set; }
         public string rg { get; set; }
         public string telefone { get; set; }
