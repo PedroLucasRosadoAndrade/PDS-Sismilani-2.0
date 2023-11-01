@@ -180,7 +180,7 @@ namespace PDS_Sismilani.Models
                 query.Parameters.AddWithValue("@email", t.email);
                 query.Parameters.AddWithValue("@telefone", t.telefone);
                 query.Parameters.AddWithValue("@sexo", t.sexo);
-                query.Parameters.AddWithValue("@endereco", endereco);
+                query.Parameters.AddWithValue("@endereco", t.endereco);
 
                 query.Parameters.AddWithValue("@id", t.id);
 
