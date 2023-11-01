@@ -8,6 +8,7 @@ using PDS_Sismilani.Helpers;
 using PDS_Sismilani.Models;
 using MySql.Data.MySqlClient;
 using PDS_Sismilani.DataBase;
+using PDS_Sismilani.Views;
 
 
 namespace PDS_Sismilani.Models
@@ -26,7 +27,7 @@ namespace PDS_Sismilani.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "DELETE FROM funcionario WHERE cod_func = @id";
+                query.CommandText = "DELETE FROM funcionario WHERE id_fun = @id";
 
                 query.Parameters.AddWithValue("@id", t.Id);
 
@@ -55,6 +56,7 @@ namespace PDS_Sismilani.Models
                 //                                "LEFT JOIN sexo ON cod_sex = cod_sex_fk " +
                 //                                "LEFT JOIN endereco ON cod_end = cod_end_fk " +
                 //                                "WHERE cod_func = @id";
+                query.CommandText = "SELECT * FROM funcionario ";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -67,15 +69,17 @@ namespace PDS_Sismilani.Models
 
                 while (reader.Read())
                 {
-                    funcionario.Id = reader.GetString("cod_func");
-                    funcionario.Nome = reader.GetString("nome_func");
-                    funcionario.CPF = reader.GetString("cpf_func");
-                    funcionario.RG = reader.GetString("rg_func");
-                    funcionario.DataNascimento = DAOHelper.GetDateTime(reader, "datanasc_func");
-                    funcionario.Email = reader.GetString("email_func");
-                    funcionario.Celular = reader.GetString("celular_func");
-                    funcionario.Funcao = reader.GetString("funcao_func");
-                    funcionario.Salario = DAOHelper.GetDouble(reader, "salario_func");
+
+                    funcionario.Id = reader.GetInt32("id_fun");
+                    funcionario.Nome = reader.GetString("Nome_fun");
+                    funcionario.DataNascimento = DAOHelper.GetDateTime(reader, "nascimento_fun");
+                    funcionario.CPF = reader.GetString("cpf_fun");
+                    funcionario.Salario = DAOHelper.GetDouble(reader, "salario_fun");
+                    funcionario.Funcao = reader.GetString("funcao_fun");
+                    funcionario.Celular = reader.GetString("telefone_fun");
+                    funcionario.Email = reader.GetString("email_fun");
+                    funcionario.RG = reader.GetString("rg_fun");
+                    funcionario.Sexo = reader.GetString("sexo_fun");
 
                     //if (!DAOHelper.IsNull(reader, "cod_sex_fk"))
                     //    funcionario.Sexo = new Sexo()
@@ -115,18 +119,18 @@ namespace PDS_Sismilani.Models
                 //Inserção do Endereço do Funcionário
                 //var enderecoId = new EnderecoDAO().Insert(t.Endereco);
 
-                
-                  //PROCEDURE `inserir_funcionario`(IN nome varchar(200), IN cpf varchar(20), IN rg varchar(20),
-                  //                                   IN datanasc date, IN email varchar(200), IN celular varchar(50), 
-                  //                                  IN funcao varchar(50),
-                  //                                   IN salario double)
+
+                //PROCEDURE `inserir_funcionario`(IN nome varchar(200), IN cpf varchar(20), IN rg varchar(20),
+                //                                     IN datanasc date, IN email varchar(200), IN celular varchar(50), 
+                //                                    IN funcao varchar(50),
+                //                                     IN salario double)
                  
                 var query = conn.Query();
                 query.CommandText = "INSERT INTO funcionario " +
                     "(Nome_fun, nascimento_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun, sexo_fun) " +
-                    "VALUES (@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexoId)";
+                    "VALUES (@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexo)";
 
-                query.CommandText = "CALL inserir_funcionario(@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexoId)";
+                //query.CommandText = "CALL inserir_funcionario(@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexo)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@datanasc", t.DataNascimento?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
@@ -136,7 +140,7 @@ namespace PDS_Sismilani.Models
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@celular", t.Celular);
                 query.Parameters.AddWithValue("@rg", t.RG);
-                query.Parameters.AddWithValue("@sexoId", t.Sexo);
+                query.Parameters.AddWithValue("@sexo", t.Sexo);
 
                 var result = query.ExecuteNonQuery();
 
@@ -167,32 +171,33 @@ namespace PDS_Sismilani.Models
        }
 
        
-        public List<Filme> List()
+        public List<Funcionario> List()
         {
             try
             {
-                List<Filme> list = new List<Filme>();
+                List<Funcionario> list = new List<Funcionario>();
 
                 var query = conn.Query();
                 //query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
+                query.CommandText = "SELECT * FROM Funcionario";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    list.Add(new Filme()
+                    list.Add(new Funcionario()
                     {
-                        //Id = reader.GetInt32("cod_func"),
-                        //Nome = DAOHelper.GetString(reader, "nome_func"),
-                        //CPF = DAOHelper.GetString(reader, "cpf_func"),
-                        //RG = DAOHelper.GetString(reader, "rg_func"),
-                        //DataNascimento = DAOHelper.GetDateTime(reader, "datanasc_func"),
-                        //Email = DAOHelper.GetString(reader, "email_func"),
-                        //Celular = DAOHelper.GetString(reader, "celular_func"),
-                        //Funcao = DAOHelper.GetString(reader, "funcao_func"),
-                        //Salario = DAOHelper.GetDouble(reader, "salario_func"),
-                        //Sexo = DAOHelper.IsNull(reader, "cod_sex_fk") ? null : new Sexo() { Id = reader.GetInt32("cod_sex"), Nome = reader.GetString("nome_sex") }
-                    
+                        Id = reader.GetInt32("id_fun"),
+                        Nome = DAOHelper.GetString(reader, "Nome_fun"),
+                        CPF = DAOHelper.GetString(reader, "cpf_fun"),
+                        RG = DAOHelper.GetString(reader, "rg_fun"),
+                        DataNascimento = DAOHelper.GetDateTime(reader, "nascimento_fun"),
+                        Email = DAOHelper.GetString(reader, "email_fun"),
+                        Celular = DAOHelper.GetString(reader, "telefone_fun"),
+                        Funcao = DAOHelper.GetString(reader, "funcao_fun"),
+                        Salario = DAOHelper.GetDouble(reader, "salario_fun"),
+                        Sexo = DAOHelper.GetString(reader, "sexo_fun")
+
                     });
                 }
 
@@ -253,7 +258,6 @@ namespace PDS_Sismilani.Models
                 conn.Close();
             }
         }
-
         List<Funcionario> IDAO<Funcionario>.List()
         {
             throw new NotImplementedException();

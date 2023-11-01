@@ -40,6 +40,11 @@
 
                 <!--Add campos de digitação-->
 
+                <Label Content="ID" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtId" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="20" Width="50" VerticalAlignment="Top"/>
+                
+                <Separator/>
                 <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>

@@ -14,7 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using PDS_Sismilani.Models;
 using static System.Net.Mime.MediaTypeNames;
@@ -25,54 +25,60 @@ namespace PDS_Sismilani.Views
     public partial class CadastrarFuncionario : Window
     {
         //private string _id;
-        private Funcionario _funcionario;
-        MySqlConnection conexao;
-        MySqlCommand comando;
-        ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
+        //private Funcionario _funcionario;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
+        //ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
 
 
         public CadastrarFuncionario()
         {
             InitializeComponent();
-            Conexao();
-            FuncionariosDataGrid.ItemsSource = funcionario;
-            LoadFuncionario();
+            //Conexao();
+            //FuncionariosDataGrid.ItemsSource = funcionario;
+            //LoadFuncionario();
+            Loaded += CadastrarFuncionario_Loaded;
         }
-        private void Conexao()
+        //private void Conexao()
+        //{
+        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+        //    //conexao = new MySqlConnection(conexaoString);
+        //    //comando = conexao.CreateCommand();
+
+        //    //conexao.Open();
+        //}
+
+        private void CadastrarFuncionario_Loaded(object sender, RoutedEventArgs e)
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3360";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
-
-            conexao.Open();
+            LoadDataGrid();
         }
 
-        private void LoadFuncionario()
-        {
-            string query = "select * from funcionario;";
-            var comando = new MySqlCommand(query, conexao);
-            MySqlDataReader reader = comando.ExecuteReader();
+        //private void LoadFuncionario()
+        //{
+        //    string query = "select * from funcionario;";
+        //    var comando = new MySqlCommand(query, conexao);
+        //    MySqlDataReader reader = comando.ExecuteReader();
 
-            funcionario.Clear();
-            while (reader.Read())
-            {
-                funcionario.Add(new Funcionario
-                {
-                    Id = reader.GetString("id_fun"),
-                    Nome = reader.GetString("Nome_fun"),
-                    DataNascimento = reader.GetDateTime("nascimento_fun"),
-                    CPF = reader.GetString("cpf_fun"),
-                    Salario = reader.GetDouble("salario_fun"),
-                    Funcao = reader.GetString("funcao_fun"),
-                    Email = reader.GetString("email_fun"),
-                    Celular = reader.GetString("telefone_fun"),
-                    RG = reader.GetString("rg_fun"),
-                    Sexo = reader.GetString("sexo_fun"),
-                });
-            }
+        //    funcionario.Clear();
+        //    while (reader.Read())
+        //    {
+        //        funcionario.Add(new Funcionario
+        //        {
+        //            Id = reader.GetInt32("id_fun"),
+        //            Nome = reader.GetString("Nome_fun"),
+        //            DataNascimento = reader.GetDateTime("nascimento_fun"),
+        //            CPF = reader.GetString("cpf_fun"),
+        //            Salario = reader.GetDouble("salario_fun"),
+        //            Funcao = reader.GetString("funcao_fun"),
+        //            Email = reader.GetString("email_fun"),
+        //            Celular = reader.GetString("telefone_fun"),
+        //            RG = reader.GetString("rg_fun"),
+        //            Sexo = reader.GetString("sexo_fun"),
+        //        });
+        //    }
 
-            reader.Close();
-        }
+        //    reader.Close();
+        //}
 
 
         //private void LimparInputs()
@@ -98,18 +104,37 @@ namespace PDS_Sismilani.Views
 
         private void btDeletar(object sender, RoutedEventArgs e)
         {
-            var button = (Button)sender;
-            var dataGridRow = (DataGridRow)FuncionariosDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
-            var funcionarios = (Funcionario)dataGridRow.Item;
+            //var button = (Button)sender;
+            //var dataGridRow = (DataGridRow)FuncionariosDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
+            //var funcionarios = (Funcionario)dataGridRow.Item;
 
-            if (ExcluirFuncionario(funcionarios.Id))
+            //if (ExcluirFuncionario(funcionarios.Id))
+            //{
+            //    funcionario.Remove(funcionarios);
+            //    FuncionariosDataGrid.Items.Refresh();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Falha ao excluir o Funcionário.");
+            //}
+
+            var funcionarioSelected = FuncionariosDataGrid.SelectedItem as Funcionario;
+
+            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{funcionarioSelected.Nome}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
             {
-                funcionario.Remove(funcionarios);
-                FuncionariosDataGrid.Items.Refresh();
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FuncionarioDAO();
+                    dao.Delete(funcionarioSelected);
+                    LoadDataGrid();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Falha ao excluir o Funcionário.");
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void LoadDataGrid()
@@ -136,27 +161,29 @@ namespace PDS_Sismilani.Views
             LoadDataGrid();
         }
 
-        private bool ExcluirFuncionario(string id)
-        {
-            try
-            {
-                string query = "DELETE FROM Funcionario WHERE id_fun = @id";
+        //private bool ExcluirFuncionario(int id)
+        //{
+            //try
+            //{
+            //    string query = "DELETE FROM Funcionario WHERE id_fun = @id";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conexao))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
+            //    using (MySqlCommand cmd = new MySqlCommand(query, conexao))
+            //    {
+            //        cmd.Parameters.AddWithValue("@id", id);
 
-                    cmd.ExecuteNonQuery();
-                }
+            //        cmd.ExecuteNonQuery();
+            //    }
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao excluir o Funcionário: " + ex.Message);
-                return false;
-            }
-        }
+            //    return true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Erro ao excluir o Funcionário: " + ex.Message);
+            //    return false;
+            //}
+
+            
+        //}
 
         //private bool Validate()
         //{

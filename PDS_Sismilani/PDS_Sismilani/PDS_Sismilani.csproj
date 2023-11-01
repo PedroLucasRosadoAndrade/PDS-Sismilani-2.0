@@ -228,7 +228,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Interfaces\IDAO.cs" />
+    <Compile Include="Models\AbstractDAO.cs" />
     <Compile Include="Models\FuncionarioValitador.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioDAO.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Views\addCliente.xaml.cs">

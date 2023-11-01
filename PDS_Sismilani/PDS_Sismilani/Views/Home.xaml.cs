@@ -71,7 +71,7 @@ namespace PDS_Sismilani.Views
 
         private void BtFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            var Funcinario = new CadastrarFuncionario().ShowDialog();
+            _ = new CadastrarFuncionario().ShowDialog();
         }
 
         private void BtFechar(object sender, RoutedEventArgs e)

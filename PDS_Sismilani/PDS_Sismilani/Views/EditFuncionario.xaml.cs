@@ -32,7 +32,7 @@ namespace PDS_Sismilani.Views
         ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
         Funcionario FuncionarioEmEdicao;
 
-        public EditFuncionario()
+        public EditFuncionario(int id)
         {
             InitializeComponent();
             Loaded += EditFuncionario_Loaded;

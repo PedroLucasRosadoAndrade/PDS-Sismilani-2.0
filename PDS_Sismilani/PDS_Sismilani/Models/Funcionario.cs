@@ -8,7 +8,7 @@ namespace PDS_Sismilani.Models
 {
     public class Funcionario 
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public DateTime? DataNascimento { get; set; }
         public string CPF { get; set; }

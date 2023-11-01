@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PDS_Sismilani.Views;
+using PDS_Sismilani.Models;
 
 namespace PDS_Sismilani
 {
@@ -25,51 +26,28 @@ namespace PDS_Sismilani
         {
             InitializeComponent();
         }
-
-        private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
-        {
-            CadastrarCliente form = new CadastrarCliente();
-            form.ShowDialog();
-        }
-
-        private void btCadastrarFilme_Click(object sender, RoutedEventArgs e)
-        {
-            CadastrarFilme form = new CadastrarFilme();
-            form.ShowDialog();
-        }
-
-        private void btCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
-        {
-            CadastrarFornecedor form = new CadastrarFornecedor();
-            form.ShowDialog();
-        }
-
-        private void btCadastrarEstoque_Click(object sender, RoutedEventArgs e)
-        {
-            Estoque form = new Estoque();
-            form.ShowDialog();
-        }
-
-        private void btCadastrarFuncionario_Click(object sender, RoutedEventArgs e)
-        {
-            var funcionario = new CadastrarFuncionario().ShowDialog();
-        }
-
-        private void btCadastrarProdutora_Click(object sender, RoutedEventArgs e)
-        {
-            Produtora form = new Produtora();
-            form.ShowDialog();
-        }
-
-        private void btListarCadastro_Click(object sender, RoutedEventArgs e)
-        {
-            TelaInicial form = new TelaInicial();
-            form.ShowDialog();
-        }
-
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             var Home = new Home().ShowDialog();
+            string usuario = "roberval";//txtUsuario.Text;
+            string senha = "123456";//passBoxSenha.ToString();
+
+            if (Usuario.Login(usuario, senha))
+            {
+                var main = new MainWindow();
+                main.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = txtUsuario.Focus();
+            }
+        }
+
+        private void BtFechar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
