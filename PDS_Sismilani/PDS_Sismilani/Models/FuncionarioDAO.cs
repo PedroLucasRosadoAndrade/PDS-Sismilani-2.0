@@ -262,5 +262,16 @@ namespace PDS_Sismilani.Models
         {
             throw new NotImplementedException();
         }
+
+        public void AtualizarTotalFuncionarios()
+        {
+            //string connectionString = "SuaStringDeConexão"; // Substitua pela sua string de conexão
+            //string query = "SELECT COUNT(*) FROM Funcionario";
+
+            query.CommandText = "SELECT COUNT(*) FROM Funcionario";
+
+            int totalFuncionarios = (int)command.ExecuteScalar();
+            txtTotalFuncionarios.Text = $"Total de funcionários cadastrados: {totalFuncionarios}";
+        }
     }
 }
