@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using PDS_Sismilani.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySqlX.XDevAPI;
+using static System.Net.Mime.MediaTypeNames;
+using Button = System.Windows.Controls.Button;
 
 namespace PDS_Sismilani.Views
 {
@@ -19,10 +24,17 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class CadastrarFilme : Window
     {
+
+        MySqlConnection conexao;
+        MySqlCommand comando;
+  
         public CadastrarFilme()
         {
             InitializeComponent();
+
+            Loaded += CadastrarFilme_Loaded;
         }
+
 
         private void BtHome_Click(object sender, RoutedEventArgs e)
         {
@@ -33,8 +45,14 @@ namespace PDS_Sismilani.Views
         //private void Btfilmes_Click(object sender, RoutedEventArgs e)
         //{
 
-       // }
+        // }
 
+        private void CadastrarFilme_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
+
+       
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
             var produtora = new Produtora().ShowDialog();
@@ -64,6 +82,11 @@ namespace PDS_Sismilani.Views
            var produto = new CadastrarProduto().ShowDialog();
         }
 
+        private void Btclientes(object sender, RoutedEventArgs e)
+        {
+            var cliente = new CadastrarCliente().ShowDialog();
+
+        }
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
             var filme = new CadastrarFilme().ShowDialog();
@@ -78,12 +101,41 @@ namespace PDS_Sismilani.Views
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
 
-        }
+            //var filmeSelected = FilmesDataGrid.SelectedItem as Filme;
 
-        private void Btclientes(object sender, RoutedEventArgs e)
+            //var result = MessageBox.Show($"Deseja excluir o filme `{filmeSelected.Titulo}`?", "Excluido com sucesso",
+               MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FilmeDAO();
+                   // dao.Delete(filmeSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void LoadDataGrid()
         {
-            var cliente = new CadastrarCliente().ShowDialog();
+            try
+            {
+                var dao = new FilmeDAO();
 
+               // FilmesDataGrid.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
     }
+
+       
 }
+

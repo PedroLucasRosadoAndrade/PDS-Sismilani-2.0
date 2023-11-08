@@ -246,8 +246,14 @@
     <Compile Include="Views\addFuncionario.xaml.cs">
       <DependentUpon>addFuncionario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastrarCaixa.xaml.cs">
+      <DependentUpon>CadastrarCaixa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CadastrarCliente.xaml.cs">
       <DependentUpon>CadastrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastrarDespesa.xaml.cs">
+      <DependentUpon>CadastrarDespesa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CadastrarFilme.xaml.cs">
       <DependentUpon>CadastrarFilme.xaml</DependentUpon>
@@ -255,8 +261,20 @@
     <Compile Include="Views\CadastrarFornecedor.xaml.cs">
       <DependentUpon>CadastrarFornecedor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastrarPagamento.xaml.cs">
+      <DependentUpon>CadastrarPagamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastrarPoltrona.xaml.cs">
+      <DependentUpon>CadastrarPoltrona.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CadastrarProduto.xaml.cs">
       <DependentUpon>CadastrarProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastrarRecebimento.xaml.cs">
+      <DependentUpon>CadastrarRecebimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastrarSala.xaml.cs">
+      <DependentUpon>CadastrarSala.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditCliente.xaml.cs">
       <DependentUpon>EditCliente.xaml</DependentUpon>
@@ -316,7 +334,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CadastrarCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CadastrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastrarDespesa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -328,7 +354,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CadastrarPagamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastrarPoltrona.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CadastrarProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastrarRecebimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastrarSala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
