@@ -12,6 +12,7 @@ using PDS_Sismilani.Models;
 using System;
 using MySqlX.XDevAPI;
 using System.Windows.Controls;
+using System.Web.UI.WebControls;
 
 namespace PDS_Sismilani.Views
 {
@@ -38,6 +39,7 @@ namespace PDS_Sismilani.Views
 
             conexao.Open();
         }
+
         private void LoadCliente()
         {
             try
@@ -83,20 +85,39 @@ namespace PDS_Sismilani.Views
             var deleteCli = new ClienteDAO();
             
         }
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new ClienteDAO();
+
+                clientesDataGrid.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
-            var button = (Button)sender;
-            var dataGridRow = (DataGridRow)clientesDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
-            var clientes = (Cliente)dataGridRow.Item;
+            var ClienteSelected = clientesDataGrid.SelectedItem as Cliente;
 
-            if (ExcluirCliente(clientes.id))
+            var result = MessageBox.Show($"Deseja realmente remover o Cliente `{ClienteSelected.nome}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
             {
-                cliente.Remove(clientes);
-                clientesDataGrid.Items.Refresh();
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new ClienteDAO();
+                    dao.Delete(ClienteSelected);
+                    LoadDataGrid();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Falha ao excluir o cliente.");
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
