@@ -33,7 +33,7 @@ namespace PDS_Sismilani.Models
                 var retorno = query.ExecuteNonQuery();
 
                 if (retorno == 0)
-                
+
                     throw new Exception("Registro não removido. Verifique e tente novamente.");
 
             }
@@ -46,33 +46,74 @@ namespace PDS_Sismilani.Models
                 conn.Close();
             }
         }
-    
+
         public void Insert(Cliente t)
         {
-            var query = conn.Query();
-            query.CommandText = "INSERT INTO Cliente (nome_cli, rg_cli, telefone_cli, email_cli, data_nasc_cli, cpf_cli, sexo_cli, endereco_cli) " +
-                                   "VALUES (@_nome, @_rg, @_telefone, @_email, @_data_nascimento, @_cpf, @_sexo, @_endereco)";
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO Cliente (nome_cli, rg_cli, telefone_cli, email_cli, data_nasc_cli, cpf_cli, sexo_cli, endereco_cli) " +
+                                       "VALUES (@_nome, @_rg, @_telefone, @_email, @_data_nascimento, @_cpf, @_sexo, @_endereco)";
 
-            query.Parameters.AddWithValue("@_nome", t.nome);
-            query.Parameters.AddWithValue("@_rg", t.rg);
-            query.Parameters.AddWithValue("@_telefone", t.telefone);
-            query.Parameters.AddWithValue("@_email", t.email);
-            query.Parameters.AddWithValue("@_data_nascimento", t.dataNasc);
-            query.Parameters.AddWithValue("@_cpf", t.cpf);
-            query.Parameters.AddWithValue("@_sexo", t.sexo);
-            query.Parameters.AddWithValue("@_endereco", t.endereco);
+                query.Parameters.AddWithValue("@_nome", t.nome);
+                query.Parameters.AddWithValue("@_rg", t.rg);
+                query.Parameters.AddWithValue("@_telefone", t.telefone);
+                query.Parameters.AddWithValue("@_email", t.email);
+                query.Parameters.AddWithValue("@_data_nascimento", t.dataNasc);
+                query.Parameters.AddWithValue("@_cpf", t.cpf);
+                query.Parameters.AddWithValue("@_sexo", t.sexo);
+                query.Parameters.AddWithValue("@_endereco", t.endereco);
 
 
-            var retorno = query.ExecuteNonQuery();
+                var retorno = query.ExecuteNonQuery();
 
-            if(retorno == 0)
-                throw new Exception("Não foi possível")
-
+                if (retorno == 0)
+                    throw new Exception("Não foi possível comcluir o registro.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         public Funcionario GetById(int id)
         {
-            
+            try
+            {
+                var query = conn.Query();
+                MySqlDataReader reader = query.ExecuteReader();
 
+                if (!reader.HasRows)
+
+                    throw new Exception("Nenhum registro foi encontrado.");
+
+                var cliente = new Cliente();
+
+                while (reader.Read())
+                {
+                    cliente.id = reader.GetInt32("id_cli");
+                    cliente.nome = reader.GetString("nome_cli");
+                    cliente.rg = reader.GetString("rg_cli");
+                    cliente.telefone = reader.GetString("telefone_cli");
+                    cliente.email = reader.GetString("email_cli");
+                    cliente.dataNasc = reader.GetDateTime("data_nasc_cli");
+                    cliente.cpf = reader.GetString("cpf_cli");
+                    cliente.sexo = reader.GetString("sexo_cli");
+                    cliente.endereco = reader.GetString("endereco_cli");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+
+                conn.Close();
+            }
         }
 
         public List<Cliente> List()
@@ -82,25 +123,25 @@ namespace PDS_Sismilani.Models
                 List<Cliente> list = new List<Cliente>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
+                //query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    list.Add(new Funcionario()
+                    list.Add(new Cliente()
                     {
-                        Id = reader.GetInt32("cod_func"),
-                        Nome = DAOHelper.GetString(reader, "nome_func"),
-                        CPF = DAOHelper.GetString(reader, "cpf_func"),
-                        RG = DAOHelper.GetString(reader, "rg_func"),
-                        DataNascimento = DAOHelper.GetDateTime(reader, "datanasc_func"),
-                        Email = DAOHelper.GetString(reader, "email_func"),
-                        Celular = DAOHelper.GetString(reader, "celular_func"),
-                        Funcao = DAOHelper.GetString(reader, "funcao_func"),
-                        Salario = DAOHelper.GetDouble(reader, "salario_func"),
-                        Sexo = DAOHelper.IsNull(reader, "cod_sex_fk") ? null : new Sexo() { Id = reader.GetInt32("cod_sex"), Nome = reader.GetString("nome_sex") }
+                        id = reader.GetInt32("id_cli"),
+                        nome = DAOHelper.GetString(reader, "nome_cli"),
+                        cpf = DAOHelper.GetString(reader, "cpf_cli"),
+                        rg = DAOHelper.GetString(reader, "rg_cli"),
+                        dataNasc = (DateTime)DAOHelper.GetDateTime(reader, "data_nasc_cli"),
+                        email = DAOHelper.GetString(reader, "email_cli"),
+                        telefone = DAOHelper.GetString(reader, "telefone_cli"),
+                        sexo = DAOHelper.GetString(reader, "sexo_cli"),
+                        endereco = DAOHelper.GetString(reader, "endereco_cli")
                     });
+
                 }
 
                 return list;
@@ -119,31 +160,29 @@ namespace PDS_Sismilani.Models
         {
             try
             {
-                long enderecoId = t.Endereco.Id;
-                var endDAO = new EnderecoDAO();
+                //    long enderecoId = t.Endereco.Id;
+                //    var endDAO = new EnderecoDAO();
 
-                if (enderecoId > 0)
-                    endDAO.Update(t.Endereco);
-                else
-                    enderecoId = endDAO.Insert(t.Endereco);
+                //    if (enderecoId > 0)
+                //        endDAO.Update(t.Endereco);
+                //    else
+                //        enderecoId = endDAO.Insert(t.Endereco);
 
                 var query = conn.Query();
-                query.CommandText = "UPDATE funcionario SET nome_func = @nome, cpf_func = @cpf, rg_func = @rg, datanasc_func = @datanasc, " +
-                    "email_func = @email, celular_func = @celular, funcao_func = @funcao, salario_func = @salario, " +
-                    "cod_sex_fk = @sexo, cod_end_fk = @enderecoId WHERE cod_func = @id";
+                query.CommandText = "UPDATE cliente SET nome_cli = @nome, cpf_cli = @cpf, rg_cli = @rg, data_nasc_cli = @datanasc, " +
+                    "email_cli = @email, telefone_cli = @telefone, endereco_cli = @endereco_cli";
 
-                query.Parameters.AddWithValue("@nome", t.Nome);
-                query.Parameters.AddWithValue("@cpf", t.CPF);
-                query.Parameters.AddWithValue("@rg", t.RG);
-                query.Parameters.AddWithValue("@datanasc", t.DataNascimento?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
-                query.Parameters.AddWithValue("@email", t.Email);
-                query.Parameters.AddWithValue("@celular", t.Celular);
-                query.Parameters.AddWithValue("@funcao", t.Funcao);
-                query.Parameters.AddWithValue("@salario", t.Salario);
-                query.Parameters.AddWithValue("@sexo", t.Sexo.Id);
-                query.Parameters.AddWithValue("@enderecoId", enderecoId);
 
-                query.Parameters.AddWithValue("@id", t.Id);
+                query.Parameters.AddWithValue("@nome", t.nome);
+                query.Parameters.AddWithValue("@cpf", t.cpf);
+                query.Parameters.AddWithValue("@rg", t.rg);
+                query.Parameters.AddWithValue("@datanasc", t.dataNasc.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
+                query.Parameters.AddWithValue("@email", t.email);
+                query.Parameters.AddWithValue("@telefone", t.telefone);
+                query.Parameters.AddWithValue("@sexo", t.sexo);
+                query.Parameters.AddWithValue("@endereco", t.endereco);
+
+                query.Parameters.AddWithValue("@id", t.id);
 
                 var result = query.ExecuteNonQuery();
 

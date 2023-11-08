@@ -27,7 +27,7 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
             Conexao();
-            clientesDataGrid.ItemsSource = cliente; 
+            clientesDataGrid.ItemsSource = cliente;
             LoadCliente();
         }
         private void Conexao()
@@ -51,7 +51,7 @@ namespace PDS_Sismilani.Views
                 {
                     cliente.Add(new Cliente
                     {
-                        id = reader.GetString("id_cli"),
+                        id = reader.GetInt32("id_cli"),
                         nome = reader.GetString("nome_cli"),
                         rg = reader.GetString("rg_cli"),
                         cpf = reader.GetString("cpf_cli"),
@@ -65,11 +65,12 @@ namespace PDS_Sismilani.Views
 
                 reader.Close();
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         //---------------------------------- Botão Editar e Excluir ---------------------
 
@@ -77,10 +78,10 @@ namespace PDS_Sismilani.Views
         {
             var editCliente = new EditCliente().ShowDialog();
         }
-        private bool ExcluirCliente(string id)
+        private bool ExcluirCliente(int id)
         {
-            //var deleteCli = new ClienteDAO();
-            //deleteCli.Delete;
+            var deleteCli = new ClienteDAO();
+            
         }
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
@@ -88,7 +89,7 @@ namespace PDS_Sismilani.Views
             var dataGridRow = (DataGridRow)clientesDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
             var clientes = (Cliente)dataGridRow.Item;
 
-            if (ExcluirCliente(clientes.id)) 
+            if (ExcluirCliente(clientes.id))
             {
                 cliente.Remove(clientes);
                 clientesDataGrid.Items.Refresh();
@@ -175,7 +176,7 @@ namespace PDS_Sismilani.Views
             this.Close();
         }
 
-        
+
     }
 
 }

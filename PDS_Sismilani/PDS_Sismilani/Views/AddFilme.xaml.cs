@@ -42,6 +42,10 @@ namespace PDS_Sismilani.Views
             conexao.Open();
         }
 
+        private void BtVoltar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         private void BtSalvar(object sender, RoutedEventArgs e)
         {
@@ -52,6 +56,7 @@ namespace PDS_Sismilani.Views
                 var fornecedor = txtFornecedor.Text;
                 var categoria = txtCategoria.Text;
                 var elenco = txtElenco.Text;
+                var diretor = txtDiretor.Text;
                 var date = datePickerData.SelectedDate;
 
 
@@ -59,13 +64,13 @@ namespace PDS_Sismilani.Views
                 {
                     conexao.Open();
 
-                    string query = "INSERT INTO Filme (titulo_film,fornecedor_film ,  categoria_film,dataLancamento_film, sinopse_film,elenco_film, ) " +
-                                   "VALUES (@_titulo_film,@_fornecedor_film ,@_categoria_film,@_dataLancamento_film, @_sinopse_film,@_elenco_film, diretor_film)";
+                    string query = "INSERT INTO Filme (titulo_film,fornecedor_film ,categoria_film,dataLancamento_film, sinopse_film,elenco_film,diretor_film ) " +
+                                   "VALUES (@_titulo_film,@_fornecedor_film ,@_categoria_film,@_dataLancamento_film, @_sinopse_film,@_elenco_film, @_diretor_film)";
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
-                        comando.Parameters.AddWithValue("@_titulo",titulo);
+                        comando.Parameters.AddWithValue("@_titulo", titulo);
                         comando.Parameters.AddWithValue("@_fornecedor", fornecedor);
-                        comando.Parameters.AddWithValue("@_categoria",categoria);
+                        comando.Parameters.AddWithValue("@_categoria", categoria);
                         comando.Parameters.AddWithValue("@_dataLancamento", date);
                         comando.Parameters.AddWithValue("@_sinopse", sinopse);
                         comando.Parameters.AddWithValue("@_elenco", elenco);
@@ -75,28 +80,53 @@ namespace PDS_Sismilani.Views
                     }
                 }
 
+                comando.ExecuteNonQuery();
+                txtTitulo.Clear();
+                datePickerData.IsEnabled = false;
+                txtFornecedor.Clear();
+                txtCategoria.Clear();
+                txtSinopse.Clear();
+                txtElenco.Clear();
+                txtDiretor.Clear();
 
 
 
+                var opcao = MessageBox.Show("Filme salvo com sucesso!\n" +
+                       "Deseja realizar um novo cadastro?", "Informação",
+                       MessageBoxButton.YesNo, MessageBoxImage.Question);
 
 
 
+                if (opcao == MessageBoxResult.Yes)
+                {
+
+                    MainWindow form = new MainWindow();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreram erros ao tentar salvar os dados!\n" +
+                    $"Contate o suporte do sistema. (CAD 25)\n\n{ex.Message}");
 
             }
 
-
-
-
+            txtTitulo.Clear();
+            datePickerData.IsEnabled = false;
+            txtFornecedor.Clear();
+            txtCategoria.Clear();
+            txtSinopse.Clear();
+            txtElenco.Clear();
+            txtDiretor.Clear();
+            txtTitulo.Focus();
 
 
 
         }
-
-        private void BtVoltar(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-
     }
 }

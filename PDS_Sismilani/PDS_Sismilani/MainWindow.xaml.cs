@@ -45,7 +45,7 @@ namespace PDS_Sismilani
             }
         }
 
-        private void BtFechar(object sender, RoutedEventArgs e)
+        private void BtFechar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

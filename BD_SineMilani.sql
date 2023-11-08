@@ -149,7 +149,6 @@ insert into produto  values (null, 'Suco','Pitanco', 'Perecivel', 33, '2022-08-0
   sinopse_film VARCHAR(100) ,
   elenco_film VARCHAR(45) ,
   fornecedor_film VARCHAR(45) ,
-  data_film DATE,
   dataLancamento_film date,
   titulo_film VARCHAR(45),
   categoria_film VARCHAR(45),
@@ -160,14 +159,14 @@ insert into produto  values (null, 'Suco','Pitanco', 'Perecivel', 33, '2022-08-0
   foreign key(id_prod_fk)references produtora(id_produ)
   );
   
-insert into filme  values (1, 'Delmar', 'sim', 'Dianna', 'Lulu', '2022-10-16', '2022-10-16', 'House on 92nd Street, The', 'livre', 'HVAC', 1,1);
-insert into filme  values (2, 'Estel', 'sim', 'Goddart', 'Clementius', '2022-10-16', '2023-05-24', 'Compulsion', 'livre', 'Asphalt Paving', 1,2);
-insert into filme  values (3, 'Louise', 'sim', 'Ardine',  'Deloria', '2022-10-16', '2022-12-18', 'My Demon Lover', 'livre', 'Soft Flooring and Base', 2,3);
-insert into filme  values (4, 'Lonni', 'sim', 'Geri',  'Deina', '2022-10-16', '2023-04-25', 'Sleepy Time Gal, The', '+18', 'Asphalt Paving', 1,3);
-insert into filme  values (5, 'Mac', 'sim', 'Rayner', 'Kennan', '2022-10-16', '2022-11-13', 'Waiting Game, The', 'livre', 'Prefabricated Aluminum Metal Canopies', 2,4);
-insert into filme  values (7, 'Xymenes', 'sim', 'Drusy',  'Ariana', '2022-10-16', '2022-07-13', 'Wrong Turn at Tahoe', 'livre', 'Structural and Misc Steel (Fabrication)', 3,4);
-insert into filme values (8, 'Dorian', 'sim', 'Jacob',  'Carol-jean', '2022-10-16', '2022-08-06', 'Adventures of Power', 'livre', 'Granite Surfaces', 3,2);
-insert into filme  values (9, 'Elvin', 'sim', 'Rafaellle',  'Hetty','2023-01-21', '2023-04-21', 'Final Destination', 'livre', 'Painting & Vinyl Wall Covering', 1,3);
+insert into filme  values (1, 'Delmar', 'sim', 'Dianna', 'Lulu', '2022-10-16', 'House on 92nd Street, The', 'livre', 'HVAC', 1,1);
+insert into filme  values (2, 'Estel', 'sim', 'Goddart', 'Clementius', '2023-05-24', 'Compulsion', 'livre', 'Asphalt Paving', 1,2);
+insert into filme  values (3, 'Louise', 'sim', 'Ardine',  'Deloria' ,'2022-12-18', 'My Demon Lover', 'livre', 'Soft Flooring and Base', 2,3);
+insert into filme  values (4, 'Lonni', 'sim', 'Geri',  'Deina',  '2023-04-25', 'Sleepy Time Gal, The', '+18', 'Asphalt Paving', 1,3);
+insert into filme  values (5, 'Mac', 'sim', 'Rayner', 'Kennan', '2022-11-13', 'Waiting Game, The', 'livre', 'Prefabricated Aluminum Metal Canopies', 2,4);
+insert into filme  values (7, 'Xymenes', 'sim', 'Drusy',  'Ariana', '2022-07-13', 'Wrong Turn at Tahoe', 'livre', 'Structural and Misc Steel (Fabrication)', 3,4);
+insert into filme values (8, 'Dorian', 'sim', 'Jacob',  'Carol-jean', '2022-08-06', 'Adventures of Power', 'livre', 'Granite Surfaces', 3,2);
+insert into filme  values (9, 'Elvin', 'sim', 'Rafaellle',  'Hetty','2023-04-21', 'Final Destination', 'livre', 'Painting & Vinyl Wall Covering', 1,3);
   
   
   CREATE TABLE Caixa (
@@ -508,9 +507,8 @@ Call salvar_produtora('', '22.333.333/0001-00', '69958455415', 'eventos', 'filme
   end ;
   $$ DELIMITER ;
   
-  CALL SalvarFILME('Delmar', 'sim', 'LILIAN', 'Lulu', '2022-10-16', '2022-10-16', 'House on 92nd Street, The', 'livre', 'HVAC', 1, 1);
-  CALL SalvarFILME('Goes', 'sim', 'Maira', 'the Rock', '2023-08-06', '2023-03-06', 'Homem Aranha', 'livre', 'MARVEL', 2, 1);
-  CALL SalvarFILME('Silva', 'não', 'JK', 'Moni', '2020-07-23', '2022-01-03', '', '+16', 'HBO', 2, 2);
+  #CALL SalvarFILME('Goes', 'sim', 'Maira', 'the Rock', '2023-03-06', 'Homem Aranha', 'livre', 'MARVEL', 2, 1);
+  #CALL SalvarFILME('Silva', 'não', 'JK', 'Moni', '2022-01-03', '', '+16', 'HBO', 2, 2);
 
 
 DELIMITER $$
