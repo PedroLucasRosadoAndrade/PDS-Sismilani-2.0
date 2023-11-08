@@ -149,7 +149,7 @@
                 </Border>
                 <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
                     <StackPanel>
-                        <TextBlock FontSize="30" HorizontalAlignment="Center">100</TextBlock>
+                        <TextBlock FontSize="30" x:Name="txtTotalFuncionarios" HorizontalAlignment="Center"></TextBlock>
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Funcionários</TextBlock>
                     </StackPanel>
                 </Border>
