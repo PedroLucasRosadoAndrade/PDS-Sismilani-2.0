@@ -10,13 +10,12 @@ namespace PDS_Sismilani.Models
     {
         public string id {  get; set; }
         public string Titulo { get; set; }
-        public string Descricao { get; set; }
+        public string Sinopse { get; set; }
 
-        public string Fornecedorn { get; set; }
-
-        public int Codigo { get; set; }
-        public int Unidade { get; set; }    
-        public double Valor { get; set; }   
+        public string Fornecedor { get; set; }
+        public string Diretot { get; set; }
+        public string Categoria { get; set; }
+        public string Elenco { get; set; }    
         public DateTime Data { get; set; }
 
 

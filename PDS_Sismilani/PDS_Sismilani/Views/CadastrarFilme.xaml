@@ -145,7 +145,7 @@
 
                         <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*" Binding="{Binding id}"/>
                         <DataGridTextColumn Header="Título" IsReadOnly="True" Width="*" Binding="{Binding titulo}"/>
-                        <DataGridTextColumn Header="Descrição" IsReadOnly="True" Width="*"  Binding="{Binding descricao}"/>
+                        <DataGridTextColumn Header="Sinopse" IsReadOnly="True" Width="*"  Binding="{Binding sinopse}"/>
                         <DataGridTextColumn Header="Fornecedor" IsReadOnly="True" Width="*" Binding="{Binding fornecedor}"/>
                         <DataGridTextColumn Header="Diretor" IsReadOnly="True" Width="*" Binding="{Binding diretor}"/>
                         <DataGridTextColumn Header="Categoria" IsReadOnly="True" Width="*" Binding="{Binding categoria }"/>
