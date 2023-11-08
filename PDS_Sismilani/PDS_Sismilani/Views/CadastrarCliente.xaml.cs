@@ -13,12 +13,15 @@ using System;
 using MySqlX.XDevAPI;
 using System.Windows.Controls;
 using System.Web.UI.WebControls;
+using System.Security.Cryptography;
 
 namespace PDS_Sismilani.Views
 {
     public partial class CadastrarCliente : Window
-
     {
+        private int id;
+        private Cliente cli;
+
         MySqlConnection conexao;
         MySqlCommand comando;
         ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
@@ -27,63 +30,13 @@ namespace PDS_Sismilani.Views
         public CadastrarCliente()
         {
             InitializeComponent();
-            Conexao();
             clientesDataGrid.ItemsSource = cliente;
-            LoadCliente();
-        }
-        private void Conexao()
-        {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
-
-            conexao.Open();
-        }
-
-        private void LoadCliente()
-        {
-            try
-            {
-                string query = "SELECT * FROM cliente;";
-                var comando = new MySqlCommand(query, conexao);
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                cliente.Clear();
-                while (reader.Read())
-                {
-                    cliente.Add(new Cliente
-                    {
-                        id = reader.GetInt32("id_cli"),
-                        nome = reader.GetString("nome_cli"),
-                        rg = reader.GetString("rg_cli"),
-                        cpf = reader.GetString("cpf_cli"),
-                        email = reader.GetString("email_cli"),
-                        telefone = reader.GetString("telefone_cli"),
-                        dataNasc = reader.GetDateTime("data_nasc_cli"),
-                        sexo = reader.GetString("sexo_cli"),
-                        endereco = reader.GetString("endereco_cli")
-                    });
-                }
-
-                reader.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-        //---------------------------------- Botão Editar e Excluir ---------------------
-
-        private void btEditar_Click_1(object sender, RoutedEventArgs e)
-        {
-            var editCliente = new EditCliente().ShowDialog();
-        }
-        private void ExcluirCliente(int id)
-        {
-            var deleteCli = new ClienteDAO();
             
+            //LoadCliente();
+        }
+        private void CadastrarCliente_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
         }
         private void LoadDataGrid()
         {
@@ -121,7 +74,56 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        //add novo
+        //private void LoadCliente()
+        //{
+        //    try
+        //    {
+        //        string query = "SELECT * FROM cliente;";
+        //        var comando = new MySqlCommand(query, conexao);
+        //        MySqlDataReader reader = comando.ExecuteReader();
+
+        //        cliente.Clear();
+        //        while (reader.Read())
+        //        {
+        //            cliente.Add(new Cliente
+        //            {
+        //                id = reader.GetInt32("id_cli"),
+        //                nome = reader.GetString("nome_cli"),
+        //                rg = reader.GetString("rg_cli"),
+        //                cpf = reader.GetString("cpf_cli"),
+        //                email = reader.GetString("email_cli"),
+        //                telefone = reader.GetString("telefone_cli"),
+        //                dataNasc = reader.GetDateTime("data_nasc_cli"),
+        //                sexo = reader.GetString("sexo_cli"),
+        //                endereco = reader.GetString("endereco_cli")
+        //            });
+        //        }
+
+        //        reader.Close();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+
+        //}
+
+
+
+        //---------------------------------- Botão Editar e Excluir ---------------------
+
+        private void btEditar_Click_1(object sender, RoutedEventArgs e)
+        {
+            var editCliente = new EditCliente().ShowDialog();
+        }
+        private void ExcluirCliente(int id)
+        {
+            var deleteCli = new ClienteDAO();
+            
+        }
+
+        //add novo cliente
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var addCli = new addCliente();
