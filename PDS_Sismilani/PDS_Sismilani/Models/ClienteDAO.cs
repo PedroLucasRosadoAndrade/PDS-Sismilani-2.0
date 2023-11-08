@@ -79,7 +79,7 @@ namespace PDS_Sismilani.Models
                 conn.Close();
             }
         }
-        public Funcionario GetById(int id)
+        public Cliente GetById(int id)
         {
             try
             {
@@ -104,6 +104,8 @@ namespace PDS_Sismilani.Models
                     cliente.sexo = reader.GetString("sexo_cli");
                     cliente.endereco = reader.GetString("endereco_cli");
                 }
+
+                return cliente;
             }
             catch (Exception e)
             {
@@ -199,6 +201,5 @@ namespace PDS_Sismilani.Models
                 conn.Close();
             }
         }
-
     }
 }
