@@ -8,7 +8,7 @@
 # - Marco Antônio Duarte Guedes
 
 
-#drop schema if exists cinemilani_bd;
+drop schema if exists cinemilani_bd;
 create database cinemilani_bd;
  use cinemilani_bd;
  
@@ -22,23 +22,21 @@ insert into sexo values (2, 'Feminino');
  
 create table sala(
 id_sal INT  primary key auto_increment ,
-nome_sal varchar(50),
-data_sal date,
-hora_sal time ,
-tamanho_sal varchar(50) ,
-quantidade_sal INT
+numero_sal int,
+programacao_sal time ,
+quantidade_Cadeira_sal INT
 );
 
-insert into sala  values (null, 'Ginni', '2023-05-04', '11:49','30 metros quadrados', 34);
-insert into sala values(null, 'Rheta', '2022-10-11', '1:26','20 metros quadrados', 51);
-insert into sala values (null, 'Dominik', '2023-01-15', '2:10 ','26 metros quadrados', 84);
-insert into sala values (null, 'Laurel', '2023-05-12', '4:41 ','21 metros quadrados' ,94);
-insert into sala  values (null, 'Gae', '2023-04-28', '3:18 ','29 metros quadrados', 42);
-insert into sala  values (null, 'Jeremiah', '2023-06-18', '3:53 ','24 metros quadrados', 76);
-insert into sala  values (null, 'Lorilyn', '2022-09-06', '8:58 ','22 metros quadrados', 61);
-insert into sala values(null, 'Chane', '2023-05-21', '9:22 ','27 metros quadrados', 23);
-insert into sala  values (null, 'Adelina', '2022-06-19', '9:14 ','23 metros quadrados', 85);
-insert into sala values (null, 'Querida', '2022-12-31', '4:29','30 metros quadrados', 6);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
+insert into sala  values (null, 1 , '16:30', 120);
 
 create table estoque (
 id_est int auto_increment  primary key,
@@ -388,15 +386,15 @@ CREATE TABLE Serie (
   sinopise_ser VARCHAR(45) NULL
   );
   
-  
+  select *from sala;
   
    #--------------- PROCEDIMENTOS |   ---------------
    
      delimiter $$
-  create procedure salvar_sala (nome varchar(50),data_sal date,hora time,tamanho varchar(50),quantidade INT)
+  create procedure salvar_sala (num varchar(50),quantidade INT)
   begin
-    if( nome <> '') and (hora <> '') and (tamanho <> '') then
-        insert into sala values (null,nome,data_sal,hora,tamanho,quantidade);
+    if( num <> '' ) then
+        insert into sala values (null,nome);
           select 'A sala foi salvo com sucesso!' as Confirmação;
   else
         select 'Os campos Nome,Tamanho e Hora são obrigatorios!' as Alerta;
@@ -404,7 +402,7 @@ CREATE TABLE Serie (
   end
   $$ delimiter ;
   
-  call salvar_sala ('','2023-05-24','20:00','23 metros quadrado',5);
+  call salvar_sala ('',5);
   
   select * from sala;
   
@@ -723,29 +721,4 @@ Call Poltrona('4', '2', 'pequena', 'sala 2', 2, 3,2);
 
 Select * from Poltrona;
   
-  DELIMITER $$
- Create Procedure Serie (nome Varchar(45),  genero Varchar(45), classificacao varchar(45), episodios Int, numero_temporadas int, quantidade int, data_lancamento varchar(45), sinopse varchar(45))
- 
- Begin 
-	IF (nome <> '' AND genero <> '' AND classificacao <> '' AND episodios IS NOT NULL
-        AND numero_temporadas IS NOT NULL AND quantidade IS NOT NULL
-        AND data_lancamento IS NOT NULL AND sinopse <> '') THEN 
-       Insert Into serie Values (nome, genero, classificacao, episodios, numero_temporadas, quantidade , data_lancamento , sinopse);
-	
-	Select 'SERIE CADASTRADA!' as Confirmação;
-        
-	Else
-	Select 'O campo esta incorreto!' as Alerta;
- 
-	End if;
- 
- End;
- 
-$$ DELIMITER ;
- 
-#CALL Serie('tudo explosivo', 'acao', 'boa', 100, 2, 5, '2023-09-09', 'uma das melhores series de ação');
-#CALL Serie('acao','ação', 'boa', 100, 2, 5, '2023-09-09', 'uma das melhores series de ação');
-
-
-
-Select * from Serie;
+  

@@ -78,7 +78,7 @@ namespace PDS_Sismilani.Views
         {
             var editCliente = new EditCliente().ShowDialog();
         }
-        private bool ExcluirCliente(int id)
+        private void ExcluirCliente(int id)
         {
             var deleteCli = new ClienteDAO();
             
