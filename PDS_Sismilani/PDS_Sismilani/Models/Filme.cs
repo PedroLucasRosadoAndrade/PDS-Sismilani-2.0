@@ -8,15 +8,15 @@ namespace PDS_Sismilani.Models
 {
     internal class Filme
     {
-        public string id {  get; set; }
+        public string Id {  get; set; }
         public string Titulo { get; set; }
         public string Sinopse { get; set; }
 
         public string Fornecedor { get; set; }
-        public string Diretot { get; set; }
+        public string Diretor { get; set; }
         public string Categoria { get; set; }
         public string Elenco { get; set; }    
-        public DateTime Data { get; set; }
+        public DateTime DataLancamento { get; set; }
 
 
     }

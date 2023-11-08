@@ -101,9 +101,9 @@ namespace PDS_Sismilani.Views
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
 
-            //var filmeSelected = FilmesDataGrid.SelectedItem as Filme;
+            var filmeSelected = FilmesDataGrid.SelectedItem as Filme;
 
-            //var result = MessageBox.Show($"Deseja excluir o filme `{filmeSelected.Titulo}`?", "Excluido com sucesso",
+            var result = MessageBox.Show($"Deseja excluir o filme `{filmeSelected.Titulo}`?", "Excluido com sucesso",
                MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
@@ -111,7 +111,7 @@ namespace PDS_Sismilani.Views
                 if (result == MessageBoxResult.Yes)
                 {
                     var dao = new FilmeDAO();
-                   // dao.Delete(filmeSelected);
+                    dao.Delete(filmeSelected);
                     LoadDataGrid();
                 }
             }
@@ -126,7 +126,7 @@ namespace PDS_Sismilani.Views
             {
                 var dao = new FilmeDAO();
 
-               // FilmesDataGrid.ItemsSource = dao.List();
+                FilmesDataGrid.ItemsSource = dao.List();
             }
             catch (Exception ex)
             {

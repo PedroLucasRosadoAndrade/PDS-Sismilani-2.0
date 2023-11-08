@@ -57,7 +57,7 @@ namespace PDS_Sismilani.Views
                 var categoria = txtCategoria.Text;
                 var elenco = txtElenco.Text;
                 var diretor = txtDiretor.Text;
-                var date = datePickerData.SelectedDate;
+                var dataLancamento = datePickerData.SelectedDate;
 
 
                 using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3306"))
@@ -71,7 +71,7 @@ namespace PDS_Sismilani.Views
                         comando.Parameters.AddWithValue("@_titulo", titulo);
                         comando.Parameters.AddWithValue("@_fornecedor", fornecedor);
                         comando.Parameters.AddWithValue("@_categoria", categoria);
-                        comando.Parameters.AddWithValue("@_dataLancamento", date);
+                        comando.Parameters.AddWithValue("@_dataLancamento", dataLancamento);
                         comando.Parameters.AddWithValue("@_sinopse", sinopse);
                         comando.Parameters.AddWithValue("@_elenco", elenco);
                         comando.Parameters.AddWithValue("@_diretor", diretor);
