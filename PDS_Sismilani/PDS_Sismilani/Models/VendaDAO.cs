@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using PDS_Sismilani.Helpers;
 using PDS_Sismilani.Interfaces;
+using PDS_Sismilani.Models;
+using PDS_Sismilani.DataBase;
+using PDS_Sismilani.Views;
 
 namespace PDS_Sismilani.Models
 {
     internal class VendaDAO : IDAO<Venda>
     {
+        private static Conexao conn;
+
+        public VendaDAO()
+        {
+            conn = new Conexao();
+        }
+
         public void Delete(Venda t)
         {
             throw new NotImplementedException();
@@ -26,10 +38,48 @@ namespace PDS_Sismilani.Models
 
         public List<Venda> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Venda> list = new List<Venda>();
+
+                var query = conn.Query();
+                //query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
+                query.CommandText = "SELECT * FROM Funcionario";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Venda()
+                    {
+                        Id = reader.GetInt32("id_ven"),
+                        DataVen = DAOHelper.GetDateTime(reader, "Data_ven"),
+                        Cliente = DAOHelper.GetString(reader, "hota_ven"),
+                        QuantidadesDeprodutos = DAOHelper.GetString(reader, "quantidade_ven"),
+                        valorTotal = DAOHelper.GetString(reader, "descricao_ven"),
+                        valorTotal = DAOHelper.GetString(reader, "rg_fun"),
+                        situaca = DAOHelper.GetDateTime(reader, "nascimento_fun")
+
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void Update(Venda t)
+        {
+            throw new NotImplementedException();
+        }
+        List<Venda> IDAO<Venda>.List()
         {
             throw new NotImplementedException();
         }

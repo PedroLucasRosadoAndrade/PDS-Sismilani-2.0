@@ -26,40 +26,48 @@ namespace PDS_Sismilani.Views
         public Home()
         {
             InitializeComponent();
-            Loaded += Home_Loaded;  
+            Loaded += Home_Loaded;
+            LoadBorder();
+
 
         }
 
         private void Home_Loaded(object sender, RoutedEventArgs e)
         {
+
+            //txtDataAtual.Text = "-";
+            //txtDataAtual.Text = DateTime.UtcNow.ToString("MM/dd/yyyy");
+
+            //List<Venda> listaVedas = new List<Venda>();
+
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    listaVedas.Add(new Venda()
+            //    {
+            //        Id = i + 1,
+            //        Cliente = "Pedro -" + i,
+            //        QuantidadesDeprodutos = 5 * i,
+            //        valorTotal = 120.55 + i,
+            //        situaca = "aberta"
+            //    });
+            //}
+
+            //dataGridVendas.ItemsSource = listaVedas;
+            LoadDataGrid();
+        }
+
+        private void LoadDataGrid()
+        {
             try
             {
-                var conexao = new Conexao();
+                var dao = new VendaDAO();
 
-            }catch (Exception ex) 
-            {
-                MessageBox.Show(ex.Message);
+                dataGridVendas.ItemsSource = dao.List();
             }
-
-
-            txtDataAtual.Text = "-";
-            txtDataAtual.Text = DateTime.UtcNow.ToString("MM/dd/yyyy");
-
-            List<Venda> listaVedas = new List<Venda>();
-
-            for (int i = 0; i < 30; i++)
+            catch (Exception ex)
             {
-                listaVedas.Add(new Venda()
-                {
-                    Id = i + 1,
-                    Cliente = "Pedro -" + i,
-                    QuantidadesDeprodutos = 5 * i,
-                    valorTotal = 120.55 + i,
-                    situaca = "aberta"
-                });
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            dataGridVendas.ItemsSource = listaVedas;
         }
 
         private void btnCliente_Click(object sender, RoutedEventArgs e)
@@ -82,6 +90,20 @@ namespace PDS_Sismilani.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var produtora = new Produtora().ShowDialog();
+        }
+
+        private void LoadBorder()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+
+                txtTotalFuncionarios.Text = dao.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
