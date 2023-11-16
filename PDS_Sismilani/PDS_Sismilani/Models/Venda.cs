@@ -11,8 +11,8 @@ namespace PDS_Sismilani.Models
     {
         public int Id { get; set; }
         public DateTime DataVen { get; set; }
-        public Time Hora { get; set; }
-        public int QuantidadesDeprodutos { get; set; }
+        public DateTime Hora { get; set; }
+        public string QuantidadesDeprodutos { get; set; }
         public string Descricao { get; set; }
         public int IdRec { get; set; }
         public int IdFun { get; set; }

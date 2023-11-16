@@ -285,6 +285,9 @@
     <Compile Include="Views\EditFuncionario.xaml.cs">
       <DependentUpon>EditFuncionario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmitirComprovante.xaml.cs">
+      <DependentUpon>EmitirComprovante.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Estoque.xaml.cs">
       <DependentUpon>Estoque.xaml</DependentUpon>
     </Compile>
@@ -386,6 +389,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmitirComprovante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

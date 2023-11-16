@@ -56,7 +56,7 @@ namespace PDS_Sismilani.Models
                 //                                "LEFT JOIN sexo ON cod_sex = cod_sex_fk " +
                 //                                "LEFT JOIN endereco ON cod_end = cod_end_fk " +
                 //                                "WHERE cod_func = @id";
-                query.CommandText = "SELECT * FROM funcionario ";
+                query.CommandText = "SELECT * FROM funcionario";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -132,6 +132,7 @@ namespace PDS_Sismilani.Models
 
                 //query.CommandText = "CALL inserir_funcionario(@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexo)";
 
+                //query.Parameters.AddWithValue("id", t.Id);
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@datanasc", t.DataNascimento?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
                 query.Parameters.AddWithValue("@cpf", t.CPF);
@@ -240,7 +241,6 @@ namespace PDS_Sismilani.Models
                 query.Parameters.AddWithValue("@celular", t.Celular);
                 query.Parameters.AddWithValue("@rg", t.RG);
                 query.Parameters.AddWithValue("@sexo", t.Sexo);
-
                 query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();

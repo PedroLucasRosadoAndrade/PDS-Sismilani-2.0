@@ -25,8 +25,8 @@ namespace PDS_Sismilani.Views
     public partial class CadastrarFilme : Window
     {
 
-        MySqlConnection conexao;
-        MySqlCommand comando;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
   
         public CadastrarFilme()
         {
@@ -101,7 +101,7 @@ namespace PDS_Sismilani.Views
         private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
 
-            var filmeSelected = FilmesDataGrid.SelectedItem as Filme;
+            var filmeSelected = filmsDataGrid.SelectedItem as Filme;
 
             var result = MessageBox.Show($"Deseja excluir o filme `{filmeSelected.Titulo}`?", "Excluido com sucesso",
                MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -126,7 +126,7 @@ namespace PDS_Sismilani.Views
             {
                 var dao = new FilmeDAO();
 
-                FilmesDataGrid.ItemsSource = dao.List();
+                //FilmesDataGrid.ItemsSource = dao.List();
             }
             catch (Exception ex)
             {

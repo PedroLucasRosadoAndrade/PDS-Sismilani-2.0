@@ -45,131 +45,136 @@ namespace PDS_Sismilani.Models
                 conn.Close();
             }
         }
-    }
-
-
-    public Filme GetById(int id)
-    {
-        try
+        public Filme GetById(int id)
         {
-            var query = conn.Query();
-
-            query.CommandText = "SELECT * FROM filme ";
-
-            query.Parameters.AddWithValue("@id", id);
-
-            MySqlDataReader reader = query.ExecuteReader();
-
-            if (!reader.HasRows)
-                throw new Exception("Nenhum registro foi encontrado!");
-
-            var filme = new Filme();
-
-            while (reader.Read())
+            try
             {
+                var query = conn.Query();
 
-                filme.Titulo = reader.GetString("Titulo_film");
-                filme.Fornecedor = reader.GetString("fornecedor_film");
-                filme.Sinopse = reader.GetString(" sinopse_film");
-                filme.Categoria = reader.GetString("categoria_film");
-                filme.Diretor = reader.GetString("diretor_film");
-                filme.Elenco = reader.GetString("elenco_film");
-                filme.DataLancamento = DAOHelper.GetDateTime(reader, "data_film");
+                query.CommandText = "SELECT * FROM filme ";
 
-            }
-            return filme;
-        }
-        catch (Exception e)
-        {
-            throw e;
-        }
-        finally
-        {
-            conn.Query();
-        }
-    }
+                query.Parameters.AddWithValue("@id", id);
 
-    public void Insert(Filme t)
-    {
-        try
-        {
+                MySqlDataReader reader = query.ExecuteReader();
 
-            var query = conn.Query();
-            query.CommandText = "INSERT INTO Filme (titulo_film,fornecedor_film ,categoria_film,dataLancamento_film, sinopse_film,elenco_film,diretor_film ) " +
-                                "VALUES (@_titulo_film,@_fornecedor_film ,@_categoria_film,@_dataLancamento_film, @_sinopse_film,@_elenco_film, @_diretor_film)";
+                if (!reader.HasRows)
+                    throw new Exception("Nenhum registro foi encontrado!");
 
+                var filme = new Filme();
 
-            query.Parameters.AddWithValue("@_titulo", t.Titulo);
-            query.Parameters.AddWithValue("@_fornecedor", t.Fornecedor);
-            query.Parameters.AddWithValue("@_categoria", t.Categoria);
-            query.Parameters.AddWithValue("@_dataLancamento", t.DataLancamento);
-            query.Parameters.AddWithValue("@_sinopse", t.Sinopse);
-            query.Parameters.AddWithValue("@_elenco", t.Elenco);
-            query.Parameters.AddWithValue("@_diretor", t.Diretor);
-
-            var result = query.ExecuteNonQuery();
-
-            if (result == 0)
-                throw new Exception("O registro não foi inserido. Verifique e tente novamente");
-
-
-            MySqlDataReader reader = query.ExecuteReader();
-
-            while (reader.Read())
-            {
-                if (reader.GetName(0).Equals("Alerta"))
+                while (reader.Read())
                 {
-                    throw new Exception(reader.GetString("Alerta"));
+
+                    filme.Titulo = reader.GetString("Titulo_film");
+                    filme.Fornecedor = reader.GetString("fornecedor_film");
+                    filme.Sinopse = reader.GetString(" sinopse_film");
+                    filme.Categoria = reader.GetString("categoria_film");
+                    filme.Diretor = reader.GetString("diretor_film");
+                    filme.Elenco = reader.GetString("elenco_film");
+                    //filme.DataLancamento = DAOHelper.GetDateTime(reader, "data_film");
+
                 }
+                return filme;
             }
-
-
-        }
-        catch (Exception e)
-        {
-            throw e;
-        }
-        finally
-        {
-            conn.Close();
-        }
-    }
-
-    public List<Filme> List()
-    {
-        try
-        {
-            List<Filme> list = new List<Filme>();
-
-            var query = conn.Query();
-            query.CommandText = "SELECT * FROM Filme";
-
-            MySqlDataReader reader = query.ExecuteReader();
-
-            while (reader.Read())
+            catch (Exception e)
             {
-                list.Add(new Filme()
-                {
-                    Titulo = DAOHelper.GetString(reader,"Titulo_film"),
-                    Fornecedor = DAOHelper.GetString(reader,"fornecedor_film"),
-                    Sinopse = DAOHelper.GetString(reader,"sinopse_film"),
-                    Categoria = DAOHelper.GetString(reader,"categoria_film"),
-                    Diretor = DAOHelper.GetString(reader,"diretor_film"),
-                    Elenco = DAOHelper.GetString(reader,"elenco_film"),
-                    DataLancamento = DAOHelper.GetDateTime(reader,"data_film")
-
-            });
+                throw e;
             }
+            finally
+            {
+                conn.Query();
+            }
+        }
 
-            return list;
-        }
-        catch (Exception e)
+        public void Insert(Filme t)
         {
-            throw e;
+            try
+            {
+
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO Filme (titulo_film,fornecedor_film ,categoria_film,dataLancamento_film, sinopse_film,elenco_film,diretor_film ) " +
+                                    "VALUES (@_titulo_film,@_fornecedor_film ,@_categoria_film,@_dataLancamento_film, @_sinopse_film,@_elenco_film, @_diretor_film)";
+
+
+                query.Parameters.AddWithValue("@_titulo", t.Titulo);
+                query.Parameters.AddWithValue("@_fornecedor", t.Fornecedor);
+                query.Parameters.AddWithValue("@_categoria", t.Categoria);
+                query.Parameters.AddWithValue("@_dataLancamento", t.DataLancamento);
+                query.Parameters.AddWithValue("@_sinopse", t.Sinopse);
+                query.Parameters.AddWithValue("@_elenco", t.Elenco);
+                query.Parameters.AddWithValue("@_diretor", t.Diretor);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("O registro não foi inserido. Verifique e tente novamente");
+
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader.GetName(0).Equals("Alerta"))
+                    {
+                        throw new Exception(reader.GetString("Alerta"));
+                    }
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
-        finally
+
+        public List<Filme> List()
         {
-            conn.Close();
+            try
+            {
+                List<Filme> list = new List<Filme>();
+
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM Filme";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Filme()
+                    {
+                        Titulo = DAOHelper.GetString(reader, "Titulo_film"),
+                        Fornecedor = DAOHelper.GetString(reader, "fornecedor_film"),
+                        Sinopse = DAOHelper.GetString(reader, "sinopse_film"),
+                        Categoria = DAOHelper.GetString(reader, "categoria_film"),
+                        Diretor = DAOHelper.GetString(reader, "diretor_film"),
+                        Elenco = DAOHelper.GetString(reader, "elenco_film"),
+                        DataLancamento = (DateTime)DAOHelper.GetDateTime(reader, "data_film")
+
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void Update(Filme t)
+        {
+            throw new NotImplementedException();
         }
     }
+    
+}
 

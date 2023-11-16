@@ -70,13 +70,13 @@ namespace PDS_Sismilani.Views
                 txtSexo.Text = FuncionarioEmEdicao.Sexo;
             }
         }
-        private void Conexao() // criando conexão
-        {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
-            conexao.Open();
-        }
+        //private void Conexao() // criando conexão
+        //{
+        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+        //    conexao = new MySqlConnection(conexaoString);
+        //    comando = conexao.CreateCommand();
+        //    conexao.Open();
+        //}
 
         private void btSalvar(object sender, RoutedEventArgs e)
         {

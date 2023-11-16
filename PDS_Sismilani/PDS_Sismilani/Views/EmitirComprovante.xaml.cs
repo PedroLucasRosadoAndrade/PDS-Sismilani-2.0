@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace PDS_Sismilani.Views
 {
     /// <summary>
-    /// Lógica interna para CadastrarProduto.xaml
+    /// Lógica interna para EmitirComprovante.xaml
     /// </summary>
-    public partial class CadastrarProduto : Window
+    public partial class EmitirComprovante : Window
     {
-        public CadastrarProduto()
+        public EmitirComprovante()
         {
             InitializeComponent();
-        }
-
-        private void btHome_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btfilmes_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

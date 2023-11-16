@@ -53,12 +53,12 @@ namespace PDS_Sismilani.Models
                     list.Add(new Venda()
                     {
                         Id = reader.GetInt32("id_ven"),
-                        DataVen = DAOHelper.GetDateTime(reader, "Data_ven"),
-                        Cliente = DAOHelper.GetString(reader, "hota_ven"),
+                        DataVen = (DateTime)DAOHelper.GetDateTime(reader, "Data_ven"),
+                        Hora = (DateTime)DAOHelper.GetDateTime(reader, "hota_ven"),
                         QuantidadesDeprodutos = DAOHelper.GetString(reader, "quantidade_ven"),
-                        valorTotal = DAOHelper.GetString(reader, "descricao_ven"),
-                        valorTotal = DAOHelper.GetString(reader, "rg_fun"),
-                        situaca = DAOHelper.GetDateTime(reader, "nascimento_fun")
+                        Descricao = DAOHelper.GetString(reader, "descricao_ven"),
+                        IdFun = reader.GetInt32("rg_fun"),
+                        IdRec = reader.GetInt32("nascimento_fun")
 
                     });
                 }

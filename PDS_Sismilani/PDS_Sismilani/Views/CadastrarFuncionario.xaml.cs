@@ -25,10 +25,10 @@ namespace PDS_Sismilani.Views
     public partial class CadastrarFuncionario : Window
     {
         //private string _id;
-        //private Funcionario _funcionario;
+        private Funcionario _funcionario;
         //MySqlConnection conexao;
         //MySqlCommand comando;
-        //ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
+        ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
 
 
         public CadastrarFuncionario()
@@ -163,48 +163,48 @@ namespace PDS_Sismilani.Views
 
         //private bool ExcluirFuncionario(int id)
         //{
-            //try
-            //{
-            //    string query = "DELETE FROM Funcionario WHERE id_fun = @id";
-
-            //    using (MySqlCommand cmd = new MySqlCommand(query, conexao))
-            //    {
-            //        cmd.Parameters.AddWithValue("@id", id);
-
-            //        cmd.ExecuteNonQuery();
-            //    }
-
-            //    return true;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Erro ao excluir o Funcionário: " + ex.Message);
-            //    return false;
-            //}
-
-            
-        //}
-
-        //private bool Validate()
-        //{
-        //    var validator = new FuncionarioValitador();
-        //    var result = validator.Validate(_funcionario);
-
-        //    if (!result.IsValid)
+        //    try
         //    {
-        //        string errors = null;
-        //        var count = 1;
+        //        string query = "DELETE FROM Funcionario WHERE id_fun = @id";
 
-        //        foreach (var failure in result.Errors)
+        //        using (MySqlCommand cmd = new MySqlCommand(query, conexao))
         //        {
-        //            errors += $"{count++} - {failure.ErrorMessage}\n";
+        //            cmd.Parameters.AddWithValue("@id", id);
+
+        //            cmd.ExecuteNonQuery();
         //        }
 
-        //        MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erro ao excluir o Funcionário: " + ex.Message);
+        //        return false;
         //    }
 
-        //    return result.IsValid;
+
         //}
+
+        private bool Validate()
+        {
+            var validator = new FuncionarioValitador();
+            var result = validator.Validate(_funcionario);
+
+            if (!result.IsValid)
+            {
+                string errors = null;
+                var count = 1;
+
+                foreach (var failure in result.Errors)
+                {
+                    errors += $"{count++} - {failure.ErrorMessage}\n";
+                }
+
+                MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            return result.IsValid;
+        }
 
         //private void SaveData()
         //{
@@ -221,10 +221,13 @@ namespace PDS_Sismilani.Views
         //                text = "adicionado";
         //            }
         //            else
+        //            {
         //                dao.Update(_funcionario);
 
-        //            MessageBox.Show($"O Funcionário foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-        //            CloseFormVerify();
+        //                MessageBox.Show($"O Funcionário foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+        //                CloseFormVerify();
+        //            }
+                 
         //        }
         //    }
         //    catch (Exception ex)
@@ -269,6 +272,11 @@ namespace PDS_Sismilani.Views
         private void BtFechar(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Btprodutos_Click(object sender, RoutedEventArgs e)
+        {
+            var produto = new CadastrarProduto().ShowDialog();
         }
 
         //private bool IsMaximized = false;

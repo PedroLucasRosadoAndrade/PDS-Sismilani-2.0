@@ -49,7 +49,7 @@ namespace PDS_Sismilani.Views
             if (_id > 0)
                 FillForm();
         }
-        private void btSalvar(object sender, RoutedEventArgs e)
+        private void BtSalvar(object sender, RoutedEventArgs e)
         {
             _funcionario.Id = _id;
             _funcionario.Nome = txtNome.Text;
