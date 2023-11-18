@@ -59,7 +59,6 @@ namespace PDS_Sismilani.Views
             _funcionario.RG = txtRg.Text;
             _funcionario.Celular = txtCeluar.Text;
             _funcionario.Sexo= txtSexo.Text;
-            //_funcionario.Salario = txtSalario.;
             _funcionario.DataNascimento = dtpDataNasc.SelectedDate;
 
             if (double.TryParse(txtSalario.Text, out double salario))

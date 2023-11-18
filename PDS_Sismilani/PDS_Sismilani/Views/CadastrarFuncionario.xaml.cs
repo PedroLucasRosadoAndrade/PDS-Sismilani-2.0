@@ -146,9 +146,10 @@ namespace PDS_Sismilani.Views
             //var Funcionarios = new EditFuncionario().ShowDialog();
             var funcionarioSelected = FuncionariosDataGrid.SelectedItem as Funcionario;
 
-            var window = new EditFuncionario(funcionarioSelected.Id);
+            var window = new addFuncionario(funcionarioSelected.Id);
             window.ShowDialog();
             LoadDataGrid();
+
         }
 
         //private bool ExcluirFuncionario(int id)
