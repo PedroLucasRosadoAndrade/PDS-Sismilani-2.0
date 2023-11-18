@@ -29,14 +29,13 @@ namespace PDS_Sismilani.Views
             Loaded += Home_Loaded;
             LoadBorder();
 
-
         }
 
         private void Home_Loaded(object sender, RoutedEventArgs e)
         {
 
-            //txtDataAtual.Text = "-";
-            //txtDataAtual.Text = DateTime.UtcNow.ToString("MM/dd/yyyy");
+            txtDataAtual.Text = "-";
+            txtDataAtual.Text = DateTime.UtcNow.ToString("MM/dd/yyyy");
 
             //List<Venda> listaVedas = new List<Venda>();
 
@@ -54,6 +53,7 @@ namespace PDS_Sismilani.Views
 
             //dataGridVendas.ItemsSource = listaVedas;
             LoadDataGrid();
+            LoadBorder();
         }
 
         private void LoadDataGrid()
@@ -98,11 +98,12 @@ namespace PDS_Sismilani.Views
             {
                 var dao = new FuncionarioDAO();
 
-                txtTotalFuncionarios.Text = dao.ToString();
+                int totalFuncionarios = dao.TotalFuncionarios();
+                txtTotalFuncionarios.Text = totalFuncionarios.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

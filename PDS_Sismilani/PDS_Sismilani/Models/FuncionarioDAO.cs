@@ -128,7 +128,7 @@ namespace PDS_Sismilani.Models
                 var query = conn.Query();
                 query.CommandText = "INSERT INTO funcionario " +
                     "(Nome_fun, nascimento_fun, cpf_fun, salario_fun, funcao_fun, email_fun, telefone_fun, rg_fun, sexo_fun) " +
-                    "VALUES (@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexo)";
+                    "VALUES (@nome, @datanasc, @cpf, @salario, @funcao, @email, @celular, @rg, @sexo)";
 
                 //query.CommandText = "CALL inserir_funcionario(@nome, @datanasc, @cpf, @salario, @salario, @funcao, @email, @celular, @rg, @sexo)";
 

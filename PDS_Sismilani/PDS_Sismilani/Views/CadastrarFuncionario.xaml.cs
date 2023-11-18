@@ -14,7 +14,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-//using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using PDS_Sismilani.Models;
 using static System.Net.Mime.MediaTypeNames;
@@ -39,15 +38,6 @@ namespace PDS_Sismilani.Views
             //LoadFuncionario();
             Loaded += CadastrarFuncionario_Loaded;
         }
-        //private void Conexao()
-        //{
-        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-        //    //conexao = new MySqlConnection(conexaoString);
-        //    //comando = conexao.CreateCommand();
-
-        //    //conexao.Open();
-        //}
-
         private void CadastrarFuncionario_Loaded(object sender, RoutedEventArgs e)
         {
             LoadDataGrid();
@@ -294,9 +284,6 @@ namespace PDS_Sismilani.Views
         //    txtSexo.Clear();
 
         //}
-
-
-
 
 
         //private void CloseFormVerify()
