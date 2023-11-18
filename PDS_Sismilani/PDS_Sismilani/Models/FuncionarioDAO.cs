@@ -267,15 +267,14 @@ namespace PDS_Sismilani.Models
         {
             var query = conn.Query();
 
-            //string connectionString = "SuaStringDeConexão"; // Substitua pela sua string de conexão
-            //string query = "SELECT COUNT(*) FROM Funcionario";
+            query.CommandText = "SELECT COUNT(*) FROM funcionario";
 
-            query.CommandText = "SELECT COUNT(*) FROM Funcionario";
+            //MySqlDataReader reader = query.ExecuteReader();
 
             int totalFuncionarios = (int)query.ExecuteScalar();
 
-            //.Text = $"Total de funcionários cadastrados: {totalFuncionarios}";
             return totalFuncionarios;
+
         }
     }
 }

@@ -56,16 +56,16 @@ namespace PDS_Sismilani.Models
                     venda.Descricao = DAOHelper.GetString(reader, "descricao_ven");
                     venda.IdRec = reader.GetInt32("Funcionario_id_fun");
                     venda.IdFun = reader.GetInt32("recebimento_id_rec");
-                   
-                    //if (!DAOHelper.IsNull(reader, "cod_sex_fk"))
-                    //    funcionario.Sexo = new Sexo()
+
+                    //if (!DAOHelper.IsNull(reader, "recebimento_id_rec"))
+                    //    venda.IdRec = new IdRec()
                     //    {
-                    //        Id = reader.GetInt32("cod_sex"),
+                    //        Id = reader.GetInt32("recebimento_id_rec"),
                     //        Nome = reader.GetString("nome_sex")
                     //    };
 
-                    //if (!DAOHelper.IsNull(reader, "cod_end_fk"))
-                    //    funcionario.Endereco = new Endereco()
+                    //if (!DAOHelper.IsNull(reader, "Funcionario_id_fun"))
+                    //    venda.IdFun = new IdFun()
                     //    {
                     //        Id = reader.GetInt32("cod_end"),
                     //        Rua = reader.GetString("rua_end"),

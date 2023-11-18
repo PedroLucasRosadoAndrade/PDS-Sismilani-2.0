@@ -1,5 +1,4 @@
-﻿using PDS_Sismilani.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -15,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PDS_Sismilani.Views;
 using PDS_Sismilani.DataBase;
+using PDS_Sismilani.Models;
 
 namespace PDS_Sismilani.Views
 {
@@ -100,6 +100,7 @@ namespace PDS_Sismilani.Views
 
                 int totalFuncionarios = dao.TotalFuncionarios();
                 txtTotalFuncionarios.Text = totalFuncionarios.ToString();
+
             }
             catch (Exception ex)
             {
