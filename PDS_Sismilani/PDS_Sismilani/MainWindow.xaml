@@ -15,15 +15,15 @@
             <Grid>
                 <Frame Name="frame" NavigationUIVisibility="Hidden" />
             </Grid>
-            <StackPanel Margin="20" Height="339" Width="258">
+            <StackPanel Margin="20" Height="340" Width="258">
 
                 <TextBlock Width="46" Height="23" Foreground="Black"  FontStretch="Medium" FontFamily="sanfrancisco" FontWeight="SemiBold"
                            FontSize="17" Margin="10"><Run Text="Entrar"/></TextBlock>
 
                 <Label Content="Usuário" Foreground="White" Width="51" Margin="0 0" />
-                <TextBox x:Name="txtUsuario" Width="180" Margin=" 5 0 10 0" Style="{StaticResource TextBoxPesquisa}" Height="34"/>
+                <TextBox x:Name="txtUsuario" Width="180" Margin=" 5 0 10 0" Style="{StaticResource TextBoxPesquisa}" Height="40"/>
                 <Label Width="53"  Margin="12" Content="senha" FontSize="16" Foreground="White"/>
-                <TextBox x:Name="passBoxSenha" Width="180" Margin="5 0 10 0" Style="{StaticResource TextBoxPesquisa}" Height="34"/>
+                <TextBox x:Name="passBoxSenha" Width="180" Margin="5 0 10 0" Style="{StaticResource TextBoxPesquisa}" Height="40"/>
 
                 <StackPanel Width="162" Margin="20">
                     <Button  Width="143" Height="29" Padding="5 0 20 0" Margin="5" x:Name="btLogin" Click="btLogin_Click" Style="{StaticResource AddButton}" >
@@ -34,7 +34,7 @@
                 </StackPanel>
 
                 <StackPanel Width="117">
-                    <Button  Width="102" Height="29" Padding="5 0 20 0" Margin="5" x:Name="BtnFechar" Click="BtFechar_Click" Style="{StaticResource SairButton}" >
+                    <Button  Width="102" Height="25" Padding="5 0 20 0" Margin="5" x:Name="BtnFechar" Click="BtFechar_Click" Style="{StaticResource SairButton}" >
                         <StackPanel Orientation="Horizontal" Width="77">
                             <Icon:PackIconMaterial Width="12" Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
                             <TextBlock Width="24"><Run Text="Sair"/></TextBlock>

@@ -250,7 +250,6 @@ namespace PDS_Sismilani.Views
         private void btHome(object sender, RoutedEventArgs e)
         {
             var home = new Home().ShowDialog();
-
             var cadastrarFun = new CadastrarFuncionario();
             cadastrarFun.Close();
         }

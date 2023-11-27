@@ -87,7 +87,7 @@ namespace PDS_Sismilani.Views
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btprodutora(object sender, RoutedEventArgs e)
         {
             var produtora = new Produtora().ShowDialog();
         }
@@ -105,6 +105,37 @@ namespace PDS_Sismilani.Views
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var vendaSelected = dataGridVendas.SelectedItem as Venda;
+
+            var window = new addFuncionario(vendaSelected.Id);
+            window.ShowDialog();
+            LoadDataGrid();
+        }
+
+        private void btnDeletar_Click(object sender, RoutedEventArgs e)
+        {
+            var vendaSelected = dataGridVendas.SelectedItem as Venda;
+
+            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{vendaSelected.Id}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new VendaDAO();
+                    dao.Delete(vendaSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

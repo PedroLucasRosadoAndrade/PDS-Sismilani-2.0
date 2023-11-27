@@ -190,13 +190,13 @@ namespace PDS_Sismilani.Models
                     {
                         Id = reader.GetInt32("id_fun"),
                         Nome = DAOHelper.GetString(reader, "Nome_fun"),
-                        CPF = DAOHelper.GetString(reader, "cpf_fun"),
-                        RG = DAOHelper.GetString(reader, "rg_fun"),
                         DataNascimento = DAOHelper.GetDateTime(reader, "nascimento_fun"),
+                        CPF = DAOHelper.GetString(reader, "cpf_fun"),
+                        Salario = DAOHelper.GetDouble(reader, "salario_fun"),
+                        Funcao = DAOHelper.GetString(reader, "funcao_fun"),
                         Email = DAOHelper.GetString(reader, "email_fun"),
                         Celular = DAOHelper.GetString(reader, "telefone_fun"),
-                        Funcao = DAOHelper.GetString(reader, "funcao_fun"),
-                        Salario = DAOHelper.GetDouble(reader, "salario_fun"),
+                        RG = DAOHelper.GetString(reader, "rg_fun"),
                         Sexo = DAOHelper.GetString(reader, "sexo_fun")
 
                     });

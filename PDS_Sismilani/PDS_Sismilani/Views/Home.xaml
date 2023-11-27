@@ -12,27 +12,110 @@
         
         <!--Title="Sismilani" MinHeight="700" MinWidth="1300" WindowStartupLocation="CenterScreen" WindowState="Maximized" >-->
 
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <LinearGradientBrush.RelativeTransform>
-                <TransformGroup>
-                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                    <RotateTransform Angle="-85.914" CenterX="0.5" CenterY="0.5"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </LinearGradientBrush.RelativeTransform>
-            <GradientStop Color="#FF985ECE"/>
-            <GradientStop Color="#FFB06AE8" Offset="1"/>
-            <GradientStop Color="#FF74AFE0" Offset="0.112"/>
-            <GradientStop Color="#FE939DFC" Offset="0.695"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <DockPanel>
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
+        <!--<Window.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="-85.914" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF985ECE"/>
+                <GradientStop Color="#FFB06AE8" Offset="1"/>
+                <GradientStop Color="#FF74AFE0" Offset="0.112"/>
+                <GradientStop Color="#FE939DFC" Offset="0.695"/>
+            </LinearGradientBrush>
+        </Window.Background>-->
+
+        <DockPanel>
+
+            <StackPanel DockPanel.Dock="Left" Width="160" Margin="5 40" Height="709">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
 
-        <StackPanel DockPanel.Dock="Left" Width="160" Margin="5 0">
-            <Image Source="/Imagens/Design - CineMilani.png" Width='60' Margin="-100 3 3 5" />
+                    <!-- Botão -->
+                    <Button Margin="20 8 0 35" Style="{StaticResource TopButton}">
+                        <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+                    </Button>
+                </Grid>
+                <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Height="671">
+
+                    <DockPanel Height="634">
+                        <TextBlock Text="Menu" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                     DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
+                        <TextBlock Text="Cadastrar Funcionário" Foreground="#e1e1e1" FontSize="14" FontWeight="SemiBold"
+                     DockPanel.Dock="Top" TextAlignment="Center"/>
+
+                        <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
+
+                        <StackPanel DockPanel.Dock="Top" Height="265">
+                            <!--<Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome"  >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Home"/>
+                            </StackPanel>
+                        </Button>-->
+                            <Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Filmes"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="Btnprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Produtoras"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="Btnfornecedores" Style="{StaticResource MenuButton}" Width="137" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Fornecedores"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="btnfuncionario" Style="{StaticResource MenuButton}" Width="137" Click="BtFuncionario_Click" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="FaceAgent" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Funcionario"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="btCliente" Style="{StaticResource MenuButton}" Width="137" Click="btnCliente_Click" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="HumanGreeting" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Clientes"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="Btnestoque" Style="{StaticResource MenuButton}" Width="137" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="PackageVariantClosed" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Estoque"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="Btnprodutos" Style="{StaticResource MenuButton}" Width="137">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="produtos"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                        <!--Logout -->
+                        <Button x:Name="BtnFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="BtFechar" RenderTransformOrigin="0.503,0.607" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
+                                <TextBlock Text="Sair"/>
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </Border>
+                <!--<Image Source="/Imagens/Design - CineMilani.png" Width='60' Margin="-100 3 3 5" />
             <Button x:Name="btCliente" Margin='0 2' Click="btnCliente_Click">
                 <StackPanel Orientation="Horizontal" Margin="0 0 80 0">
                     <Image Source="/Imagens/pessoas.png" Width='22' Margin="0 0 8 0"/>
@@ -81,98 +164,140 @@
                     <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
                     <TextBlock Text="Sair"/>
                 </StackPanel>
-            </Button>
-
-        </StackPanel>
-
-        <StackPanel DockPanel.Dock="Top" Margin="0 5" Orientation="Horizontal">
-            <Menu Padding="5 8" Margin="2 0">
-                <MenuItem Header="_Arquivo">
-                    <MenuItem Header="Trocar _Usuário"/>
-                    <MenuItem Header="_Sobre"/>
-                    <Separator/>
-                    <MenuItem Header="_Sair do Sistema"/>
-                </MenuItem>
-            </Menu>
-            <Menu Padding="5 8" Margin="2 0">
-                <MenuItem Header="_Clientes">
-                    <MenuItem Header="_Funcionarios"/>
-                    <MenuItem Header="_Fornecedor"/>
-                    <Separator/>
-                    <MenuItem Header="_Ingresso"/>
-                </MenuItem>
-            </Menu>
-            <Menu Padding="5 8" Margin="2 0">
-                <MenuItem Header="_Vendas">
-                    <MenuItem Header="_Nova venda"/>
-                    <MenuItem Header="_Relatorios de vendas"/>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
-
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-
-            <StackPanel Grid.Column="0" Orientation="Horizontal">
-                <TextBlock  Margin="0,0,0,0" FontWeight="Bold" Padding="5"> Usuário Logado:</TextBlock>
-                <TextBlock  Margin="0,0,0,0" Padding="0 5"> Roberval rogerio clayton</TextBlock>
+            </Button>-->
 
             </StackPanel>
-            <StackPanel  Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock  Margin="0,0,0,0" FontWeight="Bold" Padding="5"> Data:</TextBlock>
-                <TextBlock  Margin="0,0,0,0" Padding="0 5 5 5" x:Name="txtDataAtual" />
+
+            <StackPanel DockPanel.Dock="Top" Margin="0 5" Orientation="Horizontal">
+                <Menu Padding="5 8" Margin="2 0">
+                    <MenuItem Header="_Arquivo">
+                        <MenuItem Header="Trocar _Usuário"/>
+                        <MenuItem Header="_Sobre"/>
+                        <Separator/>
+                        <MenuItem Header="_Sair do Sistema"/>
+                    </MenuItem>
+                </Menu>
+                <Menu Padding="5 8" Margin="2 0">
+                    <MenuItem Header="_Clientes">
+                        <MenuItem Header="_Funcionarios"/>
+                        <MenuItem Header="_Fornecedor"/>
+                        <Separator/>
+                        <MenuItem Header="_Ingresso"/>
+                    </MenuItem>
+                </Menu>
+                <Menu Padding="5 8" Margin="2 0">
+                    <MenuItem Header="_Vendas">
+                        <MenuItem Header="_Nova venda"/>
+                        <MenuItem Header="_Relatorios de vendas"/>
+                    </MenuItem>
+                </Menu>
             </StackPanel>
-        </Grid>
 
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="225*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="105*"/>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="182*"/>
-            </Grid.RowDefinitions>
-
-            <WrapPanel Grid.ColumnSpan="2">
-                <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
-                    <StackPanel>
-                        <TextBlock FontSize="30" HorizontalAlignment="Center">45</TextBlock>
-                        <TextBlock FontSize="20" HorizontalAlignment="Center">Clientes</TextBlock>
-                    </StackPanel>
-                </Border>
-                <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
-                    <StackPanel>
-                        <TextBlock FontSize="30" x:Name="txtTotalFuncionarios" HorizontalAlignment="Center" ></TextBlock>
-                        <TextBlock FontSize="20" HorizontalAlignment="Center">Funcionários</TextBlock>
-                    </StackPanel>
-                </Border>
-                <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
-                    <StackPanel>
-                        <TextBlock FontSize="30" HorizontalAlignment="Center">10</TextBlock>
-                        <TextBlock FontSize="20" HorizontalAlignment="Center">Fornocedores</TextBlock>
-                    </StackPanel>
-                </Border>
-            </WrapPanel>
-
-            <TextBlock Grid.Row="1" FontSize="20"  Text="Ultimas vendas" Margin="5,5,0,5"/>
-
-            <Grid Grid.ColumnSpan="2">
+            <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="113*"/>
-                    <ColumnDefinition Width="82*"/>
-                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock  Margin="0,0,0,0" FontWeight="Bold" Padding="5"> Usuário Logado:</TextBlock>
+                    <TextBlock  Margin="0,0,0,0" Padding="0 5"> Roberval rogerio clayton</TextBlock>
+
+                </StackPanel>
+                <StackPanel  Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock  Margin="0,0,0,0" FontWeight="Bold" Padding="5"> Data:</TextBlock>
+                    <TextBlock  Margin="0,0,0,0" Padding="0 5 5 5" x:Name="txtDataAtual" />
+                </StackPanel>
             </Grid>
 
-            <DataGrid Grid.Row="2" Margin="5,4,0,5" x:Name="dataGridVendas" IsReadOnly="True" 
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="225*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="105*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="182*"/>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Grid.ColumnSpan="2">
+                    <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
+                        <StackPanel>
+                            <TextBlock FontSize="30" HorizontalAlignment="Center">45</TextBlock>
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">Clientes</TextBlock>
+                        </StackPanel>
+                    </Border>
+                    <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
+                        <StackPanel>
+                            <TextBlock FontSize="30" x:Name="txtTotalFuncionarios" HorizontalAlignment="Center" ></TextBlock>
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">Funcionários</TextBlock>
+                        </StackPanel>
+                    </Border>
+                    <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
+                        <StackPanel>
+                            <TextBlock FontSize="30" HorizontalAlignment="Center">10</TextBlock>
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">Fornocedores</TextBlock>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+
+                <TextBlock Grid.Row="1" FontSize="20"  Text="Ultimas vendas" Margin="5,5,0,5"/>
+
+                <Grid Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="113*"/>
+                        <ColumnDefinition Width="82*"/>
+                        <ColumnDefinition Width="31*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+
+
+
+
+
+                <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="dataGridVendas" 
+                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Data venda" Binding="{Binding DataVen}"/>
+                        <DataGridTextColumn Header="Qtd produtos" Binding="{Binding Hora}"/>
+                        <!--<DataGridTextColumn Header=" Valor Total" Binding="{Binding QuantidadesDeprodutos, ConverterCulture='pt-BR', StringFormat=C}"/>-->
+                        <DataGridTextColumn Header="Qtd Produtos" Binding="{Binding QuantidadesDeprodutos}"/>
+                        <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+                        <DataGridTextColumn Header="Id Rec" Binding="{Binding IdRec}"/>
+                        <DataGridTextColumn Header="Id Fun" Binding="{Binding IdFun}"/>
+
+                        <DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                                        <Button Name="btnEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0" Click="btnEditar_Click" >
+                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+
+                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0" Click="btnDeletar_Click" >
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+                <!--<DataGrid Grid.Row="2" Margin="5,4,0,5" x:Name="dataGridVendas" IsReadOnly="True" 
                       AutoGenerateColumns="False" AlternatingRowBackground="LightGray">
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Nome do Cliente" Binding="{Binding Cliente}"/>
@@ -188,10 +313,12 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+            </DataGrid>-->
+            </Grid>
 
-    </DockPanel>
+        </DockPanel>
+    </Border>
+    
 
     <!--<Grid Background="Black">
         <Grid.ColumnDefinitions>
