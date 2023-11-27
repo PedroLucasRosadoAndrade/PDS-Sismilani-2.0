@@ -126,7 +126,6 @@ namespace PDS_Sismilani.Views
             txtTitulo.Focus();
 
 
-
         }
     }
 }
