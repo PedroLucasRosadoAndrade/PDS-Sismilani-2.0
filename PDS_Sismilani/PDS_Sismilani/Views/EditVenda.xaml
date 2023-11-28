@@ -1,0 +1,78 @@
+﻿<Window x:Class="PDS_Sismilani.Views.EditVenda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDS_Sismilani.Views"
+        
+       Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
+
+    <!--<Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
+        <Grid x:Name="AddClientes" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="101*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="10,10,28,10" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Editar Venda" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
+
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,492,45,80" Grid.Row="5"  Width="99" Click="BtSalvar">
+                    <StackPanel Orientation="Horizontal" >
+                        <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                        <TextBlock Text="Salvar"/>
+                    </StackPanel>
+                </Button>
+
+                --><!--Separador--><!--
+
+                <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
+
+                --><!--Add campos de digitação--><!--
+
+                <Separator/>
+                <Label Content="Data" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,68,931,493" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <DatePicker x:Name="txtData" Grid.Row="5" Background="White" Margin="18,114,537,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Hora" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="32,161,864,405" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtHora" Grid.Row="5" Background="White" Margin="19,207,537,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="QTD Produtos" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="29,251,900,317" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtQtdp" Grid.Row="5" Background="White" Margin="24,298,864,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Descrição" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="32,342,900,227" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtDescricao" Grid.Row="5" Background="White" Margin="24,390,693,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="ID Rec" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="Idrec" Grid.Row="5" Background="White" Margin="662,41,268,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="ID Fun" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="IdFun" Grid.Row="5" Background="White" Margin="668,114,268,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <DockPanel Margin="39,583,478,10">
+                --><!--Voltar --><!--
+                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar" >
+                    <StackPanel Orientation="Horizontal" Width="102">
+                        <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
+                        <TextBlock Text=" Voltar"/>
+                    </StackPanel>
+                </Button>
+            </DockPanel>
+
+        </Grid>
+
+    </Border>-->
+</Window>

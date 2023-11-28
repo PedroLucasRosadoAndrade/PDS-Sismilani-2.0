@@ -29,7 +29,7 @@ namespace PDS_Sismilani.Models
                     usuario = Usuario.GetInstance();
                     usuario.Id = reader.GetInt32("id_usu");
                     usuario.UsuarioNome = reader.GetString("usuario_usu");
-                    usuario.Funcionario = new Funcionario() { Id = reader.GetInt32("id_fun"), Nome = reader.GetString("Nome_fun") };
+                    usuario.Funcionario = new Funcionario() { Id = reader.GetInt32("id_fun_fk"), Nome = reader.GetString("Nome_fun") };
                 }
 
                 return usuario;
