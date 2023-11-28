@@ -62,7 +62,7 @@
                                 <TextBlock Text="Home"/>
                             </StackPanel>
                         </Button>-->
-                            <Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137">
+                            <Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btnfilmes_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
                                     <TextBlock Text="Filmes"/>

@@ -28,7 +28,8 @@ namespace PDS_Sismilani
         }
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            var Home = new Home().ShowDialog();
+            var tela = new Home();
+                tela.ShowDialog();
             string usuario = "roberval";//txtUsuario.Text;
             string senha = "123456";//passBoxSenha.ToString();
 

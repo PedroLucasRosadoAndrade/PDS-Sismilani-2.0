@@ -81,7 +81,11 @@ namespace PDS_Sismilani.Views
         {
             _ = new CadastrarFuncionario().ShowDialog();
         }
-
+        private void Btnfilmes_Click(object sender, RoutedEventArgs e)
+        {
+            var cadFilme = new CadastrarFilme();
+            cadFilme.ShowDialog();
+        }
         private void BtFechar(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -138,5 +142,7 @@ namespace PDS_Sismilani.Views
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        
     }
 }

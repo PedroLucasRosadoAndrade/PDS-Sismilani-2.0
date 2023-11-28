@@ -315,9 +315,6 @@
     <Compile Include="Views\Produtora.xaml.cs">
       <DependentUpon>Produtora.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TelaInicial.xaml.cs">
-      <DependentUpon>TelaInicial.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -431,10 +428,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Produtora.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TelaInicial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
