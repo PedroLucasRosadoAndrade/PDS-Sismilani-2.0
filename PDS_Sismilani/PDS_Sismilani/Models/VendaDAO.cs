@@ -187,8 +187,8 @@ namespace PDS_Sismilani.Models
                         Hora = DAOHelper.GetString(reader, "hota_ven"),
                         QuantidadesDeprodutos = DAOHelper.GetString(reader, "quantidade_ven"),
                         Descricao = DAOHelper.GetString(reader, "descricao_ven"),
-                        IdFun = reader.GetInt32("Funcionario_id_fun"),
-                        IdRec = reader.GetInt32("recebimento_id_rec")
+                        IdFun = reader.GetInt32("id_fun_fk"),
+                        IdRec = reader.GetInt32("id_rec_fk")
 
                     });
                 }

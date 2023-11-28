@@ -273,7 +273,7 @@
                         <DataGridTextColumn Header="Id Rec" Binding="{Binding IdRec}"/>
                         <DataGridTextColumn Header="Id Fun" Binding="{Binding IdFun}"/>
 
-                        <DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
+                        <!--<DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate >
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -289,7 +289,7 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        </DataGridTemplateColumn>-->
 
                     </DataGrid.Columns>
 
