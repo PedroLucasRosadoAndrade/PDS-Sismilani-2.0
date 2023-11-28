@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using PDS_Sismilani.DataBase;
 using PDS_Sismilani.Helpers;
 using PDS_Sismilani.Interfaces;
@@ -26,14 +27,14 @@ namespace PDS_Sismilani.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "DELETE FROM filme WHERE id_fil = @id";
+                query.CommandText = "DELETE FROM filme WHERE id_film = @id";
 
                 query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
 
                 if (result == 0)
-                    throw new Exception("Registro não removido da base de dados. Verifique e tente novamente.");
+                    throw new Exception("Registro não deletado da base de dados. Verifique e tente novamente.");
 
             }
             catch (Exception e)
@@ -64,8 +65,8 @@ namespace PDS_Sismilani.Models
 
                 while (reader.Read())
                 {
-
-                    filme.Titulo = reader.GetString("Titulo_film");
+                    filme.Id = reader.GetInt32("id_film");
+                    filme.Titulo = reader.GetString("titulo_film");
                     filme.Fornecedor = reader.GetString("fornecedor_film");
                     filme.Sinopse = reader.GetString(" sinopse_film");
                     filme.Categoria = reader.GetString("categoria_film");
@@ -95,7 +96,7 @@ namespace PDS_Sismilani.Models
                 query.CommandText = "INSERT INTO Filme (titulo_film,fornecedor_film ,categoria_film,dataLancamento_film, sinopse_film,elenco_film,diretor_film ) " +
                                     "VALUES (@_titulo_film,@_fornecedor_film ,@_categoria_film,@_dataLancamento_film, @_sinopse_film,@_elenco_film, @_diretor_film)";
 
-
+                query.Parameters.AddWithValue("@id", t.Id);
                 query.Parameters.AddWithValue("@_titulo", t.Titulo);
                 query.Parameters.AddWithValue("@_fornecedor", t.Fornecedor);
                 query.Parameters.AddWithValue("@_categoria", t.Categoria);
@@ -147,7 +148,7 @@ namespace PDS_Sismilani.Models
                 {
                     list.Add(new Filme()
                     {
-                        Titulo = DAOHelper.GetString(reader, "Titulo_film"),
+                        Titulo = DAOHelper.GetString(reader, "titulo_film"),
                         Fornecedor = DAOHelper.GetString(reader, "fornecedor_film"),
                         Sinopse = DAOHelper.GetString(reader, "sinopse_film"),
                         Categoria = DAOHelper.GetString(reader, "categoria_film"),
@@ -172,9 +173,38 @@ namespace PDS_Sismilani.Models
 
         public void Update(Filme t)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE filme set titulo_film = @_titulo_film, fornecedor_film = @_fornecedor_film ,categoria_film = @_categoria_film,dataLancamento_film = @_dataLancamento_film," +
+                    "sinopse_film = @_sinopse_film, elenco_film = @_elenco_film,diretor_film = @_diretor_film";
+
+                query.Parameters.AddWithValue("@_titulo", t.Titulo);
+                query.Parameters.AddWithValue("@_fornecedor", t.Fornecedor);
+                query.Parameters.AddWithValue("@_categoria", t.Categoria);
+                query.Parameters.AddWithValue("@_dataLancamento",t.DataLancamento);
+                query.Parameters.AddWithValue("@_sinopse", t.Sinopse);
+                query.Parameters.AddWithValue("@_elenco", t.Elenco);
+                query.Parameters.AddWithValue("@_diretor", t.Diretor);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+
         }
     }
-    
+
 }
 

@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using MySqlX.XDevAPI;
 using static System.Net.Mime.MediaTypeNames;
 using Button = System.Windows.Controls.Button;
+using System.Collections.ObjectModel;
 
 namespace PDS_Sismilani.Views
 {
@@ -25,16 +26,71 @@ namespace PDS_Sismilani.Views
     public partial class CadastrarFilme : Window
     {
 
-        //MySqlConnection conexao;
-        //MySqlCommand comando;
-  
+        MySqlConnection conexao;
+        MySqlCommand comando;
+        ObservableCollection<Filme> filme = new ObservableCollection<Filme>();
         public CadastrarFilme()
         {
             InitializeComponent();
-
+            
             Loaded += CadastrarFilme_Loaded;
         }
 
+
+       
+        private void BtAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var filme = new CadastrarFilme().ShowDialog();
+        }
+
+        private void BtSair(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void btDeletar(object sender, RoutedEventArgs e)
+        {
+
+            var filmeSelected = filmesDataGrid.SelectedItem as Filme;
+
+            var result = MessageBox.Show($"Deseja excluir o filme `{filmeSelected.Titulo}`?", "Excluido com sucesso",
+               MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FilmeDAO();
+                    dao.Delete(filmeSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btEditar(object sender, RoutedEventArgs e)
+        {
+            var editFilme = new EditFilme().ShowDialog();
+
+        }
+      
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new FilmeDAO();
+
+                filmesDataGrid.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void BtHome_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +108,7 @@ namespace PDS_Sismilani.Views
             LoadDataGrid();
         }
 
-       
+
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
             var produtora = new Produtora().ShowDialog();
@@ -79,7 +135,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutos_Click(object sender, RoutedEventArgs e)
         {
-           var produto = new CadastrarProduto().ShowDialog();
+            var produto = new CadastrarProduto().ShowDialog();
         }
 
         private void Btclientes(object sender, RoutedEventArgs e)
@@ -87,52 +143,7 @@ namespace PDS_Sismilani.Views
             var cliente = new CadastrarCliente().ShowDialog();
 
         }
-        private void BtAdd_Click(object sender, RoutedEventArgs e)
-        {
-            var filme = new CadastrarFilme().ShowDialog();
-        }
 
-        private void BtSair(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void btDeletar_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            var filmeSelected = filmsDataGrid.SelectedItem as Filme;
-
-            var result = MessageBox.Show($"Deseja excluir o filme `{filmeSelected.Titulo}`?", "Excluido com sucesso",
-               MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            try
-            {
-                if (result == MessageBoxResult.Yes)
-                {
-                    var dao = new FilmeDAO();
-                    dao.Delete(filmeSelected);
-                    LoadDataGrid();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void LoadDataGrid()
-        {
-            try
-            {
-                var dao = new FilmeDAO();
-
-                //FilmesDataGrid.ItemsSource = dao.List();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
 
     }
 
