@@ -81,8 +81,13 @@ namespace PDS_Sismilani.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao atualizar o cliente: " + ex.Message);
+                MessageBox.Show("Erro ao atualizar o filme: " + ex.Message);
             }
+        }
+
+        private void BtVoltar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 
