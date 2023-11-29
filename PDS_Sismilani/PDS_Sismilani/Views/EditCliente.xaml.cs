@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Web.UI.WebControls;
 using MySqlX.XDevAPI;
+using System.Security.Cryptography;
 
 namespace PDS_Sismilani.Views
 {
@@ -25,6 +26,8 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class EditCliente : Window
     {
+        private int _id;
+
         MySqlConnection conexao;
         MySqlCommand comando;
         ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
@@ -33,6 +36,20 @@ namespace PDS_Sismilani.Views
         public EditCliente()
         {
             InitializeComponent();
+            Loaded += EditCliente_Loaded;
+        }
+        public EditCliente(string id)
+        {
+            InitializeComponent();
+            _id = int.Parse(id);
+            Loaded += EditCliente_Loaded;
+        }
+        private void EditCliente_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_id > 0)
+            {
+                PreencherCampos();
+            }
         }
         public void PreencherCampos()
         {
@@ -51,19 +68,21 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void Conexao() // criando conexão
-        {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
-            conexao.Open();
-        }
+        //private void Conexao() // criando conexão
+        //{
+        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+        //    conexao = new MySqlConnection(conexaoString);
+        //    comando = conexao.CreateCommand();
+        //    conexao.Open();
+        //}
 
         private void SalvarButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                string query = "UPDATE Cliente SET nome_cli = @_nome, rg_cli = @_rg, telefone_cli = @_telefone, email_cli = @_email, data_nasc_cli = @_dataNascimento, cpf_cli = @_cpf, sexo_cli = @_sexo, endereco_cli = @_endereco WHERE id_cli = @id";
+                string query = "UPDATE Cliente SET nome_cli = @_nome, rg_cli = @_rg, telefone_cli = @_telefone, " +
+                    "email_cli = @_email, data_nasc_cli = @_dataNascimento, cpf_cli = @_cpf, sexo_cli = @_sexo, " +
+                    "endereco_cli = @_endereco WHERE id_cli = @id";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conexao))
                 {

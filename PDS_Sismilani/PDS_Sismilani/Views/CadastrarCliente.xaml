@@ -33,10 +33,10 @@
                 </Grid.RowDefinitions>
 
 
-                <!-- Botão -->
+                <!-- Botão --><!--
                 <Button Margin="20 28 0 35" Style="{StaticResource TopButton}">
                     <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
-                </Button>
+                </Button>-->
             </Grid>
 
             <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Margin="1,67,2,-2">

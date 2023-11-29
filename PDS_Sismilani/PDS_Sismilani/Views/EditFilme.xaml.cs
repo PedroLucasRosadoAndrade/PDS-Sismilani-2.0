@@ -55,7 +55,7 @@ namespace PDS_Sismilani.Views
             conexao.Open();
         }
 
-        private void BtSalvar()
+        private void BtSalvar(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -83,6 +83,11 @@ namespace PDS_Sismilani.Views
             {
                 MessageBox.Show("Erro ao atualizar o cliente: " + ex.Message);
             }
+        }
+
+        private void BtVoltar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 
