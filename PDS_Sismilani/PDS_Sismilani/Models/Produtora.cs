@@ -11,15 +11,12 @@ namespace PDS_Sismilani.Models
     {
      
         public string id { get; set; }
-        public string atores { get; set; }
-        public string sinopse { get; set; }
-        public string elenco { get; set; }
-        public string fornecedor { get; set; }
-        public string titulo { get; set; }
-        public DateTime datafilm { get; set; }
-        public DateTime datalancamento { get; set; }
-        public string categoria { get; set; }
-        public string diretor { get; set; }
+        public string nome  { get; set; }
+        public string cnpj { get; set; }
+        public string telefone { get; set; }
+        public string rasao_social { get; set; }
+        public string tipo { get; set; }
+        public string historico { get; set; }
        
 
     }

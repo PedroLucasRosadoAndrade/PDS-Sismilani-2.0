@@ -56,7 +56,7 @@ namespace PDS_Sismilani.Views
                 var historico = txtHistorico.Text;
 
 
-                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3360"))
+                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3306"))
                 {
                     conexao.Open();
 

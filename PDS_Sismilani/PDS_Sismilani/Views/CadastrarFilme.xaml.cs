@@ -40,7 +40,7 @@ namespace PDS_Sismilani.Views
        
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
-            var filme = new CadastrarFilme().ShowDialog();
+            var filme = new AddFilme().ShowDialog();
         }
 
         private void BtSair(object sender, RoutedEventArgs e)
