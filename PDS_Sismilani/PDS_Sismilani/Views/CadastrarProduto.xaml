@@ -12,7 +12,7 @@
     </Window.Resources>
 
     <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
-        <Grid x:Name = "CadastrarProdutora">
+        <Grid x:Name = "CadastrarProduto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
@@ -28,14 +28,14 @@
                 <!-- Botão -->
                 <Button Margin="20 28 0 35" Style="{StaticResource TopButton}">
                     <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
-                    
+
                 </Button>
             </Grid>
             <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Margin="1,67,2,-2">
                 <DockPanel>
                     <TextBlock Text="Menu" Foreground="White" FontSize="22" FontWeight="SemiBold"
                      DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
-                    <TextBlock Text="Cadastrar Clientes" Foreground="#e1e1e1" FontSize="14" FontWeight="SemiBold"
+                    <TextBlock Text="Cadastrar produtos" Foreground="#e1e1e1" FontSize="14" FontWeight="SemiBold"
                      DockPanel.Dock="Top" TextAlignment="Center"/>
 
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
@@ -117,12 +117,12 @@
 
                 </Grid>
 
-                <TextBlock Text="Produtoras" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
+                <TextBlock Text="Produtos" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
                 <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="btAdd_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
-                        <TextBlock Text="ADD Nova Produtora"/>
+                        <TextBlock Text="ADD Novo Produto"/>
                     </StackPanel>
                 </Button>
 
@@ -133,26 +133,27 @@
                 <!--Clientes DataGrid-->
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
-                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid" 
-                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}">
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="produtosDataGrid" 
+                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" SelectionChanged="produtosDataGrid_SelectionChanged" Margin="0,10,-64,82" Grid.RowSpan="2" Width="894">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="N°" IsReadOnly="True" Width="*" Binding="{Binding id}"/>
                         <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding nome}"/>
-                        <DataGridTextColumn Header="Razao Social" IsReadOnly="True" Width="*"  Binding="{Binding razao_social}"/>
-                        <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="*" Binding="{Binding cnpj}"/>
+                        <DataGridTextColumn Header="Marca" IsReadOnly="True" Width="*"  Binding="{Binding marca}"/>
                         <DataGridTextColumn Header="Tipo" IsReadOnly="True" Width="*" Binding="{Binding tipo}"/>
-                        <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding telefone}"/>
-                        <DataGridTextColumn Header="Historico" IsReadOnly="True" Width="*" Binding="{Binding historico}"/>
-                       
+                        <DataGridTextColumn Header="Quantidade" IsReadOnly="True" Width="*" Binding="{Binding quantidade}"/>
+                        <DataGridTextColumn Header="Validade" IsReadOnly="True" Width="*" Binding="{Binding validade}"/>
+                        <DataGridTextColumn Header="Valor" IsReadOnly="True" Width="*" Binding="{Binding valor}"/>
 
-                        <DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
+
+
+                        <DataGridTemplateColumn Header="" IsReadOnly="False" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                         <Button Name="btEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}">
-                                                
+
                                             </Icon:PackIconMaterial>
                                         </Button>
 
@@ -161,7 +162,7 @@
 
                                             </Icon:PackIconMaterial>
                                         </Button>
-                                        
+
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

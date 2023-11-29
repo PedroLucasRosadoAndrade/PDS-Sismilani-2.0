@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace PDS_Sismilani.Views
 {
     /// <summary>
-    /// Lógica interna para CadastrarCaixa.xaml
+    /// Lógica interna para EditProduto.xaml
     /// </summary>
-    public partial class CadastrarCaixa : Window
+    public partial class EditProduto : Window
     {
-        public CadastrarCaixa()
+        public EditProduto()
         {
             InitializeComponent();
-        }
-
-        private void botanCaixaSalvar(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
