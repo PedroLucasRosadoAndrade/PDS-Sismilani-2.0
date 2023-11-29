@@ -232,7 +232,7 @@
                     </Border>
                     <Border Width="200" Height="200" Background="#FF9AD1FC" CornerRadius="5" Padding="5" Margin="5 5">
                         <StackPanel>
-                            <TextBlock FontSize="30" x:Name="txtTotalFuncionarios" HorizontalAlignment="Center" ></TextBlock>
+                            <TextBlock FontSize="30" x:Name="txtTotalFuncionarios" HorizontalAlignment="Center" >10</TextBlock>
                             <TextBlock FontSize="20" HorizontalAlignment="Center">Funcionários</TextBlock>
                         </StackPanel>
                     </Border>
@@ -261,7 +261,7 @@
 
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                         <DataGridTextColumn Header="Data venda" Binding="{Binding DataVen}"/>
-                        <DataGridTextColumn Header="Qtd produtos" Binding="{Binding Hora}"/>
+                        <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
                         <!--<DataGridTextColumn Header=" Valor Total" Binding="{Binding QuantidadesDeprodutos, ConverterCulture='pt-BR', StringFormat=C}"/>-->
                         <DataGridTextColumn Header="Qtd Produtos" Binding="{Binding QuantidadesDeprodutos}"/>
                         <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
