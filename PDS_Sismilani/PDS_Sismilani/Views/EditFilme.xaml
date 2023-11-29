@@ -28,7 +28,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Editar Dados do Filme" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
+            <TextBlock Text="Editar Filme" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
             <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,474,75,98" Grid.Row="5"  Width="99" Click="BtSalvar">
                 <StackPanel Orientation="Horizontal" >
