@@ -19,25 +19,26 @@ namespace PDS_Sismilani.Views
 {
     public partial class CadastrarCliente : Window
     {
-        private int id;
+    //    private int id;
         private Cliente cli;
 
-        MySqlConnection conexao;
-        MySqlCommand comando;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
         ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
 
 
         public CadastrarCliente()
         {
             InitializeComponent();
-            clientesDataGrid.ItemsSource = cliente;
-            
+            //clientesDataGrid.ItemsSource = cliente;
             //LoadCliente();
+            Loaded += CadastrarCliente_Loaded;
         }
         private void CadastrarCliente_Loaded(object sender, RoutedEventArgs e)
         {
             LoadDataGrid();
         }
+
         private void LoadDataGrid()
         {
             try

@@ -24,5 +24,21 @@ namespace PDS_Sismilani.Views
             InitializeComponent();
         }
 
-        
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btfilmes_Click(object sender, RoutedEventArgs e)
+        {
+            var cadast = new CadastrarFilme();
+            cadast.ShowDialog();
+        }
+
+        private void btHome_Click(object sender, RoutedEventArgs e)
+        {
+            var home = new Home();
+            home.ShowDialog();
+        }
+    }
 }
