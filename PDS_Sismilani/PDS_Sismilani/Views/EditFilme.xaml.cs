@@ -55,7 +55,7 @@ namespace PDS_Sismilani.Views
             conexao.Open();
         }
 
-        private void BtSalvar()
+        private void BtSalvar(object sender, RoutedEventArgs e)
         {
             try
             {

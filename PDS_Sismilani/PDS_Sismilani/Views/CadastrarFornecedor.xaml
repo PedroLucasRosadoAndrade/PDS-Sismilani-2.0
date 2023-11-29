@@ -44,39 +44,23 @@
 
                 <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="CEP" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,11,296,559" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="CNPJ" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtCep" Grid.Row="5" Background="White" Margin="662,41,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Estado" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,87,246,495" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtEstado" Grid.Row="5" Background="White" Margin="668,114,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Email" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtEmail" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtCnpj" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
                 <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Bairro" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Tipo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtBairro"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtTipo"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
 
 
-                <Label Content="Endereço" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,306,900,262" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="Historico" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,306,900,262" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtEndereco" Grid.Row="5" Background="White" Margin="28,335,386,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-                
-                <TextBox x:Name="txtCidade" Grid.Row="5" Background="White" Margin="668,185,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-                
-                <Label Content="Cidade" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,155,246,427" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-                
-                <TextBox x:Name="txtFax"  Grid.Row="5" Background="White" Margin="664,251,185,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.436"/>
-                
-                <Label Content="Fax" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="662,226,246,356" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtHistorico" Grid.Row="5" Background="White" Margin="28,335,386,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
             </Grid>
 

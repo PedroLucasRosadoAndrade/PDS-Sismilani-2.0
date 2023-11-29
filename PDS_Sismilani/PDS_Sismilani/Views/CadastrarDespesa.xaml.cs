@@ -42,7 +42,8 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void btVoltar_Click(object sender, RoutedEventArgs e)
+
+        private void btVoltar(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
