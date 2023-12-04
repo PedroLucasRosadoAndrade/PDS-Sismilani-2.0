@@ -130,7 +130,6 @@
 
                 <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
 
-                <!--Clientes DataGrid-->
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="produtosDataGrid" 
