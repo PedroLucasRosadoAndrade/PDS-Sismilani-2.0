@@ -27,9 +27,9 @@ namespace PDS_Sismilani.Views
 
         private Cliente _cliente;
 
-        //MySqlConnection conexao;
-        //MySqlCommand comando;
-        //ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
+        MySqlConnection conexao;
+        MySqlCommand comando;
+        ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
 
         public addCliente()
         {
@@ -42,14 +42,14 @@ namespace PDS_Sismilani.Views
             InitializeComponent();
             Loaded += addCliente_Loaded;
         }
-        //private void Conexao() // criando conexão
-        //{
-        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-        //    conexao = new MySqlConnection(conexaoString);
-        //    comando = conexao.CreateCommand();
+        private void Conexao() // criando conexão
+        {
+            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+            conexao = new MySqlConnection(conexaoString);
+            comando = conexao.CreateCommand();
 
-        //    conexao.Open();
-        //}
+            conexao.Open();
+        }
         private void addCliente_Loaded(object sender, RoutedEventArgs e)
         {
             _cliente = new Cliente();
@@ -161,7 +161,7 @@ namespace PDS_Sismilani.Views
                         comando.ExecuteNonQuery();
                     }
                 }
-                //comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();
                 txtNome.Clear();
                 datePickerData.IsEnabled = false;
                 txtSexo.Clear();

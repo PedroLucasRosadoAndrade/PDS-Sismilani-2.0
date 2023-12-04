@@ -1,37 +1,40 @@
-﻿using Org.BouncyCastle.Utilities.Collections;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
-using PDS_Sismilani.DataBase;
-using System.Windows.Media.TextFormatting;
+//using MySqlX.XDevAPI;
 using PDS_Sismilani.Models;
-using System;
-using MySqlX.XDevAPI;
-using System.Windows.Controls;
-using System.Web.UI.WebControls;
-using System.Security.Cryptography;
+using static System.Net.Mime.MediaTypeNames;
+using Button = System.Windows.Controls.Button;
 
 namespace PDS_Sismilani.Views
 {
     public partial class CadastrarCliente : Window
     {
-    //    private int id;
-        private Cliente cli;
-
+        //private string _id;
+        private Cliente _cliente;
         //MySqlConnection conexao;
         //MySqlCommand comando;
-        ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
-
+        ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>();
 
         public CadastrarCliente()
         {
             InitializeComponent();
-            //clientesDataGrid.ItemsSource = cliente;
-            //LoadCliente();
+            //Conexao();
+            //FuncionariosDataGrid.ItemsSource = funcionario;
+            //LoadFuncionario();
             Loaded += CadastrarCliente_Loaded;
         }
         private void CadastrarCliente_Loaded(object sender, RoutedEventArgs e)
@@ -39,6 +42,90 @@ namespace PDS_Sismilani.Views
             LoadDataGrid();
         }
 
+        //private void LoadFuncionario()
+        //{
+        //    string query = "select * from funcionario;";
+        //    var comando = new MySqlCommand(query, conexao);
+        //    MySqlDataReader reader = comando.ExecuteReader();
+
+        //    funcionario.Clear();
+        //    while (reader.Read())
+        //    {
+        //        funcionario.Add(new Funcionario
+        //        {
+        //            Id = reader.GetInt32("id_fun"),
+        //            Nome = reader.GetString("Nome_fun"),
+        //            DataNascimento = reader.GetDateTime("nascimento_fun"),
+        //            CPF = reader.GetString("cpf_fun"),
+        //            Salario = reader.GetDouble("salario_fun"),
+        //            Funcao = reader.GetString("funcao_fun"),
+        //            Email = reader.GetString("email_fun"),
+        //            Celular = reader.GetString("telefone_fun"),
+        //            RG = reader.GetString("rg_fun"),
+        //            Sexo = reader.GetString("sexo_fun"),
+        //        });
+        //    }
+
+        //    reader.Close();
+        //}
+
+
+        //private void LimparInputs()
+        //{
+
+
+        //}
+
+        //private void btLimpar_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void rdSexo1_Checked(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        private void btAdd(object sender, RoutedEventArgs e)
+        {
+            var funcionario = new addFuncionario().ShowDialog();
+        }
+
+        private void btDeletar(object sender, RoutedEventArgs e)
+        {
+            //var button = (Button)sender;
+            //var dataGridRow = (DataGridRow)FuncionariosDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
+            //var funcionarios = (Funcionario)dataGridRow.Item;
+
+            //if (ExcluirFuncionario(funcionarios.Id))
+            //{
+            //    funcionario.Remove(funcionarios);
+            //    FuncionariosDataGrid.Items.Refresh();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Falha ao excluir o Funcionário.");
+            //}
+
+            var clienteSelected = clientesDataGrid.SelectedItem as Cliente;
+
+            var result = MessageBox.Show($"Deseja realmente remover o cliente `{clienteSelected.nome}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new ClienteDAO();
+                    dao.Delete(clienteSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void LoadDataGrid()
         {
             try
@@ -53,154 +140,170 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void btDeletar_Click_1(object sender, RoutedEventArgs e)
+        private void btEditar(object sender, RoutedEventArgs e)
         {
-            var ClienteSelected = clientesDataGrid.SelectedItem as Cliente;
+            //var Funcionarios = new EditFuncionario().ShowDialog();
+            var clienteSelected = clientesDataGrid.SelectedItem as Cliente;
 
-            var result = MessageBox.Show($"Deseja realmente remover o Cliente `{ClienteSelected.nome}`?", "Confirmação de Exclusão",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var window = new addCliente(clienteSelected.id);
+            window.ShowDialog();
+            LoadDataGrid();
 
-            try
-            {
-                if (result == MessageBoxResult.Yes)
-                {
-                    var dao = new ClienteDAO();
-                    dao.Delete(ClienteSelected);
-                    LoadDataGrid();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
 
-        //private void LoadCliente()
+        //private bool ExcluirFuncionario(int id)
         //{
         //    try
         //    {
-        //        string query = "SELECT * FROM cliente;";
-        //        var comando = new MySqlCommand(query, conexao);
-        //        MySqlDataReader reader = comando.ExecuteReader();
+        //        string query = "DELETE FROM Funcionario WHERE id_fun = @id";
 
-        //        cliente.Clear();
-        //        while (reader.Read())
+        //        using (MySqlCommand cmd = new MySqlCommand(query, conexao))
         //        {
-        //            cliente.Add(new Cliente
-        //            {
-        //                id = reader.GetInt32("id_cli"),
-        //                nome = reader.GetString("nome_cli"),
-        //                rg = reader.GetString("rg_cli"),
-        //                cpf = reader.GetString("cpf_cli"),
-        //                email = reader.GetString("email_cli"),
-        //                telefone = reader.GetString("telefone_cli"),
-        //                dataNasc = reader.GetDateTime("data_nasc_cli"),
-        //                sexo = reader.GetString("sexo_cli"),
-        //                endereco = reader.GetString("endereco_cli")
-        //            });
+        //            cmd.Parameters.AddWithValue("@id", id);
+
+        //            cmd.ExecuteNonQuery();
         //        }
 
-        //        reader.Close();
-
+        //        return true;
         //    }
         //    catch (Exception ex)
         //    {
-        //        MessageBox.Show(ex.Message);
+        //        MessageBox.Show("Erro ao excluir o Funcionário: " + ex.Message);
+        //        return false;
         //    }
+
 
         //}
 
+        //private bool Validate()
+        //{
+        //    var validator = new FuncionarioValitador();
+        //    var result = validator.Validate(_funcionario);
 
+        //    if (!result.IsValid)
+        //    {
+        //        string errors = null;
+        //        var count = 1;
 
-        //---------------------------------- Botão Editar e Excluir ---------------------
+        //        foreach (var failure in result.Errors)
+        //        {
+        //            errors += $"{count++} - {failure.ErrorMessage}\n";
+        //        }
 
-        private void btEditar_Click_1(object sender, RoutedEventArgs e)
-        {
-            var editCliente = new EditCliente().ShowDialog();
-        }
-        private void ExcluirCliente(int id)
-        {
-            var deleteCli = new ClienteDAO();
-            
-        }
+        //        MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    }
 
-        //add novo cliente
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var addCli = new addCliente();
-            addCli.ShowDialog();
-        }
-        private void btHome_Click(object sender, RoutedEventArgs e)
-        {
-            var home = new Home();
-            home.ShowDialog();
-        }
+        //    return result.IsValid;
+        //}
 
-        private void Btfilmes_Click(object sender, RoutedEventArgs e)
-        {
-            var CadFilme = new CadastrarFilme();
-            CadFilme.ShowDialog();
-        }
-        private void Btprodutora_Click(object sender, RoutedEventArgs e)
-        {
-            var CadProdutora = new Produtora();
-            CadProdutora.ShowDialog();
-        }
-        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
-        {
-            var CadFornecedores = new CadastrarFornecedor();
-            CadFornecedores.ShowDialog();
-        }
-        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
-        {
-            var CadFuncionario = new CadastrarFuncionario().ShowDialog();
-        }
-        private void Btestoque_Click(object sender, RoutedEventArgs e)
-        {
-            var CadEstoque = new Estoque();
-            CadEstoque.ShowDialog();
-        }
+        //private void SaveData()
+        //{
+        //    try
+        //    {
+        //        if (Validate())
+        //        {
+        //            var dao = new FuncionarioDAO();
+        //            var text = "atualizado";
 
-        // ----------------------------------------------- Otimização de tela -----------------------------------------------
+        //            if (_funcionario.Id == "0")
+        //            {
+        //                dao.Insert(_funcionario);
+        //                text = "adicionado";
+        //            }
+        //            else
+        //            {
+        //                dao.Update(_funcionario);
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        //                MessageBox.Show($"O Funcionário foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+        //                CloseFormVerify();
+        //            }
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
+
+        private void Btestoque(object sender, RoutedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
+            var estoque = new Estoque().ShowDialog();
         }
 
-
-        private bool IsMaximized = false;
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) // e esse trecho estão fazendo a responsividade da tela 
+        private void Btfornecedores(object sender, RoutedEventArgs e)
         {
-            if (e.ClickCount == 2)
-            {
-                if (IsMaximized)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1080;
-                    this.Height = 720;
-
-                    IsMaximized = false;
-                }
-                else
-                {
-
-                    this.WindowState = WindowState.Maximized;
-
-                    IsMaximized = false;
-                }
-            }
+            var fornecedor = new CadastrarFornecedor().ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Btprodutora(object sender, RoutedEventArgs e)
+        {
+            var produtora = new Produtora().ShowDialog();
+        }
+
+        private void Btfilmes(object sender, RoutedEventArgs e)
+        {
+            var Filmes = new CadastrarFilme().ShowDialog();
+        }
+
+        private void btHome(object sender, RoutedEventArgs e)
+        {
+            var home = new Home().ShowDialog();
+            //  var cadastrarFun = new CadastrarFuncionario();
+            // cadastrarFun.Close();
+        }
+
+        private void Btclientes(object sender, RoutedEventArgs e)
+        {
+            var cliente = new CadastrarCliente().ShowDialog();
+        }
+
+        private void BtFechar(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        private void Btprodutos_Click(object sender, RoutedEventArgs e)
+        {
+            var produto = new CadastrarProduto().ShowDialog();
+        }
+
+        private void FuncionariosDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        //private bool IsMaximized = false;
+
+        //private void ClearInputs()
+        //{
+        //    txt.Clear();
+        //    dtpDataNasc.IsEnabled = false;
+        //    txtCpf.Clear();
+        //    txtEmail.Clear();
+        //    txtSalario.Clear();
+        //    txtFuncao.Clear();
+        //    txtCeluar.Clear();
+        //    txtRg.Clear();
+        //    txtSexo.Clear();
+
+        //}
+
+
+        //private void CloseFormVerify()
+        //{
+        //    if (_funcionario.Id == 0)
+        //    {
+        //        var result = MessageBox.Show("Deseja continuar adicionando funcionários?", "Continuar?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+        //        if (result == MessageBoxResult.No)
+        //            this.Close();
+        //        else
+        //            ClearInputs();
+        //    }
+        //    else
+        //        this.Close();
+        //}
 
     }
-
 }
