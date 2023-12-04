@@ -22,12 +22,14 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class CadastrarProduto : Window
     {
-        MySqlConnection conexao;
-        MySqlCommand comando;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
         ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
+
         public CadastrarProduto()
         {
             InitializeComponent();
+
             Loaded += CadastrarProduto_Loaded;
 
         }
@@ -36,6 +38,12 @@ namespace PDS_Sismilani.Views
         //{
 
         // }
+
+        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
+
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -101,10 +109,6 @@ namespace PDS_Sismilani.Views
 
         // }
 
-        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadDataGrid();
-        }
 
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
@@ -130,8 +134,6 @@ namespace PDS_Sismilani.Views
             var estoque = new Estoque().ShowDialog();
 
         }
-
-
 
         private void Btclientes(object sender, RoutedEventArgs e)
         {

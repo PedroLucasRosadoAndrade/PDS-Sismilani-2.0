@@ -47,7 +47,7 @@
 
                 <TextBox x:Name="txtTitulo" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="672,13,288,557" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255"/>
+                <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="672,13,280,557" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255" Width="NaN"/>
 
                 <TextBox x:Name="txtCategoria" Grid.Row="5" Background="White" Margin="665,39,18,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
