@@ -55,7 +55,7 @@
 
                         <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
-                        <StackPanel DockPanel.Dock="Top" Height="265">
+                        <StackPanel DockPanel.Dock="Top" Height="400">
                             <!--<Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome"  >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
@@ -102,6 +102,12 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
                                     <TextBlock Text="produtos"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="BtnCaixa" Style="{StaticResource MenuButton}" Width="137" Click="BtnCaixa_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Box" Style="{StaticResource MenuButtonIcon}"></Icon:PackIconMaterial>
+                                    <TextBlock Text="Caixa"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

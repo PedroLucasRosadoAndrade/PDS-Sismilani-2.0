@@ -27,7 +27,8 @@
 
                 <TextBlock Text="Cadastrar Caixa" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button x:Name="botanCaixaSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1" Width="99" Click="botanCaixaSalvar" >
+
+                <Button x:Name="BotaoSalvarCaixa" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1" Width="99" Click="BotaoSalvarCaixa_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
@@ -63,7 +64,8 @@
 
             <DockPanel Margin="36,547,481,46">
                 <!--Voltar -->
-                <Button x:Name="botanCaixaVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="botanCaixaVoltar" >
+
+                <Button x:Name="BotaoCaixaVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="BotaoCaixaVoltar_Click">
                     <StackPanel Orientation="Horizontal" Width="102">
                         <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
                         <TextBlock Text=" Voltar"/>

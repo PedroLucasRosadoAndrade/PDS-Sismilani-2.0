@@ -143,6 +143,17 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        
+        private void Btnfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var cadastrarFornecedor = new CadastrarFornecedor();
+            cadastrarFornecedor.ShowDialog();
+        }
+
+        private void BtnCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            var caixa = new CadastrarCaixa();
+            caixa.ShowDialog();
+        }
+
     }
 }
