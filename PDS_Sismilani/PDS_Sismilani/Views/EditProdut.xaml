@@ -1,0 +1,99 @@
+﻿<Window x:Class="PDS_Sismilani.Views.EditProdut"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+     Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
+
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
+        <Grid x:Name="AddClientes" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="101*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="10,10,28,10" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Produto" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
+
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,492,45,80" Grid.Row="5"  Width="99">
+                    <StackPanel Orientation="Horizontal" >
+                        <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                        <TextBlock Text="Salvar"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Separador-->
+
+                <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
+
+                <!--Add campos de digitação-->
+
+                <Label Content="ID" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox  x:Name="txtId" Grid.Row="5" Background="White"  Margin="24,37,937,0" Style="{StaticResource TextBoxPesquisa}" Height="24" VerticalAlignment="Top" Text="CÓDIGO"/>
+
+                <Separator/>
+                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,68,931,493" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="18,114,537,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Marca" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="27,158,907,406" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtMarca" Grid.Row="5" Background="White" Margin="19,207,537,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Tipo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="679,159,229,424" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtTipo" Grid.Row="5" Background="White" Margin="668,188,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Quantidade" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,82,10,491" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtQtd" Grid.Row="5" Background="White" Margin="668,116,15,0"  Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <!--<Label Content="Validade" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="29,251,915,317" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtCeluar" Grid.Row="5" Background="White" Margin="24,298,696,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>-->
+
+                <Label Content="Estoque" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="32,342,900,227" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtEsto"  Grid.Row="5" Background="White" Margin="24,385,825,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Validade" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="676,245,190,328" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <DatePicker x:Name="dtpValidade" Grid.Row="5" Background="White" Margin="668,288,21,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Valor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="679,332,187,246" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtValor" Grid.Row="5" Background="White" Margin="668,366,21,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Fornecedor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,429,900,141" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtForne" Grid.Row="5" Background="White" Margin="21,471,693,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <DockPanel Margin="39,583,478,10">
+                <!--Voltar -->
+                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729"  >
+                    <StackPanel Orientation="Horizontal" Width="102">
+                        <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
+                        <TextBlock Text=" Voltar"/>
+                    </StackPanel>
+                </Button>
+            </DockPanel>
+
+        </Grid>
+
+    </Border>
+</Window>
