@@ -15,7 +15,7 @@
     </Window.Resources>
 
     <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
-        <Grid x:Name = "CadastrarProdutora">
+        <Grid x:Name = "CadastProdutora">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>

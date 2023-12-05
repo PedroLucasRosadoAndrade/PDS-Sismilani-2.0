@@ -228,6 +228,8 @@ namespace PDS_Sismilani.Views
         private void Btestoque_Click(object sender, RoutedEventArgs e)
         {
             var estoque = new Estoque().ShowDialog();
+            var Filmes = new CadastrarFilme().ShowDialog();
+
         }
 
         private void Btfornecedores_Click(object sender, RoutedEventArgs e)
@@ -237,7 +239,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new Produtora().ShowDialog();
+            var produtora = new CadastrarProdutora().ShowDialog();
         }
 
         private void Btfilmes_Click(object sender, RoutedEventArgs e)
@@ -245,26 +247,26 @@ namespace PDS_Sismilani.Views
             var CadFilme = new CadastrarFilme();
             CadFilme.ShowDialog();
         }
-        private void Btprodutora_Click(object sender, RoutedEventArgs e)
-        {
-            var CadProdutora = new CadastProdutora();
-            CadProdutora.ShowDialog();
-        }
-        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
-        {
-            var CadFornecedores = new CadastrarFornecedor();
-            CadFornecedores.ShowDialog();
-        }
+        //private void Btprodutora_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var CadProdutora = new CadastProdutora();
+        //    CadProdutora.ShowDialog();
+        //}
+        //private void Btfornecedores_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var CadFornecedores = new CadastrarFornecedor();
+        //    CadFornecedores.ShowDialog();
+        //}
         private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
         {
             var CadFuncionario = new CadastrarFuncionario().ShowDialog();
         }
-        private void Btestoque_Click(object sender, RoutedEventArgs e)
-        {
-            var CadEstoque = new Estoque();
-            CadEstoque.ShowDialog();
-            var Filmes = new CadastrarFilme().ShowDialog();
-        }
+        //private void Btestoque_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var CadEstoque = new Estoque();
+        //    CadEstoque.ShowDialog();
+        //    var Filmes = new CadastrarFilme().ShowDialog();
+        //}
 
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
@@ -294,10 +296,10 @@ namespace PDS_Sismilani.Views
             Loaded += CadastrarCliente_Loaded;
         }
 
-        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
-        {
-            var funci = new CadastrarFuncionario().ShowDialog();
-        }
+        //private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var funci = new CadastrarFuncionario().ShowDialog();
+        //}
 
 
 
