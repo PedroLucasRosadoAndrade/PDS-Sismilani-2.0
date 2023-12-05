@@ -239,7 +239,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora(object sender, RoutedEventArgs e)
         {
-            var produtora = new Produtora().ShowDialog();
+            var produtora = new CadastProdutora().ShowDialog();
         }
 
         private void Btfilmes(object sender, RoutedEventArgs e)

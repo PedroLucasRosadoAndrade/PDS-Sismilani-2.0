@@ -236,6 +236,8 @@
     <Compile Include="Interfaces\IDAO.cs" />
     <Compile Include="Models\AbstractDAO.cs" />
     <Compile Include="Models\FuncionarioValitador.cs" />
+    <Compile Include="Models\Produt.cs" />
+    <Compile Include="Models\ProdutDAO.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
     <Compile Include="Models\Venda.cs" />
@@ -282,6 +284,9 @@
     <Compile Include="Views\CadastrarSala.xaml.cs">
       <DependentUpon>CadastrarSala.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastroProdutora.xaml.cs">
+      <DependentUpon>CadastroProdutora.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditCliente.xaml.cs">
       <DependentUpon>EditCliente.xaml</DependentUpon>
     </Compile>
@@ -290,6 +295,9 @@
     </Compile>
     <Compile Include="Views\EditFuncionario.xaml.cs">
       <DependentUpon>EditFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditProdut.xaml.cs">
+      <DependentUpon>EditProdut.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditVenda.xaml.cs">
       <DependentUpon>EditVenda.xaml</DependentUpon>
@@ -315,8 +323,8 @@
     <Compile Include="Views\ListarFuncionario.xaml.cs">
       <DependentUpon>ListarFuncionario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Produtora.xaml.cs">
-      <DependentUpon>Produtora.xaml</DependentUpon>
+    <Compile Include="Views\CadastProdutora.xaml.cs">
+      <DependentUpon>CadastProdutora.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -390,6 +398,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CadastroProdutora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,6 +411,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditProdut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -434,7 +450,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Produtora.xaml">
+    <Page Include="Views\CadastProdutora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -450,7 +466,7 @@
     <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
-    <Compile Include="Models\Produtora.cs" />
+    <Compile Include="Models\Produtoracla.cs" />
     <Compile Include="Models\ProdutoraDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

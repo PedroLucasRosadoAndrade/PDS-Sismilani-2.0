@@ -111,7 +111,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new Produtora().ShowDialog();
+            var produtora = new CadastProdutora().ShowDialog();
 
         }
 

@@ -22,24 +22,29 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class CadastrarProduto : Window
     {
-        MySqlConnection conexao;
-        MySqlCommand comando;
-        ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
+        private Produt _produt;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
+        ObservableCollection<Produt> produt = new ObservableCollection<Produt>();
         public CadastrarProduto()
         {
             InitializeComponent();
-            Loaded += CadastrarProduto_Loaded;
+            Loaded += CadastrarProduto_Loaded();
 
         }
+        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
 
-        // private void clientesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-
-        // }
+        private RoutedEventHandler CadastrarProduto_Loaded()
+        {
+            throw new NotImplementedException();
+        }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            var produto = new CadastrarProduto().ShowDialog();
+            var produto = new EditProdut().ShowDialog();
         }
 
         private void BtSair(object sender, RoutedEventArgs e)
@@ -72,7 +77,7 @@ namespace PDS_Sismilani.Views
 
         private void btEditar(object sender, RoutedEventArgs e)
         {
-            var editProduto = new EditProduto().ShowDialog();
+            var editProduto = new EditProdut().ShowDialog();
 
         }
 
@@ -80,7 +85,7 @@ namespace PDS_Sismilani.Views
         {
             try
             {
-                var dao = new ProdutoDAO();
+                var dao = new ProdutDAO();
 
                 produtosDataGrid.ItemsSource = dao.List();
             }
@@ -90,26 +95,21 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void BtHome_Click(object sender, RoutedEventArgs e)
+        private void BtHome(object sender, RoutedEventArgs e)
         {
             var home = new Home().ShowDialog();
 
         }
 
-        //private void Btfilmes_Click(object sender, RoutedEventArgs e)
-        //{
-
-        // }
-
-        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
+        private void Btfilmes(object sender, RoutedEventArgs e)
         {
-            LoadDataGrid();
+
         }
 
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new Produtora().ShowDialog();
+            var produtora = new CadastProdutora().ShowDialog();
 
         }
 

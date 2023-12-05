@@ -98,7 +98,7 @@
                                     <TextBlock Text="Estoque"/>
                                 </StackPanel>
                             </Button>
-                            <Button x:Name="Btnprodutos" Style="{StaticResource MenuButton}" Width="137">
+                            <Button x:Name="Btprodutos" Style="{StaticResource MenuButton}" Width="137" Click="Btnprodutos" >
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
                                     <TextBlock Text="produtos"/>

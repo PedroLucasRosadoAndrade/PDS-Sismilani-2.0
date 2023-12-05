@@ -72,7 +72,7 @@ namespace PDS_Sismilani.Models
                     filme.Categoria = reader.GetString("categoria_film");
                     filme.Diretor = reader.GetString("diretor_film");
                     filme.Elenco = reader.GetString("elenco_film");
-                    filme.DataLancamento = reader.GetDateTime(r "data_film");
+                    filme.DataLancamento = reader.GetDateTime("data_film");
 
                 }
                 return filme;

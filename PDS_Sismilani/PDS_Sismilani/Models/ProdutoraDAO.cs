@@ -18,7 +18,7 @@ namespace PDS_Sismilani.Models
             conn = new Conexao();
         }
 
-        public void Delete(Produtora t)
+        public void Delete(Produtoracla t)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace PDS_Sismilani.Models
 
         }
 
-        public void Insert(Produtora t)
+        public void Insert(Produtoracla t)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace PDS_Sismilani.Models
             }
         }
 
-        public Produtora GetById(int id)
+        public Produtoracla GetById(int id)
         {
             try
             {
@@ -90,11 +90,11 @@ namespace PDS_Sismilani.Models
 
                     throw new Exception("Nenhum registro foi encontrado.");
 
-                var produtora = new Produtora();
+                var produtora = new Produtoracla();
 
                 while (reader.Read())
                 {
-                    produtora.id = reader.GetString("id_produ");
+                    produtora.id = reader.GetInt32("id_produ");
                     produtora.nome = reader.GetString("nome_produ");
                     produtora.cnpj = reader.GetString("CNPJ_produ");
                     produtora.telefone = reader.GetString("telefone_produ");
@@ -117,11 +117,11 @@ namespace PDS_Sismilani.Models
             }
         }
 
-        public List<Produtora> List()
+        public List<Produtoracla> List()
         {
             try
             {
-                List<Produtora> list = new List<Produtora>();
+                List<Produtoracla> list = new List<Produtoracla>();
 
                 var query = conn.Query();
                 //query.CommandText = "SELECT * FROM funcionario LEFT JOIN sexo ON cod_sex = cod_sex_fk";
@@ -130,9 +130,9 @@ namespace PDS_Sismilani.Models
 
                 while (reader.Read())
                 {
-                    list.Add(new Produtora()
+                    list.Add(new Produtoracla()
                     {
-                        id = reader.GetString("id_produ"),
+                        id = reader.GetInt32("id_produ"),
                         nome = DAOHelper.GetString(reader, "nome_produ"),
                         cnpj = DAOHelper.GetString(reader, "CNPJ_produ"),
                         telefone = DAOHelper.GetString(reader, "telefone_produ"),
@@ -156,7 +156,7 @@ namespace PDS_Sismilani.Models
             }
 
         }
-        public void Update(Produtora t)
+        public void Update(Produtoracla t)
         {
             try
             {

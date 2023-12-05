@@ -48,7 +48,7 @@
 
             <DockPanel Margin="36,547,481,46">
                 <!-- Botão Voltar -->
-                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar">
+                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" >
                     <StackPanel Orientation="Horizontal" Width="102">
                         <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
                         <TextBlock Text=" Voltar"/>

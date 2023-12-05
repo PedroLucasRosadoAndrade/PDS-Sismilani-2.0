@@ -7,10 +7,10 @@ using System.Windows.Markup;
 using MySql.Data.MySqlClient;
 namespace PDS_Sismilani.Models
 {
-    internal class Produtora
+    internal class Produtoracla
     {
      
-        public string id { get; set; }
+        public int id { get; set; }
         public string nome  { get; set; }
         public string cnpj { get; set; }
         public string telefone { get; set; }

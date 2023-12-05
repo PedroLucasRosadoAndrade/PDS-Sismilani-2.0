@@ -143,7 +143,7 @@ namespace PDS_Sismilani.Views
         }
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
-            var CadProdutora = new Produtora();
+            var CadProdutora = new CadastProdutora();
             CadProdutora.ShowDialog();
         }
         private void Btfornecedores_Click(object sender, RoutedEventArgs e)
