@@ -179,7 +179,7 @@ namespace PDS_Sismilani.Models
         }
 
         public void Update(Produto t)
-    {
+        {
 
         try
         {

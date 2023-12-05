@@ -23,24 +23,37 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class AddFilme : Window
     {
-        MySqlConnection conexao;
-        MySqlCommand comando;
-        ObservableCollection<Filme> filmes = new ObservableCollection<Filme>();
+        private int _id;
+
+        private Filme _filme;
+        // MySqlConnection conexao;
+        // MySqlCommand comando;
+        // ObservableCollection<Filme> filmes = new ObservableCollection<Filme>();
 
         public AddFilme()
         {
             InitializeComponent();
+            Loaded += AddFilme_Loaded;
         }
 
 
-        private void Conexao()
+        public AddFilme(int id)
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3360";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
+            InitializeComponent();
 
-            conexao.Open();
+            Loaded += AddFilme_Loaded;
+
+            _id = id;
         }
+
+        private void AddFilme_Loaded(object sender, RoutedEventArgs e)
+        {
+            _filme = new Filme();
+
+            if (_id > 0)
+                FillForm();
+        }
+
 
         private void BtVoltar(object sender, RoutedEventArgs e)
         {
@@ -49,83 +62,122 @@ namespace PDS_Sismilani.Views
 
         private void BtSalvar(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var titulo = txtTitulo.Text;
-                var sinopse = txtSinopse.Text;
-                var fornecedor = txtFornecedor.Text;
-                var categoria = txtCategoria.Text;
-                var elenco = txtElenco.Text;
-                var diretor = txtDiretor.Text;
-                var dataLancamento = datePickerData.SelectedDate;
 
+            _filme.Id = _id;
+            _filme.Titulo = txtTitulo.Text;
+            _filme.Fornecedor = txtFornecedor.Text;
+            _filme.Categoria = txtCategoria.Text;
+            _filme.Elenco = txtElenco.Text;
+            _filme.Diretor = txtDiretor.Text;
+            _filme.DataLancamento = dtpDataLan.SelectedDate;
 
-                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3360"))
-                {
-                    conexao.Open();
-
-                    string query = "INSERT INTO Filme (titulo_film,fornecedor_film ,categoria_film,dataLancamento_film, sinopse_film,elenco_film,diretor_film ) " +
-                                   "VALUES (@_titulo_film,@_fornecedor_film ,@_categoria_film,@_dataLancamento_film, @_sinopse_film,@_elenco_film, @_diretor_film)";
-                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
-                    {
-                        comando.Parameters.AddWithValue("@_titulo", titulo);
-                        comando.Parameters.AddWithValue("@_fornecedor", fornecedor);
-                        comando.Parameters.AddWithValue("@_categoria", categoria);
-                        comando.Parameters.AddWithValue("@_dataLancamento", dataLancamento);
-                        comando.Parameters.AddWithValue("@_sinopse", sinopse);
-                        comando.Parameters.AddWithValue("@_elenco", elenco);
-                        comando.Parameters.AddWithValue("@_diretor", diretor);
-
-                        comando.ExecuteNonQuery();
-                    }
-                }
-
-                comando.ExecuteNonQuery();
-                txtTitulo.Clear();
-                datePickerData.IsEnabled = false;
-                txtFornecedor.Clear();
-                txtCategoria.Clear();
-                txtSinopse.Clear();
-                txtElenco.Clear();
-                txtDiretor.Clear();
-
-
-
-                var opcao = MessageBox.Show("Filme salvo com sucesso!\n" +
-                       "Deseja realizar um novo cadastro?", "Informação",
-                       MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-
-
-                if (opcao == MessageBoxResult.Yes)
-                {
-
-                    MainWindow form = new MainWindow();
-                    form.ShowDialog();
-                }
-                else
-                {
-                    this.Close();
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocorreram erros ao tentar salvar os dados!\n" +
-                    $"Contate o suporte do sistema. (CAD 25)\n\n{ex.Message}");
-
-            }
-
-            txtTitulo.Clear();
-            datePickerData.IsEnabled = false;
-            txtFornecedor.Clear();
-            txtCategoria.Clear();
-            txtSinopse.Clear();
-            txtElenco.Clear();
-            txtDiretor.Clear();
-            txtTitulo.Focus();
-
+            SaveData();
 
         }
+
+        private bool Validate()
+        {
+            var validator = new FilmeValitador();
+            var result = validator.Validate(_filme);
+
+            if (!result.IsValid)
+            {
+                string errors = null;
+                var count = 1;
+
+                foreach (var failure in result.Errors)
+                {
+                    errors += $"{count++} - {failure.ErrorMessage}\n";
+                }
+
+                MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            return result.IsValid;
+        }
+
+        private void SaveData()
+        {
+            try
+            {
+                if (Validate())
+                {
+                    var dao = new FilmeDAO();
+                    var text = "atualizado";
+
+                    if (_filme.Id == 0)
+                    {
+                        dao.Insert(_filme);
+                        text = "adicionado";
+                    }
+                    else
+                        dao.Update(_filme);
+
+                    MessageBox.Show($"O Produto foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CloseFormVerify();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+        private void FillForm()
+        {
+            try
+            {
+                var dao = new FilmeDAO();
+                _filme = dao.GetById(_id);
+
+                txtId.Text = _filme.Id.ToString();
+                txtTitulo.Text = _filme.Titulo;
+                txtSinopse.Text = _filme.Sinopse;
+                txtFornecedor.Text = _filme.Fornecedor;
+                txtDiretor.Text = _filme.Diretor;
+                txtElenco.Text = _filme.Elenco;
+                txtCategoria.Text = _filme.Categoria;
+                dtpDataLan.SelectedDate = _filme.DataLancamento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CloseFormVerify()
+        {
+            if (_filme.Id == 0)
+            {
+                var result = MessageBox.Show("Deseja continuar adicionando novos filmes?", "Continuar?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.No)
+                    this.Close();
+                else
+                    ClearInputs();
+            }
+            else
+                this.Close();
+        }
+
+
+        private void ClearInputs()
+        {
+            txtId.Text = "";
+            txtTitulo.Text = "";
+            txtSinopse.Text = "";
+            txtFornecedor.Text = "";
+            txtDiretor.Text = "";
+            txtElenco.Text = "";
+            txtCategoria.Text = "";
+            dtpDataLan.SelectedDate = null;
+
+        }
+
+
+
+
     }
 }
+

@@ -73,7 +73,7 @@
                 <!--Voltar -->
                 <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="108" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="34" RenderTransformOrigin="0.495,0.729" Click="BtVoltar">
                     <StackPanel Orientation="Horizontal" Width="102">
-                        <TextBlock Width="127" Height="29"><Run Language="pt-br" Text="         Voltar"/><LineBreak/><Run/><LineBreak/><Run Text="    Voltar"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                        <TextBlock Width="137" Height="41"><Run Language="pt-br" Text="         Voltar"/><LineBreak/><Run/><LineBreak/><Run Text="    Voltar"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
                     </StackPanel>
                 </Button>
             </DockPanel>
