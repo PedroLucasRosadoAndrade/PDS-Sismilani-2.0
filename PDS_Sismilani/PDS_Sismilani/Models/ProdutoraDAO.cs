@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PDS_Sismilani.DataBase;
+using MySql.Data.MySqlClient;
+using PDS_Sismilani.Models;
+using PDS_Sismilani.Helpers;
 
 namespace PDS_Sismilani.Models
 {

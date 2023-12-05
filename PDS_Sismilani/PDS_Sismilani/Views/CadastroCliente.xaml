@@ -51,19 +51,19 @@
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome_Click" >
+                        <Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Home"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes_Click" >
+                        <Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Filmes"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora_Click" >
+                        <Button x:Name="Btnprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Produtoras"/>
@@ -75,13 +75,13 @@
                                 <TextBlock Text="Fornecedores"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137" Click="Btfuncionarios_Click">
+                        <Button x:Name="Btnfuncionarios" Style="{StaticResource MenuButton}" Width="137" Click="Btfuncionarios">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HumanGreeting" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Funcionarios"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137" Click="Btestoque_Click" >
+                        <Button x:Name="Btnestoque" Style="{StaticResource MenuButton}" Width="137" Click="Btestoque" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageVariantClosed" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Estoque"/>
@@ -96,7 +96,7 @@
                     </StackPanel>
 
                     <!--Logout -->
-                    <Button x:Name="BtFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="Button_Click_1">
+                    <Button x:Name="BtnFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="BtFechar">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
                             <TextBlock Text="Sair"/>

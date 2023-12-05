@@ -146,7 +146,7 @@ namespace PDS_Sismilani.Views
 
         private void Btnprodutos(object sender, RoutedEventArgs e)
         {
-            var produtos = new CadastrarProduto().ShowDialog();
+            var produtos = new AddProduto().ShowDialog();
         }
     }
 }

@@ -90,7 +90,7 @@ namespace PDS_Sismilani.Views
         {
             try
             {
-                var dao = new ProdutDAO();
+                var dao = new ProdutoDAO();
 
                 produtosDataGrid.ItemsSource = dao.List();
             }

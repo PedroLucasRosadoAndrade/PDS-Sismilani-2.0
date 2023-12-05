@@ -25,17 +25,17 @@ namespace PDS_Sismilani.Views
         }
 
 
-        private void btHome_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        //private void btHome(object sender, RoutedEventArgs e)
+        //{
+        //    var home = new CadastrarProdutora().ShowDialog();
+        //}
 
         private void Btfilmes_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btAdd_Click(object sender, RoutedEventArgs e)
+        private void btAdd(object sender, RoutedEventArgs e)
         {
             var produtora = new Produtora().ShowDialog();
         }

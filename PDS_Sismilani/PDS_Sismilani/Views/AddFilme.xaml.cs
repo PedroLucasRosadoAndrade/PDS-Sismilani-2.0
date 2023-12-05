@@ -69,53 +69,51 @@ namespace PDS_Sismilani.Views
             _filme.Categoria = txtCategoria.Text;
             _filme.Elenco = txtElenco.Text;
             _filme.Diretor = txtDiretor.Text;
-            _filme.DataLancamento = dtpDataLan.SelectedDate;
+            _filme.DataLancamento = datePickerData.SelectedDate;
 
             SaveData();
 
         }
 
-        private bool Validate()
-        {
-            var validator = new FilmeValitador();
-            var result = validator.Validate(_filme);
+        //private bool Validate()
+        //{
+        //    var validator = new FilmeValitador();
+        //    var result = validator.Validate(_filme);
 
-            if (!result.IsValid)
-            {
-                string errors = null;
-                var count = 1;
+        //    if (!result.IsValid)
+        //    {
+        //        string errors = null;
+        //        var count = 1;
 
-                foreach (var failure in result.Errors)
-                {
-                    errors += $"{count++} - {failure.ErrorMessage}\n";
-                }
+        //        foreach (var failure in result.Errors)
+        //        {
+        //            errors += $"{count++} - {failure.ErrorMessage}\n";
+        //        }
 
-                MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+        //        MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    }
 
-            return result.IsValid;
-        }
+        //    return result.IsValid;
+        //}
 
         private void SaveData()
         {
             try
             {
-                if (Validate())
+                var dao = new FilmeDAO();
+                var text = "atualizado";
+
+                if (_filme.Id == 0)
                 {
-                    var dao = new FilmeDAO();
-                    var text = "atualizado";
-
-                    if (_filme.Id == 0)
-                    {
-                        dao.Insert(_filme);
-                        text = "adicionado";
-                    }
-                    else
-                        dao.Update(_filme);
-
-                    MessageBox.Show($"O Produto foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-                    CloseFormVerify();
+                    dao.Insert(_filme);
+                    text = "adicionado";
                 }
+                else
+                    dao.Update(_filme);
+
+                MessageBox.Show($"O Produto foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                CloseFormVerify();
+                
             }
             catch (Exception ex)
             {
@@ -138,7 +136,7 @@ namespace PDS_Sismilani.Views
                 txtDiretor.Text = _filme.Diretor;
                 txtElenco.Text = _filme.Elenco;
                 txtCategoria.Text = _filme.Categoria;
-                dtpDataLan.SelectedDate = _filme.DataLancamento;
+                datePickerData.SelectedDate = _filme.DataLancamento;
             }
             catch (Exception ex)
             {
@@ -171,7 +169,7 @@ namespace PDS_Sismilani.Views
             txtDiretor.Text = "";
             txtElenco.Text = "";
             txtCategoria.Text = "";
-            dtpDataLan.SelectedDate = null;
+            datePickerData.SelectedDate = null;
 
         }
 

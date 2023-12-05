@@ -96,14 +96,14 @@ namespace PDS_Sismilani.Views
             var estoque = new Estoque().ShowDialog();
         }
 
-        private void Btfornecedores(object sender, RoutedEventArgs e)
+        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
         {
             var fornecedor = new CadastrarFornecedor().ShowDialog();
         }
 
         private void Btprodutora(object sender, RoutedEventArgs e)
         {
-            var produtora = new Produtora().ShowDialog();
+            var produtora = new CadastrarProdutora().ShowDialog();
         }
 
         private void Btfilmes(object sender, RoutedEventArgs e)
@@ -138,5 +138,9 @@ namespace PDS_Sismilani.Views
 
         }
 
+        private void Btfuncionarios(object sender, RoutedEventArgs e)
+        {
+            var funcionario = new CadastrarFuncionario().ShowDialog();
+        }
     }
 }

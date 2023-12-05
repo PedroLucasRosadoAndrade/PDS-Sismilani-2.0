@@ -44,24 +44,24 @@
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome_Click" >
+                        <!--<Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Home"/>
                             </StackPanel>
-                        </Button>
-                        <Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes_Click" >
+                        </Button>-->
+                        <!--<Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Filmes"/>
                             </StackPanel>
-                        </Button>
-                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" >
+                        </Button>-->
+                        <!--<Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Produtoras"/>
                             </StackPanel>
-                        </Button>
+                        </Button>-->
                         <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
@@ -122,12 +122,12 @@
 
                 <TextBlock Text="Produtoras" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="btAdd_Click">
+                <!--<Button Name="btnAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="btAdd">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="ADD Nova Produtora"/>
                     </StackPanel>
-                </Button>
+                </Button>-->
 
                 <!--Separador-->
 
