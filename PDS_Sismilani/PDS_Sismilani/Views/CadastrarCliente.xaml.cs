@@ -85,13 +85,12 @@ namespace PDS_Sismilani.Views
         //{
 
         //}
-
-        private void btAdd(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var funcionario = new addFuncionario().ShowDialog();
+            var addcli = new addCliente().ShowDialog();
         }
-
-        private void btDeletar(object sender, RoutedEventArgs e)
+        
+        private void btDeletar_Click_1(object sender, RoutedEventArgs e)
         {
             //var button = (Button)sender;
             //var dataGridRow = (DataGridRow)FuncionariosDataGrid.ItemContainerGenerator.ContainerFromItem(button.DataContext);
@@ -140,7 +139,7 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void btEditar(object sender, RoutedEventArgs e)
+        private void btEditar_Click_1(object sender, RoutedEventArgs e)
         {
             //var Funcionarios = new EditFuncionario().ShowDialog();
             var clienteSelected = clientesDataGrid.SelectedItem as Cliente;
@@ -226,27 +225,27 @@ namespace PDS_Sismilani.Views
         //    }
         //}
 
-        private void Btestoque(object sender, RoutedEventArgs e)
+        private void Btestoque_Click(object sender, RoutedEventArgs e)
         {
             var estoque = new Estoque().ShowDialog();
         }
 
-        private void Btfornecedores(object sender, RoutedEventArgs e)
+        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
         {
             var fornecedor = new CadastrarFornecedor().ShowDialog();
         }
 
-        private void Btprodutora(object sender, RoutedEventArgs e)
+        private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
             var produtora = new Produtora().ShowDialog();
         }
 
-        private void Btfilmes(object sender, RoutedEventArgs e)
+        private void Btfilmes_Click(object sender, RoutedEventArgs e)
         {
             var Filmes = new CadastrarFilme().ShowDialog();
         }
 
-        private void btHome(object sender, RoutedEventArgs e)
+        private void btHome_Click(object sender, RoutedEventArgs e)
         {
             var home = new Home().ShowDialog();
             //  var cadastrarFun = new CadastrarFuncionario();
@@ -258,20 +257,30 @@ namespace PDS_Sismilani.Views
             var cliente = new CadastrarCliente().ShowDialog();
         }
 
-        private void BtFechar(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Btprodutos_Click(object sender, RoutedEventArgs e)
+        private void Btprodutos_Click_1(object sender, RoutedEventArgs e)
         {
             var produto = new CadastrarProduto().ShowDialog();
         }
 
-        private void FuncionariosDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+  
+        private void clientesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Loaded += CadastrarCliente_Loaded;
         }
+
+        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+            var funci = new CadastrarFuncionario().ShowDialog();
+        }
+
+
+
+
 
         //private bool IsMaximized = false;
 

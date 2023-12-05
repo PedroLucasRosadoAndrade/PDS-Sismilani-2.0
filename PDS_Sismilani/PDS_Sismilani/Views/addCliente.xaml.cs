@@ -65,6 +65,7 @@ namespace PDS_Sismilani.Views
             {
                 var dao = new ClienteDAO();
                 _cliente = dao.GetById(_id);
+
                 txtNome.Text = _cliente.nome;
                 txtCpf.Text = _cliente.cpf;
                 txtRg.Text = _cliente.rg;

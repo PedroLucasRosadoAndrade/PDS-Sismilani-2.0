@@ -49,7 +49,7 @@
 
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
-                    <StackPanel DockPanel.Dock="Top">
+                    <StackPanel DockPanel.Dock="Top" Height="425">
                         <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
@@ -86,7 +86,7 @@
                                 <TextBlock Text="Estoque"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btprodutos" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btprodutos" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutos_Click_1" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="produtos"/>
@@ -117,7 +117,7 @@
 
                 <TextBlock Text="Clientes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="Button_Click">
+                <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,0" Grid.Row="1" Click="Button_Click" Height="35" VerticalAlignment="Top">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="ADD Novo Cliente"/>
@@ -132,7 +132,7 @@
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid" 
-                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}">
+                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" SelectionChanged="clientesDataGrid_SelectionChanged">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="N°" IsReadOnly="True" Width="*" Binding="{Binding id}"/>
