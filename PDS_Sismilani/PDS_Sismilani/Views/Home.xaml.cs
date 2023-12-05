@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using PDS_Sismilani.Views;
 using PDS_Sismilani.DataBase;
 using PDS_Sismilani.Models;
+using MaterialDesignThemes.Wpf;
 
 namespace PDS_Sismilani.Views
 {
@@ -93,7 +94,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora(object sender, RoutedEventArgs e)
         {
-            var produtora = new CadastrarProduto().ShowDialog();
+            var produtora = new CadastroProdutora().ShowDialog();
         }
 
         private void LoadBorder()
@@ -143,6 +144,9 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        
+        private void Btnprodutos(object sender, RoutedEventArgs e)
+        {
+            var produtos = new CadastrarProduto().ShowDialog();
+        }
     }
 }

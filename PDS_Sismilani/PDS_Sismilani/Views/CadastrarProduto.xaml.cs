@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using PDS_Sismilani.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,64 +22,133 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class CadastrarProduto : Window
     {
+        private Produt _produt;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
+        ObservableCollection<Produt> produt = new ObservableCollection<Produt>();
         public CadastrarProduto()
         {
             InitializeComponent();
-        }
+            Loaded += CadastrarProduto_Loaded();
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
+        ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
 
-        private void btHome_Click(object sender, RoutedEventArgs e)
+        public CadastrarProduto()
         {
+            InitializeComponent();
+
+            Loaded += CadastrarProduto_Loaded;
 
         }
-
-        private void Btfilmes_Click(object sender, RoutedEventArgs e)
+        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
         {
-
+            LoadDataGrid();
         }
+
+        private RoutedEventHandler CadastrarProduto_Loaded()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
+
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new Produtora().ShowDialog();
+            var produto = new EditProdut().ShowDialog();
         }
 
-        // otimização da tela
-
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
-        }
-
-
-        private bool IsMaximized = false;
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) // e esse trecho estão fazendo a responsividade da tela 
-        {
-            if (e.ClickCount == 2)
-            {
-                if (IsMaximized)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1080;
-                    this.Height = 720;
-
-                    IsMaximized = false;
-                }
-                else
-                {
-
-                    this.WindowState = WindowState.Maximized;
-
-                    IsMaximized = false;
-                }
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtSair(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        private void btDeletar(object sender, RoutedEventArgs e)
+        {
+
+            var produtoSelected = produtosDataGrid.SelectedItem as Filme;
+
+            var result = MessageBox.Show($"Deseja excluir o produto `{produtoSelected.Titulo}`?", "Excluido com sucesso",
+               MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FilmeDAO();
+                    dao.Delete(produtoSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btEditar(object sender, RoutedEventArgs e)
+        {
+            var editProduto = new EditProdut().ShowDialog();
+
+        }
+
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new ProdutDAO();
+
+                produtosDataGrid.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtHome(object sender, RoutedEventArgs e)
+        {
+            var home = new Home().ShowDialog();
+
+        }
+
+        private void Btfilmes(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btprodutora_Click(object sender, RoutedEventArgs e)
+        {
+            var produtora = new CadastProdutora().ShowDialog();
+
+        }
+
+        private void Btfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedor = new CadastrarFornecedor().ShowDialog();
+
+        }
+
+        private void Btfuncionarios_Click(object sender, RoutedEventArgs e)
+        {
+            var funcionario = new CadastrarFuncionario().ShowDialog();
+
+        }
+
+        private void Btestoque_Click(object sender, RoutedEventArgs e)
+        {
+            var estoque = new Estoque().ShowDialog();
+
+        }
+
+        private void Btclientes(object sender, RoutedEventArgs e)
+        {
+            var cliente = new CadastrarCliente().ShowDialog();
+
+        }
     }
 }

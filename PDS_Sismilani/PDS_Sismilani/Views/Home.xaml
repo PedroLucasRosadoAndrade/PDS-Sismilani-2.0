@@ -9,8 +9,8 @@
         
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized"
         AllowsTransparency="True" MinHeight="300" MinWidth="500" >
-        
-        <!--Title="Sismilani" MinHeight="700" MinWidth="1300" WindowStartupLocation="CenterScreen" WindowState="Maximized" >-->
+
+    <!--Title="Sismilani" MinHeight="700" MinWidth="1300" WindowStartupLocation="CenterScreen" WindowState="Maximized" >-->
 
     <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
         <!--<Window.Background>
@@ -30,9 +30,8 @@
             </LinearGradientBrush>
         </Window.Background>-->
 
-        <DockPanel>
-
-            <StackPanel DockPanel.Dock="Left" Width="160" Margin="5 40" Height="709">
+        <DockPanel Margin="13,0,0,10">
+            <StackPanel DockPanel.Dock="Left" Width="173" Margin="5 40" Height="669">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -41,12 +40,13 @@
 
 
                     <!-- Botão -->
+                    <!--
                     <Button Margin="20 8 0 35" Style="{StaticResource TopButton}">
                         <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
-                    </Button>
+                    </Button>-->
                 </Grid>
-                <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Height="671">
 
+                <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Height="622" Width="172">
                     <DockPanel Height="634">
                         <TextBlock Text="Menu" Foreground="White" FontSize="22" FontWeight="SemiBold"
                      DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
@@ -98,7 +98,7 @@
                                     <TextBlock Text="Estoque"/>
                                 </StackPanel>
                             </Button>
-                            <Button x:Name="Btnprodutos" Style="{StaticResource MenuButton}" Width="137">
+                            <Button x:Name="Btprodutos" Style="{StaticResource MenuButton}" Width="137" Click="Btnprodutos" >
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
                                     <TextBlock Text="produtos"/>
@@ -246,18 +246,13 @@
 
                 <TextBlock Grid.Row="1" FontSize="20"  Text="Ultimas vendas" Margin="5,5,0,5"/>
 
-                <Grid Grid.ColumnSpan="2">
+                <Grid Grid.ColumnSpan="2" Margin="2,1,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="113*"/>
                         <ColumnDefinition Width="82*"/>
                         <ColumnDefinition Width="31*"/>
                     </Grid.ColumnDefinitions>
                 </Grid>
-
-
-
-
-
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="dataGridVendas" 
@@ -318,7 +313,7 @@
 
         </DockPanel>
     </Border>
-    
+
 
     <!--<Grid Background="Black">
         <Grid.ColumnDefinitions>

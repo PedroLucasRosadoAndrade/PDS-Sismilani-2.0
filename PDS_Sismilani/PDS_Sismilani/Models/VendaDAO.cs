@@ -178,21 +178,22 @@ namespace PDS_Sismilani.Models
 
                 MySqlDataReader reader = query.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    list.Add(new Venda()
-                    {
-                        Id = reader.GetInt32("id_ven"),
-                        DataVen = (DateTime)DAOHelper.GetDateTime(reader, "Data_ven"),
-                        Hora = DAOHelper.GetString(reader, "hota_ven"),
-                        QuantidadesDeprodutos = DAOHelper.GetString(reader, "quantidade_ven"),
-                        Descricao = DAOHelper.GetString(reader, "descricao_ven"),
-                        IdFun = reader.GetInt32("id_fun_fk"),
-                        IdRec = reader.GetInt32("id_rec_fk")
+                //while (reader.Read())
+                //{
+                //    list.Add(new Venda()
+                //    {
+                //        Id = reader.GetInt32("id_ven"),
+                //        DataVen = (DateTime)DAOHelper.GetDateTime(reader, "Data_ven"),
+                //        Hora = DAOHelper.GetString(reader, "hota_ven"),
+                //        QuantidadesDeprodutos = DAOHelper.GetString(reader, "quantidade_ven"),
+                //        Descricao = DAOHelper.GetString(reader, "descricao_ven"),
+                //        IdFun = reader.GetInt32("id_fun_fk"),
+                //        IdRec = reader.GetInt32("id_rec_fk")
 
-                    });
-                }
+                //    });
+                //}
 
+                
                 return list;
             }
             catch (Exception e)

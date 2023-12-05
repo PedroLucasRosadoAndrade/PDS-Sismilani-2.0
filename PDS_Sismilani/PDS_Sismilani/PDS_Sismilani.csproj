@@ -43,8 +43,8 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
+    <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.5.0.0\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.11.8.1\lib\netstandard2.0\FluentValidation.dll</HintPath>
@@ -80,7 +80,7 @@
       <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Coolicons.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro.IconPacks.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.IconPacks.Material.4.11.0\lib\net47\MahApps.Metro.IconPacks.Core.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.IconPacks.MaterialDesign.4.11.0\lib\net47\MahApps.Metro.IconPacks.Core.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro.IconPacks.Entypo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Entypo.dll</HintPath>
@@ -116,7 +116,7 @@
       <HintPath>..\packages\MahApps.Metro.IconPacks.Material.4.11.0\lib\net47\MahApps.Metro.IconPacks.Material.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro.IconPacks.MaterialDesign, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.MaterialDesign.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.IconPacks.MaterialDesign.4.11.0\lib\net47\MahApps.Metro.IconPacks.MaterialDesign.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro.IconPacks.MaterialLight, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.MaterialLight.dll</HintPath>
@@ -236,6 +236,9 @@
     <Compile Include="Interfaces\IDAO.cs" />
     <Compile Include="Models\AbstractDAO.cs" />
     <Compile Include="Models\FuncionarioValitador.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoDAO.cs" />
+    <Compile Include="Models\ProdutoValitador.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
     <Compile Include="Models\Venda.cs" />
@@ -248,6 +251,9 @@
     </Compile>
     <Compile Include="Views\addFuncionario.xaml.cs">
       <DependentUpon>addFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddProduto.xaml.cs">
+      <DependentUpon>AddProduto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CadastrarCaixa.xaml.cs">
       <DependentUpon>CadastrarCaixa.xaml</DependentUpon>
@@ -282,6 +288,11 @@
     <Compile Include="Views\CadastrarSala.xaml.cs">
       <DependentUpon>CadastrarSala.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastroProdutora.xaml.cs">
+      <DependentUpon>CadastroProdutora.xaml</DependentUpon>
+    <Compile Include="Views\CadastroCliente.xaml.cs">
+      <DependentUpon>CadastroCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditCliente.xaml.cs">
       <DependentUpon>EditCliente.xaml</DependentUpon>
     </Compile>
@@ -290,6 +301,11 @@
     </Compile>
     <Compile Include="Views\EditFuncionario.xaml.cs">
       <DependentUpon>EditFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditProdut.xaml.cs">
+      <DependentUpon>EditProdut.xaml</DependentUpon>
+    <Compile Include="Views\EditProduto.xaml.cs">
+      <DependentUpon>EditProduto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditVenda.xaml.cs">
       <DependentUpon>EditVenda.xaml</DependentUpon>
@@ -315,8 +331,8 @@
     <Compile Include="Views\ListarFuncionario.xaml.cs">
       <DependentUpon>ListarFuncionario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Produtora.xaml.cs">
-      <DependentUpon>Produtora.xaml</DependentUpon>
+    <Compile Include="Views\CadastProdutora.xaml.cs">
+      <DependentUpon>CadastProdutora.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -343,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\addFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -390,6 +410,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CadastroProdutora.xaml">
+    <Page Include="Views\CadastroCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,6 +424,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -434,7 +463,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Produtora.xaml">
+    <Page Include="Views\CadastrarProdutora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -450,7 +479,7 @@
     <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
-    <Compile Include="Models\Produtora.cs" />
+    <Compile Include="Models\Produtoracla.cs" />
     <Compile Include="Models\ProdutoraDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

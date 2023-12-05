@@ -15,7 +15,7 @@ namespace PDS_Sismilani.Models
         public string Diretor { get; set; }
         public string Categoria { get; set; }
         public string Elenco { get; set; }    
-        public DateTime DataLancamento { get; set; }
+        public DateTime? DataLancamento { get; set; }
 
 
     }
