@@ -29,7 +29,7 @@ namespace PDS_Sismilani.Views
         public CadastrarProduto()
         {
             InitializeComponent();
-            Loaded += CadastrarProduto_Loaded();
+            //Loaded += CadastrarProduto_Loaded();
         }
 
         public CadastrarProduto(int id)
@@ -42,14 +42,11 @@ namespace PDS_Sismilani.Views
             LoadDataGrid();
         }
 
-        private RoutedEventHandler CadastrarProduto_Loaded()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            var produto = new EditProdut().ShowDialog();
+            var produto = new AddProduto().ShowDialog();
         }
 
         private void BtSair(object sender, RoutedEventArgs e)
