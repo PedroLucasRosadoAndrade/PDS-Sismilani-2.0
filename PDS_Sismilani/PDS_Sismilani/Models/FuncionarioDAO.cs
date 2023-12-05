@@ -56,7 +56,7 @@ namespace PDS_Sismilani.Models
                 //                                "LEFT JOIN sexo ON cod_sex = cod_sex_fk " +
                 //                                "LEFT JOIN endereco ON cod_end = cod_end_fk " +
                 //                                "WHERE cod_func = @id";
-                query.CommandText = "SELECT * FROM funcionario WHERE id_fun = @id";
+                query.CommandText = "SELECT * FROM funcionario";
 
                 query.Parameters.AddWithValue("@id", id);
 

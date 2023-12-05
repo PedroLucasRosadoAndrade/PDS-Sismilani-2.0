@@ -1,7 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using PDS_Sismilani.DataBase;
-using PDS_Sismilani.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
