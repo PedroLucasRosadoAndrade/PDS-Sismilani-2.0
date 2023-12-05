@@ -148,8 +148,6 @@ namespace PDS_Sismilani.Views
             {
                 var dao = new FuncionarioDAO();
                 _funcionario = dao.GetById(_id);
-
-               
                 txtId.Text = _funcionario.Id.ToString();
                 txtNome.Text = _funcionario.Nome;
                 txtCpf.Text = _funcionario.CPF;
