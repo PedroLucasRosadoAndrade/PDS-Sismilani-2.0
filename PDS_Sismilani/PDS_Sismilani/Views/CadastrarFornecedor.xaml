@@ -29,7 +29,6 @@
 
                 <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,19,12,9" Grid.Row="1" Width="99" Click="btSalvar" >
                     <StackPanel Orientation="Horizontal" >
-                        <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
                     </StackPanel>
                 </Button>
@@ -68,7 +67,6 @@
                 <!--Voltar -->
                 <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btVoltar" >
                     <StackPanel Orientation="Horizontal" Width="102">
-                        <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
                         <TextBlock Text=" Voltar"/>
                     </StackPanel>
                 </Button>

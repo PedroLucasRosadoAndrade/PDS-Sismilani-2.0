@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
-        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" 
 		AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500">
@@ -17,7 +16,7 @@
             <ColumnDefinition Width="101*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Margin="10,10,28,10" Grid.ColumnSpan="2">
+        <Grid Margin="19,10,19,10" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -30,9 +29,8 @@
 
             <TextBlock Text="Editar Filme" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-            <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,474,75,98" Grid.Row="5"  Width="99" Click="BtSalvar">
+            <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,343,43,234" Grid.Row="5"  Width="99" Click="BtSalvar">
                 <StackPanel Orientation="Horizontal" >
-                    <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                     <TextBlock Text="Salvar"/>
                 </StackPanel>
             </Button>
@@ -47,7 +45,7 @@
 
             <TextBox x:Name="txtTitulo" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-            <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="672,13,288,557" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255"/>
+            <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="672,13,280,557" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255"/>
 
             <TextBox x:Name="txtCategoria" Grid.Row="5" Background="White" Margin="665,39,18,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
@@ -73,13 +71,12 @@
 
         </Grid>
 
-        <DockPanel Margin="36,547,481,46">
+        <DockPanel Margin="32,406,485,187">
             <!--Voltar -->
             <Button Name="btVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="BtVoltar">
                 <StackPanel Orientation="Horizontal" Width="102">
-                    <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
-                    <TextBlock Text=" Voltar"/>
-                </StackPanel>
+                        <TextBlock><Run Language="pt-br" Text="     "/><Run Text=" Voltar"/></TextBlock>
+                    </StackPanel>
             </Button>
         </DockPanel>
 

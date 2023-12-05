@@ -1,8 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using PDS_Sismilani.Models;
+﻿using PDS_Sismilani.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Deployment.Internal;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,23 +21,35 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class AddProduto : Window
     {
-        MySqlConnection conexao;
-        MySqlCommand comando;
-        ObservableCollection<Produto> produtos = new ObservableCollection<Produto>();
+        private int _id;
+
+        private Produto _Produto;
         public AddProduto()
         {
             InitializeComponent();
+            Loaded += AddProduto_Loaded;
+
         }
 
-
-        private void Conexao()
+       
+        public AddProduto(int id)
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
+            InitializeComponent();
+           
+            Loaded += AddProduto_Loaded;
 
-            conexao.Open();
+            _id = id;
         }
+
+        private void AddProduto_Loaded(object sender, RoutedEventArgs e)
+        {
+            _Produto = new Produto();
+            //LoadComboBox();
+
+            if (_id > 0)
+                FillForm();
+        }
+      
 
         private void BtVoltar(object sender, RoutedEventArgs e)
         {
@@ -48,76 +59,121 @@ namespace PDS_Sismilani.Views
 
         private void BtSalvar(object sender, RoutedEventArgs e)
         {
+          
+                _Produto.Id = _id;
+                _Produto.Nome = txtNome.Text;
+                _Produto.Marca = txtMarca.Text;
+                _Produto.Tipo = txtTipo.Text;
+                if (int.TryParse(txtQuantidade.Text, out int quantidade))
+                 _Produto.Quantidade = quantidade;
+
+                if (int.TryParse(txtValor.Text, out int valor))
+                 _Produto.Valor = valor;
+
+                _Produto.Validade = dtpDataValidade.SelectedDate;
+
+
+                SaveData();
+
+                 
+        }
+
+        private bool Validate() 
+        {
+            var validator = new ProdutoValitador();
+            var result = validator.Validate(_Produto);
+
+            if (!result.IsValid)
+            {
+                string errors = null;
+                var count = 1;
+        
+               foreach (var failure in result.Errors)
+                {
+                   errors += $"{count++} - {failure.ErrorMessage}\n";
+               }
+
+               MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            return result.IsValid;
+        }
+
+        private void SaveData()
+        {
             try
             {
-                var nome = txtNome.Text;
-                var marca = txtMarca.Text;
-                var Tipo = txtTipo.Text;
-                var quantidade = txtQuantidade.Text;
-                var valor = txtValor.Text;
-                var validade = datePickerData.SelectedDate;
-
-
-                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3306"))
+                if (Validate())
                 {
-                    conexao.Open();
+                    var dao = new ProdutoDAO();
+                    var text = "atualizado";
 
-                    string query = "INSERT INTO produto (nome_prod,marca_prod ,tipo_prod,quantidade_prod,validade_prod, valor_prod)" +
-                                  "VALUES (@_nome_prod,@_ marca_prod,@_tipo_prod,@_quantidade_prod, @_validade_prod,@_valor_prod)";
-
-                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    if (_Produto.Id == 0)
                     {
-                        comando.Parameters.AddWithValue("@_nome", nome);
-                        comando.Parameters.AddWithValue("@_marca", marca);
-                        comando.Parameters.AddWithValue("@_tipo", Tipo);
-                        comando.Parameters.AddWithValue("@_quantidade", quantidade);
-                        comando.Parameters.AddWithValue("@_valor", valor);
-                        comando.Parameters.AddWithValue("@_validade", validade);
-
-                        comando.ExecuteNonQuery();
+                        dao.Insert(_Produto);
+                        text = "adicionado";
                     }
-                }
+                    else
+                        dao.Update(_Produto);
 
-                comando.ExecuteNonQuery();
-                txtNome.Clear();
-                datePickerData.IsEnabled = false;
-                txtMarca.Clear();
-                txtTipo.Clear();
-                txtQuantidade.Clear();
-                txtValor.Clear();
-
-
-                var opcao = MessageBox.Show("Produto salvo com sucesso!\n" +
-                   "Deseja realizar um novo cadastro?", "Informação",
-                   MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-
-
-                if (opcao == MessageBoxResult.Yes)
-                {
-
-                    MainWindow form = new MainWindow();
-                    form.ShowDialog();
-                }
-                else
-                {
-                    this.Close();
+                    MessageBox.Show($"O Produto foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CloseFormVerify();
                 }
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreram erros ao tentar salvar os dados!\n" +
-                    $"Contate o suporte do sistema. (CAD 25)\n\n{ex.Message}");
-
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void FillForm()
+        {
+            try
+            {
+                var dao = new ProdutoDAO();
+                _Produto = dao.GetById(_id);
 
-            txtNome.Clear();
-            datePickerData.IsEnabled = false;
-            txtMarca.Clear();
-            txtTipo.Clear();
-            txtQuantidade.Clear();
-            txtValor.Clear();
-            txtNome.Focus();
-   }    }
+                txtId.Text = _Produto.Id.ToString();
+                txtNome.Text = _Produto.Nome;
+                txtMarca.Text = _Produto.Marca;
+                txtTipo.Text = _Produto.Tipo;
+                txtQuantidade.Text = _Produto.Quantidade.ToString();
+                txtValor.Text = _Produto.Valor.ToString();
+                dtpDataValidade.SelectedDate = _Produto.Validade;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+  
+        }
+
+
+        private void CloseFormVerify()
+        {
+            if (_Produto.Id == 0)
+            {
+                var result = MessageBox.Show("Deseja continuar adicionando novos produtos?", "Continuar?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.No)
+                    this.Close();
+                else
+                    ClearInputs();
+            }
+            else
+                this.Close();
+        }
+
+        private void ClearInputs()
+        {
+
+            txtNome.Text = "";
+            txtMarca.Text = "";
+            txtTipo.Text = "";
+            txtQuantidade.Text = "";
+            txtValor.Text = "";
+           dtpDataValidade.SelectedDate = null;
+           
+        }
+
+    }
 }

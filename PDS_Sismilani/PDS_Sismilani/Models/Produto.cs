@@ -9,13 +9,13 @@ namespace PDS_Sismilani.Models
     internal class Produto
     {
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string nome { get; set; }
-        public string marca { get; set; }
-        public string tipo { get; set; }
-        public int quantidade { get; set; }
-        public DateTime validade { get; set; }
-        public int valor { get; set; }
+        public string Nome { get; set; }
+        public string Marca { get; set; }
+        public string Tipo { get; set; }
+        public int Quantidade { get; set; }
+        public DateTime? Validade { get; set; }
+        public int Valor { get; set; }
     }
 }

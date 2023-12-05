@@ -72,10 +72,9 @@ namespace PDS_Sismilani.Views
         }
 
         private void btnCliente_Click(object sender, RoutedEventArgs e)
-        {
-
-            var CadastrarClientes = new CadastrarCliente();
-               CadastrarClientes.ShowDialog();
+        {   
+            var cli = new CadastrarCliente();
+            cli.ShowDialog();
         }
 
         private void BtFuncionario_Click(object sender, RoutedEventArgs e)
@@ -148,5 +147,17 @@ namespace PDS_Sismilani.Views
         {
             var produtos = new CadastrarProduto().ShowDialog();
         }
+        private void Btnfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var cadastrarFornecedor = new CadastrarFornecedor();
+            cadastrarFornecedor.ShowDialog();
+        }
+
+        private void BtnCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            var caixa = new CadastrarCaixa();
+            caixa.ShowDialog();
+        }
+
     }
 }

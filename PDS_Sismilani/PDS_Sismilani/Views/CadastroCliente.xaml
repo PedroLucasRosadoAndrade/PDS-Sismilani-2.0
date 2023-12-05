@@ -1,22 +1,31 @@
-﻿<Window x:Class="PDS_Sismilani.Views.CadastrarProduto"
+﻿<Window x:Class="PDS_Sismilani.Views.CadastroCliente"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                   
-        Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized"
+        mc:Ignorable="d"
+        Title="CadastroCliente" Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized"
         AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500" >
+    
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooToVis"/>
     </Window.Resources>
 
+
     <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
-        <Grid x:Name = "CadastroProduto">
+
+        <Grid x:Name="CadastrarClientes">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
+            <!--'Menu
+         
+         MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown"
+         
+         -->
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -26,52 +35,53 @@
 
 
                 <!-- Botão -->
-                <Button Margin="20 28 0 35" Style="{StaticResource TopButton}">
-                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
-
-                </Button>
+                <!--
+             <Button Margin="20 28 0 35" Style="{StaticResource TopButton}">
+                 <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+             </Button>-->
             </Grid>
+
             <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Margin="1,67,2,-2">
                 <DockPanel>
                     <TextBlock Text="Menu" Foreground="White" FontSize="22" FontWeight="SemiBold"
-                     DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
-                    <TextBlock Text="Cadastrar produtos" Foreground="#e1e1e1" FontSize="14" FontWeight="SemiBold"
-                     DockPanel.Dock="Top" TextAlignment="Center"/>
+                  DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
+                    <TextBlock Text="Cadastrar Clientes" Foreground="#e1e1e1" FontSize="14" FontWeight="SemiBold"
+                  DockPanel.Dock="Top" TextAlignment="Center"/>
 
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="BtHome">
+                        <Button x:Name="btHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Home"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btnfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes" >
+                        <Button x:Name="Btfilmes" Style="{StaticResource MenuButton}" Width="137" Click="Btfilmes_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="MovieFilter" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Filmes"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Produtoras"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137">
+                        <Button x:Name="Btfornecedores" Style="{StaticResource MenuButton}" Width="137" Click="Btfornecedores_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Fornecedores"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137" >
+                        <Button x:Name="Btfuncionarios" Style="{StaticResource MenuButton}" Width="137" Click="Btfuncionarios_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HumanGreeting" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Funcionarios"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137">
+                        <Button x:Name="Btestoque" Style="{StaticResource MenuButton}" Width="137" Click="Btestoque_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="PackageVariantClosed" Style="{StaticResource MenuButtonIcon}"/>
                                 <TextBlock Text="Estoque"/>
@@ -86,7 +96,7 @@
                     </StackPanel>
 
                     <!--Logout -->
-                    <Button x:Name="BtFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                    <Button x:Name="BtFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="Button_Click_1">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
                             <TextBlock Text="Sair"/>
@@ -94,6 +104,7 @@
                     </Button>
                 </DockPanel>
             </Border>
+
             <Grid Grid.Column="1" Margin="30 20 20 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -105,24 +116,12 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- Barra de pesquisa -->
-                <Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20,0,36,0" VerticalAlignment="Center" Background="#fffff6" IsHitTestVisible="False"
-                  Panel.ZIndex="1" Text="Buscar ..." Visibility="{Binding ElementName=txtPesquisa, Converter={StaticResource BooToVis}}"/>
+                <TextBlock Text="Clientes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                    <TextBox x:Name="txtPesquisa" Style="{StaticResource TextBoxPesquisa}"/>
-
-                    <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0" 
-                                           Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-
-                </Grid>
-
-                <TextBlock Text="Produtos" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
-
-                <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="btAdd_Click">
+                <Button Name="btAdd" Style="{StaticResource AddButton}" Margin="0,22,23,6" Grid.Row="1" Click="Button_Click">
                     <StackPanel Orientation="Horizontal" >
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
-                        <TextBlock Text="ADD Novo Produto"/>
+                        <TextBlock Text="ADD Novo Cliente"/>
                     </StackPanel>
                 </Button>
 
@@ -130,38 +129,36 @@
 
                 <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
 
+                <!--Clientes DataGrid-->
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
-                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="produtosDataGrid" 
-                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" Margin="0,10,-64,82" Grid.RowSpan="2" Width="894">
+                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="clientesDataGrid" 
+                       AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" SelectionChanged="clientesDataGrid_SelectionChanged">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="N°" IsReadOnly="True" Width="*" Binding="{Binding id}"/>
                         <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding nome}"/>
-                        <DataGridTextColumn Header="Marca" IsReadOnly="True" Width="*"  Binding="{Binding marca}"/>
-                        <DataGridTextColumn Header="Tipo" IsReadOnly="True" Width="*" Binding="{Binding tipo}"/>
-                        <DataGridTextColumn Header="Quantidade" IsReadOnly="True" Width="*" Binding="{Binding quantidade}"/>
-                        <DataGridTextColumn Header="Validade" IsReadOnly="True" Width="*" Binding="{Binding validade}"/>
-                        <DataGridTextColumn Header="Valor" IsReadOnly="True" Width="*" Binding="{Binding valor}"/>
-                        <DataGridTextColumn Header="IdFor" IsReadOnly="True" Width="*" Binding="{Binding idFor}"/>
-                        <DataGridTextColumn Header="IdEst" IsReadOnly="True" Width="*" Binding="{Binding idEst}"/>
+                        <DataGridTextColumn Header="RG" IsReadOnly="True" Width="*"  Binding="{Binding rg}"/>
+                        <DataGridTextColumn Header="CPF" IsReadOnly="True" Width="*" Binding="{Binding cpf}"/>
+                        <DataGridTextColumn Header="Emial" IsReadOnly="True" Width="*" Binding="{Binding email}"/>
+                        <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding telefone}"/>
+                        <DataGridTextColumn Header="Nascimento" IsReadOnly="True" Width="*" Binding="{Binding dataNasc}"/>
+                        <DataGridTextColumn Header="Sexo" IsReadOnly="True" Width="*" Binding="{Binding sexo}"/>
+                        <DataGridTextColumn Header="Endereço" IsReadOnly="True" Width="*" Binding="{Binding endereco}"/>
 
 
 
-                        <DataGridTemplateColumn Header="" IsReadOnly="False" Width="auto">
+                        <DataGridTemplateColumn Header="Funções" IsReadOnly="False" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
+                                <DataTemplate >
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button Name="btEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
-                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}">
 
-                                            </Icon:PackIconMaterial>
+                                        <Button Name="btEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0" Click="btEditar_Click" >
+                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
 
-                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0">
-                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}">
-
-                                            </Icon:PackIconMaterial>
+                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0" Click="btDeletar_Click">
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
 
                                     </StackPanel>
@@ -173,42 +170,9 @@
 
                 </DataGrid>
 
-
-
-                <!--Navegação-->
-
-                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
-                        Background="White" CornerRadius="5" Padding="5" Margin="0 10 10 10">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource PagButton}">
-                            <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource PagButtonIcon}"/>
-                        </Button>
-
-                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
-
-                        <Button Style="{StaticResource PagButton}" Content="1"/>
-                        <Button Style="{StaticResource PagButton}" Content="2" Background="#7950f2" Foreground="#ffffff"/>
-                        <Button Style="{StaticResource PagButton}" Content="3"/>
-                        <Button Style="{StaticResource PagButton}" Content="4"/>
-
-                        <TextBlock Text="..." Foreground="#6c7682" VerticalAlignment="Center" FontSize="13" Margin="10 0"/>
-
-                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
-
-                        <Button Style="{StaticResource PagButton}">
-                            <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource PagButtonIcon}"/>
-                        </Button>
-
-
-
-                    </StackPanel>
-
-
-                </Border>
-
             </Grid>
 
         </Grid>
-    </Border>
 
+    </Border>
 </Window>

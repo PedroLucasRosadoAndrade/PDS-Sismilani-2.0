@@ -26,7 +26,7 @@ namespace PDS_Sismilani.Views
     {
         MySqlConnection conexao;
         MySqlCommand comando;
-        ObservableCollection<Cliente> cliente = new ObservableCollection<Cliente>(); // Coleção de clientes
+        ObservableCollection<Fornecedor> fornecedors = new ObservableCollection<Fornecedor>(); // Coleção de clientes
         public CadastrarFornecedor()
         {
             InitializeComponent();
@@ -55,11 +55,11 @@ namespace PDS_Sismilani.Views
                 {
                     conexao.Open();
 
-                    string query = "INSERT INTO produtora (nome_for, CNPJ_for, tipo_for, telefone_for, Historico_for) " +
+                    string query = "INSERT INTO fornecedor (Nome_for, CNPJ_for, tipo_for, telefone_for, Historico_for) " +
                                    "VALUES (@_nome, @_CNPJ, @_tipo, @_telefone, @_historico)";
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
-                        comando.Parameters.AddWithValue("@_nome", nome);
+                        comando.Parameters.AddWithValue("@_Nome", nome);
                         comando.Parameters.AddWithValue("@_cnpj", cnpj);
                         comando.Parameters.AddWithValue("@_telefone", telefone);
                         comando.Parameters.AddWithValue("@_tipo", tipo);
@@ -86,8 +86,13 @@ namespace PDS_Sismilani.Views
                 if (opcao == MessageBoxResult.Yes)
                 {
 
-                    MainWindow form = new MainWindow();
-                    form.ShowDialog();
+                    txtNome.Clear();
+                    txtCnpj.Clear();
+                    txtTelefone.Clear();
+                    txtTipo.Clear();
+                    txtHistorico.Clear();
+
+                    txtNome.Focus();
                 }
                 else
                 {

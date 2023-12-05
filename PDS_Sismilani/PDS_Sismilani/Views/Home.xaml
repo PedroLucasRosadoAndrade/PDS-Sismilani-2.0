@@ -46,7 +46,7 @@
                     </Button>-->
                 </Grid>
 
-                <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Height="622" Width="172">
+                <Border Background="#FE787DFC" CornerRadius="0 50 0 30" Height="622" Width="173">
                     <DockPanel Height="634">
                         <TextBlock Text="Menu" Foreground="White" FontSize="22" FontWeight="SemiBold"
                      DockPanel.Dock="Top" TextAlignment="Center" Margin="0 25 10 10"/>
@@ -55,7 +55,7 @@
 
                         <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#e1e1e1"/>
 
-                        <StackPanel DockPanel.Dock="Top" Height="265">
+                        <StackPanel DockPanel.Dock="Top" Height="400">
                             <!--<Button x:Name="btnHome" Style="{StaticResource MenuButton}" Width="137" Click="btHome"  >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Home" Style="{StaticResource MenuButtonIcon}"/>
@@ -102,6 +102,12 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Popcorn" Style="{StaticResource MenuButtonIcon}"/>
                                     <TextBlock Text="produtos"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="BtnCaixa" Style="{StaticResource MenuButton}" Width="142" Click="BtnCaixa_Click">
+                                <StackPanel Orientation="Horizontal" Height="17" Width="118">
+                                    <Icon:PackIconMaterial Kind="Shopping" Style="{StaticResource MenuButtonIcon}"/>
+                                    <TextBlock Text="Caixa" Width="49"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

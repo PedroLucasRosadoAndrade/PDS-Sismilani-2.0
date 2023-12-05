@@ -30,6 +30,15 @@ namespace PDS_Sismilani.Views
         {
             InitializeComponent();
             Loaded += CadastrarProduto_Loaded();
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
+        ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
+
+        public CadastrarProduto()
+        {
+            InitializeComponent();
+
+            Loaded += CadastrarProduto_Loaded;
 
         }
         private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
@@ -41,6 +50,12 @@ namespace PDS_Sismilani.Views
         {
             throw new NotImplementedException();
         }
+
+        private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
+
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -130,8 +145,6 @@ namespace PDS_Sismilani.Views
             var estoque = new Estoque().ShowDialog();
 
         }
-
-
 
         private void Btclientes(object sender, RoutedEventArgs e)
         {
