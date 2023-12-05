@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:PDS_Sismilani.Views"
         mc:Ignorable="d"
         
@@ -32,7 +31,6 @@
 
                 <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,526,92,51" Grid.Row="5"  Width="99" Click="BtSalvar">
                     <StackPanel Orientation="Horizontal" >
-                        <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
                     </StackPanel>
                 </Button>
@@ -71,12 +69,11 @@
 
             </Grid>
 
-            <DockPanel Margin="10,583,507,10">
+            <DockPanel Margin="10,593,507,0" RenderTransformOrigin="0.475,0.533">
                 <!--Voltar -->
-                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="BtVoltar">
+                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="108" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="34" RenderTransformOrigin="0.495,0.729" Click="BtVoltar">
                     <StackPanel Orientation="Horizontal" Width="102">
-                        <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
-                        <TextBlock Text=" Voltar"/>
+                        <TextBlock Width="127" Height="29"><Run Language="pt-br" Text="         Voltar"/><LineBreak/><Run/><LineBreak/><Run Text="    Voltar"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
                     </StackPanel>
                 </Button>
             </DockPanel>

@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="101*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Margin="10,10,28,10" Grid.ColumnSpan="2">
+            <Grid Margin="0,10,38,10" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -30,9 +30,8 @@
 
                 <TextBlock Text="Filme" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
 
-                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,474,75,98" Grid.Row="5"  Width="99" Click="BtSalvar">
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,473,130,104" Grid.Row="5"  Width="100" Click="BtSalvar">
                     <StackPanel Orientation="Horizontal" >
-                        <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Salvar"/>
                     </StackPanel>
                 </Button>
@@ -43,42 +42,44 @@
 
                 <!--Add campos de digitação-->
 
-                <Label Content="Título" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="ID" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="35,14,920,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox  x:Name="txtId" Grid.Row="5" Background="White"  Margin="24,41,943,0" Style="{StaticResource TextBoxPesquisa}" Height="44" VerticalAlignment="Top" Width="NaN"/>
 
-                <TextBox x:Name="txtTitulo" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Título" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="28,114,927,448" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="672,13,280,557" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255" Width="NaN"/>
+                <TextBox x:Name="txtTitulo" Grid.Row="5" Background="White" Margin="18,142,537,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <TextBox x:Name="txtCategoria" Grid.Row="5" Background="White" Margin="665,39,18,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Categoria" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,126,279,447" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255" Width="NaN"/>
 
-                <Label Content="Elenco" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,97,244,488" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtCategoria" Grid.Row="5" Background="White" Margin="673,162,10,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <TextBox x:Name="txtElenco" Grid.Row="5" Background="White" Margin="665,124,24,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Elenco" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,219,235,355" FontFamily="sanfrancisco" FontWeight="SemiBold" Height="NaN"/>
 
-                <Label Content="Sinopse" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtElenco" Grid.Row="5" Background="White" Margin="673,252,10,0" Style="{StaticResource TextBoxPesquisa}" Height="40" VerticalAlignment="Top" Width="NaN"/>
 
-                <TextBox x:Name="txtSinopse" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Sinopse" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="28,199,906,364" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <Label Content="Fornecedor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtSinopse" Grid.Row="5" Background="White" Margin="18,235,538,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <TextBox x:Name="txtFornecedor" Grid.Row="5" Background="White" Margin="21,185,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Fornecedor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,300,920,268" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.508,1.022"/>
 
-                <Label Content="Diretor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtFornecedor" Grid.Row="5" Background="White" Margin="17,331,539,0" Style="{StaticResource TextBoxPesquisa}" Height="40" VerticalAlignment="Top"/>
 
-                <TextBox x:Name="txtDiretor"  Grid.Row="5" Background="White" Margin="21,251,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Diretor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,389,908,178" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <Label Content="Data Lançamento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="664,170,202,403" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtDiretor"  Grid.Row="5" Background="White" Margin="17,414,538,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <DatePicker x:Name="datePickerData" Grid.Row="5" Background="White" Margin="665,205,24,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="Data Lançamento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,335,193,241" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <DatePicker x:Name="datePickerData" Grid.Row="5" Background="White" Margin="673,373,0,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top" Width="NaN"/>
 
             </Grid>
 
-            <DockPanel Margin="36,547,481,46">
+            <DockPanel Margin="0,611,517,-18">
                 <!--Voltar -->
                 <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="BtVoltar">
                     <StackPanel Orientation="Horizontal" Width="102">
-                        <Icon:PackIconMaterial Kind="PageFirst" Style="{StaticResource MenuButtonIcon}"/>
-                        <TextBlock Text=" Voltar"/>
+                        <TextBlock Width="77"><Run Language="pt-br" Text="        Voltar         "/></TextBlock>
                     </StackPanel>
                 </Button>
             </DockPanel>
