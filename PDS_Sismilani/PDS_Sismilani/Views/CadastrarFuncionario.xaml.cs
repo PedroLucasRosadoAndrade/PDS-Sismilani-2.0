@@ -29,6 +29,7 @@ namespace PDS_Sismilani.Views
         //MySqlCommand comando;
         ObservableCollection<Funcionario> funcionario = new ObservableCollection<Funcionario>();
 
+
         public CadastrarFuncionario()
         {
             InitializeComponent();
@@ -266,11 +267,6 @@ namespace PDS_Sismilani.Views
         private void Btprodutos_Click(object sender, RoutedEventArgs e)
         {
             var produto = new CadastrarProduto().ShowDialog();
-        }
-
-        private void FuncionariosDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         //private bool IsMaximized = false;
