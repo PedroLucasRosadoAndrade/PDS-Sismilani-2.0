@@ -15,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Web.UI.WebControls;
+using MySqlX.XDevAPI;
 
 namespace PDS_Sismilani.Views
 {
@@ -23,13 +25,33 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class EditFilme : Window
     {
+        private int _id;
         MySqlConnection conexao;
         MySqlCommand comando;
+
         ObservableCollection<Filme> filmes = new ObservableCollection<Filme>();
         Filme EdicaoFilme;
-        public EditFilme()
+        public EditFilme(int id)
         {
             InitializeComponent();
+            Loaded += EditFilme_Loaded;
+
+        }
+
+        public EditFilme(string id)
+        {
+            InitializeComponent();
+            _id = int.Parse(id);
+            Loaded += EditFilme_Loaded;
+        }
+
+
+        private void EditFilme_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_id > 0)
+            {
+                PreencherCampos();
+            }
         }
 
         public void PreencherCampos()
@@ -47,29 +69,31 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void Conexao()
-        {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
-            conexao.Open();
-        }
+        //private void Conexao()
+        //{
+        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+        //    conexao = new MySqlConnection(conexaoString);
+        //    comando = conexao.CreateCommand();
+        //    conexao.Open();
+        //}
 
         private void BtSalvar(object sender, RoutedEventArgs e)
         {
             try
             {
-                string query = "UPDATE filme set titulo_film = @_titulo, fornecedor_film = @_fornecedor ,categoria_film = @_categoria,dataLancamento_film = @_dataLancamento,sinopse_film = @_sinopse, elenco_film = @_elenco,diretor_film = @_diretor where id_film = @id ";
+                string query = "UPDATE filme set titulo_film = @_titulo, fornecedor_film = @_fornecedor ,categoria_film = @_categoria,dataLancamento_film = @_dataLancamento," + 
+                    "sinopse_film = @_sinopse, elenco_film = @_elenco,diretor_film = @_diretor where id_film = @id ";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conexao))
                 {
-                    cmd.Parameters.AddWithValue("@_Titulo",EdicaoFilme.Titulo);
+                    cmd.Parameters.AddWithValue("@_titulo",EdicaoFilme.Titulo);
                     cmd.Parameters.AddWithValue("@_sinopse", EdicaoFilme.Sinopse);
                     cmd.Parameters.AddWithValue("@_fornecedor",EdicaoFilme.Fornecedor);
                     cmd.Parameters.AddWithValue("@_categoria", EdicaoFilme.Categoria);
                     cmd.Parameters.AddWithValue(" @_elenco", EdicaoFilme.Elenco);
                     cmd.Parameters.AddWithValue("@_diretor", EdicaoFilme.Diretor);
                     cmd.Parameters.AddWithValue("@_dataLancamento", EdicaoFilme.DataLancamento);
+                    cmd.Parameters.AddWithValue("@id", EdicaoFilme.Id);
 
                     cmd.ExecuteNonQuery();
 

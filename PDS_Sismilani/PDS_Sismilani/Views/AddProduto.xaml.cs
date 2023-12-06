@@ -44,7 +44,6 @@ namespace PDS_Sismilani.Views
         private void AddProduto_Loaded(object sender, RoutedEventArgs e)
         {
             _Produto = new Produto();
-            //LoadComboBox();
 
             if (_id > 0)
                 FillForm();
@@ -73,9 +72,7 @@ namespace PDS_Sismilani.Views
                 _Produto.Validade = dtpDataValidade.SelectedDate;
 
 
-                SaveData();
-
-                 
+                SaveData();               
         }
 
         private bool Validate() 

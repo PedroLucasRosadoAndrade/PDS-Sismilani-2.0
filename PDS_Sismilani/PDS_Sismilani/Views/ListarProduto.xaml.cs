@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
@@ -26,7 +27,6 @@ namespace PDS_Sismilani.Views
         public ListarProduto()
         {
             InitializeComponent();
-
             Conexao();
             carregarDados();
         }
@@ -40,6 +40,8 @@ namespace PDS_Sismilani.Views
 
             conexao.Open();
         }
+
+
 
         private void carregarDados()
         {
@@ -57,8 +59,7 @@ namespace PDS_Sismilani.Views
                     Tipo = reader.GetString(3),
                     Quantidade = reader.GetString(4),
                     Validade = reader.GetString(5),
-                    Valor = reader.GetString(6),
-                   
+                    Valor = reader.GetString(6)
                 };
 
                 lista.Add(contato);
@@ -67,10 +68,5 @@ namespace PDS_Sismilani.Views
             dgvContato.ItemsSource = lista;
         }
 
-
-        private void btNovo_Click(object sender, RoutedEventArgs e)
-        {
-            carregarDados();
-        }
     }
 }

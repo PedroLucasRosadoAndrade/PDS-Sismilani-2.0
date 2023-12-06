@@ -84,8 +84,8 @@ namespace PDS_Sismilani.Views
         }
         private void Btnfilmes_Click(object sender, RoutedEventArgs e)
         {
-            var cadFilme = new CadastrarFilme();
-            cadFilme.ShowDialog();
+            var Filmes = new ListaDeFilmes();
+            Filmes.ShowDialog();
         }
 
         private void Btnprodutos(object sender, RoutedEventArgs e)
@@ -100,7 +100,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora(object sender, RoutedEventArgs e)
         {
-            var produtora = new CadastroProdutora().ShowDialog();
+            var produtora = new ListaDeProdutoras().ShowDialog();
         }
 
         private void LoadBorder()

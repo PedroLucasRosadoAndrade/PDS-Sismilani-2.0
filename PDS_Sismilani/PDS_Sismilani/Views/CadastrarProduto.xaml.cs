@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Button = System.Windows.Controls.Button;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PDS_Sismilani.Views
 {
@@ -81,7 +82,6 @@ namespace PDS_Sismilani.Views
 
         private void btEditar(object sender, RoutedEventArgs e)
         {
-            //var editProduto = new EditProdut().ShowDialog();
             var produtoSelected = produtosDataGrid.SelectedItem as Produto;
 
             var window = new AddProduto(produtoSelected.Id);
