@@ -133,7 +133,7 @@
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="produtosDataGrid" 
-                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" Margin="0,10,-99,82" Grid.RowSpan="2" Width="929">
+                          AutoGenerateColumns="False" HorizontalAlignment="Center" ItemsSource="{Binding cliente}">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="N°" IsReadOnly="True" Width="*" Binding="{Binding Id}"/>
@@ -147,7 +147,7 @@
 
 
 
-                        <DataGridTemplateColumn Header="" IsReadOnly="False" Width="auto">
+                        <DataGridTemplateColumn Header="Funcoes" IsReadOnly="False" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
