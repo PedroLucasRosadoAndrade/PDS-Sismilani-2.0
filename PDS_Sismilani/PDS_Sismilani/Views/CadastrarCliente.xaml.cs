@@ -239,13 +239,12 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new CadastrarProdutora().ShowDialog();
+            var produtora = new ListaDeProdutoras().ShowDialog();
         }
 
         private void Btfilmes_Click(object sender, RoutedEventArgs e)
         {
-            var CadFilme = new CadastrarFilme();
-            CadFilme.ShowDialog();
+            var Filme = new ListaDeFilmes().ShowDialog();
         }
         //private void Btprodutora_Click(object sender, RoutedEventArgs e)
         //{

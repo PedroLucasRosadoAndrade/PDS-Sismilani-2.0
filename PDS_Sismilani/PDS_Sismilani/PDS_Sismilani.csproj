@@ -239,6 +239,7 @@
     <Compile Include="Models\FuncionarioValitador.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
+    <Compile Include="Models\ProdutoraValidator.cs" />
     <Compile Include="Models\ProdutoValitador.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
@@ -255,6 +256,9 @@
     </Compile>
     <Compile Include="Views\AddProduto.xaml.cs">
       <DependentUpon>AddProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddProdutora.xaml.cs">
+      <DependentUpon>AddProdutora.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CadastrarCaixa.xaml.cs">
       <DependentUpon>CadastrarCaixa.xaml</DependentUpon>
@@ -325,6 +329,9 @@
     <Compile Include="Views\ListaDeFilmes.xaml.cs">
       <DependentUpon>ListaDeFilmes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListaDeProdutoras.xaml.cs">
+      <DependentUpon>ListaDeProdutoras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListarCadastro.xaml.cs">
       <DependentUpon>ListarCadastro.xaml</DependentUpon>
     </Compile>
@@ -366,6 +373,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProdutora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -454,6 +465,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListaDeFilmes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListaDeProdutoras.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

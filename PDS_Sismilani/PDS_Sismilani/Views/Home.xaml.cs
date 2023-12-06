@@ -100,7 +100,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora(object sender, RoutedEventArgs e)
         {
-            var produtora = new CadastroProdutora().ShowDialog();
+            var produtora = new ListaDeProdutoras().ShowDialog();
         }
 
         private void LoadBorder()

@@ -27,13 +27,12 @@ namespace PDS_Sismilani.Views
     public partial class ListaDeFilmes : Window
     {
         private Filme _filme;
-        //MySqlConnection conexao;
-        //MySqlCommand comando;
         ObservableCollection<Filme> Filme = new ObservableCollection<Filme>();
         public ListaDeFilmes()
         {
             InitializeComponent();
             Loaded += ListarFilmes_Loaded;
+            FilmesDataGrid.ItemsSource = Filme;
         }
 
         private void ListarFilmes_Loaded(object sender, RoutedEventArgs e)
@@ -43,25 +42,29 @@ namespace PDS_Sismilani.Views
 
         private void btDeletar(object sender, RoutedEventArgs e)
         {
-
-
             var FilmeSelected = FilmesDataGrid.SelectedItem as Filme;
+
+            if (FilmeSelected == null)
+            {
+                MessageBox.Show("Por favor, selecione um filme para deletar.", "Seleção Necessária", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             var result = MessageBox.Show($"Deseja realmente remover o Filme `{FilmeSelected.Titulo}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-            try
+            if (result == MessageBoxResult.Yes)
             {
-                if (result == MessageBoxResult.Yes)
+                try
                 {
                     var dao = new FilmeDAO();
                     dao.Delete(FilmeSelected);
-                    LoadDataGrid();
+                    Filme.Remove(FilmeSelected); 
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         private void LoadDataGrid()
@@ -69,8 +72,12 @@ namespace PDS_Sismilani.Views
             try
             {
                 var dao = new FilmeDAO();
-
-                FilmesDataGrid.ItemsSource = dao.List();
+                var filmes = dao.List(); 
+                Filme.Clear(); 
+                foreach (var filme in filmes)
+                {
+                    Filme.Add(filme); 
+                }
             }
             catch (Exception ex)
             {
@@ -79,16 +86,20 @@ namespace PDS_Sismilani.Views
         }
         private void btEditar(object sender, RoutedEventArgs e)
         {
-            //var Funcionarios = new EditFuncionario().ShowDialog();
             var FilmeSelected = FilmesDataGrid.SelectedItem as Filme;
+
+            if (FilmeSelected == null)
+            {
+                MessageBox.Show("Por favor, selecione um filme para editar.", "Seleção Necessária", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             var window = new AddFilme(FilmeSelected.Id);
             window.ShowDialog();
-            LoadDataGrid();
-
+            LoadDataGrid(); // Recarrega os dados para refletir as mudanças
         }
 
-       
+
 
         private void BotaoHome_Click(object sender, RoutedEventArgs e)
         {
@@ -105,7 +116,7 @@ namespace PDS_Sismilani.Views
 
         private void BotaonProdutora_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new CadastProdutora().ShowDialog();
+            var produtora = new ListaDeProdutoras().ShowDialog();
 
         }
 
@@ -140,7 +151,9 @@ namespace PDS_Sismilani.Views
 
         private void BotaoAdd_Click(object sender, RoutedEventArgs e)
         {
-            var filme = new AddFilme().ShowDialog();
+            var window = new AddFilme();
+            window.ShowDialog();
+            LoadDataGrid(); 
         }
     }
 }

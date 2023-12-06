@@ -1,0 +1,91 @@
+﻿<Window x:Class="PDS_Sismilani.Views.AddProdutora"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDS_Sismilani.Views"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+		Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+		AllowsTransparency="True" Background="Transparent" MinHeight="300" MinWidth="500">
+    <Border Background="#FF74AFE0" BorderBrush="#FE939DFC" CornerRadius="30">
+
+        <Grid Margin="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="101*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,10,38,10" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Produtora" Grid.Row="1" FontFamily="sanfrancisco" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="#121518"/>
+
+                <Button Name="btnSalvar" Style="{StaticResource AddButton}" Margin="0,473,130,104" Grid.Row="5"  Width="100" Click="btnSalvar_Click">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="Salvar"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Separador-->
+
+                <Separator Height="1" Grid.Row="3" Background="#7b97cc" Margin="0 -1 0 10"/>
+
+                <!--Add campos de digitação-->
+
+                <Label Content="ID" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="35,14,920,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox  x:Name="txtId" Grid.Row="5" Background="White"  Margin="24,41,943,0" Style="{StaticResource TextBoxPesquisa}" Height="44" VerticalAlignment="Top" Width="NaN"/>
+
+                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="28,114,927,448" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="18,142,537,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="CNPJ" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,126,279,447" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.255" Width="NaN"/>
+
+                <TextBox x:Name="txtCNPJ" Grid.Row="5" Background="White" Margin="673,162,10,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,219,235,355" FontFamily="sanfrancisco" FontWeight="SemiBold" Height="NaN"/>
+
+                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="673,252,10,0" Style="{StaticResource TextBoxPesquisa}" Height="40" VerticalAlignment="Top" Width="NaN"/>
+
+                <Label Content="Razão Social" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="28,199,906,364" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtRazaoSocial" Grid.Row="5" Background="White" Margin="18,235,538,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Tipo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,300,920,268" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.508,1.022"/>
+
+                <TextBox x:Name="txtTipo" Grid.Row="5" Background="White" Margin="17,331,539,0" Style="{StaticResource TextBoxPesquisa}" Height="40" VerticalAlignment="Top"/>
+
+                <Label Content="Historico" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,389,908,178" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtHistorico"  Grid.Row="5" Background="White" Margin="17,414,538,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+               
+
+            </Grid>
+
+            <DockPanel Margin="0,611,517,-18">
+                <!--Voltar -->
+
+                <Button Name="btnVoltar" Style="{StaticResource AddButton}" Width="102" DockPanel.Dock="Bottom" Margin="15 0 15 20" Height="37" RenderTransformOrigin="0.495,0.729" Click="btnVoltar_Click">
+                    <StackPanel Orientation="Horizontal" Width="102">
+                        <TextBlock Width="77"><Run Language="pt-br" Text="        Voltar         "/></TextBlock>
+                    </StackPanel>
+                </Button>
+            </DockPanel>
+
+
+
+        </Grid>
+
+    </Border>
+</Window>

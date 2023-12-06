@@ -18,17 +18,13 @@ using System.Windows.Shapes;
 
 namespace PDS_Sismilani.Views
 {
-    /// <summary>
-    /// Lógica interna para AddFilme.xaml
-    /// </summary>
+    
     public partial class AddFilme : Window
     {
         private int _id;
 
         private Filme _filme;
-        // MySqlConnection conexao;
-        // MySqlCommand comando;
-        // ObservableCollection<Filme> filmes = new ObservableCollection<Filme>();
+        
 
         public AddFilme()
         {
@@ -77,7 +73,7 @@ namespace PDS_Sismilani.Views
 
         private bool Validate()
         {
-            var validator = new FilmeValitador();
+            var validator = new FilmeValitator();
             var result = validator.Validate(_filme);
 
             if (!result.IsValid)
