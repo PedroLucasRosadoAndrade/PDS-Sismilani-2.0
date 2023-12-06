@@ -67,7 +67,7 @@ namespace PDS_Sismilani.Models
                     filme.Elenco = reader.GetString("elenco_film");
                     filme.DataLancamento = reader.GetDateTime("data_film");
                 }
-                reader.Close(); // Não esqueça de fechar o reader
+                reader.Close(); 
                 return filme;
             }
             catch (Exception e)
@@ -88,11 +88,10 @@ namespace PDS_Sismilani.Models
                 query.CommandText = "INSERT INTO Filme (titulo_film, fornecedor_film, categoria_film, dataLancamento_film, sinopse_film, elenco_film, diretor_film) " +
                                     "VALUES (@_titulo_film, @_fornecedor_film, @_categoria_film, @_dataLancamento_film, @_sinopse_film, @_elenco_film, @_diretor_film)";
 
-                // Corrigir os nomes dos parâmetros para corresponder à query
                 query.Parameters.AddWithValue("@_titulo_film", t.Titulo);
                 query.Parameters.AddWithValue("@_fornecedor_film", t.Fornecedor);
                 query.Parameters.AddWithValue("@_categoria_film", t.Categoria);
-                query.Parameters.AddWithValue("@_dataLancamento_film", t.DataLancamento ?? (object)DBNull.Value); // Lida com DataLancamento nula
+                query.Parameters.AddWithValue("@_dataLancamento_film", t.DataLancamento ?? (object)DBNull.Value); 
                 query.Parameters.AddWithValue("@_sinopse_film", t.Sinopse);
                 query.Parameters.AddWithValue("@_elenco_film", t.Elenco);
                 query.Parameters.AddWithValue("@_diretor_film", t.Diretor);
@@ -126,7 +125,7 @@ namespace PDS_Sismilani.Models
                 {
                     list.Add(new Filme()
                     {
-                        Id = reader.GetInt32("id_film"), // Você também precisa obter o ID aqui
+                        Id = reader.GetInt32("id_film"), 
                         Titulo = DAOHelper.GetString(reader, "titulo_film"),
                         Fornecedor = DAOHelper.GetString(reader, "fornecedor_film"),
                         Sinopse = DAOHelper.GetString(reader, "sinopse_film"),
@@ -136,7 +135,7 @@ namespace PDS_Sismilani.Models
                         DataLancamento = DAOHelper.GetDateTime(reader, "data_film")
                     });
                 }
-                reader.Close(); // Não esqueça de fechar o reader
+                reader.Close(); 
                 return list;
             }
             catch (Exception e)
@@ -157,12 +156,11 @@ namespace PDS_Sismilani.Models
                 query.CommandText = "UPDATE filme SET titulo_film = @_titulo_film, fornecedor_film = @_fornecedor_film, categoria_film = @_categoria_film, dataLancamento_film = @_dataLancamento_film, " +
                     "sinopse_film = @_sinopse_film, elenco_film = @_elenco_film, diretor_film = @_diretor_film WHERE id_film = @_id";
 
-                // Corrigir os nomes dos parâmetros para corresponder à query e adicionar o parâmetro do ID
                 query.Parameters.AddWithValue("@_id", t.Id);
                 query.Parameters.AddWithValue("@_titulo_film", t.Titulo);
                 query.Parameters.AddWithValue("@_fornecedor_film", t.Fornecedor);
                 query.Parameters.AddWithValue("@_categoria_film", t.Categoria);
-                query.Parameters.AddWithValue("@_dataLancamento_film", t.DataLancamento ?? (object)DBNull.Value); // Lida com DataLancamento nula
+                query.Parameters.AddWithValue("@_dataLancamento_film", t.DataLancamento ?? (object)DBNull.Value); 
                 query.Parameters.AddWithValue("@_sinopse_film", t.Sinopse);
                 query.Parameters.AddWithValue("@_elenco_film", t.Elenco);
                 query.Parameters.AddWithValue("@_diretor_film", t.Diretor);

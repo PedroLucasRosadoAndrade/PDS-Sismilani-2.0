@@ -61,6 +61,7 @@ namespace PDS_Sismilani.Views
 
             _filme.Id = _id;
             _filme.Titulo = txtTitulo.Text;
+            _filme.Sinopse = txtSinopse.Text;
             _filme.Fornecedor = txtFornecedor.Text;
             _filme.Categoria = txtCategoria.Text;
             _filme.Elenco = txtElenco.Text;

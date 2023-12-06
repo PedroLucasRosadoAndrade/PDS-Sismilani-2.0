@@ -156,7 +156,7 @@
                         <DataGridTextColumn Header="Diretor" IsReadOnly="True" Width="*" Binding="{Binding Diretor}"/>
                         <DataGridTextColumn Header="Categoria" IsReadOnly="True" Width="*" Binding="{Binding Categoria}"/>
                         <DataGridTextColumn Header="Elenco" IsReadOnly="True" Width="*" Binding="{Binding Elenco}"/>
-                        <DataGridTextColumn Header="Data Lançamento" IsReadOnly="True" Width="*" Binding="{Binding DataLancamento}"/>
+                        <DataGridTextColumn Header="Data Lançamento" IsReadOnly="True" Width="*" Binding="{Binding DataLancamento, StringFormat='{}{dd/MM/yyyy}'}"/>
 
 
 

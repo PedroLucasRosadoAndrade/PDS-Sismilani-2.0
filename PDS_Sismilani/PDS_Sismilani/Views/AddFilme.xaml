@@ -59,7 +59,7 @@
 
                 <Label Content="Sinopse" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="28,199,906,364" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="txtSinopse" Grid.Row="5" Background="White" Margin="18,235,538,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtSinopse" Text="{Binding Sinopse, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Background="White" Margin="18,235,538,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
                 <Label Content="Fornecedor" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,300,920,268" FontFamily="sanfrancisco" FontWeight="SemiBold" RenderTransformOrigin="0.508,1.022"/>
 
@@ -71,7 +71,7 @@
 
                 <Label Content="Data Lançamento" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="673,335,193,241" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <DatePicker x:Name="datePickerData" Grid.Row="5" Background="White" Margin="673,373,0,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top" Width="NaN"/>
+                <DatePicker x:Name="datePickerData" SelectedDate="{Binding DataLancamento, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Background="White" Margin="673,373,0,0" Style="{StaticResource TextData}" Height="39" VerticalAlignment="Top" Width="NaN"/>
 
             </Grid>
 

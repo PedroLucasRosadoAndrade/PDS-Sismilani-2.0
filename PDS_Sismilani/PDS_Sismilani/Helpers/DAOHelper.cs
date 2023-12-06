@@ -44,9 +44,14 @@ namespace PDS_Sismilani.Helpers
             return reader.IsDBNull(reader.GetOrdinal(column_name));
         }
 
-        internal static int GetInt32(MySqlDataReader reader, string v)
+        internal static int GetInt32(MySqlDataReader reader, string column_name)
         {
-            throw new NotImplementedException();
+            int value = 0;
+
+            if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
+                value = reader.GetInt32(column_name);
+
+            return value;
         }
     }
 }
