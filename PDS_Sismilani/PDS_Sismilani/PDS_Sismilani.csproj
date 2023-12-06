@@ -303,9 +303,6 @@
     <Compile Include="Views\EditFuncionario.xaml.cs">
       <DependentUpon>EditFuncionario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditProdut.xaml.cs">
-      <DependentUpon>EditProdut.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\EditProduto.xaml.cs">
       <DependentUpon>EditProduto.xaml</DependentUpon>
     </Compile>

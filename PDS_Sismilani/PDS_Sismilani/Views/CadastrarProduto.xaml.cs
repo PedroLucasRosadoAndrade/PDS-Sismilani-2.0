@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Button = System.Windows.Controls.Button;
 
 namespace PDS_Sismilani.Views
 {
@@ -25,18 +26,19 @@ namespace PDS_Sismilani.Views
         private Produto _produto;
         //MySqlConnection conexao;
         //MySqlCommand comando;
-        ObservableCollection<Produto> produt = new ObservableCollection<Produto>();
+        ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
         public CadastrarProduto()
         {
             InitializeComponent();
-            //Loaded += CadastrarProduto_Loaded();
+
+            Loaded += CadastrarProduto_Loaded;
         }
 
-        public CadastrarProduto(int id)
-        {
-            InitializeComponent();
+        //public CadastrarProduto(int id)
+        //{
+        //    InitializeComponent();
 
-        }
+        //}
         private void CadastrarProduto_Loaded(object sender, RoutedEventArgs e)
         {
             LoadDataGrid();
@@ -57,16 +59,16 @@ namespace PDS_Sismilani.Views
         private void btDeletar(object sender, RoutedEventArgs e)
         {
 
-            var produtoSelected = produtosDataGrid.SelectedItem as Filme;
+            var produtoSelected = produtosDataGrid.SelectedItem as Produto;
 
-            var result = MessageBox.Show($"Deseja excluir o produto `{produtoSelected.Titulo}`?", "Excluido com sucesso",
+            var result = MessageBox.Show($"Deseja excluir o produto `{produtoSelected.Nome}`?", "Excluido com sucesso",
                MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    var dao = new FilmeDAO();
+                    var dao = new ProdutoDAO();
                     dao.Delete(produtoSelected);
                     LoadDataGrid();
                 }
@@ -79,7 +81,13 @@ namespace PDS_Sismilani.Views
 
         private void btEditar(object sender, RoutedEventArgs e)
         {
-            var editProduto = new EditProdut().ShowDialog();
+            //var editProduto = new EditProdut().ShowDialog();
+            var produtoSelected = produtosDataGrid.SelectedItem as Produto;
+
+            var window = new AddProduto(produtoSelected.Id);
+            window.ShowDialog();
+            LoadDataGrid();
+
 
         }
 
@@ -100,7 +108,8 @@ namespace PDS_Sismilani.Views
         private void BtHome(object sender, RoutedEventArgs e)
         {
             var home = new Home().ShowDialog();
-
+            var cadastrarPro = new CadastrarProduto();
+            cadastrarPro.Close();
         }
 
         private void Btfilmes(object sender, RoutedEventArgs e)
@@ -111,7 +120,7 @@ namespace PDS_Sismilani.Views
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
         {
-            var produtora = new CadastProdutora().ShowDialog();
+            var produtora = new CadastrarProdutora().ShowDialog();
 
         }
 

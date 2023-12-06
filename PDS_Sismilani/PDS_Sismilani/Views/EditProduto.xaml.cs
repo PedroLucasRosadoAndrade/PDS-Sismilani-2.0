@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Web.UI.WebControls;
+using MySqlX.XDevAPI;
 
 namespace PDS_Sismilani.Views
 {
@@ -22,16 +24,34 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class EditProduto : Window
     {
+        private int _id;
+
         MySqlConnection conexao;
         MySqlCommand comando;
       
-        ObservableCollection<Produto> produtos = new ObservableCollection<Produto>();
+        ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
         Produto EdicaoProduto;
-        public EditProduto()
+        public EditProduto(int id)
         {
             InitializeComponent();
+
+            Loaded += EditProduto_Loaded;
         }
 
+        public EditProduto(string id)
+        {
+            InitializeComponent();
+            _id = int.Parse(id);
+            Loaded += EditProduto_Loaded;
+        }
+
+        private void EditProduto_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_id > 0)
+            {
+                PreencherCampos();
+            }
+        }
 
         public void PreencherCampos()
         {
@@ -48,13 +68,13 @@ namespace PDS_Sismilani.Views
         }
 
 
-        private void Conexao()
-        {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
-            conexao = new MySqlConnection(conexaoString);
-            comando = conexao.CreateCommand();
-            conexao.Open();
-        }
+        //private void Conexao()
+        //{
+        //    string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
+        //    conexao = new MySqlConnection(conexaoString);
+        //    comando = conexao.CreateCommand();
+        //    conexao.Open();
+        //}
 
         private void BtSalvar(object sender, RoutedEventArgs e)
         {
@@ -62,7 +82,7 @@ namespace PDS_Sismilani.Views
             try
             {
              string query = "UPDATE produto Set nome_prod = @_nome, Marca_prod = @_marca ,tipo_prod = @_tipo ," +
-                    "quantidade_prod = @_quantidade,validade_prod = @_validade,valor_prod = @_valor,WHERE id_prod = @id";
+                    "quantidade_prod = @_quantidade,validade_prod = @_validade,valor_prod = @_valor WHERE id_prod = @id";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conexao))
                 {
