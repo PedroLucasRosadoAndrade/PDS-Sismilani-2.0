@@ -52,7 +52,7 @@ namespace PDS_Sismilani.Models
                 //                                "LEFT JOIN sexo ON cod_sex = cod_sex_fk " +
                 //                                "LEFT JOIN endereco ON cod_end = cod_end_fk " +
                 //                                "WHERE cod_func = @id";
-                query.CommandText = "SELECT * FROM forncedor";
+                query.CommandText = "SELECT * FROM forncedor WHERE id_for = @id";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -142,7 +142,7 @@ namespace PDS_Sismilani.Models
                 List<Fornecedor> list = new List<Fornecedor>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Fornecedor";
+                query.CommandText = "SELECT * FROM Fornecedor ";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
