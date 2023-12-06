@@ -123,6 +123,13 @@ insert into produto  values (null, 'Piopoca','Doces LTDA','Tangíveis',45,'2022-
 insert into produto  values (null, 'Aguá','AZEDO LTDA','Pericivel', 71, '2023-05-18',789,2,3);
 insert into produto  values (null, 'Salgadinho','SALDADOS LTDA','Tangíveis',69,'2022-12-27',1250,3,3);
 insert into produto  values (null, 'Suco','Pitanco', 'Perecivel', 33, '2022-08-02',789.78,3,4);
+insert into produto  values (null, 'Água com Gás','Dydyo', 'Perecivel', 12, '2023-08-08',124,3,4);
+insert into produto  values (null, 'Bala','Doces LTDA', 'Perecivel', 10, '2023-09-08',5,3,4);
+insert into produto  values (null, 'Batatas','Alimentos LTDA', 'Perecivel', 3, '2023-11-08',30,1,2);
+insert into produto  values (null, 'Nozes','Alimentos LTDA', 'Perecivel', 1, '2023-08-05',2.50,3,3);
+insert into produto  values (null, 'Coca zero','Coca Cola', 'Perecivel', 2, '2023-07-04',18,2,4);
+
+select * from produto;
 
  create table produtora (
   id_produ INT  primary key auto_increment,
