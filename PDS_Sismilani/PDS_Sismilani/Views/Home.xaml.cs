@@ -150,6 +150,9 @@ namespace PDS_Sismilani.Views
             }
         }
 
-      
+        private void Btnfornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            var forn = new CadastrarForncedorList().ShowDialog();
+        }
     }
 }

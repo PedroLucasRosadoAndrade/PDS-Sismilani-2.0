@@ -272,6 +272,9 @@
     <Compile Include="Views\CadastrarFilme.xaml.cs">
       <DependentUpon>CadastrarFilme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadastrarForncedorList.xaml.cs">
+      <DependentUpon>CadastrarForncedorList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CadastrarFornecedor.xaml.cs">
       <DependentUpon>CadastrarFornecedor.xaml</DependentUpon>
     </Compile>
@@ -387,6 +390,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CadastrarFilme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastrarForncedorList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

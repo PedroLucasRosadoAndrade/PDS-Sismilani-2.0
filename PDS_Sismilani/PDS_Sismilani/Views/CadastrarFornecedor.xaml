@@ -39,27 +39,32 @@
 
                 <!--Add campos de digitação-->
 
-                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="19,13,936,547" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <Label Content="ID" Foreground="White" Grid.Row="3" Grid.Column="0" Margin="24,5,931,589" FontFamily="sanfrancisco" FontWeight="SemiBold" Grid.RowSpan="3"/>
 
-                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="21,41,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="CNPJ" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,85,910,478" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtCnpj" Grid.Row="5" Background="White" Margin="21,112,535,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,155,920,411" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="21,185,700,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
-
-                <Label Content="Tipo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,229,902,338" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
-
-                <TextBox x:Name="txtTipo"  Grid.Row="5" Background="White" Margin="21,251,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <TextBox  x:Name="txtId" Grid.Row="5" Background="White"  Margin="24,23,937,0" Style="{StaticResource TextBoxPesquisa}" Height="24" VerticalAlignment="Top" Text="CÓDIGO"/>
 
 
+                <Label Content="Nome" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="32,66,923,514" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
 
-                <Label Content="Historico" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="30,306,900,262" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtNome" Grid.Row="5" Background="White" Margin="24,98,531,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
-                <TextBox x:Name="txtHistorico" Grid.Row="5" Background="White" Margin="28,335,386,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+                <Label Content="CNPJ" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="24,142,910,438" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtCnpj" Grid.Row="5" Background="White" Margin="22,169,534,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+                <Label Content="Telefone" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="32,228,912,348" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtTelefone" Grid.Row="5" Background="White" Margin="19,265,702,0" Style="{StaticResource TextBoxPesquisa}" Height="38" VerticalAlignment="Top"/>
+
+                <Label Content="Tipo" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="32,320,900,263" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtTipo"  Grid.Row="5" Background="White" Margin="21,344,828,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
+
+
+
+                <Label Content="Historico" Foreground="White" Grid.Row="5" Grid.Column="0" Margin="29,401,901,180" FontFamily="sanfrancisco" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="txtHistorico" Grid.Row="5" Background="White" Margin="21,427,393,0" Style="{StaticResource TextBoxPesquisa}" Height="39" VerticalAlignment="Top"/>
 
             </Grid>
 
