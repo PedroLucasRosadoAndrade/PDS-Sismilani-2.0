@@ -74,8 +74,7 @@ namespace PDS_Sismilani.Views
         {
             if (FornecedoresDataGrid.SelectedItem is Fornecedor selectedFornecedor)
             {
-                // Instanciação corrigida sem passar argumentos
-                var editWindow = new CadastrarFornecedor();
+                var editWindow = new CadastrarFornecedor(); // Chamada modificada
                 editWindow.ShowDialog();
                 LoadDataGrid();
             }
