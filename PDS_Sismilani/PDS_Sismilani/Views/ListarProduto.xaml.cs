@@ -57,7 +57,7 @@ namespace PDS_Sismilani.Views
                     Tipo = reader.GetString(3),
                     Quantidade = reader.GetString(4),
                     Validade = reader.GetString(5),
-                    Valor = reader.GetString(6),
+                    Valor = reader.GetString(6)
                    
                 };
 
