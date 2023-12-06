@@ -84,8 +84,8 @@ namespace PDS_Sismilani.Views
         }
         private void Btnfilmes_Click(object sender, RoutedEventArgs e)
         {
-            var cadFilme = new CadastrarFilme();
-            cadFilme.ShowDialog();
+            var Filmes = new ListaDeFilmes();
+            Filmes.ShowDialog();
         }
         private void BtFechar(object sender, RoutedEventArgs e)
         {

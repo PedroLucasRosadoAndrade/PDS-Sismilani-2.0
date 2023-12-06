@@ -111,7 +111,7 @@ namespace PDS_Sismilani.Views
                 else
                     dao.Update(_filme);
 
-                MessageBox.Show($"O Produto foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"O Filme foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 CloseFormVerify();
                 
             }

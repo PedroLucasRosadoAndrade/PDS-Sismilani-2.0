@@ -1,14 +1,14 @@
-﻿using MySql.Data.MySqlClient;
-//using MySqlX.XDevAPI.Common;
-using PDS_Sismilani.DataBase;
-using PDS_Sismilani.Helpers;
-using PDS_Sismilani.Interfaces;
+﻿using PDS_Sismilani.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PDS_Sismilani.Helpers;
+using PDS_Sismilani.Models;
+using MySql.Data.MySqlClient;
+using PDS_Sismilani.DataBase;
+using PDS_Sismilani.Views;
 
 namespace PDS_Sismilani.Models
 {
@@ -68,7 +68,7 @@ namespace PDS_Sismilani.Models
                     filme.Id = reader.GetInt32("id_film");
                     filme.Titulo = reader.GetString("titulo_film");
                     filme.Fornecedor = reader.GetString("fornecedor_film");
-                    filme.Sinopse = reader.GetString(" sinopse_film");
+                    filme.Sinopse = reader.GetString("sinopse_film");
                     filme.Categoria = reader.GetString("categoria_film");
                     filme.Diretor = reader.GetString("diretor_film");
                     filme.Elenco = reader.GetString("elenco_film");

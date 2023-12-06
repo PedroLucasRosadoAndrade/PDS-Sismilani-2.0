@@ -235,6 +235,7 @@
     </ApplicationDefinition>
     <Compile Include="Interfaces\IDAO.cs" />
     <Compile Include="Models\AbstractDAO.cs" />
+    <Compile Include="Models\FilmeValitator.cs" />
     <Compile Include="Models\FuncionarioValitador.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
@@ -323,6 +324,9 @@
     </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListaDeFilmes.xaml.cs">
+      <DependentUpon>ListaDeFilmes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListarCadastro.xaml.cs">
       <DependentUpon>ListarCadastro.xaml</DependentUpon>
@@ -449,6 +453,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListaDeFilmes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
