@@ -50,7 +50,7 @@ namespace PDS_Sismilani.Views
 
             while (reader.Read())
             {
-                var produto = new
+                var contato = new
                 {
                     Nome = reader.GetString(1),
                     Marca = reader.GetString(2),
@@ -61,7 +61,7 @@ namespace PDS_Sismilani.Views
                    
                 };
 
-                lista.Add(produto);
+                lista.Add(contato);
             }
 
             dgvContato.ItemsSource = lista;
