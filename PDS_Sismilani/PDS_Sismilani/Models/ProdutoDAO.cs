@@ -172,15 +172,15 @@ namespace PDS_Sismilani.Models
         public void Update(Produto t)
         {
 
-        try
-        {
+          try
+          {
             var query = conn.Query();
             query.CommandText = "UPDATE produto SET nome_prod = @_nome_prod, Marca_prod = @_Marca_prod,tipo_prod = @_tipo_prod," +
                 "quantidade_prod = @_quantidade_prod, validade_prod = @_validade_prod, valor_prod = @_valor_prod WHERE id_prod = @_id";
 
 
             query.Parameters.AddWithValue("@_nome_prod", t.Nome);
-            query.Parameters.AddWithValue("@_marca_prod", t.Marca);
+            query.Parameters.AddWithValue("@_Marca_prod", t.Marca);
             query.Parameters.AddWithValue("@_tipo_prod", t.Tipo);
             query.Parameters.AddWithValue("@_quantidade_prod", t.Quantidade);
             query.Parameters.AddWithValue("@_validade_prod", t.Validade?.ToString("yyyy-MM-dd"));
@@ -193,14 +193,14 @@ namespace PDS_Sismilani.Models
             if (result == 0)
                 throw new Exception("Atualização do registro não foi realizada.");
         }
-        catch (Exception e)
-        {
+          catch (Exception e)
+          {
             throw e;
-        }
-        finally
-        {
+          }
+          finally
+          {
             conn.Close();
-        }
+          }
 
     }
 
