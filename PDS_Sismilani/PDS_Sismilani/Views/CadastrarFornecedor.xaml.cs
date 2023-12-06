@@ -33,7 +33,7 @@ namespace PDS_Sismilani.Views
         }
         private void Conexao() // criando conexão
         {
-            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3360";
+            string conexaoString = "server=localhost;database=cinemilani_bd;user=root;password=root;port=3306";
             conexao = new MySqlConnection(conexaoString);
             comando = conexao.CreateCommand();
 
@@ -51,11 +51,11 @@ namespace PDS_Sismilani.Views
                 var tipo = txtTipo.Text;
                 var historico = txtHistorico.Text;
 
-                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3360"))
+                using (MySqlConnection conexao = new MySqlConnection("server=localhost;database=cinemilani_bd;user=root;password=root;port=3306"))
                 {
                     conexao.Open();
 
-                    string query = "INSERT INTO fornecedor (Nome_for, CNPJ_for, tipo_for, telefone_for, Historico_for) " +
+                    string query = "INSERT INTO fornecedor (Nome_for, CNPJ_for, tipo_for, telefone_for, historico_for) " +
                                    "VALUES (@_nome, @_CNPJ, @_tipo, @_telefone, @_historico)";
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
