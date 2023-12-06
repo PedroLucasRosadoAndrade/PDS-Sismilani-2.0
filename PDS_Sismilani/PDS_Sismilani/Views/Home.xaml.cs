@@ -87,6 +87,12 @@ namespace PDS_Sismilani.Views
             var Filmes = new ListaDeFilmes();
             Filmes.ShowDialog();
         }
+
+        private void Btnprodutos(object sender, RoutedEventArgs e)
+        {
+            var CadastrarProdutos = new CadastrarProduto();
+                CadastrarProdutos.ShowDialog();
+        }
         private void BtFechar(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -144,9 +150,6 @@ namespace PDS_Sismilani.Views
             }
         }
 
-        private void Btnprodutos(object sender, RoutedEventArgs e)
-        {
-            var produtos = new CadastrarProduto().ShowDialog();
-        }
+      
     }
 }

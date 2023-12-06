@@ -52,7 +52,7 @@
                                 <TextBlock Text="Home"/>
                             </StackPanel>
                         </Button>
-                       
+
                         <Button x:Name="Btprodutora" Style="{StaticResource MenuButton}" Width="137" Click="Btprodutora_Click" >
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="FilmstripBoxMultiple" Style="{StaticResource MenuButtonIcon}"/>
@@ -140,7 +140,7 @@
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="filmesDataGrid" 
-                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding filme}"  Margin="0,10,-15,60" Grid.RowSpan="2" Width="845">
+                          AutoGenerateColumns="False" HorizontalAlignment="Center" ItemsSource="{Binding filme}"  Margin="0,10,0,60" Grid.RowSpan="2" Width="857">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*" Binding="{Binding id}"/>

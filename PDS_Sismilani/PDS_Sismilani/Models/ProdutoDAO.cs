@@ -97,7 +97,7 @@ namespace PDS_Sismilani.Models
                     "(nome_prod,Marca_prod ,tipo_prod,quantidade_prod,validade_prod, valor_prod) " +
                      "VALUES (@nome,@Marca,@tipo,@quantidade, @validade,@valor)";
 
-            query.Parameters.AddWithValue("@id", t.Id);
+            //query.Parameters.AddWithValue("@id", t.Id);
             query.Parameters.AddWithValue("@nome", t.Nome);
             query.Parameters.AddWithValue("@Marca", t.Marca);
             query.Parameters.AddWithValue("@tipo", t.Tipo);
@@ -149,7 +149,7 @@ namespace PDS_Sismilani.Models
             {
                 list.Add(new Produto()
                 {
-                    Id = reader.GetInt32("id_fun"),
+                    Id = reader.GetInt32("id_prod"),
                     Nome = DAOHelper.GetString(reader, "nome_prod"),
                     Marca = DAOHelper.GetString(reader, "Marca_prod"),
                     Tipo = DAOHelper.GetString(reader, "tipo_prod"),

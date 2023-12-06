@@ -133,7 +133,7 @@
 
                 <DataGrid FontFamily="sanfrancisco" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="produtosDataGrid" 
-                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" Margin="0,10,-64,82" Grid.RowSpan="2" Width="894">
+                          AutoGenerateColumns="False" HorizontalAlignment="Right" ItemsSource="{Binding cliente}" Margin="0,10,-99,82" Grid.RowSpan="2" Width="929">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="N°" IsReadOnly="True" Width="*" Binding="{Binding id}"/>
@@ -141,10 +141,9 @@
                         <DataGridTextColumn Header="Marca" IsReadOnly="True" Width="*"  Binding="{Binding marca}"/>
                         <DataGridTextColumn Header="Tipo" IsReadOnly="True" Width="*" Binding="{Binding tipo}"/>
                         <DataGridTextColumn Header="Quantidade" IsReadOnly="True" Width="*" Binding="{Binding quantidade}"/>
-                        <DataGridTextColumn Header="Validade" IsReadOnly="True" Width="*" Binding="{Binding validade}"/>
+                        <DataGridTextColumn Header="Data de Validade" IsReadOnly="True" Width="*" Binding="{Binding validade}"/>
                         <DataGridTextColumn Header="Valor" IsReadOnly="True" Width="*" Binding="{Binding valor}"/>
-                        <DataGridTextColumn Header="IdFor" IsReadOnly="True" Width="*" Binding="{Binding idFor}"/>
-                        <DataGridTextColumn Header="IdEst" IsReadOnly="True" Width="*" Binding="{Binding idEst}"/>
+
 
 
 
