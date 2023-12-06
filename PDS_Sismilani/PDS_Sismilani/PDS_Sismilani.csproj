@@ -293,9 +293,6 @@
     <Compile Include="Views\CadastrarSala.xaml.cs">
       <DependentUpon>CadastrarSala.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CadastroProdutora.xaml.cs">
-      <DependentUpon>CadastroProdutora.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\CadastroCliente.xaml.cs">
       <DependentUpon>CadastroCliente.xaml</DependentUpon>
     </Compile>
@@ -340,9 +337,6 @@
     </Compile>
     <Compile Include="Views\ListarFuncionario.xaml.cs">
       <DependentUpon>ListarFuncionario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CadastProdutora.xaml.cs">
-      <DependentUpon>CadastProdutora.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
