@@ -146,7 +146,7 @@ namespace PDS_Sismilani.Views
                 {
                     conexao.Open();
 
-                    string query = "INSERT INTO Funcionario (nome_cli, rg_cli, telefone_cli, email_cli, data_nasc_cli, cpf_cli, sexo_cli, endereco_cli) " +
+                    string query = "INSERT INTO cliente (nome_cli, rg_cli, telefone_cli, email_cli, data_nasc_cli, cpf_cli, sexo_cli, endereco_cli) " +
                                    "VALUES (@_nome, @_rg, @_telefone, @_email, @_data_nascimento, @_cpf, @_sexo, @_endereco)";
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
