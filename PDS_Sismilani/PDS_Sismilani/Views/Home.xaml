@@ -74,7 +74,7 @@
                                     <TextBlock Text="Produtoras"/>
                                 </StackPanel>
                             </Button>
-                            <Button x:Name="Btnfornecedores" Style="{StaticResource MenuButton}" Width="137" Click="Btnfornecedores_Click" >
+                            <Button x:Name="Btnfornecedores" Style="{StaticResource MenuButton}" Width="137" >
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="PackageDown" Style="{StaticResource MenuButtonIcon}"/>
                                     <TextBlock Text="Fornecedores"/>

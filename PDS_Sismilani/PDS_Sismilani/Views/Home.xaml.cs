@@ -102,10 +102,6 @@ namespace PDS_Sismilani.Views
         {
             var produtora = new ListaDeProdutoras().ShowDialog();
         }
-        private void Btnfornecedores_Click(object sender, RoutedEventArgs e)
-        {
-            var fornecedor = new ListaDeFornecedores().ShowDialog();
-        }
 
         private void LoadBorder()
         {

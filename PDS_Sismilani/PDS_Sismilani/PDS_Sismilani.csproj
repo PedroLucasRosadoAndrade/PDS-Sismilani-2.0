@@ -326,9 +326,6 @@
     <Compile Include="Views\ListaDeFilmes.xaml.cs">
       <DependentUpon>ListaDeFilmes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ListaDeFornecedores.xaml.cs">
-      <DependentUpon>ListaDeFornecedores.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ListaDeProdutoras.xaml.cs">
       <DependentUpon>ListaDeProdutoras.xaml</DependentUpon>
     </Compile>
@@ -462,10 +459,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListaDeFilmes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListaDeFornecedores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
