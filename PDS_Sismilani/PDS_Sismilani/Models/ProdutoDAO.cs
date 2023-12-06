@@ -23,110 +23,82 @@ namespace PDS_Sismilani.Models
 
     public void Delete(Produto t)
     {
-        try
-        {
-            var query = conn.Query();
-            query.CommandText = "DELETE FROM produto WHERE id_prod = @id";
-            query.Parameters.AddWithValue("@id", t.Id);
+            try
+            {
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "DELETE FROM produto WHERE id_prod = @id";
+                    query.Parameters.AddWithValue("@id", t.Id);
 
-            var result = query.ExecuteNonQuery();
+                    var result = query.ExecuteNonQuery();
 
-            if (result == 0)
-                throw new Exception("Registro não deletado da base de dados. Verifique e tente novamente.");
-
-        }
-        catch (Exception e)
-        {
-            throw e;
-        }
-        finally
-        {
-            conn.Close();
-        }
+                    if (result == 0)
+                        throw new Exception("Registro não deletado da base de dados. Verifique e tente novamente.");
+                }
+            }
+            catch (Exception e)
+            {
+                // Log e/ou trate a exceção apropriadamente
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
     }
 
     public Produto GetById(int id)
     {
-        try
-        {
-            var query = conn.Query();
-            query.CommandText = "SELECT * FROM produto WHERE id_prod = @id";
-            query.Parameters.AddWithValue("@id", id);
-
-            MySqlDataReader reader = query.ExecuteReader();
-
-            if (!reader.HasRows)
-                throw new Exception("Nenhum registro foi encontrado!");
-
-            var produto = new Produto();
-
-            while (reader.Read())
+            try
             {
-                produto.Id = reader.GetInt32("id_prod");
-                produto.Nome = reader.GetString("nome_prod");
-                produto.Marca = reader.GetString("Marca_prod");
-                produto.Tipo = reader.GetString(" tipo_prod");
-                produto.Quantidade = reader.GetInt32("quantidade_prod");
-                produto.Validade = reader.GetDateTime("validade_prod");
-                produto.Valor = reader.GetInt32("valor_prod");
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "SELECT * FROM produto WHERE id_prod = @id";
+                    query.Parameters.AddWithValue("@id", id);
+
+                    using (MySqlDataReader reader = query.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                            throw new Exception("Nenhum registro foi encontrado!");
+
+                        var produto = new Produto();
+                        while (reader.Read())
+                        {
+                            // atribuições aqui
+                        }
+                        return produto;
+                    }
+                }
             }
-                reader.Close();
-                return produto;
+            catch (Exception e)
+            {
+                // Log e/ou trate a exceção apropriadamente
+                throw;
+            }
         }
-        catch (Exception e)
-        {
-            throw e;
-        }
-        finally
-        {
-            conn.Close();
-        }
-    }
 
     public void Insert(Produto t)
     {
-        try
-        {
-
-            var query = conn.Query();
-            query.CommandText = "INSERT INTO Produto(nome_prod,Marca_prod ,tipo_prod,quantidade_prod,validade_prod, valor_prod) " +
-                                "VALUES (@_nome_prod,@_Marca_prod,@_tipo_prod,@_quantidade_prod, @_validade_prod,@_valor_prod)";
-
-            //query.Parameters.AddWithValue("@id", t.Id);
-            query.Parameters.AddWithValue("@_nome_prod", t.Nome);
-            query.Parameters.AddWithValue("@_Marca_prod", t.Marca);
-            query.Parameters.AddWithValue("@_tipo_prod", t.Tipo);
-            query.Parameters.AddWithValue("@_quantidade_prod", t.Quantidade);
-            query.Parameters.AddWithValue("@_validade_prod", t.Validade);
-            query.Parameters.AddWithValue("@_valor_prod", t.Valor);
-
-
-            var result = query.ExecuteNonQuery();
-
-            if (result == 0)
-                throw new Exception("O registro não foi inserido. Verifique e tente novamente");
-
-
-            MySqlDataReader reader = query.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                if (reader.GetName(0).Equals("Alerta"))
+                using (var query = conn.Query())
                 {
-                    throw new Exception(reader.GetString("Alerta"));
+                    query.CommandText = "INSERT INTO Produto (nome_prod, Marca_prod, tipo_prod, quantidade_prod, validade_prod, valor_prod) " +
+                                        "VALUES (@nome, @marca, @tipo, @quantidade, @validade, @valor)";
+
+                    // Parâmetros aqui
+
+                    var result = query.ExecuteNonQuery();
+                    if (result == 0)
+                        throw new Exception("O registro não foi inserido. Verifique e tente novamente");
                 }
             }
-
+            catch (Exception e)
+            {
+                // Log e/ou trate a exceção apropriadamente
+                throw;
+            }
         }
-        catch (Exception e)
-        {
-            throw e;
-        }
-        finally
-        {
-            conn.Close();
-        }
-    }
 
     public List<Produto> List()
     {

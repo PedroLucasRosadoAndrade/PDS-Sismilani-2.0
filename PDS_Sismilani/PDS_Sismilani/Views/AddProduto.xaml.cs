@@ -43,10 +43,15 @@ namespace PDS_Sismilani.Views
 
         private void AddProduto_Loaded(object sender, RoutedEventArgs e)
         {
-            _Produto = new Produto();
-
             if (_id > 0)
+            {
+                _Produto = new Produto(); // Mova a inicialização para dentro do if
                 FillForm();
+            }
+            else
+            {
+                _Produto = new Produto();
+            }
         }
       
 

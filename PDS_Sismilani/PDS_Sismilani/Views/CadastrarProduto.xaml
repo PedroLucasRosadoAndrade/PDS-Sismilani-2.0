@@ -86,7 +86,7 @@
                     </StackPanel>
 
                     <!--Logout -->
-                    <Button x:Name="BtFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                    <Button x:Name="BtFechar" Style="{StaticResource MenuButton}" Width="137" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="BtFechar_Click">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource MenuButtonIcon}"/>
                             <TextBlock Text="Sair"/>
@@ -151,13 +151,13 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button Name="btEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0">
+                                        <Button Name="btEditar" Style="{StaticResource GridEditButton}"  Margin="5 0 0 0" Click="btEditar_Click">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}">
 
                                             </Icon:PackIconMaterial>
                                         </Button>
 
-                                        <Button Name="btDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0">
+                                        <Button Name="btaDeletar" Style="{StaticResource GridDeletarButton}" Margin="5 0 0 0" Click="btaDeletar_Click">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}">
 
                                             </Icon:PackIconMaterial>

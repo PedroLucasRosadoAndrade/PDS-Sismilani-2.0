@@ -27,11 +27,12 @@ namespace PDS_Sismilani.Views
         private Produto _produto;
         //MySqlConnection conexao;
         //MySqlCommand comando;
-        ObservableCollection<Produto> produto = new ObservableCollection<Produto>();
+        ObservableCollection<Produto> Produtos = new ObservableCollection<Produto>();
+
         public CadastrarProduto()
         {
             InitializeComponent();
-
+            produtosDataGrid.ItemsSource = Produtos;
             Loaded += CadastrarProduto_Loaded;
         }
 
@@ -50,6 +51,7 @@ namespace PDS_Sismilani.Views
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             var produto = new AddProduto().ShowDialog();
+            LoadDataGrid();
         }
 
         private void BtSair(object sender, RoutedEventArgs e)
@@ -57,51 +59,25 @@ namespace PDS_Sismilani.Views
             this.Close();
         }
 
-        private void btDeletar(object sender, RoutedEventArgs e)
-        {
+        
 
-            var produtoSelected = produtosDataGrid.SelectedItem as Produto;
-
-            var result = MessageBox.Show($"Deseja excluir o produto `{produtoSelected.Nome}`?", "Excluido com sucesso",
-               MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            try
-            {
-                if (result == MessageBoxResult.Yes)
-                {
-                    var dao = new ProdutoDAO();
-                    dao.Delete(produtoSelected);
-                    LoadDataGrid();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void btEditar(object sender, RoutedEventArgs e)
-        {
-            var produtoSelected = produtosDataGrid.SelectedItem as Produto;
-
-            var window = new AddProduto(produtoSelected.Id);
-            window.ShowDialog();
-            LoadDataGrid();
-
-
-        }
+        
 
         private void LoadDataGrid()
         {
             try
             {
                 var dao = new ProdutoDAO();
-
-                produtosDataGrid.ItemsSource = dao.List();
+                var produtosList = dao.List();
+                Produtos.Clear();
+                foreach (var produto in produtosList)
+                {
+                    Produtos.Add(produto);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Erro ao carregar produtos", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -114,7 +90,7 @@ namespace PDS_Sismilani.Views
 
         private void Btfilmes(object sender, RoutedEventArgs e)
         {
-
+            var Filme = new ListaDeFilmes().ShowDialog();
         }
 
 
@@ -146,6 +122,47 @@ namespace PDS_Sismilani.Views
         {
             var cliente = new CadastrarCliente().ShowDialog();
 
+        }
+
+        private void btEditar_Click(object sender, RoutedEventArgs e)
+        {
+            if (produtosDataGrid.SelectedItem is Produto selectedProduto)
+            {
+                var editWindow = new AddProduto(selectedProduto.Id);
+                editWindow.ShowDialog();
+                LoadDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecione um produto para editar.", "Seleção Necessária", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void btaDeletar_Click(object sender, RoutedEventArgs e)
+        {
+            var produtoSelected = produtosDataGrid.SelectedItem as Produto;
+
+            var result = MessageBox.Show($"Deseja excluir o produto `{produtoSelected.Nome}`?", "Excluido com sucesso",
+               MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new ProdutoDAO();
+                    dao.Delete(produtoSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtFechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
