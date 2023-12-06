@@ -75,26 +75,26 @@ namespace PDS_Sismilani.Views
 
         }
 
-        //private bool Validate()
-        //{
-        //    var validator = new FilmeValitador();
-        //    var result = validator.Validate(_filme);
+        private bool Validate()
+        {
+            var validator = new FilmeValitador();
+            var result = validator.Validate(_filme);
 
-        //    if (!result.IsValid)
-        //    {
-        //        string errors = null;
-        //        var count = 1;
+            if (!result.IsValid)
+            {
+                string errors = null;
+                var count = 1;
 
-        //        foreach (var failure in result.Errors)
-        //        {
-        //            errors += $"{count++} - {failure.ErrorMessage}\n";
-        //        }
+                foreach (var failure in result.Errors)
+                {
+                    errors += $"{count++} - {failure.ErrorMessage}\n";
+                }
 
-        //        MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
-        //    }
+                MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
-        //    return result.IsValid;
-        //}
+            return result.IsValid;
+        }
 
         private void SaveData()
         {
@@ -111,7 +111,7 @@ namespace PDS_Sismilani.Views
                 else
                     dao.Update(_filme);
 
-                MessageBox.Show($"O Produto foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"O Filme foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 CloseFormVerify();
                 
             }

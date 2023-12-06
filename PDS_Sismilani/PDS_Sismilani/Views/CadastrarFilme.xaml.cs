@@ -25,9 +25,9 @@ namespace PDS_Sismilani.Views
     /// </summary>
     public partial class CadastrarFilme : Window
     {
-
-        MySqlConnection conexao;
-        MySqlCommand comando;
+        private Filme _filme;
+        //MySqlConnection conexao;
+        //MySqlCommand comando;
         ObservableCollection<Filme> filme = new ObservableCollection<Filme>();
         public CadastrarFilme()
         {
@@ -36,11 +36,14 @@ namespace PDS_Sismilani.Views
             Loaded += CadastrarFilme_Loaded;
         }
 
+        private void CadastrarFilme_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
 
-       
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
-            var filme = new CadastrarFilme().ShowDialog();
+            var filme = new AddFilme().ShowDialog();
         }
 
         private void BtSair(object sender, RoutedEventArgs e)
@@ -74,10 +77,15 @@ namespace PDS_Sismilani.Views
 
         private void btEditar(object sender, RoutedEventArgs e)
         {
-            var editFilme = new EditFilme().ShowDialog();
+            //var editFilme = new EditFilme().ShowDialog();
+            var filmeSelected = filmesDataGrid.SelectedItem as Filme;
+
+            var window = new AddFilme(filmeSelected.Id);
+            window.ShowDialog();
+            LoadDataGrid();
 
         }
-      
+
         private void LoadDataGrid()
         {
             try
@@ -95,7 +103,8 @@ namespace PDS_Sismilani.Views
         private void BtHome_Click(object sender, RoutedEventArgs e)
         {
             var home = new Home().ShowDialog();
-
+            var cadastrarFilm = new CadastrarFilme();
+            cadastrarFilm.Close();
         }
 
         //private void Btfilmes_Click(object sender, RoutedEventArgs e)
@@ -103,10 +112,7 @@ namespace PDS_Sismilani.Views
 
         // }
 
-        private void CadastrarFilme_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadDataGrid();
-        }
+       
 
 
         private void Btprodutora_Click(object sender, RoutedEventArgs e)
